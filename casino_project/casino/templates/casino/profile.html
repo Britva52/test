@@ -1,0 +1,36 @@
+{% extends 'casino/base.html' %}
+
+{% block content %}
+<div class="profile-container">
+    <h2>Your Profile</h2>
+    <div class="bets-history">
+        <h3>Your Bets</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Game</th>
+                    <th>Amount</th>
+                    <th>Outcome</th>
+                    <th>Win</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bet in bets %}
+                <tr>
+                    <td>{{ bet.game_type }}</td>
+                    <td>${{ bet.amount }}</td>
+                    <td>{{ bet.outcome }}</td>
+                    <td>{% if bet.win_amount %}${{ bet.win_amount }}{% else %}-{% endif %}</td>
+                    <td>{{ bet.created_at }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">No bets yet</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

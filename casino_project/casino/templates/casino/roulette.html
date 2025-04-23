@@ -1,0 +1,38 @@
+{% extends 'casino/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="roulette-container">
+    <div class="roulette-header">
+        <h1>Рулетка LastDep Casino</h1>
+    </div>
+
+    <div class="roulette-game-area">
+        <!-- Колесо рулетки -->
+        <div class="wheel-wrapper">
+            <canvas id="wheelCanvas" width="400" height="400"></canvas>
+        </div>
+
+        <!-- Таблица чисел -->
+        <div class="numbers-grid">
+            <div class="number-cell zero">0</div>
+            {% for row in number_rows %}
+            <div class="number-row">
+                {% for num in row %}
+                <div class="number-cell" data-number="{{ num }}">{{ num }}</div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Панель управления -->
+    <div class="control-panel">
+        <input type="number" class="bet-input" value="10" min="1">
+        <button class="spin-btn">Крутить</button>
+        <div class="message-box" id="roulette-message">Сделайте ставку</div>
+    </div>
+</div>
+
+<script src="{% static 'casino/js/roulette.js' %}"></script>
+{% endblock %}

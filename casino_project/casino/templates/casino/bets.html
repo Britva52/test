@@ -1,0 +1,67 @@
+{% extends 'casino/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1 class="game-title">Sports Bets</h1>
+
+    <div class="balance-display">
+        Balance: $<span class="balance">1000.00</span>
+    </div>
+
+    <div class="game-container">
+        <form class="bet-form">
+            <div class="events">
+                <h3>Current Events</h3>
+
+                <div class="event">
+                    <label>
+                        <input type="radio" name="event" value="football-match">
+                        Football: Team A vs Team B
+                    </label>
+                    <div class="outcomes">
+                        <label>
+                            <input type="radio" name="outcome" value="team-a-win">
+                            Team A Win (1.9)
+                        </label>
+                        <label>
+                            <input type="radio" name="outcome" value="team-b-win">
+                            Team B Win (1.9)
+                        </label>
+                        <label>
+                            <input type="radio" name="outcome" value="draw">
+                            Draw (3.5)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="event">
+                    <label>
+                        <input type="radio" name="event" value="basketball-game">
+                        Basketball: Lakers vs Celtics
+                    </label>
+                    <div class="outcomes">
+                        <label>
+                            <input type="radio" name="outcome" value="lakers-win">
+                            Lakers Win (1.8)
+                        </label>
+                        <label>
+                            <input type="radio" name="outcome" value="celtics-win">
+                            Celtics Win (2.0)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bet-controls">
+                <input type="number" class="bet-amount" placeholder="Bet amount" min="1">
+                <button type="submit" class="btn-bet">Place Bet</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'casino/js/bets.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LastDep Casino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'casino/css/style.css' %}">
+</head>
+<body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="{% url 'index' %}">
+          <h1>💰 LastDep Casino</h1>
+        </a>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="{% url 'roulette' %}">Рулетка</a></li>
+          <li><a href="{% url 'slots' %}">Слоты</a></li>
+          <li><a href="{% url 'coinflip' %}">Монетка</a></li>
+          <li><a href="{% url 'cases' %}">Кейсы</a></li>
+          <li><a href="{% url 'bets' %}">Ставки</a></li>
+          {% if user.is_authenticated %}
+            <li class="balance-display">
+                <span class="balance-amount">{{ user.balance|default:"100.00" }}$</span>
+            </li>
+            <li><a href="{% url 'profile' %}">Профиль</a></li>
+            <li><a href="{% url 'logout' %}">Выйти</a></li>
+          {% else %}
+            <li><a href="{% url 'login' %}">Войти</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 LastDep Casino. Все права защищены.</p>
+            <p>Только для лиц старше 18 лет.</p>
+        </div>
+    </footer>
+
+    <!-- Добавляем глобальные скрипты перед блоками -->
+    <script src="{% static 'casino/js/global.js' %}"></script>
+
+    {% block scripts %}{% endblock %}
+
+    <!-- Добавляем инициализацию для отладки -->
+    <script>
+        console.log("Base template loaded!");
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("DOM fully loaded!");
+        });
+    </script>
+</body>
+</html>

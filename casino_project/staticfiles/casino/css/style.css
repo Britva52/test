@@ -1,0 +1,1696 @@
+:root {
+  --black: #111;
+  --gold: #D4AF37;
+  --red: #E74C3C;
+  --green: #2ECC71;
+  --white: #FFFFFF;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #000000, #1a1a1a);
+  padding: 15px 40px;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  border-bottom: 2px solid var(--gold);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Основной стиль ===== */
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== Верхнее меню ===== */
+header {
+  background: linear-gradient(90deg, #000, #1a1a1a);
+  padding: 20px 40px;
+  font-size: 24px;
+  font-weight: bold;
+  color: gold;
+  border-bottom: 2px solid gold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--gold);
+}
+
+
+.logo img {
+    height: 50px;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+
+.navbar a {
+  color: #f1c40f;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    background: var(--gold);
+    color: var(--black);
+    border-radius: 4px;
+}
+
+.nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 6px 12px;
+    transition: all 0.3s;
+}
+
+nav ul li a:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+
+.nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+  color: var(--gold);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.nav ul li a:hover {
+    color: var(--gold);
+}
+
+.nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.nav ul li a:hover::after {
+    width: 100%;
+}
+
+.main {
+    padding: 40px 0;
+    min-height: 70vh;
+}
+
+/* Основной контейнер */
+.roulette-game-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 30px;
+}
+
+/* Стили для секции "История казино" */
+.about-section {
+    background-color: var(--gray);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    border: 1px solid var(--gold);
+}
+
+.about-section h2 {
+    color: var(--gold);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-section p {
+    line-height: 1.8;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer {
+    background-color: var(--gray);
+    padding: 20px 0;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+}
+
+.lastdep-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Gill Sans', sans-serif;
+}
+
+/* Числа */
+.numbers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.number {
+  background-color: #222;
+  color: white;
+  padding: 10px;
+  width: 35px;
+  text-align: center;
+  border: 1px solid #f1c40f;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.number:hover {
+  background-color: #f1c40f;
+  color: black;
+  cursor: pointer;
+}
+
+.numbers-table {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    margin: 20px 0;
+}
+
+.number-row {
+    display: flex;
+    gap: 5px;
+}
+
+/* ===== Ставки ===== */
+.numbers-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.betting-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.number-cell {
+    flex: 1;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #222;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.number-cell.zero {
+    background: #0a5c36;
+    margin-bottom: 10px;
+}
+
+.number-cell:hover {
+    transform: scale(1.05);
+}
+
+.number-cell:hover:not(.active) {
+    transform: scale(1.05);
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+.number-cell.active, .bet-btn.active {
+    background: #D4AF37 !important;
+    color: black !important;
+    box-shadow: 0 0 15px gold;
+}
+
+.outside-bets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.low-btn { background: #3498db; }
+.high-btn { background: #e74c3c; }
+
+.special-bets {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.special-bets {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ===== Рулетка ===== */
+.wheel-container {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    margin: 0 auto;
+}
+
+.wheel-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.bets-column {
+    flex: 1;
+    min-width: 500px;
+}
+
+#wheelCanvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid #D4AF37;
+    background: #1a1a1a;
+    display: block;
+    margin: 0 auto;
+}
+
+.wheel {
+  width: 300px;
+  height: 300px;
+  margin: 30px auto;
+  border-radius: 50%;
+  border: 5px solid gold;
+  background-color: #0a5c36;
+  position: relative;
+  transition: transform 4s ease-out;
+}
+
+.wheel::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: yellow;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.wheel-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.wheel-sector {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transform-origin: 100% 100%;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.wheel-sector.winning {
+    animation: winPulse 0.5s 3;
+    box-shadow: 0 0 15px #2ecc71 !important;
+}
+
+.wheel-sector.winning-flash {
+    box-shadow: 0 0 20px white;
+}
+
+.wheel-sector:nth-child(odd) {
+    background: #E74C3C; /* Красный */
+}
+
+.wheel-sector:nth-child(even) {
+    background: #121212; /* Черный */
+}
+
+.wheel-sector:first-child {
+    background: #0a5c36; /* Зеленый для 0 */
+}
+
+.wheel-pointer {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 40px solid red;
+    z-index: 10;
+}
+
+.wheel-center {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #D4AF37;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+
+.wheel-number {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    transform: rotate(90deg);
+    text-shadow: 1px 1px 1px #000;
+}
+
+.pocket {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transform-origin: 100% 100%;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pocket-number {
+    transform: rotate(90deg);
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.ball {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    display: none;
+}
+
+/* Game cards */
+
+.game-area {
+    display: flex;
+    gap: 20px;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.game-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid var(--gold);
+    font-size: 14px;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 10px;
+}
+
+.game-header h1 {
+    color: var(--gold);
+    margin: 0;
+}
+
+.game-info {
+    display: flex;
+    gap: 20px;
+}
+
+
+.game-card {
+    background: var(--gray);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+}
+
+.game-card h3 {
+    color: var(--gold);
+    margin-top: 0;
+}
+
+.game-card p {
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.game-card .btn {
+    background-color: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.game-card .btn:hover {
+    background-color: var(--light-gold);
+}
+
+/* Кнопки */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-gold {
+    background: #D4AF37;
+    color: black;
+}
+
+.btn-gold:hover {
+    background: #F9D423;
+}
+
+.btn-spin {
+  background: var(--gold);
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-spin:hover {
+  background: #f9d423;
+}
+
+/* Кнопка Spin */
+.spin-button {
+  background: gold;
+  color: black;
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: block;
+  margin: 20px auto 0;
+  width: 200px;
+}
+
+.spin-button:hover {
+  background: #f9d423;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+.spin-btn {
+    padding: 10px 20px;
+    background: #D4AF37;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 16px;
+}
+
+.spin-btn:hover {
+    background: #F9D423;
+}
+
+.spin-btn:hover:not(:disabled) {
+    background: #F9D423;
+    transform: translateY(-2px);
+}
+
+.spin-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.bet-box {
+  background: #000;
+  color: white;
+  border: 2px solid #f1c40f;
+  padding: 10px;
+  width: 60px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.bet-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    background: #333;
+    color: white;
+    transition: all 0.2s;
+}
+
+.bet-btn.red {
+    background: #E74C3C;
+    color: white;
+}
+
+.bet-btn.black {
+    background: #111;
+}
+
+.bet-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.bet-input {
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    background: #222;
+    color: white;
+    border: 1px solid gold;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.bet-input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* ===== Управление ===== */
+.control-panel {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.bet-input {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    background: #222;
+    color: white;
+    border: 1px solid #D4AF37;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.btn-spin {
+  padding: 10px 20px;
+  background: gold;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* Game specific styles */
+.game-container {
+    background: var(--gray);
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 30px;
+    border: 1px solid var(--dark-gold);
+}
+
+.game-title {
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+}
+
+.bet-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.color-bets, .parity-bets, .range-bets {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+
+.bet-btn.active {
+    background: #D4AF37 !important;
+    color: black !important;
+    box-shadow: 0 0 15px gold;
+    transform: scale(1.05);
+}
+
+.bet-btn:hover {
+  transform: translateY(-2px);
+}
+
+.bet-btn:hover:not(.active) {
+    transform: scale(1.05);
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+/* Ставки */
+.bet-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.bet-amount {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--dark-gold);
+    background: var(--black);
+    color: var(--white);
+    margin-right: 10px;
+    width: 100px;
+}
+
+@media (max-width: 768px) {
+  .bet-controls {
+    flex-direction: column;
+  }
+}
+
+.btn-funds {
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.btn-funds:hover {
+  background: var(--green);
+}
+
+
+.btn-bet {
+    background-color: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0 5px;
+}
+
+.btn-bet:hover {
+    background-color: var(--light-gold);
+    transform: translateY(-2px);
+}
+
+.btn-bet:active {
+    transform: translateY(0);
+}
+
+#bet-amount {
+    padding: 10px;
+    width: 80px;
+    background: var(--dark-gray);
+    border: 1px solid var(--gold);
+    color: var(--white);
+}
+
+#spin-btn {
+    padding: 10px 30px;
+    background: #d4af37;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#spin-btn:hover {
+    background: var(--white);
+}
+
+/* Таблица ставок */
+.betting-table {
+    background: #2a2a2a;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+    border: 2px solid #D4AF37;
+}
+
+.betting-section {
+    flex: 1;
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #D4AF37;
+}
+
+
+/* Баланс */
+.balance {
+  background-color: #27ae60;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.balance-panel {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    padding: 10px 20px;
+    background: #222;
+    border-radius: 20px;
+    border: 1px solid #D4AF37;
+}
+
+.balance-label {
+    color: #D4AF37;
+    font-weight: bold;
+}
+
+.balance-value {
+    color: white;
+    font-weight: bold;
+}
+
+.balance-container {
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.balance-display {
+  background: #27ae60;
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin-left: 10px;
+  font-size: 1.2em;
+}
+
+.balance-amount {
+  font-weight: bold;
+  color: gold;
+}
+
+.balance, .time {
+    font-weight: bold;
+}
+
+#add-funds {
+    padding: 5px 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Стили для колеса */
+.roulette-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2px;
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+.roulette-layout {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 30px;
+    padding: 20px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    border: 2px solid #D4AF37;
+}
+
+.roulette-wheel {
+    width: 250px;
+    height: 250px;
+    border: 8px solid #444;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    background: #0a5c36;
+}
+
+.roulette-wheel-container {
+  position: relative;
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+}
+
+/* Основные стили рулетки */
+.roulette-container {
+    background: #1c1c1c;
+    border: 1px solid #f1c40f;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 40px auto;
+    width: 80%;
+    max-width: 1000px;
+    color: white;
+    gap: 30px;
+}
+
+.roulette-wheel-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.roulette-wheel-area {
+  flex: 0 0 400px;
+}
+
+.roulette-table {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px solid gold;
+}
+
+.roulette-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #d4af37;
+}
+
+/* Slots */
+.slots-machine {
+  background: #222;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.slots-reels {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.slot-reel {
+  background: #fff;
+  border: 2px solid var(--gold);
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border-radius: 5px;
+}
+
+/* Coin flip */
+.coin {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #D4AF37, #F9D423);
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--black);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    cursor: pointer;
+    transition: transform 1s ease-out;
+}
+
+@keyframes flip {
+    0% { transform: rotateY(0); }
+    50% { transform: rotateY(1800deg); }
+    100% { transform: rotateY(3600deg); }
+}
+
+.coin.flipping {
+    transform: rotateY(360deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav ul li {
+        margin: 10px 0;
+    }
+
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== Сообщения ===== */
+#message {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.slot-message {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.message-box {
+    background: #222;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    border: 1px solid #444;
+    white-space: pre-line;
+
+}
+
+/* ============== PROBABILITY LIST STYLES ============== */
+.probability-list {
+    text-align: left;
+    margin: 25px 0;
+    padding: 0;
+    list-style: none;
+    background: rgba(10, 10, 10, 0.8);
+    border-radius: 10px;
+    border: 1px solid #D4AF37;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+    overflow: hidden;
+}
+
+.probability-list li {
+    padding: 12px 20px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease;
+}
+
+.probability-list li:last-child {
+    border-bottom: none;
+}
+
+.probability-list li:hover {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.rarity-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rarity-marker {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.probability-value {
+    font-weight: bold;
+    color: #FFD700;
+    min-width: 50px;
+    text-align: right;
+}
+
+/* Цвета для уровней редкости */
+.common .rarity-marker { background: #b0b0b0; }
+.uncommon .rarity-marker { background: #2ecc71; }
+.rare .rarity-marker { background: #3498db; }
+.epic .rarity-marker { background: #9b59b6; }
+.legendary .rarity-marker {
+    background: linear-gradient(135deg, #D4AF37, #FFD700);
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+}
+
+/* Анимация для легендарных предметов */
+.legendary {
+    position: relative;
+    overflow: hidden;
+}
+
+.legendary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255,255,255,0) 45%,
+        rgba(255,255,255,0.3) 50%,
+        rgba(255,255,255,0) 55%
+    );
+    transform: rotate(30deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(30deg); }
+    100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* Адаптация для мобильных (добавьте в существующие медиа-запросы) */
+@media (max-width: 600px) {
+    .probability-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .probability-value {
+        align-self: flex-end;
+    }
+}
+
+/* Стили для модального окна выигрыша */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modal-content {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    border: 2px solid gold;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.prize-title {
+    color: gold;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.total-win {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2ecc71;
+    margin-top: 15px;
+}
+
+.prize-image {
+    max-width: 200px;
+    max-height: 200px;
+    margin: 15px auto;
+    display: block;
+    border: 2px solid #333;
+    border-radius: 5px;
+}
+
+.prize-value {
+    color: gold;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.close-modal-btn {
+    padding: 10px 20px;
+    background: gold;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.close-modal-btn:hover {
+    background: #ffd700;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .roulette-layout {
+        flex-direction: column;
+    }
+
+    .bets-column {
+        min-width: auto;
+    }
+
+    .wheel-wrapper {
+        width: 300px;
+        height: 300px;
+    }
+
+    .outside-bets {
+        justify-content: center;
+    }
+}
+
+/* Стили для разных редкостей */
+.prize-modal.common .prize-content {
+    border-color: #b0b0b0;
+}
+
+.prize-modal.uncommon .prize-content {
+    border-color: #2ecc71;
+}
+
+.prize-modal.rare .prize-content {
+    border-color: #3498db;
+    animation: pulseBlue 2s infinite;
+}
+
+.prize-modal.epic .prize-content {
+    border-color: #9b59b6;
+    animation: pulsePurple 2s infinite;
+}
+
+.prize-modal.legendary .prize-content {
+    border-color: #f1c40f;
+    animation: pulseGold 1s infinite;
+}
+
+/* Анимации для редкостей */
+@keyframes pulseBlue {
+    0% { box-shadow: 0 0 10px rgba(52, 152, 219, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(52, 152, 219, 0.9); }
+    100% { box-shadow: 0 0 10px rgba(52, 152, 219, 0.5); }
+}
+
+@keyframes pulsePurple {
+    0% { box-shadow: 0 0 10px rgba(155, 89, 182, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(155, 89, 182, 0.9); }
+    100% { box-shadow: 0 0 10px rgba(155, 89, 182, 0.5); }
+}
+
+@keyframes pulseGold {
+    0% { box-shadow: 0 0 10px rgba(241, 196, 15, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(241, 196, 15, 0.9); }
+    100% { box-shadow: 0 0 10px rgba(241, 196, 15, 0.5); }
+}
+
+@keyframes winPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes loseShake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Подсветка текста в зависимости от редкости */
+.common-item { color: #b0b0b0; }
+.uncommon-item { color: #2ecc71; }
+.rare-item { color: #3498db; }
+.epic-item { color: #9b59b6; }
+.legendary-item {
+    color: #f1c40f;
+    text-shadow: 0 0 5px rgba(241, 196, 15, 0.5);
+}
+
+.roulette-page {
+    padding: 20px;
+    color: white;
+}
+
+/* Стили для кейсов */
+.cases-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: white;
+}
+
+.cases-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.cases-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.cases-header h1 {
+    color: gold;
+    margin: 0;
+}
+
+.case-card p {
+    color: #aaa;
+    margin-bottom: 15px;
+}
+
+.case-card h3 {
+    color: gold;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.case-card {
+    background: #1a1a1a;
+    border: 1px solid gold;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.case-card:hover {
+    border-color: gold;
+    transform: translateY(-5px);
+}
+
+.case-image-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.case-image-placeholder {
+    width: 100%;
+    height: 180px;
+    background: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    color: #666;
+    border-radius: 8px;
+    border: 2px dashed #666;
+}
+
+.case-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.case-price {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: gold;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.open-case-btn {
+    background: gold;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.open-case-btn:hover:not(:disabled) {
+    background: #f9d423;
+    transform: translateY(-2px);
+}
+
+.open-case-btn:disabled {
+    background: #555;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.not-enough {
+    color: #e74c3c;
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Анимации */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shaking {
+    animation: shake 0.5s;
+}
+
+#last-result {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+#win-message {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2ecc71;
+}
+
+.message {
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.message.error {
+    background: #e74c3c;
+    color: white;
+}
+
+.message.lose {
+    background: #333;
+    color: #e74c3c;
+}
+
+/* Рулетка */
+.roulette-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    border: 2px solid #D4AF37;
+}
+
+.roulette-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #D4AF37;
+}
+
+.roulette-game-area {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.wheel-wrapper {
+    position: relative;
+    margin: 20px auto;
+    width: 400px;
+    height: 400px;
+    background: #f5f5f5;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.numbers-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.number-row {
+    display: flex;
+    gap: 5px;
+}
+
+.number-cell {
+    flex: 1;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #222;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.number-cell.zero {
+    background: #0a5c36;
+    margin-bottom: 10px;
+}
+
+.number-cell:hover, .bet-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+.number-cell.active, .bet-btn.active {
+    background: #D4AF37 !important;
+    color: black !important;
+    box-shadow: 0 0 15px gold;
+}
+
+.outside-bets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.bet-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.bet-btn.red-btn { background: #E74C3C; color: white; }
+.bet-btn.black-btn { background: #111; color: white; }
+.bet-btn.even-btn { background: #3498db; color: white; }
+.bet-btn.odd-btn { background: #9b59b6; color: white; }
+.bet-btn.low-btn { background: #2ecc71; color: white; }
+.bet-btn.high-btn { background: #e67e22; color: white; }
+
+.control-panel {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.bet-input {
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    background: #222;
+    color: white;
+    border: 1px solid #D4AF37;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.spin-btn {
+    padding: 10px 20px;
+    background: #D4AF37;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.spin-btn:hover:not(:disabled) {
+    background: #F9D423;
+}
+
+.spin-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+
+.add-funds-btn {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.add-funds-btn:hover {
+    background-color: #27ae60;
+}
+
+.add-funds-btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
