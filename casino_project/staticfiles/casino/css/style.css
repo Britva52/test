@@ -1001,7 +1001,6 @@ nav ul li a {
     border-bottom: 2px solid #d4af37;
 }
 
-/* Slots */
 .slots-machine {
   background: #222;
   border: 2px solid var(--gold);
@@ -1030,7 +1029,6 @@ nav ul li a {
   border-radius: 5px;
 }
 
-/* Coin flip */
 .coin {
     width: 150px;
     height: 150px;

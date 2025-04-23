@@ -12,7 +12,9 @@ from django.utils import timezone
 from .models import User, Bet, Case, CaseItem
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
-from .forms import RegistrationForm
+from .forms import CustomUserCreationForm
+from django.contrib.auth import logout
+
 
 
 User = get_user_model()
@@ -34,6 +36,11 @@ def contacts(request):
 
 def support(request):
     return render(request, 'casino/support.html')
+
+
+def custom_logout(request):
+    logout(request)
+    return redirect('index')
 
 
 @login_required
@@ -540,10 +547,11 @@ def add_winnings(request):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('login')  # Или другой URL
+            user = form.save()
+            login(request, user)
+            return redirect('index')
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     return render(request, 'registration/register.html', {'form': form})

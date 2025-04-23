@@ -2986,3 +2986,103 @@ INFO 2025-04-24 01:03:35,619 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 2
 INFO 2025-04-24 01:03:41,244 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
 INFO 2025-04-24 01:03:42,140 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
 INFO 2025-04-24 01:03:51,712 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 147
+INFO 2025-04-24 01:29:55,461 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 01:29:56,221 basehttp "GET / HTTP/1.1" 200 3891
+INFO 2025-04-24 01:29:56,341 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-24 01:29:56,368 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 31701
+INFO 2025-04-24 01:29:58,267 basehttp "GET /coinflip/ HTTP/1.1" 200 2395
+INFO 2025-04-24 01:29:58,293 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-24 01:32:53,055 autoreload C:\Users\maksi\PycharmProjects\casino_project\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-24 01:32:53,506 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 01:33:20,246 autoreload C:\Users\maksi\PycharmProjects\casino_project\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-24 01:33:20,673 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 01:34:22,389 autoreload C:\Users\maksi\PycharmProjects\casino_project\casino_project\casino_project\settings.py changed, reloading.
+INFO 2025-04-24 01:34:22,801 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 01:35:19,522 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-24 01:35:19,677 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 01:35:19,679 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-24 01:35:22,509 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-24 01:35:23,445 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-24 01:35:23,467 basehttp "GET /static/casino/js/roulette.js HTTP/1.1" 304 0
+INFO 2025-04-24 01:35:25,821 basehttp "GET /profile/ HTTP/1.1" 200 5305
+INFO 2025-04-24 01:35:26,906 basehttp "POST /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-04-24 01:35:26,909 basehttp "GET / HTTP/1.1" 200 3711
+INFO 2025-04-24 01:35:29,618 basehttp "GET /bets/ HTTP/1.1" 302 0
+INFO 2025-04-24 01:35:29,629 basehttp "GET /login/?next=/bets/ HTTP/1.1" 200 2514
+INFO 2025-04-24 01:35:30,455 basehttp "GET /cases/ HTTP/1.1" 302 0
+INFO 2025-04-24 01:35:30,459 basehttp "GET /login/?next=/cases/ HTTP/1.1" 200 2514
+INFO 2025-04-24 01:35:30,913 basehttp "GET /coinflip/ HTTP/1.1" 302 0
+INFO 2025-04-24 01:35:30,917 basehttp "GET /login/?next=/coinflip/ HTTP/1.1" 200 2514
+INFO 2025-04-24 01:35:31,253 basehttp "GET /slots/ HTTP/1.1" 302 0
+INFO 2025-04-24 01:35:31,256 basehttp "GET /login/?next=/slots/ HTTP/1.1" 200 2514
+INFO 2025-04-24 01:35:31,525 basehttp "GET /roulette/ HTTP/1.1" 302 0
+INFO 2025-04-24 01:35:31,529 basehttp "GET /login/?next=/roulette/ HTTP/1.1" 200 2514
+INFO 2025-04-24 01:35:32,357 basehttp "GET /accounts/login/ HTTP/1.1" 200 2514
+INFO 2025-04-24 01:35:34,866 basehttp "GET /register/ HTTP/1.1" 200 3413
+ERROR 2025-04-24 01:35:55,539 log Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\maksi\PycharmProjects\casino_project\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\casino_project\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\casino_project\casino_project\casino\views.py", line 551, in register
+    if form.is_valid():
+       ^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\casino_project\.venv\Lib\site-packages\django\forms\forms.py", line 206, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\casino_project\.venv\Lib\site-packages\django\forms\forms.py", line 201, in errors
+    self.full_clean()
+  File "C:\Users\maksi\PycharmProjects\casino_project\.venv\Lib\site-packages\django\forms\forms.py", line 337, in full_clean
+    self._clean_fields()
+  File "C:\Users\maksi\PycharmProjects\casino_project\.venv\Lib\site-packages\django\forms\forms.py", line 347, in _clean_fields
+    value = getattr(self, "clean_%s" % name)()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\casino_project\.venv\Lib\site-packages\django\contrib\auth\forms.py", line 277, in clean_username
+    and self._meta.model.objects.filter(username__iexact=username).exists()
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\casino_project\.venv\Lib\site-packages\django\db\models\manager.py", line 196, in __get__
+    raise AttributeError(
+AttributeError: Manager isn't available; 'auth.User' has been swapped for 'casino.User'
+ERROR 2025-04-24 01:35:55,542 basehttp "POST /register/ HTTP/1.1" 500 89626
+INFO 2025-04-24 01:36:39,253 autoreload C:\Users\maksi\PycharmProjects\casino_project\casino_project\casino\forms.py changed, reloading.
+INFO 2025-04-24 01:36:39,655 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 01:36:54,018 autoreload C:\Users\maksi\PycharmProjects\casino_project\casino_project\casino\forms.py changed, reloading.
+INFO 2025-04-24 01:36:54,441 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 01:37:08,805 autoreload C:\Users\maksi\PycharmProjects\casino_project\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-24 01:37:09,184 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 01:37:37,673 autoreload C:\Users\maksi\PycharmProjects\casino_project\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-24 01:37:38,080 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 01:37:43,403 autoreload C:\Users\maksi\PycharmProjects\casino_project\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-24 01:37:43,817 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 01:38:42,541 autoreload C:\Users\maksi\PycharmProjects\casino_project\casino_project\casino\models.py changed, reloading.
+INFO 2025-04-24 01:38:42,926 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 01:38:56,182 autoreload C:\Users\maksi\PycharmProjects\casino_project\casino_project\casino\models.py changed, reloading.
+INFO 2025-04-24 01:38:56,589 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 01:39:17,038 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 01:39:17,778 basehttp "GET / HTTP/1.1" 200 3711
+INFO 2025-04-24 01:39:17,910 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-24 01:39:17,910 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 01:39:19,392 basehttp "GET /accounts/login/ HTTP/1.1" 200 2514
+INFO 2025-04-24 01:39:23,078 basehttp "GET /register/ HTTP/1.1" 200 3371
+INFO 2025-04-24 01:39:50,833 basehttp "POST /register/ HTTP/1.1" 302 0
+INFO 2025-04-24 01:39:50,851 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-24 01:39:55,066 basehttp "GET /profile/ HTTP/1.1" 200 2919
+INFO 2025-04-24 01:39:56,585 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-24 01:39:56,609 basehttp "GET /static/casino/js/roulette.js HTTP/1.1" 304 0
+INFO 2025-04-24 01:40:00,271 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 132
+INFO 2025-04-24 01:40:06,588 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 125
+INFO 2025-04-24 01:40:10,829 basehttp "POST /api/add_funds/ HTTP/1.1" 200 93
+INFO 2025-04-24 01:40:13,273 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 124
+INFO 2025-04-24 01:40:18,587 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
+INFO 2025-04-24 01:40:19,881 basehttp "GET /profile/ HTTP/1.1" 200 3555
+INFO 2025-04-24 01:40:22,899 basehttp "POST /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-04-24 01:40:22,901 basehttp "GET / HTTP/1.1" 200 3711
+INFO 2025-04-24 01:40:24,595 basehttp "GET /accounts/login/ HTTP/1.1" 200 2514
+INFO 2025-04-24 01:40:26,804 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-04-24 01:40:26,820 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-24 01:40:28,149 basehttp "GET /profile/ HTTP/1.1" 200 5305
+INFO 2025-04-24 01:40:29,843 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-24 01:40:31,835 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404

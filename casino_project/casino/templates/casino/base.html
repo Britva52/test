@@ -23,11 +23,18 @@
           <li><a href="{% url 'cases' %}">Кейсы</a></li>
           <li><a href="{% url 'bets' %}">Ставки</a></li>
           {% if user.is_authenticated %}
-            <li class="balance-display">
-                <span class="balance-amount">{{ user.balance|default:"100.00" }}$</span>
-            </li>
-            <li><a href="{% url 'profile' %}">Профиль</a></li>
-            <li><a href="{% url 'logout' %}">Выйти</a></li>
+                <li class="balance-display">
+                    <span class="balance-amount">{{ user.balance|default:"100.00" }}$</span>
+                </li>
+                <li><a href="{% url 'profile' %}">Профиль</a></li>
+                    <li>
+            <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="logout-btn" style="background: none; border: none; cursor: pointer; color: inherit;">
+                    Выйти
+                </button>
+            </form>
+        </li>
           {% else %}
             <li><a href="{% url 'login' %}">Войти</a></li>
           {% endif %}
