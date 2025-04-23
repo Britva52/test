@@ -1,0 +1,108 @@
+{% extends 'casino/base.html' %}
+{% load static %}
+
+{% block content %}
+{% if game == 'roulette' %}
+<div class="roulette-container">
+    <div class="roulette-header">
+        <h1>Рулетка LastDep Casino</h1>
+        <button id="add-funds-btn" class="add-funds-btn">+150$ (1 раз в час)</button>
+    </div>
+
+    <div class="roulette-game-area">
+        <div class="wheel-wrapper">
+            <canvas id="wheelCanvas" width="400" height="400"></canvas>
+        </div>
+
+        <div class="betting-section">
+            <div class="numbers-grid">
+                <div class="number-cell zero">0</div>
+                {% for row in number_rows %}
+                <div class="number-row">
+                    {% for num in row %}
+                    <div class="number-cell" data-number="{{ num }}">{{ num }}</div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="outside-bets">
+                <button class="bet-btn red-btn" data-type="color" data-value="red">Красное (x2)</button>
+                <button class="bet-btn black-btn" data-type="color" data-value="black">Чёрное (x2)</button>
+                <button class="bet-btn even-btn" data-type="parity" data-value="even">Чёт (x2)</button>
+                <button class="bet-btn odd-btn" data-type="parity" data-value="odd">Нечёт (x2)</button>
+                <button class="bet-btn low-btn" data-type="range" data-value="1-18">1-18 (x2)</button>
+                <button class="bet-btn high-btn" data-type="range" data-value="19-36">19-36 (x2)</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="control-panel">
+        <input type="number" class="bet-input" value="10" min="1" step="1">
+        <button class="spin-btn">Крутить</button>
+    </div>
+    <div class="message-box" id="roulette-message">Сделайте ставку</div>
+</div>
+
+<script src="{% static 'casino/js/roulette.js' %}"></script>
+
+{% elif game == 'slots' %}
+<!-- СЛОТЫ -->
+<div class="slots-machine">
+    <div class="slots-reels">
+        <div class="slot-reel">🍒</div>
+        <div class="slot-reel">🍋</div>
+        <div class="slot-reel">🔔</div>
+    </div>
+    <div class="control-panel">
+        <input type="number" class="bet-input" placeholder="Ставка" min="1" value="10">
+        <button class="spin-btn">Крутить</button>
+    </div>
+    <div class="message-box" id="slot-message"></div>
+</div>
+<script src="{% static 'casino/js/slots.js' %}"></script>
+
+{% elif game == 'coinflip' %}
+<!-- МОНЕТКА -->
+<div class="coinflip-container">
+    <div class="coin">🪙</div>
+    <div class="control-panel">
+        <input type="number" class="bet-input" placeholder="Ставка" min="1" value="10">
+        <button class="choice-btn" data-choice="heads">Орел</button>
+        <button class="choice-btn" data-choice="tails">Решка</button>
+    </div>
+    <div class="message-box" id="coin-message"></div>
+</div>
+<script src="{% static 'casino/js/coinflip.js' %}"></script>
+
+{% elif game == 'bets' %}
+<!-- СТАВКИ НА СПОРТ -->
+<div class="bets-container">
+    <p>Выберите событие:</p>
+    <select class="match-select">
+        <option value="1.5">Матч A vs B (x1.5)</option>
+        <option value="2.0">Матч C vs D (x2.0)</option>
+    </select>
+    <input type="number" class="bet-input" placeholder="Ставка" min="1" value="10">
+    <button class="place-bet-btn">Сделать ставку</button>
+    <div class="message-box" id="bets-message"></div>
+</div>
+<script src="{% static 'casino/js/bets.js' %}"></script>
+
+{% elif game == 'cases' %}
+<!-- КЕЙСЫ -->
+<div class="cases-container">
+    <div class="cases-grid">
+        {% for case in cases %}
+        <div class="case-card">
+            <div class="case-image">{{ case.name }}</div>
+            <div class="case-price">{{ case.price }}$</div>
+            <button class="open-case-btn" data-case-id="{{ case.id }}">Открыть</button>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<script src="{% static 'casino/js/cases.js' %}"></script>
+{% endif %}
+
+{% endblock %}

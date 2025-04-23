@@ -1,0 +1,44 @@
+{% extends 'casino/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="cases-container">
+    <div class="cases-header">
+        <h1>Кейсы на деньги</h1>
+    </div>
+
+    <div class="cases-grid">
+        {% for case in cases %}
+        <div class="case-card">
+            <!-- Добавлена проверка на наличие изображения -->
+            {% if case.image %}
+                <img src="{{ case.image.url }}" alt="{{ case.name }}" class="case-image">
+            {% else %}
+                <img src="{% static 'casino/images/default_case.png' %}" alt="Default case image" class="case-image">
+            {% endif %}
+
+            <h3>{{ case.name }}</h3>
+            <p>{{ case.description }}</p>
+            <button class="open-case-btn" data-case-id="{{ case.id }}">
+                Открыть за {{ case.price }}$
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Модальное окно выигрыша -->
+<div id="prizeModal" class="modal">
+    <div class="modal-content">
+        <h2>Поздравляем!</h2>
+        <img id="prizeImage" src="" alt="Выигрыш">
+        <p>Вы выиграли: <span id="prizeValue"></span>$</p>
+        <p>Новый баланс: <span id="newBalance"></span>$</p>
+        <button class="close-btn">Закрыть</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'casino/js/cases.js' %}"></script>
+{% endblock %}
