@@ -1429,14 +1429,14 @@ nav ul li a {
     z-index: 1000;
 }
 
-
 .modal-content {
     background: #1a1a1a;
-    padding: 30px;
     border-radius: 10px;
-    text-align: center;
-    border: 2px solid gold;
-    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    max-width: 800px;
+    border: 2px solid #D4AF37;
+    position: relative;
 }
 
 .close-btn {
@@ -1548,7 +1548,7 @@ nav ul li a {
 }
 
 .win-animation {
-    animation: pulse 0.5s 3, winFlash 1s 3;
+    animation: winPulse 0.5s 3;
 }
 
 @keyframes pulseBlue {
@@ -1608,6 +1608,7 @@ nav ul li a {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    color: white;
 }
 
 .cases-header {
@@ -1625,6 +1626,27 @@ nav ul li a {
     margin: 0;
 }
 
+.cases-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 8px 16px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tab-btn.active {
+    background: #D4AF37;
+    color: black;
+}
+
 .case-card p {
     color: #aaa;
     margin-bottom: 15px;
@@ -1638,8 +1660,9 @@ nav ul li a {
 
 .cases-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 25px;
+    margin-top: 20px;
 }
 
 .case-card {
@@ -1647,13 +1670,26 @@ nav ul li a {
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid #333;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
     cursor: pointer;
+    position: relative;
 }
 
 .case-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+}
+
+.case-card .case-currency[data-currency="RUB"] { border-color: #4CAF50; }
+.case-card .case-currency[data-currency="USD"] { border-color: #2196F3; }
+.case-card .case-currency[data-currency="CNY"] { border-color: #FF5722; }
+.case-card .case-currency[data-currency="EUR"] { border-color: #FFC107; }
+
+.case-currency {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .case-image-wrapper {
@@ -1682,10 +1718,13 @@ nav ul li a {
 
 .case-image {
     width: 100%;
-    height: 180px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid var(--gold);
+    transition: transform 0.3s;
+}
+
+.case-card:hover .case-image {
+    transform: scale(1.05);
 }
 
 .default-case-image {
@@ -1697,9 +1736,9 @@ nav ul li a {
 }
 
 .case-image-container {
-    height: 180px;
-    overflow: hidden;
     position: relative;
+    height: 200px;
+    overflow: hidden;
 }
 
 .case-image, .default-case-image {
@@ -1717,23 +1756,49 @@ nav ul li a {
     padding: 5px 10px;
     border-radius: 20px;
     font-weight: bold;
+    font-size: 14px;
 }
 
 .open-case-btn {
-    background: gold;
+    background: #D4AF37;
     color: black;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    margin-top: 15px;
     width: 100%;
+    transition: all 0.3s;
+}
+
+.open-case-btn:hover {
+    background: #F9D423;
+}
+
+.case-rarity-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .case-info {
     padding: 15px;
     text-align: center;
+}
+
+.case-description {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .case-name {
@@ -2066,13 +2131,146 @@ nav ul li a {
 }
 
 .close-modal {
-    font-size: 2rem;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: white;
     cursor: pointer;
 }
 
-.prize-body {
-    padding: 30px;
+.case-modal-image-container {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #333;
+}
+
+.case-modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.case-modal-header h2 {
+    color: #D4AF37;
+    margin: 0;
+}
+
+.case-items-container {
+    margin-bottom: 20px;
+}
+
+.rarity-group {
+    margin-bottom: 20px;
+}
+
+.rarity-title {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    padding-left: 10px;
+    position: relative;
+}
+
+.rarity-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 20px;
+    border-radius: 2px;
+}
+
+.common .rarity-title::before { background: #b0b0b0; }
+.uncommon .rarity-title::before { background: #2ecc71; }
+.rare .rarity-title::before { background: #3498db; }
+.epic .rarity-title::before { background: #9b59b6; }
+.legendary .rarity-title::before {
+    background: linear-gradient(to right, #D4AF37, #FFD700);
+}
+
+.items-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.case-item {
+    background: #222;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #333;
+}
+
+.item-image {
+    width: 100%;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    background: #1a1a1a;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.item-info {
     text-align: center;
+}
+
+.item-name {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.item-value {
+    font-weight: bold;
+    color: #D4AF37;
+    margin-bottom: 5px;
+}
+
+.open-case-btn-modal {
+    background: #D4AF37;
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+
+.open-case-btn-modal:hover {
+    background: #F9D423;
+}
+
+.item-probability {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.case-modal-price {
+    background: #D4AF37;
+    color: black;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.case-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #333;
 }
 
 .prize-image-container {
@@ -2123,22 +2321,20 @@ nav ul li a {
     cursor: pointer;
 }
 
-/* Классы редкости */
-.common .prize-header {
-    background: #b0b0b0;
+.prize-header {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #333;
 }
-.uncommon .prize-header {
-    background: #2ecc71;
+
+.prize-header h2 {
+    color: #D4AF37;
+    margin: 0;
 }
-.rare .prize-header {
-    background: #3498db;
-}
-.epic .prize-header {
-    background: #9b59b6;
-}
-.legendary .prize-header {
-    background: linear-gradient(to right, #D4AF37, #FFD700);
-    animation: pulseGold 1s infinite;
+
+.prize-body {
+    padding: 30px;
+    text-align: center;
 }
 
 @keyframes pulseGold {
@@ -2163,7 +2359,7 @@ nav ul li a {
     height: 20px;
     border: 3px solid rgba(255,255,255,0.3);
     border-radius: 50%;
-    border-top-color: #D4AF37;
+    border-top-color: white;
     animation: spin 1s ease-in-out infinite;
     margin: 0 auto;
 }
@@ -2227,4 +2423,88 @@ nav ul li a {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
     to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Анимации для разных редкостей */
+.common .prize-image-container { border-color: #b0b0b0; }
+.uncommon .prize-image-container { border-color: #2ecc71; }
+.rare .prize-image-container {
+    border-color: #3498db;
+    animation: pulseBlue 2s infinite;
+}
+.epic .prize-image-container {
+    border-color: #9b59b6;
+    animation: pulsePurple 2s infinite;
+}
+.legendary .prize-image-container,
+.mythical .prize-image-container {
+    border-color: #D4AF37;
+    animation: pulseGold 1s infinite;
+}
+
+.common .prize-header { background: #b0b0b0; }
+.uncommon .prize-header { background: #2ecc71; }
+.rare .prize-header {
+    background: #3498db;
+    animation: pulseBlue 2s infinite;
+}
+.epic .prize-header {
+    background: #9b59b6;
+    animation: pulsePurple 2s infinite;
+}
+.legendary .prize-header,
+.mythical .prize-header {
+    background: linear-gradient(to right, #D4AF37, #FFD700);
+    animation: pulseGold 1s infinite;
+}
+
+@keyframes pulseBlue {
+    0% { box-shadow: 0 0 10px rgba(52, 152, 219, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(52, 152, 219, 0.9); }
+    100% { box-shadow: 0 0 10px rgba(52, 152, 219, 0.5); }
+}
+
+@keyframes pulsePurple {
+    0% { box-shadow: 0 0 10px rgba(155, 89, 182, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(155, 89, 182, 0.9); }
+    100% { box-shadow: 0 0 10px rgba(155, 89, 182, 0.5); }
+}
+
+@keyframes pulseGold {
+    0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.9); }
+    100% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+}
+
+/* Стили для разных редкостей кейсов */
+.case-card.common { border-color: #b0b0b0; }
+.case-card.rare { border-color: #3498db; }
+.case-card.epic { border-color: #9b59b6; }
+.case-card.legendary { border-color: #D4AF37; }
+.case-card.mythical { border-color: #FFD700; }
+
+.case-card.common .case-rarity-badge { background: #b0b0b0; color: black; }
+.case-card.rare .case-rarity-badge { background: #3498db; color: white; }
+.case-card.epic .case-rarity-badge { background: #9b59b6; color: white; }
+.case-card.legendary .case-rarity-badge {
+    background: linear-gradient(to right, #D4AF37, #FFD700);
+    color: black;
+}
+.case-card.mythical .case-rarity-badge {
+    background: linear-gradient(to right, #FFD700, #FF6347);
+    color: black;
+}
+
+/* Анимации для открытия кейса */
+@keyframes caseShake {
+    0% { transform: translateX(0) rotate(0); }
+    20% { transform: translateX(-10px) rotate(-5deg); }
+    40% { transform: translateX(10px) rotate(5deg); }
+    60% { transform: translateX(-10px) rotate(-5deg); }
+    80% { transform: translateX(10px) rotate(5deg); }
+    100% { transform: translateX(0) rotate(0); }
+}
+
+.case-shake {
+    animation: caseShake 0.5s;
 }

@@ -2,55 +2,72 @@
 {% load static %}
 
 {% block content %}
-<div class="cases-page">
+<div class="cases-container">
     <div class="cases-header">
-        <h1>🎁 КЕЙСЫ</h1>
-        <div class="balance-display">
-            Баланс: <span class="balance-amount">{{ user.balance|default:"100.00" }}$</span>
-        </div>
+        <h1>КЕЙСЫ</h1>
     </div>
 
-    <div class="cases-grid">
+    <div class="cases-tabs">
+        <button class="tab-btn active" data-tab="all">Все кейсы</button>
+        <button class="tab-btn" data-tab="common">Обычные</button>
+        <button class="tab-btn" data-tab="rare">Редкие</button>
+        <button class="tab-btn" data-tab="epic">Эпические</button>
+        <button class="tab-btn" data-tab="legendary">Легендарные</button>
+    </div>
+
+        <div class="cases-grid">
         {% for case in cases %}
-        <div class="case-card" data-case-id="{{ case.id }}">
+        <div class="case-card">
             <div class="case-image-container">
                 {% if case.image %}
-                    <img src="{{ case.image.url }}" alt="{{ case.name }}" class="case-image">
+                    <img src="{{ case.image.url }}" alt="{{ case.name }}">
                 {% else %}
-                    <div class="default-case-image">🎁</div>
+                    <div class="default-case-image">💰</div>
                 {% endif %}
+                <div class="case-price">{{ case.price }}$</div>
+                <div class="case-currency">{{ case.get_currency_display }}</div>
             </div>
             <div class="case-info">
-                <h3 class="case-name">{{ case.name }}</h3>
-                <button class="open-case-btn">
-                    ОТКРЫТЬ ЗА {{ case.price }}$
+                <h3>{{ case.name }}</h3>
+                <button class="open-case-btn" data-case-id="{{ case.id }}">
+                    Открыть за {{ case.price }}$
                 </button>
             </div>
         </div>
         {% endfor %}
     </div>
 
-    <!-- Окно открытия кейса -->
-    <div id="caseOpeningModal" class="modal">
-        <div class="modal-overlay"></div>
-        <div class="modal-container">
-            <div class="modal-header">
-                <h2>ОТКРЫТИЕ КЕЙСА</h2>
-                <div class="case-preview">
-                    <img id="openingCaseImage" src="" alt="Case">
-                </div>
+    <!-- Модальные окна -->
+    <div id="caseInfoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="case-modal-header">
+                <h2 id="modalCaseName"></h2>
+                <div class="case-modal-price" id="modalCasePrice"></div>
             </div>
-
-            <div class="roulette-wrapper">
-                <div class="roulette-container">
-                    <div class="roulette-track" id="rouletteTrack"></div>
-                    <div class="roulette-center"></div>
-                </div>
+            <div class="case-modal-image-container">
+                <img id="modalCaseImage" src="" alt="" class="case-modal-image">
             </div>
+            <div class="case-items-container" id="caseItemsContainer"></div>
+            <button id="openCaseBtn" class="open-case-btn-modal">ОТКРЫТЬ КЕЙС</button>
+        </div>
+    </div>
 
-            <div class="modal-footer">
-                <button class="spin-btn" id="spinRoulette">КРУТИТЬ</button>
-                <div class="prize-display" id="prizeDisplay"></div>
+    <div id="caseResultModal" class="modal">
+        <div class="modal-content">
+            <div class="prize-header">
+                <h2>ВЫ ВЫИГРАЛИ!</h2>
+            </div>
+            <div class="prize-body">
+                <div class="prize-image-container">
+                    <img id="prizeImage" src="" alt="" class="prize-image">
+                </div>
+                <div class="prize-name" id="prizeName"></div>
+                <div class="prize-value" id="prizeValue"></div>
+            </div>
+            <div class="prize-footer">
+                <div class="new-balance" id="newBalance"></div>
+                <button class="continue-btn" id="continueBtn">ПРОДОЛЖИТЬ</button>
             </div>
         </div>
     </div>

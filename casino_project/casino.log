@@ -5407,3 +5407,1675 @@ INFO 2025-04-25 18:08:34,978 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
 INFO 2025-04-25 18:08:35,599 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 41
 INFO 2025-04-25 18:08:37,624 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 41
 INFO 2025-04-25 18:08:38,602 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:12:09,543 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 18:12:10,208 basehttp "GET / HTTP/1.1" 200 4315
+INFO 2025-04-25 18:12:10,343 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 18:12:10,343 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 18:12:10,385 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:12:12,499 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:12:12,514 basehttp "GET /coinflip/ HTTP/1.1" 200 2865
+INFO 2025-04-25 18:12:12,551 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:12:13,797 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 41
+INFO 2025-04-25 18:12:17,880 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 41
+INFO 2025-04-25 18:12:21,782 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 41
+INFO 2025-04-25 18:12:25,360 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 41
+INFO 2025-04-25 18:12:31,912 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 41
+INFO 2025-04-25 18:12:42,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:12:55,783 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 41
+INFO 2025-04-25 18:12:58,954 basehttp "GET /admin/ HTTP/1.1" 200 8210
+INFO 2025-04-25 18:13:00,896 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:13:00,912 basehttp "GET /admin/ HTTP/1.1" 200 8210
+INFO 2025-04-25 18:13:02,266 basehttp "GET /admin/casino/user/ HTTP/1.1" 200 10013
+INFO 2025-04-25 18:13:02,299 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-04-25 18:13:11,284 basehttp "GET /admin/casino/user/?o=1 HTTP/1.1" 200 10349
+INFO 2025-04-25 18:13:11,318 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-04-25 18:13:11,365 basehttp "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO 2025-04-25 18:13:13,972 basehttp "GET /admin/casino/user/?o=1 HTTP/1.1" 200 10349
+INFO 2025-04-25 18:13:14,004 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-04-25 18:13:14,815 basehttp "GET /admin/casino/user/ HTTP/1.1" 200 10013
+INFO 2025-04-25 18:13:17,319 basehttp "GET /admin/ HTTP/1.1" 200 8210
+INFO 2025-04-25 18:13:17,768 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:13:42,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:14:12,897 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:14:42,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:15:03,429 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:15:03,447 basehttp "GET /cases/ HTTP/1.1" 200 4053
+INFO 2025-04-25 18:15:03,465 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 18:15:03,466 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+INFO 2025-04-25 18:15:03,529 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:15:12,582 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:15:12,606 basehttp "GET /coinflip/ HTTP/1.1" 200 2865
+INFO 2025-04-25 18:15:12,650 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:15:42,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:16:12,898 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:16:42,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:17:12,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:17:29,731 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:17:29,743 basehttp "GET /cases/ HTTP/1.1" 200 4053
+INFO 2025-04-25 18:17:29,780 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:19:22,317 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 18:19:22,809 basehttp "GET /profile/ HTTP/1.1" 200 5279
+INFO 2025-04-25 18:19:22,836 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 18:19:22,856 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:19:23,393 basehttp "GET / HTTP/1.1" 200 4315
+INFO 2025-04-25 18:19:23,538 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:19:24,524 basehttp - Broken pipe from ('127.0.0.1', 51334)
+INFO 2025-04-25 18:19:25,423 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:19:25,442 basehttp "GET /cases/ HTTP/1.1" 200 4053
+INFO 2025-04-25 18:19:25,462 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+INFO 2025-04-25 18:19:25,483 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:19:30,984 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:19:31,001 basehttp "GET /roulette/ HTTP/1.1" 200 7522
+INFO 2025-04-25 18:19:31,051 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:20:01,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:20:10,187 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:20:10,201 basehttp "GET /cases/ HTTP/1.1" 200 4053
+INFO 2025-04-25 18:20:10,240 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:20:40,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:21:10,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:21:40,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:22:10,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:22:40,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:23:41,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:24:42,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:25:43,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:26:44,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:27:45,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:28:46,899 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:29:47,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:30:48,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:31:49,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:32:50,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:33:50,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:34:50,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:35:50,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:36:03,538 basehttp "GET /roulette/ HTTP/1.1" 200 7522
+INFO 2025-04-25 18:36:03,560 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:36:03,562 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 18:36:03,591 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:36:05,794 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 130
+INFO 2025-04-25 18:36:10,795 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:36:10,817 basehttp "GET /slots/ HTTP/1.1" 200 2931
+INFO 2025-04-25 18:36:10,857 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:36:11,704 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 41
+INFO 2025-04-25 18:36:15,590 basehttp "GET /coinflip/ HTTP/1.1" 200 2865
+INFO 2025-04-25 18:36:15,611 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:36:15,646 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:36:16,860 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 41
+INFO 2025-04-25 18:36:18,892 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 41
+INFO 2025-04-25 18:36:20,355 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:36:20,374 basehttp "GET /cases/ HTTP/1.1" 200 3556
+INFO 2025-04-25 18:36:20,393 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+INFO 2025-04-25 18:36:20,414 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:36:23,633 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:36:23,645 basehttp "GET /bets/ HTTP/1.1" 200 2844
+INFO 2025-04-25 18:36:23,675 basehttp "GET /static/casino/js/bets.js HTTP/1.1" 304 0
+INFO 2025-04-25 18:36:23,694 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:36:53,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:37:14,702 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:37:14,723 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:37:20,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:37:50,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:38:20,918 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:38:50,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:39:50,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:40:12,398 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\urls.py changed, reloading.
+INFO 2025-04-25 18:40:12,812 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 18:40:50,916 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:41:50,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:42:50,921 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:43:50,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:44:50,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:45:50,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:46:50,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:47:50,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:48:50,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:49:50,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:50:50,919 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:51:50,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:52:50,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:53:50,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:54:50,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:55:38,216 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 18:55:50,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:56:50,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:57:50,917 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:58:50,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 18:59:50,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:00:50,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:01:50,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:02:50,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:03:50,915 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:04:50,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:05:50,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:06:50,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:07:50,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:08:50,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:09:34,634 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:09:36,173 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:09:36,199 basehttp "GET / HTTP/1.1" 200 4315
+INFO 2025-04-25 19:09:36,220 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 19:09:36,220 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 19:09:36,236 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:09:44,727 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 19:09:45,947 basehttp "GET / HTTP/1.1" 200 4315
+INFO 2025-04-25 19:09:46,091 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:09:47,738 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:09:47,754 basehttp "GET /roulette/ HTTP/1.1" 200 7522
+INFO 2025-04-25 19:09:47,797 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:09:49,950 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 130
+INFO 2025-04-25 19:09:55,763 basehttp "GET /slots/ HTTP/1.1" 200 2931
+INFO 2025-04-25 19:09:55,782 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:09:55,808 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:09:56,779 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 41
+INFO 2025-04-25 19:09:59,918 basehttp "GET /coinflip/ HTTP/1.1" 200 2865
+INFO 2025-04-25 19:09:59,942 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:09:59,965 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:10:00,887 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 41
+INFO 2025-04-25 19:10:02,914 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 41
+INFO 2025-04-25 19:10:05,224 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:10:05,243 basehttp "GET /cases/ HTTP/1.1" 200 3556
+INFO 2025-04-25 19:10:05,300 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 200 5988
+INFO 2025-04-25 19:10:05,318 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:10:06,528 basehttp "GET /api/get_case/1/ HTTP/1.1" 200 440
+WARNING 2025-04-25 19:10:06,533 basehttp "GET /static/casino/images/default_item.png HTTP/1.1" 404 1904
+INFO 2025-04-25 19:10:08,319 basehttp "POST /api/open_case/1/ HTTP/1.1" 200 119
+WARNING 2025-04-25 19:10:12,337 basehttp "GET /static/casino/images/default_item.png HTTP/1.1" 404 1904
+INFO 2025-04-25 19:10:23,575 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:10:23,592 basehttp "GET / HTTP/1.1" 200 4315
+INFO 2025-04-25 19:10:23,632 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:10:29,449 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:10:29,467 basehttp "GET /cases/ HTTP/1.1" 200 3556
+INFO 2025-04-25 19:10:29,508 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:10:30,319 basehttp "GET /api/get_case/1/ HTTP/1.1" 200 440
+WARNING 2025-04-25 19:10:30,326 basehttp "GET /static/casino/images/default_item.png HTTP/1.1" 404 1904
+INFO 2025-04-25 19:10:31,324 basehttp "POST /api/open_case/1/ HTTP/1.1" 200 117
+WARNING 2025-04-25 19:10:35,344 basehttp "GET /static/casino/images/default_item.png HTTP/1.1" 404 1904
+INFO 2025-04-25 19:10:37,096 basehttp "POST /api/open_case/1/ HTTP/1.1" 200 119
+WARNING 2025-04-25 19:10:41,114 basehttp "GET /static/casino/images/default_item.png HTTP/1.1" 404 1904
+INFO 2025-04-25 19:10:41,738 basehttp "POST /api/open_case/1/ HTTP/1.1" 200 117
+WARNING 2025-04-25 19:10:45,758 basehttp "GET /static/casino/images/default_item.png HTTP/1.1" 404 1904
+INFO 2025-04-25 19:10:59,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:11:29,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:11:59,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:12:29,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:12:59,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:13:50,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:14:50,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:15:32,883 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\models.py changed, reloading.
+INFO 2025-04-25 19:15:33,326 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 19:15:50,915 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 19:16:06,966 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\models.py changed, reloading.
+INFO 2025-04-25 19:16:07,416 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 19:16:41,958 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\models.py changed, reloading.
+INFO 2025-04-25 19:16:42,414 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 19:16:50,753 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\models.py changed, reloading.
+INFO 2025-04-25 19:16:51,200 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 19:27:42,084 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\models.py changed, reloading.
+INFO 2025-04-25 19:27:42,482 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 19:29:22,267 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\models.py changed, reloading.
+INFO 2025-04-25 19:29:22,685 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 20:44:33,953 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\models.py changed, reloading.
+INFO 2025-04-25 20:44:34,475 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 21:12:39,402 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 21:12:40,192 basehttp "GET / HTTP/1.1" 200 4315
+INFO 2025-04-25 21:12:40,319 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 21:12:40,348 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 46947
+INFO 2025-04-25 21:12:40,391 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:12:42,797 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:12:42,813 basehttp "GET /profile/ HTTP/1.1" 200 5281
+INFO 2025-04-25 21:12:42,851 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:12:43,852 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:12:43,867 basehttp "GET /roulette/ HTTP/1.1" 200 7522
+INFO 2025-04-25 21:12:43,887 basehttp "GET /static/casino/js/roulette.js HTTP/1.1" 304 0
+INFO 2025-04-25 21:12:43,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:12:44,926 basehttp "POST /api/add_funds/ HTTP/1.1" 200 95
+INFO 2025-04-25 21:12:46,973 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 130
+INFO 2025-04-25 21:12:50,921 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:12:52,460 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:12:52,475 basehttp "GET /slots/ HTTP/1.1" 200 2931
+INFO 2025-04-25 21:12:52,496 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-25 21:12:52,516 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:12:53,083 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 41
+INFO 2025-04-25 21:12:56,928 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:12:56,946 basehttp "GET /coinflip/ HTTP/1.1" 200 2865
+INFO 2025-04-25 21:12:56,966 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-25 21:12:56,996 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:12:58,077 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 41
+INFO 2025-04-25 21:13:00,307 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 41
+INFO 2025-04-25 21:13:02,978 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+ERROR 2025-04-25 21:13:03,136 log Internal Server Error: /cases/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 72, in cases_view
+    return render(request, 'casino/cases.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 199, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1935, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 123, in __iter__
+    for row in compiler.results_iter(results):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1540, in apply_converters
+    value = converter(value, expression, connection)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\operations.py", line 360, in convert_uuidfield_value
+    value = uuid.UUID(value)
+            ^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\uuid.py", line 178, in __init__
+    raise ValueError('badly formed hexadecimal UUID string')
+ValueError: badly formed hexadecimal UUID string
+ERROR 2025-04-25 21:13:03,141 basehttp "GET /cases/ HTTP/1.1" 500 173431
+INFO 2025-04-25 21:13:50,924 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:14:50,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:15:50,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:19:16,063 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 21:19:17,222 basehttp "GET / HTTP/1.1" 200 4315
+INFO 2025-04-25 21:19:17,398 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:19:19,000 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+ERROR 2025-04-25 21:19:19,035 log Internal Server Error: /cases/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 72, in cases_view
+    return render(request, 'casino/cases.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 199, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1935, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 123, in __iter__
+    for row in compiler.results_iter(results):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1540, in apply_converters
+    value = converter(value, expression, connection)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\operations.py", line 360, in convert_uuidfield_value
+    value = uuid.UUID(value)
+            ^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\uuid.py", line 178, in __init__
+    raise ValueError('badly formed hexadecimal UUID string')
+ValueError: badly formed hexadecimal UUID string
+ERROR 2025-04-25 21:19:19,039 basehttp "GET /cases/ HTTP/1.1" 500 173297
+INFO 2025-04-25 21:19:50,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:20:06,517 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:20:09,182 basehttp - Broken pipe from ('127.0.0.1', 57061)
+ERROR 2025-04-25 21:20:10,531 log Internal Server Error: /cases/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 72, in cases_view
+    return render(request, 'casino/cases.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 37: 'endif', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2025-04-25 21:20:10,533 basehttp "GET /cases/ HTTP/1.1" 500 189792
+ERROR 2025-04-25 21:20:14,624 log Internal Server Error: /cases/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endfor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 72, in cases_view
+    return render(request, 'casino/cases.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 38: 'endfor', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2025-04-25 21:20:14,626 basehttp "GET /cases/ HTTP/1.1" 500 188574
+INFO 2025-04-25 21:20:19,761 basehttp "GET /cases/ HTTP/1.1" 200 5356
+INFO 2025-04-25 21:20:19,809 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 200 7068
+INFO 2025-04-25 21:20:19,825 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+WARNING 2025-04-25 21:20:23,154 log Not Found: /api/get_case_details//
+WARNING 2025-04-25 21:20:23,154 basehttp "GET /api/get_case_details// HTTP/1.1" 404 9874
+WARNING 2025-04-25 21:20:26,855 log Not Found: /api/get_case_details//
+WARNING 2025-04-25 21:20:26,855 basehttp "GET /api/get_case_details// HTTP/1.1" 404 9874
+INFO 2025-04-25 21:20:34,497 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:20:34,510 basehttp "GET /cases/ HTTP/1.1" 200 5284
+INFO 2025-04-25 21:20:34,552 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:20:38,618 basehttp "GET /cases/ HTTP/1.1" 200 5284
+INFO 2025-04-25 21:20:38,639 basehttp - Broken pipe from ('127.0.0.1', 57089)
+INFO 2025-04-25 21:20:38,660 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:20:39,986 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:20:40,003 basehttp "GET /cases/ HTTP/1.1" 200 5246
+INFO 2025-04-25 21:20:40,034 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:20:46,947 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:20:46,963 basehttp "GET /cases/ HTTP/1.1" 200 5246
+INFO 2025-04-25 21:20:46,999 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:20:47,415 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:20:47,428 basehttp "GET /cases/ HTTP/1.1" 200 5269
+INFO 2025-04-25 21:20:47,462 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:20:52,203 basehttp "GET /cases/ HTTP/1.1" 200 5269
+INFO 2025-04-25 21:20:52,214 basehttp - Broken pipe from ('127.0.0.1', 57099)
+INFO 2025-04-25 21:20:52,240 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:20:52,564 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:20:52,585 basehttp "GET /cases/ HTTP/1.1" 200 5231
+INFO 2025-04-25 21:20:52,617 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+WARNING 2025-04-25 21:20:55,967 log Not Found: /api/get_case_details//
+WARNING 2025-04-25 21:20:55,968 basehttp "GET /api/get_case_details// HTTP/1.1" 404 9874
+INFO 2025-04-25 21:21:22,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:21:52,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:22:22,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:22:52,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:23:22,898 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:24:23,899 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:25:24,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:26:25,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:27:26,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:28:27,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:29:28,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:29:51,066 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+ERROR 2025-04-25 21:29:51,103 log Internal Server Error: /cases/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 72, in cases_view
+    return render(request, 'casino/cases.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 199, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1935, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 123, in __iter__
+    for row in compiler.results_iter(results):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1540, in apply_converters
+    value = converter(value, expression, connection)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\operations.py", line 360, in convert_uuidfield_value
+    value = uuid.UUID(value)
+            ^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\uuid.py", line 178, in __init__
+    raise ValueError('badly formed hexadecimal UUID string')
+ValueError: badly formed hexadecimal UUID string
+ERROR 2025-04-25 21:29:51,105 basehttp "GET /cases/ HTTP/1.1" 500 173016
+ERROR 2025-04-25 21:31:03,417 log Internal Server Error: /cases/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'empty'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 72, in cases_view
+    return render(request, 'casino/cases.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 37: 'empty', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2025-04-25 21:31:03,418 basehttp "GET /cases/ HTTP/1.1" 500 189806
+INFO 2025-04-25 21:31:07,420 basehttp "GET /cases/ HTTP/1.1" 200 5477
+INFO 2025-04-25 21:31:07,436 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 21:31:07,463 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+WARNING 2025-04-25 21:31:08,987 log Not Found: /api/get_case_details//
+WARNING 2025-04-25 21:31:08,987 basehttp "GET /api/get_case_details// HTTP/1.1" 404 9874
+INFO 2025-04-25 21:31:37,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:32:07,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:32:37,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:33:07,898 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:33:37,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:34:39,664 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 21:34:39,937 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:34:40,348 basehttp "GET / HTTP/1.1" 200 4315
+INFO 2025-04-25 21:34:40,483 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:34:41,834 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+ERROR 2025-04-25 21:34:41,869 log Internal Server Error: /cases/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 72, in cases_view
+    return render(request, 'casino/cases.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 199, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1935, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 123, in __iter__
+    for row in compiler.results_iter(results):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1540, in apply_converters
+    value = converter(value, expression, connection)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\operations.py", line 360, in convert_uuidfield_value
+    value = uuid.UUID(value)
+            ^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\uuid.py", line 178, in __init__
+    raise ValueError('badly formed hexadecimal UUID string')
+ValueError: badly formed hexadecimal UUID string
+ERROR 2025-04-25 21:34:41,874 basehttp "GET /cases/ HTTP/1.1" 500 172943
+INFO 2025-04-25 21:35:39,899 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:36:40,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:37:41,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:38:42,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:39:43,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:40:44,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:41:45,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:42:46,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:43:47,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:44:48,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:45:49,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:46:50,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:47:50,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:48:50,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:49:50,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:50:50,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:51:50,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:52:50,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:53:50,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:54:50,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 21:55:50,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:15:24,379 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 22:15:25,049 basehttp "GET / HTTP/1.1" 200 4315
+INFO 2025-04-25 22:15:25,178 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 22:15:25,178 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 22:15:25,196 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:15:50,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:15:55,206 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:16:25,199 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:16:25,345 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:16:25,360 basehttp "GET /roulette/ HTTP/1.1" 200 7522
+INFO 2025-04-25 22:16:25,410 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:16:26,860 basehttp "POST /api/add_funds/ HTTP/1.1" 200 95
+INFO 2025-04-25 22:16:28,573 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 130
+INFO 2025-04-25 22:16:34,724 basehttp "GET /slots/ HTTP/1.1" 200 2931
+INFO 2025-04-25 22:16:34,749 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:16:34,772 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:16:35,523 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 41
+INFO 2025-04-25 22:16:39,094 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+ERROR 2025-04-25 22:16:39,129 log Internal Server Error: /cases/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 72, in cases_view
+    return render(request, 'casino/cases.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 199, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1935, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 123, in __iter__
+    for row in compiler.results_iter(results):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1540, in apply_converters
+    value = converter(value, expression, connection)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\operations.py", line 360, in convert_uuidfield_value
+    value = uuid.UUID(value)
+            ^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\uuid.py", line 178, in __init__
+    raise ValueError('badly formed hexadecimal UUID string')
+ValueError: badly formed hexadecimal UUID string
+ERROR 2025-04-25 22:16:39,133 basehttp "GET /cases/ HTTP/1.1" 500 172949
+INFO 2025-04-25 22:16:50,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:17:50,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:18:01,817 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:18:02,738 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:18:02,825 basehttp "GET /bets/ HTTP/1.1" 200 7319
+INFO 2025-04-25 22:18:02,871 basehttp "GET /static/casino/js/bets.js HTTP/1.1" 200 8463
+INFO 2025-04-25 22:18:02,888 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:18:32,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:18:40,050 basehttp "GET /bets/ HTTP/1.1" 200 7319
+INFO 2025-04-25 22:18:40,076 basehttp - Broken pipe from ('127.0.0.1', 58930)
+INFO 2025-04-25 22:18:40,101 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:18:40,839 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:18:40,866 basehttp "GET /bets/ HTTP/1.1" 200 7247
+INFO 2025-04-25 22:18:40,898 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:18:46,199 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:18:46,217 basehttp "GET /bets/ HTTP/1.1" 200 7247
+INFO 2025-04-25 22:18:46,244 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:18:46,713 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:18:46,739 basehttp "GET /bets/ HTTP/1.1" 200 7194
+INFO 2025-04-25 22:18:46,769 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:18:50,929 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:19:16,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:19:46,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:19:50,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:20:16,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:20:46,767 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:20:50,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:21:16,767 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:21:46,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:21:50,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-25 22:22:07,463 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+WARNING 2025-04-25 22:22:07,587 log Not Found: /api/get_case_details//
+WARNING 2025-04-25 22:22:07,589 basehttp "GET /api/get_case_details// HTTP/1.1" 404 9874
+INFO 2025-04-25 22:22:09,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+ERROR 2025-04-25 22:22:09,941 log Internal Server Error: /cases/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 72, in cases_view
+    return render(request, 'casino/cases.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 199, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1935, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 123, in __iter__
+    for row in compiler.results_iter(results):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1540, in apply_converters
+    value = converter(value, expression, connection)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\operations.py", line 360, in convert_uuidfield_value
+    value = uuid.UUID(value)
+            ^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\uuid.py", line 178, in __init__
+    raise ValueError('badly formed hexadecimal UUID string')
+ValueError: badly formed hexadecimal UUID string
+ERROR 2025-04-25 22:22:09,943 basehttp "GET /cases/ HTTP/1.1" 500 173080
+INFO 2025-04-25 22:26:05,909 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-25 22:26:06,355 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 22:28:58,977 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 22:28:59,809 basehttp "GET / HTTP/1.1" 200 3711
+INFO 2025-04-25 22:28:59,933 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 22:28:59,966 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 22:29:02,927 basehttp "GET /roulette/ HTTP/1.1" 302 0
+INFO 2025-04-25 22:29:02,927 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 22:29:02,934 basehttp "GET /login/?next=/roulette/ HTTP/1.1" 200 2514
+INFO 2025-04-25 22:29:02,934 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 22:29:02,959 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 22:29:02,969 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 22:29:04,196 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 22:29:04,200 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 22:29:04,546 basehttp "POST /login/?next=/roulette/ HTTP/1.1" 200 2671
+INFO 2025-04-25 22:29:04,568 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 22:29:04,572 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 22:29:10,967 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 22:29:10,972 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 22:29:11,322 basehttp "POST /login/?next=/roulette/ HTTP/1.1" 200 2671
+INFO 2025-04-25 22:29:11,342 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 22:29:11,347 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 22:29:58,228 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 22:29:58,908 basehttp "GET / HTTP/1.1" 200 3711
+INFO 2025-04-25 22:29:59,039 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 22:29:59,050 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 22:29:59,953 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 22:29:59,953 basehttp "GET /roulette/ HTTP/1.1" 302 0
+INFO 2025-04-25 22:29:59,959 basehttp "GET /login/?next=/roulette/ HTTP/1.1" 200 2514
+INFO 2025-04-25 22:29:59,959 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 22:29:59,984 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 22:29:59,991 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 22:30:01,112 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 22:30:01,114 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 22:30:01,488 basehttp "POST /login/?next=/roulette/ HTTP/1.1" 302 0
+INFO 2025-04-25 22:30:01,508 basehttp "GET /roulette/ HTTP/1.1" 200 7520
+INFO 2025-04-25 22:30:01,563 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:30:03,823 basehttp "POST /api/add_funds/ HTTP/1.1" 200 93
+INFO 2025-04-25 22:30:05,768 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 128
+INFO 2025-04-25 22:30:11,429 basehttp "GET /slots/ HTTP/1.1" 200 2929
+INFO 2025-04-25 22:30:11,449 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:30:11,470 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:30:11,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:30:12,547 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 22:30:16,109 basehttp "GET /coinflip/ HTTP/1.1" 200 2863
+INFO 2025-04-25 22:30:16,129 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:30:16,157 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:30:17,602 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 22:30:19,628 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 39
+INFO 2025-04-25 22:30:20,776 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:30:20,869 basehttp "GET /bets/ HTTP/1.1" 200 7192
+INFO 2025-04-25 22:30:20,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:30:24,556 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:30:24,572 basehttp "GET /cases/ HTTP/1.1" 200 4562
+INFO 2025-04-25 22:30:24,593 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+INFO 2025-04-25 22:30:24,612 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:30:41,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:30:54,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:31:11,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:31:24,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:31:41,350 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:31:54,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:32:24,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:32:24,935 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\models.py changed, reloading.
+INFO 2025-04-25 22:32:25,360 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 22:32:35,627 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\models.py changed, reloading.
+INFO 2025-04-25 22:32:36,075 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 22:32:54,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:33:11,730 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\models.py changed, reloading.
+INFO 2025-04-25 22:33:12,144 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 22:33:50,915 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:34:50,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:35:50,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:36:50,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:37:50,915 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:38:50,898 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:39:50,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:40:08,718 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-25 22:40:09,163 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 22:40:21,525 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-25 22:40:21,938 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 22:40:50,915 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:41:50,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:42:50,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:43:07,680 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:43:24,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:43:54,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:44:50,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:45:50,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:46:50,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:47:50,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:48:50,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:49:50,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:50:50,915 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:51:50,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:52:50,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:53:50,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:54:50,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:55:50,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:56:50,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 22:57:50,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:00:58,123 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 23:01:02,100 basehttp "GET / HTTP/1.1" 200 3711
+INFO 2025-04-25 23:01:02,251 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 47366
+INFO 2025-04-25 23:01:02,284 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 23:01:02,323 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 23:01:04,757 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 23:01:04,757 basehttp "GET /accounts/login/ HTTP/1.1" 200 2514
+INFO 2025-04-25 23:01:04,780 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 23:01:04,782 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 23:01:04,794 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 23:01:06,473 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 23:01:06,477 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 23:01:06,823 basehttp "POST /accounts/login/ HTTP/1.1" 200 2671
+INFO 2025-04-25 23:01:06,841 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 23:01:06,847 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 23:01:07,458 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 23:01:07,458 basehttp "GET /accounts/login/ HTTP/1.1" 200 2514
+INFO 2025-04-25 23:01:07,483 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 23:01:32,376 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 23:01:33,004 basehttp "GET / HTTP/1.1" 200 3711
+INFO 2025-04-25 23:01:33,140 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 23:01:33,166 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 23:01:33,177 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 23:01:34,442 basehttp - Broken pipe from ('127.0.0.1', 61018)
+INFO 2025-04-25 23:01:35,753 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 23:01:35,754 basehttp "GET /roulette/ HTTP/1.1" 302 0
+INFO 2025-04-25 23:01:35,758 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 23:01:35,759 basehttp "GET /login/?next=/roulette/ HTTP/1.1" 200 2514
+INFO 2025-04-25 23:01:35,785 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 23:01:35,793 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 23:01:36,926 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-04-25 23:01:36,928 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 2514
+INFO 2025-04-25 23:01:37,300 basehttp "POST /login/?next=/roulette/ HTTP/1.1" 302 0
+INFO 2025-04-25 23:01:37,329 basehttp "GET /roulette/ HTTP/1.1" 200 7520
+INFO 2025-04-25 23:01:37,380 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:01:38,122 basehttp "POST /api/add_funds/ HTTP/1.1" 200 93
+INFO 2025-04-25 23:01:40,024 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 128
+INFO 2025-04-25 23:01:41,770 basehttp "GET /slots/ HTTP/1.1" 200 2929
+INFO 2025-04-25 23:01:41,786 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:01:41,816 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:01:42,640 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 23:01:43,311 basehttp "GET /coinflip/ HTTP/1.1" 200 2863
+INFO 2025-04-25 23:01:43,331 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:01:43,366 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:01:44,332 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 23:01:45,269 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:01:45,380 basehttp "GET /bets/ HTTP/1.1" 200 7192
+INFO 2025-04-25 23:01:45,400 basehttp "GET /static/casino/js/bets.js HTTP/1.1" 304 0
+INFO 2025-04-25 23:01:45,419 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:01:47,732 basehttp "GET /cases/ HTTP/1.1" 200 6889
+INFO 2025-04-25 23:01:47,753 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:01:47,759 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+INFO 2025-04-25 23:01:47,779 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+ERROR 2025-04-25 23:01:49,261 log Internal Server Error: /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 90, in get_case_details
+    'image': case.image.url,
+             ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+ERROR 2025-04-25 23:01:49,263 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 500 81421
+ERROR 2025-04-25 23:01:53,572 log Internal Server Error: /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 90, in get_case_details
+    'image': case.image.url,
+             ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+ERROR 2025-04-25 23:01:53,572 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 500 81430
+ERROR 2025-04-25 23:02:05,473 log Internal Server Error: /api/get_case_details/a3f939fb-c462-44c3-a11d-18b57a808d1b/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 90, in get_case_details
+    'image': case.image.url,
+             ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+ERROR 2025-04-25 23:02:05,473 basehttp "GET /api/get_case_details/a3f939fb-c462-44c3-a11d-18b57a808d1b/ HTTP/1.1" 500 81421
+INFO 2025-04-25 23:02:08,276 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:02:08,287 basehttp "GET /profile/ HTTP/1.1" 200 3056
+INFO 2025-04-25 23:02:08,310 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 23:02:08,326 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:02:09,684 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:02:17,778 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+ERROR 2025-04-25 23:02:17,824 log Internal Server Error: /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 90, in get_case_details
+    'image': case.image.url,
+             ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+ERROR 2025-04-25 23:02:17,825 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 500 81421
+INFO 2025-04-25 23:04:27,414 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:04:28,157 basehttp "GET /roulette/ HTTP/1.1" 200 7520
+INFO 2025-04-25 23:04:28,179 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:04:28,185 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 23:04:28,214 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:04:29,288 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:04:29,299 basehttp "GET /slots/ HTTP/1.1" 200 2929
+INFO 2025-04-25 23:04:29,323 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-25 23:04:29,352 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:04:29,854 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:04:29,868 basehttp "GET /coinflip/ HTTP/1.1" 200 2863
+INFO 2025-04-25 23:04:29,897 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-25 23:04:29,924 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:04:30,934 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:04:30,954 basehttp "GET /bets/ HTTP/1.1" 200 7192
+INFO 2025-04-25 23:04:31,005 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:04:32,634 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:04:32,657 basehttp "GET /cases/ HTTP/1.1" 200 6889
+INFO 2025-04-25 23:04:32,704 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+ERROR 2025-04-25 23:04:44,819 log Internal Server Error: /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 90, in get_case_details
+    'image': case.image.url,
+             ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+ERROR 2025-04-25 23:04:44,819 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 500 81421
+INFO 2025-04-25 23:04:52,041 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:04:52,063 basehttp "GET /slots/ HTTP/1.1" 200 2929
+INFO 2025-04-25 23:04:52,111 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:04:53,249 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 23:04:57,346 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 23:05:00,889 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 23:05:04,168 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 23:05:22,101 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:05:30,524 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:05:30,543 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-25 23:05:30,570 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 23:05:30,586 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:06:00,592 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:06:17,604 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:06:17,614 basehttp "GET /roulette/ HTTP/1.1" 200 7520
+INFO 2025-04-25 23:06:17,639 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 23:06:17,665 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:06:20,183 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
+INFO 2025-04-25 23:06:23,362 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 128
+INFO 2025-04-25 23:06:28,395 basehttp "GET /slots/ HTTP/1.1" 200 2929
+INFO 2025-04-25 23:06:28,413 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:06:28,449 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:06:32,949 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 23:06:37,117 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:06:37,128 basehttp "GET /coinflip/ HTTP/1.1" 200 2863
+INFO 2025-04-25 23:06:37,180 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:06:41,746 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 23:06:45,638 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:06:45,648 basehttp "GET /cases/ HTTP/1.1" 200 6889
+INFO 2025-04-25 23:06:45,694 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:06:52,782 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:06:52,794 basehttp "GET /bets/ HTTP/1.1" 200 7192
+INFO 2025-04-25 23:06:52,840 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:07:14,156 basehttp "GET /coinflip/ HTTP/1.1" 200 2863
+INFO 2025-04-25 23:07:14,177 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:07:14,186 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 23:07:14,205 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:07:15,519 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 23:07:17,548 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 39
+INFO 2025-04-25 23:07:28,198 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 23:07:30,225 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 39
+INFO 2025-04-25 23:07:44,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:08:14,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:08:44,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:09:14,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:09:44,899 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:10:45,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:11:46,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:12:47,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:13:48,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:14:49,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:15:44,094 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:16:14,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:16:44,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:17:45,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:18:46,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:19:47,917 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:20:48,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:21:49,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:22:50,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:23:50,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:24:50,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:25:50,933 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:26:50,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:27:50,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:28:50,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:29:50,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:30:50,917 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:31:50,915 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:32:50,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:33:50,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:34:50,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:35:50,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:36:50,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:37:50,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:38:01,233 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-25 23:38:01,885 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 23:38:50,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:39:50,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:40:50,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:41:50,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:42:50,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:43:50,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:44:14,068 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\models.py changed, reloading.
+INFO 2025-04-25 23:44:14,641 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 23:44:50,925 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:50:44,640 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 23:50:45,468 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-25 23:50:45,608 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 23:50:45,642 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 47814
+INFO 2025-04-25 23:50:45,690 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:50:46,930 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:50:46,946 basehttp "GET /roulette/ HTTP/1.1" 200 7520
+INFO 2025-04-25 23:50:46,999 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:50:47,492 basehttp "GET /slots/ HTTP/1.1" 200 2929
+INFO 2025-04-25 23:50:47,516 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:50:47,545 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:50:48,092 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:50:48,109 basehttp "GET /coinflip/ HTTP/1.1" 200 2863
+INFO 2025-04-25 23:50:48,169 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:50:48,664 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+ERROR 2025-04-25 23:50:48,862 log Internal Server Error: /cases/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: casino_caseitem.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 72, in cases_view
+    return render(request, 'casino/cases.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 199, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1937, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1325, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 2383, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+                                   ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 2547, in prefetch_one_level
+    ) = prefetcher.get_prefetch_querysets(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 797, in get_prefetch_querysets
+    for rel_obj in queryset:
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1935, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1622, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: casino_caseitem.name
+ERROR 2025-04-25 23:50:48,867 basehttp "GET /cases/ HTTP/1.1" 500 243239
+INFO 2025-04-25 23:50:50,917 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:51:50,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 23:52:03,836 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\models.py changed, reloading.
+INFO 2025-04-25 23:52:04,352 autoreload Watching for file changes with StatReloader
+INFO 2025-04-26 00:21:03,091 autoreload Watching for file changes with StatReloader
+INFO 2025-04-26 00:44:47,115 autoreload Watching for file changes with StatReloader
+INFO 2025-04-26 00:44:48,505 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-26 00:44:48,684 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 47814
+INFO 2025-04-26 00:44:48,691 basehttp "GET /static/casino/js/global.js HTTP/1.1" 200 3863
+INFO 2025-04-26 00:44:48,720 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+WARNING 2025-04-26 00:44:48,814 log Not Found: /favicon.ico
+WARNING 2025-04-26 00:44:48,814 basehttp "GET /favicon.ico HTTP/1.1" 404 9841
+INFO 2025-04-26 00:44:49,827 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-26 00:44:49,839 basehttp "GET /roulette/ HTTP/1.1" 200 7520
+INFO 2025-04-26 00:44:49,883 basehttp "GET /static/casino/js/roulette.js HTTP/1.1" 200 6862
+INFO 2025-04-26 00:44:49,899 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-26 00:44:50,410 basehttp "GET /slots/ HTTP/1.1" 200 2929
+INFO 2025-04-26 00:44:50,426 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-26 00:44:50,456 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 200 7137
+INFO 2025-04-26 00:44:50,478 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-26 00:44:50,860 basehttp "GET /coinflip/ HTTP/1.1" 200 2863
+INFO 2025-04-26 00:44:50,873 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-26 00:44:50,904 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 7533
+INFO 2025-04-26 00:44:50,922 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-26 00:44:51,787 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-26 00:44:51,799 basehttp "GET /cases/ HTTP/1.1" 200 6889
+INFO 2025-04-26 00:44:51,838 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 200 8286
+INFO 2025-04-26 00:44:51,851 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-26 00:44:52,988 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 00:44:53,001 log Not Found: /cases/null
+WARNING 2025-04-26 00:44:53,002 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 00:44:54,294 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 145
+WARNING 2025-04-26 00:44:54,308 log Not Found: /media/image
+WARNING 2025-04-26 00:44:54,308 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 00:44:59,282 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 789
+WARNING 2025-04-26 00:44:59,296 log Not Found: /cases/null
+WARNING 2025-04-26 00:44:59,296 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 00:45:00,373 basehttp "POST /api/open_case/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 145
+WARNING 2025-04-26 00:45:00,387 log Not Found: /media/image
+WARNING 2025-04-26 00:45:00,388 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 00:45:03,874 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 789
+WARNING 2025-04-26 00:45:03,891 log Not Found: /cases/null
+WARNING 2025-04-26 00:45:03,892 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 00:45:04,401 basehttp "POST /api/open_case/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 146
+WARNING 2025-04-26 00:45:04,414 log Not Found: /media/image
+WARNING 2025-04-26 00:45:04,415 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 00:45:07,369 basehttp "GET /api/get_case_details/a3f939fb-c462-44c3-a11d-18b57a808d1b/ HTTP/1.1" 200 778
+WARNING 2025-04-26 00:45:07,382 log Not Found: /cases/null
+WARNING 2025-04-26 00:45:07,382 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 00:45:08,496 basehttp "POST /api/open_case/a3f939fb-c462-44c3-a11d-18b57a808d1b/ HTTP/1.1" 200 148
+WARNING 2025-04-26 00:45:08,510 log Not Found: /media/image
+WARNING 2025-04-26 00:45:08,510 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 00:45:21,898 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:45:51,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:46:21,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:46:47,155 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:46:47,173 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-26 00:46:47,222 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:46:48,286 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:46:48,318 basehttp "GET /profile/ HTTP/1.1" 200 3303
+INFO 2025-04-26 00:46:48,355 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:46:49,735 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:46:49,741 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-26 00:46:49,779 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:46:52,203 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:46:52,218 basehttp "GET /bets/ HTTP/1.1" 200 7193
+INFO 2025-04-26 00:46:52,264 basehttp "GET /static/casino/js/bets.js HTTP/1.1" 200 8463
+INFO 2025-04-26 00:46:52,365 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:46:54,420 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:46:54,429 basehttp "GET /cases/ HTTP/1.1" 200 6890
+INFO 2025-04-26 00:46:54,473 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:46:57,660 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 00:46:57,673 log Not Found: /cases/null
+WARNING 2025-04-26 00:46:57,673 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 00:47:00,162 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 146
+WARNING 2025-04-26 00:47:00,175 log Not Found: /media/image
+WARNING 2025-04-26 00:47:00,176 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 00:47:04,953 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 789
+WARNING 2025-04-26 00:47:04,967 log Not Found: /cases/null
+WARNING 2025-04-26 00:47:04,967 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 00:47:06,609 basehttp "POST /api/open_case/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 147
+WARNING 2025-04-26 00:47:06,627 log Not Found: /media/image
+WARNING 2025-04-26 00:47:06,627 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 00:47:09,126 basehttp "GET /api/get_case_details/a3f939fb-c462-44c3-a11d-18b57a808d1b/ HTTP/1.1" 200 778
+WARNING 2025-04-26 00:47:09,140 log Not Found: /cases/null
+WARNING 2025-04-26 00:47:09,141 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 00:47:09,815 basehttp "POST /api/open_case/a3f939fb-c462-44c3-a11d-18b57a808d1b/ HTTP/1.1" 200 146
+WARNING 2025-04-26 00:47:09,829 log Not Found: /media/image
+WARNING 2025-04-26 00:47:09,829 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 00:47:11,712 basehttp "GET /api/get_case_details/a3f939fb-c462-44c3-a11d-18b57a808d1b/ HTTP/1.1" 200 778
+WARNING 2025-04-26 00:47:11,725 log Not Found: /cases/null
+WARNING 2025-04-26 00:47:11,725 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 00:47:12,462 basehttp "POST /api/open_case/a3f939fb-c462-44c3-a11d-18b57a808d1b/ HTTP/1.1" 200 146
+WARNING 2025-04-26 00:47:12,475 log Not Found: /media/image
+WARNING 2025-04-26 00:47:12,475 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 00:47:13,929 basehttp "GET /api/get_case_details/0e97bf5c-5b66-448d-9e76-df5ae8d3b2c2/ HTTP/1.1" 200 788
+WARNING 2025-04-26 00:47:13,942 log Not Found: /cases/null
+WARNING 2025-04-26 00:47:13,942 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 00:47:14,632 basehttp "POST /api/open_case/0e97bf5c-5b66-448d-9e76-df5ae8d3b2c2/ HTTP/1.1" 200 147
+WARNING 2025-04-26 00:47:14,647 log Not Found: /media/image
+WARNING 2025-04-26 00:47:14,647 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 00:47:24,896 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:47:54,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:48:24,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:48:54,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:49:24,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:49:54,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36

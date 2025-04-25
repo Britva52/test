@@ -4,57 +4,94 @@
 {% block content %}
 <div class="bets-container">
     <div class="bets-header">
-        <h1>🏟️ Спортивные ставки</h1>
-        <div class="balance-panel">
-            <span class="balance-amount">{{ user.balance|default:"100.00" }}$</span>
-            <button class="add-funds-btn" onclick="Casino.addFunds()">+ Пополнить</button>
-        </div>
+        <h1>СПОРТИВНЫЕ СТАВКИ</h1>
     </div>
 
-    <div class="bets-content">
-        <div class="bet-slips">
-            <div class="bet-slip">
-                <h3>КУПОН СТАВОК</h3>
-                <div class="selected-bets"></div>
-                <div class="bet-controls">
-                    <input type="number" class="bet-amount" placeholder="Сумма ставки" min="1" value="10">
-                    <div class="potential-win">
-                        Возможный выигрыш: <span class="win-amount">0$</span>
+    <div class="bets-layout">
+        <div class="events-section">
+            <h2>Доступные события</h2>
+
+            <div class="events-list">
+                {% for event in events %}
+                <div class="event-card" data-event-id="{{ event.id }}">
+                    <div class="event-header">
+                        <h3>{{ event.team1 }} vs {{ event.team2 }}</h3>
+                        <div class="event-time">{{ event.start_time|date:"d.m.Y H:i" }}</div>
                     </div>
-                    <button class="place-bet-btn">СДЕЛАТЬ СТАВКУ</button>
+
+                    <div class="event-odds">
+                        {% for odd in event.odds.all %}
+                        <div class="outcome-option" data-outcome="{{ odd.outcome }}">
+                            <span class="outcome-name">{{ odd.get_outcome_display }}</span>
+                            <span class="outcome-odd">{{ odd.odd }}</span>
+                            <button class="place-bet-btn" data-odd-id="{{ odd.id }}">
+                                Ставка
+                            </button>
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
+                {% empty %}
+                <div class="no-events">Нет доступных событий</div>
+                {% endfor %}
             </div>
         </div>
 
-        <div class="live-events">
-            {% for event in events %}
-            <div class="event-card">
-                <div class="event-header">
-                    <span class="sport-icon">⚽</span>
-                    <div class="event-teams">
-                        <div class="team">{{ event.team1 }}</div>
-                        <div class="vs">VS</div>
-                        <div class="team">{{ event.team2 }}</div>
-                    </div>
-                    <div class="event-time">{{ event.time }}</div>
+        <div class="bet-slip-section">
+            <h2>Купон ставок</h2>
+            <div class="bet-slip">
+                <div class="selected-bets" id="selectedBets">
+                    <!-- Здесь будут отображаться выбранные ставки -->
                 </div>
 
-                <div class="event-odds">
-                    <div class="odds-column">
-                        <button class="odds-btn" data-outcome="win1" data-odds="{{ event.win1_odds }}">
-                            П1 {{ event.win1_odds }}
-                        </button>
-                        <button class="odds-btn" data-outcome="draw" data-odds="{{ event.draw_odds }}">
-                            Н {{ event.draw_odds }}
-                        </button>
-                        <button class="odds-btn" data-outcome="win2" data-odds="{{ event.win2_odds }}">
-                            П2 {{ event.win2_odds }}
-                        </button>
+                <div class="bet-controls">
+                    <input type="number" class="bet-amount-input" id="betAmount" value="10" min="1" step="1">
+                    <div class="potential-win">
+                        Потенциальный выигрыш: <span id="potentialWin">0</span>$
                     </div>
+                    <button class="place-bet-btn" id="placeBetBtn">Сделать ставку</button>
                 </div>
             </div>
-            {% endfor %}
+
+            <div class="bets-history">
+                <h3>История ставок</h3>
+                <div class="bets-list">
+                    {% for bet in user_bets %}
+                    <div class="bet-item {{ bet.outcome }}">
+                        <div class="bet-event">{{ bet.event.team1 }} vs {{ bet.event.team2 }}</div>
+                        <div class="bet-outcome">{{ bet.odd.get_outcome_display }} ({{ bet.odd.odd }})</div>
+                        <div class="bet-amount">{{ bet.amount }}$</div>
+                        <div class="bet-result">
+                            {% if bet.outcome == 'win' %}
+                            +{{ bet.potential_win }}$
+                            {% elif bet.outcome == 'lose' %}
+                            -{{ bet.amount }}$
+                            {% else %}
+                            В обработке
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="no-bets">У вас пока нет ставок</div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
 </div>
-{%
+
+<!-- Модальное окно с результатом ставки -->
+<div id="betResultModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="result-content" id="betResultContent">
+            <!-- Содержимое будет добавлено динамически -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'casino/js/bets.js' %}"></script>
+{% endblock %}

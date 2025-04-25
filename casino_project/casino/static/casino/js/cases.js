@@ -1,202 +1,168 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Элементы интерфейса
-    const caseCards = document.querySelectorAll('.case-card');
-    const openingModal = document.getElementById('caseOpeningModal');
-    const rouletteTrack = document.getElementById('rouletteTrack');
-    const spinBtn = document.getElementById('spinRoulette');
-    const prizeDisplay = document.getElementById('prizeDisplay');
-
-    // Переменные состояния
+    const caseModal = document.getElementById('caseInfoModal');
+    const resultModal = document.getElementById('caseResultModal');
+    const openCaseBtns = document.querySelectorAll('.open-case-btn');
+    const openCaseModalBtn = document.getElementById('openCaseBtn');
+    const continueBtn = document.getElementById('continueBtn');
+    const closeModalBtn = document.querySelector('.close-modal');
     let currentCase = null;
-    let isSpinning = false;
-    let spinAnimation = null;
+
+    // Открытие модального окна с информацией о кейсе
+    openCaseBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const caseId = this.dataset.caseId;
+            fetch(`/api/get_case_details/${caseId}/`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        currentCase = data.case;
+                        displayCaseInfo(data);
+                        caseModal.style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showError('Ошибка загрузки кейса');
+                });
+        });
+    });
+
+    // Отображение информации о кейсе
+    function displayCaseInfo(data) {
+        document.getElementById('modalCaseName').textContent = data.case.name;
+        document.getElementById('modalCasePrice').textContent = `${data.case.price}$`;
+        document.getElementById('modalCaseImage').src = data.case.image;
+
+        const itemsContainer = document.getElementById('caseItemsContainer');
+        itemsContainer.innerHTML = '';
+
+        // Группируем предметы по редкости
+        const itemsByRarity = {};
+        data.items.forEach(item => {
+            if (!itemsByRarity[item.rarity]) {
+                itemsByRarity[item.rarity] = [];
+            }
+            itemsByRarity[item.rarity].push(item);
+        });
+
+        // Сортируем по редкости (от обычных к легендарным)
+        const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary'];
+
+        rarityOrder.forEach(rarity => {
+            if (itemsByRarity[rarity]) {
+                const rarityGroup = document.createElement('div');
+                rarityGroup.className = `rarity-group ${rarity}`;
+
+                const rarityTitle = document.createElement('h3');
+                rarityTitle.className = 'rarity-title';
+                rarityTitle.textContent = getRarityName(rarity);
+                rarityGroup.appendChild(rarityTitle);
+
+                const itemsList = document.createElement('div');
+                itemsList.className = 'items-list';
+
+                itemsByRarity[rarity].forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'case-item';
+                    itemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="item-image">
+                        <div class="item-info">
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-value">${item.value}$</div>
+                            <div class="item-probability">${(item.probability * 100).toFixed(2)}%</div>
+                        </div>
+                    `;
+                    itemsList.appendChild(itemElement);
+                });
+
+                rarityGroup.appendChild(itemsList);
+                itemsContainer.appendChild(rarityGroup);
+            }
+        });
+    }
 
     // Открытие кейса
-    caseCards.forEach(card => {
-        card.addEventListener('click', async function(e) {
-            if (!e.target.classList.contains('open-case-btn') && !e.target.closest('.open-case-btn')) return;
+    openCaseModalBtn.addEventListener('click', function() {
+        if (!currentCase) return;
 
-            const caseId = this.dataset.caseId;
-            const casePrice = parseFloat(this.querySelector('.open-case-btn').textContent.match(/\d+/)[0]);
-            const balance = parseFloat(document.querySelector('.balance-amount').textContent);
+        const balance = parseFloat(document.querySelector('.balance-amount').textContent);
+        if (balance < currentCase.price) {
+            showError('Недостаточно средств!');
+            return;
+        }
 
-            // Проверка баланса
-            if (balance < casePrice) {
-                showMessage('Недостаточно средств!', 'error');
-                return;
-            }
+        // Блокируем кнопку на время открытия
+        openCaseModalBtn.disabled = true;
+        openCaseModalBtn.innerHTML = '<div class="spinner"></div>';
 
-            // Загрузка данных кейса
-            try {
-                const response = await fetch(`/api/get_case/${caseId}/`);
-                if (!response.ok) throw new Error('Ошибка загрузки кейса');
-
-                currentCase = await response.json();
-                setupRoulette(currentCase.items);
-
-                // Показываем модальное окно
-                document.getElementById('openingCaseImage').src = currentCase.image || '';
-                openingModal.style.display = 'flex';
-            } catch (error) {
-                console.error('Error:', error);
-                showMessage('Ошибка загрузки кейса', 'error');
-            }
-        });
-    });
-
-    // Крутим рулетку
-    spinBtn.addEventListener('click', async function() {
-        if (isSpinning || !currentCase) return;
-
-        const casePrice = parseFloat(document.querySelector('.open-case-btn').textContent.match(/\d+/)[0]);
-        isSpinning = true;
-        spinBtn.disabled = true;
-
-        try {
-            // Отправляем запрос на сервер
-            const response = await fetch(`/api/open_case/${currentCase.id}/`, {
-                method: 'POST',
-                headers: {
-                    'X-CSRFToken': getCookie('csrftoken'),
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({})
-            });
-
-            if (!response.ok) throw new Error('Ошибка сервера');
-            const data = await response.json();
-
+        fetch(`/api/open_case/${currentCase.id}/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+                'Content-Type': 'application/json'
+            },
+            credentials: 'same-origin'
+        })
+        .then(response => response.json())
+        .then(data => {
             if (data.success) {
-                // Запускаем анимацию рулетки
-                await spinRouletteAnimation(data.prize);
-
-                // Показываем выигранный предмет
-                showPrize(data.prize, data.new_balance);
-
-                // Обновляем баланс
-                document.querySelector('.balance-amount').textContent = data.new_balance + '$';
+                caseModal.style.display = 'none';
+                displayResult(data);
             } else {
-                throw new Error(data.error || 'Ошибка при открытии');
+                showError(data.error || 'Ошибка при открытии кейса');
             }
-        } catch (error) {
+        })
+        .catch(error => {
             console.error('Error:', error);
-            showMessage(error.message, 'error');
-        } finally {
-            isSpinning = false;
-            spinBtn.disabled = false;
-        }
+            showError('Ошибка при открытии кейса');
+        })
+        .finally(() => {
+            openCaseModalBtn.disabled = false;
+            openCaseModalBtn.textContent = 'ОТКРЫТЬ КЕЙС';
+        });
     });
 
-    // Настройка рулетки
-    function setupRoulette(items) {
-        rouletteTrack.innerHTML = '';
+    // Отображение результата
+    function displayResult(data) {
+        const prize = data.prize;
+        document.getElementById('prizeImage').src = prize.image || '/static/casino/images/default_prize.png';
+        document.getElementById('prizeName').textContent = prize.name;
+        document.getElementById('prizeValue').textContent = `${prize.value}${prize.currency}`;
+        document.getElementById('newBalance').textContent = `Баланс: ${data.new_balance}$`;
 
-        // Добавляем элементы (3 цикла для плавности)
-        for (let i = 0; i < 3; i++) {
-            items.forEach(item => {
-                const itemElement = document.createElement('div');
-                itemElement.className = `roulette-item ${item.rarity}`;
-                itemElement.innerHTML = `
-                    <img src="${item.image || '{% static 'casino/images/default_item.png' %}'}" alt="${item.name}">
-                    <div class="item-value">${item.value}$</div>
-                    <div class="item-name">${item.name}</div>
-                `;
-                rouletteTrack.appendChild(itemElement);
-            });
-        }
-    }
-
-    // Анимация вращения рулетки
-    function spinRouletteAnimation(prize) {
-        return new Promise(resolve => {
-            const items = document.querySelectorAll('.roulette-item');
-            const targetItem = Array.from(items).find(item =>
-                item.querySelector('.item-value').textContent === `${prize.value}$` &&
-                item.querySelector('.item-name').textContent === prize.name
-            );
-
-            if (!targetItem) {
-                resolve();
-                return;
-            }
-
-            // Позиционируем рулетку
-            const trackWidth = rouletteTrack.offsetWidth;
-            const itemWidth = targetItem.offsetWidth;
-            const targetPosition = -targetItem.offsetLeft + (trackWidth / 2) - (itemWidth / 2);
-
-            // Дополнительный случайный сдвиг для натуральности
-            const randomOffset = Math.random() * 100 - 50;
-
-            // Сброс анимации
-            if (spinAnimation) {
-                cancelAnimationFrame(spinAnimation);
-            }
-
-            let startTime = null;
-            const duration = 5000; // 5 секунд
-
-            const animate = (timestamp) => {
-                if (!startTime) startTime = timestamp;
-                const progress = Math.min((timestamp - startTime) / duration, 1);
-
-                // Эффект замедления
-                const easing = Math.sin(progress * Math.PI / 2);
-                const distance = targetPosition + randomOffset;
-                const currentPosition = distance * easing;
-
-                rouletteTrack.style.transform = `translateX(${currentPosition}px)`;
-
-                if (progress < 1) {
-                    spinAnimation = requestAnimationFrame(animate);
-                } else {
-                    // Точная фиксация на выигрышном предмете
-                    rouletteTrack.style.transition = 'transform 0.5s ease-out';
-                    rouletteTrack.style.transform = `translateX(${targetPosition}px)`;
-                    setTimeout(resolve, 500);
-                }
-            };
-
-            // Начальное ускорение
-            rouletteTrack.style.transition = 'none';
-            spinAnimation = requestAnimationFrame(animate);
+        // Обновляем баланс на странице
+        document.querySelectorAll('.balance-amount').forEach(el => {
+            el.textContent = data.new_balance;
         });
+
+        // Добавляем класс редкости для анимации
+        resultModal.className = `modal ${prize.rarity}`;
+        resultModal.style.display = 'block';
+
+        // Анимация выигрыша
+        const prizeContainer = resultModal.querySelector('.prize-body');
+        prizeContainer.classList.add('win-animation');
     }
 
-    // Показ выигранного предмета
-    function showPrize(prize, newBalance) {
-        prizeDisplay.innerHTML = `
-            <div class="prize-item ${prize.rarity}">
-                <img src="${prize.image || '{% static 'casino/images/default_item.png' %}'}" alt="${prize.name}">
-                <div class="prize-info">
-                    <div class="prize-name">${prize.name}</div>
-                    <div class="prize-value">${prize.value}$</div>
-                    <div class="new-balance">Новый баланс: ${newBalance}$</div>
-                </div>
-            </div>
-        `;
-    }
+    // Закрытие модальных окон
+    [closeModalBtn, continueBtn].forEach(btn => {
+        btn.addEventListener('click', function() {
+            caseModal.style.display = 'none';
+            resultModal.style.display = 'none';
+        });
+    });
 
-    // Закрытие модального окна
-    document.querySelector('.modal-overlay').addEventListener('click', closeModal);
-
-    function closeModal() {
-        openingModal.style.display = 'none';
-        if (spinAnimation) {
-            cancelAnimationFrame(spinAnimation);
+    // Закрытие при клике вне модального окна
+    window.addEventListener('click', function(event) {
+        if (event.target === caseModal) {
+            caseModal.style.display = 'none';
         }
-    }
+        if (event.target === resultModal) {
+            resultModal.style.display = 'none';
+        }
+    });
 
     // Вспомогательные функции
-    function showMessage(text, type) {
-        const msg = document.createElement('div');
-        msg.className = `message ${type}`;
-        msg.textContent = text;
-        document.body.appendChild(msg);
-
-        setTimeout(() => msg.remove(), 3000);
-    }
-
     function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -210,5 +176,27 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         return cookieValue;
+    }
+
+    function getRarityName(rarity) {
+        const names = {
+            'common': 'Обычные',
+            'uncommon': 'Необычные',
+            'rare': 'Редкие',
+            'epic': 'Эпические',
+            'legendary': 'Легендарные'
+        };
+        return names[rarity] || rarity;
+    }
+
+    function showError(message) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = message;
+        document.body.appendChild(errorDiv);
+
+        setTimeout(() => {
+            errorDiv.remove();
+        }, 3000);
     }
 });

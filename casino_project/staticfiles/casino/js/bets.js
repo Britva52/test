@@ -1,126 +1,208 @@
-document.addEventListener('DOMContentLoaded', () => {
-    class BetSystem {
-        constructor() {
-            this.selectedBets = [];
-            this.betSlip = document.querySelector('.selected-bets');
-            this.winAmount = document.querySelector('.win-amount');
-            this.initEvents();
-        }
+document.addEventListener('DOMContentLoaded', function() {
+    const selectedBets = [];
+    const selectedBetsContainer = document.getElementById('selectedBets');
+    const betAmountInput = document.getElementById('betAmount');
+    const potentialWinSpan = document.getElementById('potentialWin');
+    const placeBetBtn = document.getElementById('placeBetBtn');
+    const betResultModal = document.getElementById('betResultModal');
+    const betResultContent = document.getElementById('betResultContent');
 
-        initEvents() {
-            document.querySelectorAll('.odds-btn').forEach(btn => {
-                btn.addEventListener('click', () => this.addToBetSlip(btn));
-            });
+    // Обработчики для кнопок "Ставка"
+    document.querySelectorAll('.place-bet-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const oddId = this.dataset.oddId;
+            const eventCard = this.closest('.event-card');
+            const outcomeOption = this.closest('.outcome-option');
 
-            document.querySelector('.place-bet-btn').addEventListener('click', async () => {
-                if(this.selectedBets.length === 0) return;
-
-                const amount = parseFloat(document.querySelector('.bet-amount').value);
-                if (!await this.checkBalance(amount)) return;
-
-                try {
-                    const response = await this.placeBet(amount);
-                    if(response.success) {
-                        this.showResult(response);
-                        this.clearBetSlip();
-                    }
-                } catch(error) {
-                    console.error('Error:', error);
-                }
-            });
-        }
-
-        addToBetSlip(btn) {
-            const eventCard = btn.closest('.event-card');
-            const bet = {
-                eventId: eventCard.dataset.eventId,
-                teams: eventCard.querySelector('.event-teams').textContent,
-                outcome: btn.dataset.outcome,
-                odds: parseFloat(btn.dataset.odds)
-            };
-
-            this.selectedBets.push(bet);
-            this.updateBetSlip();
-        }
-
-        updateBetSlip() {
-            this.betSlip.innerHTML = this.selectedBets.map((bet, index) => `
-                <div class="bet-item">
-                    <div class="bet-teams">${bet.teams}</div>
-                    <div class="bet-outcome">${this.getOutcomeName(bet.outcome)}</div>
-                    <div class="bet-odds">${bet.odds.toFixed(2)}</div>
-                    <button class="remove-bet" data-index="${index}">×</button>
-                </div>
-            `).join('');
-
-            this.calculatePotentialWin();
-            this.initRemoveButtons();
-        }
-
-        async checkBalance(amount) {
-            const response = await fetch('/api/get_balance/');
-            const data = await response.json();
-            if(data.balance < amount) {
-                alert('Недостаточно средств!');
-                return false;
+            // Проверяем, не добавлена ли уже эта ставка
+            if (selectedBets.some(bet => bet.oddId === oddId)) {
+                alert('Эта ставка уже добавлена в купон');
+                return;
             }
-            return true;
-        }
 
-        async placeBet(amount) {
-            const response = await fetch('/api/place_bet/sport/', {
-                method: 'POST',
-                headers: {
-                    'X-CSRFToken': Casino.getCookie('csrftoken'),
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    bets: this.selectedBets,
-                    amount: amount
-                })
-            });
-            return response.json();
-        }
-
-        calculatePotentialWin() {
-            const amount = parseFloat(document.querySelector('.bet-amount').value) || 0;
-            const totalOdds = this.selectedBets.reduce((acc, bet) => acc * bet.odds, 1);
-            this.winAmount.textContent = `${(amount * totalOdds).toFixed(2)}$`;
-        }
-
-        getOutcomeName(outcome) {
-            const outcomes = {
-                'win1': 'Победа 1',
-                'win2': 'Победа 2',
-                'draw': 'Ничья'
+            // Собираем данные о ставке
+            const betData = {
+                oddId: oddId,
+                eventId: eventCard.dataset.eventId,
+                teams: eventCard.querySelector('h3').textContent,
+                outcome: outcomeOption.dataset.outcome,
+                outcomeName: outcomeOption.querySelector('.outcome-name').textContent,
+                odd: parseFloat(outcomeOption.querySelector('.outcome-odd').textContent)
             };
-            return outcomes[outcome];
+
+            // Добавляем ставку в список
+            selectedBets.push(betData);
+            updateBetSlip();
+        });
+    });
+
+    // Обновление купона ставок
+    function updateBetSlip() {
+        selectedBetsContainer.innerHTML = '';
+
+        if (selectedBets.length === 0) {
+            selectedBetsContainer.innerHTML = '<div class="no-bets">Добавьте ставки из списка событий</div>';
+            potentialWinSpan.textContent = '0';
+            placeBetBtn.disabled = true;
+            return;
         }
 
-        showResult(response) {
-            const resultDiv = document.createElement('div');
-            resultDiv.className = response.success ? 'bet-success' : 'bet-error';
-            resultDiv.textContent = response.message;
-            document.body.appendChild(resultDiv);
+        placeBetBtn.disabled = false;
 
-            setTimeout(() => resultDiv.remove(), 3000);
-        }
+        selectedBets.forEach((bet, index) => {
+            const betElement = document.createElement('div');
+            betElement.className = 'selected-bet';
+            betElement.innerHTML = `
+                <div class="bet-info">
+                    <div class="bet-teams">${bet.teams}</div>
+                    <div class="bet-outcome">${bet.outcomeName} (${bet.odd})</div>
+                </div>
+                <button class="remove-bet-btn" data-index="${index}">×</button>
+            `;
+            selectedBetsContainer.appendChild(betElement);
+        });
 
-        initRemoveButtons() {
-            document.querySelectorAll('.remove-bet').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const index = e.target.dataset.index;
-                    this.selectedBets.splice(index, 1);
-                    this.updateBetSlip();
-                });
+        // Добавляем обработчики для кнопок удаления
+        document.querySelectorAll('.remove-bet-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const index = parseInt(this.dataset.index);
+                selectedBets.splice(index, 1);
+                updateBetSlip();
             });
-        }
+        });
 
-        clearBetSlip() {
-            this.selectedBets = [];
-            this.updateBetSlip();
-        }
+        // Рассчитываем потенциальный выигрыш
+        calculatePotentialWin();
     }
 
-    new BetSystem();
+    // Расчет потенциального выигрыша
+    function calculatePotentialWin() {
+        const betAmount = parseFloat(betAmountInput.value) || 0;
+        const totalOdds = selectedBets.reduce((acc, bet) => acc * bet.odd, 1);
+        const potentialWin = betAmount * totalOdds;
+
+        potentialWinSpan.textContent = potentialWin.toFixed(2);
+    }
+
+    // Обработчик изменения суммы ставки
+    betAmountInput.addEventListener('input', calculatePotentialWin);
+
+    // Обработчик для кнопки "Сделать ставку"
+    placeBetBtn.addEventListener('click', function() {
+        const betAmount = parseFloat(betAmountInput.value);
+
+        if (isNaN(betAmount) {
+            showBetResult(false, 'Введите корректную сумму ставки');
+            return;
+        }
+
+        if (betAmount <= 0) {
+            showBetResult(false, 'Сумма ставки должна быть больше 0');
+            return;
+        }
+
+        if (selectedBets.length === 0) {
+            showBetResult(false, 'Добавьте хотя бы одну ставку');
+            return;
+        }
+
+        // Проверяем баланс
+        const balance = parseFloat(document.querySelector('.balance-amount').textContent);
+        if (balance < betAmount) {
+            showBetResult(false, 'Недостаточно средств на балансе');
+            return;
+        }
+
+        // Отправляем ставку на сервер
+        placeBet(betAmount);
+    });
+
+    // Отправка ставки на сервер
+    function placeBet(amount) {
+        const betData = {
+            amount: amount,
+            odds: selectedBets.map(bet => ({
+                odd_id: bet.oddId,
+                outcome: bet.outcome
+            }))
+        };
+
+        fetch('/api/place_sport_bet/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')
+            },
+            body: JSON.stringify(betData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Обновляем баланс
+                document.querySelector('.balance-amount').textContent = data.new_balance.toFixed(2);
+
+                // Показываем результат
+                if (data.outcome === 'win') {
+                    showBetResult(true, `Поздравляем! Вы выиграли ${data.win_amount}$`);
+                } else {
+                    showBetResult(false, 'К сожалению, ставка не сыграла');
+                }
+
+                // Очищаем купон
+                selectedBets.length = 0;
+                updateBetSlip();
+
+                // Можно обновить историю ставок
+                setTimeout(() => location.reload(), 2000);
+            } else {
+                showBetResult(false, data.error || 'Ошибка при размещении ставки');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showBetResult(false, 'Ошибка соединения с сервером');
+        });
+    }
+
+    // Показать результат ставки
+    function showBetResult(success, message) {
+        betResultContent.innerHTML = `
+            <h3>${success ? 'Успех!' : 'Ошибка'}</h3>
+            <p>${message}</p>
+            <button class="close-result-btn">OK</button>
+        `;
+
+        betResultModal.style.display = 'block';
+
+        // Обработчик для кнопки закрытия
+        document.querySelector('.close-result-btn')?.addEventListener('click', () => {
+            betResultModal.style.display = 'none';
+        });
+    }
+
+    // Закрытие модального окна при клике вне его
+    window.addEventListener('click', (event) => {
+        if (event.target === betResultModal || event.target.classList.contains('close-modal')) {
+            betResultModal.style.display = 'none';
+        }
+    });
+
+    // Вспомогательная функция для получения CSRF токена
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    // Инициализация
+    updateBetSlip();
 });
