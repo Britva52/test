@@ -27,12 +27,12 @@
             </div>
 
             <div class="outside-bets">
-                <button class="bet-btn red-btn" data-type="color" data-value="red">Красное (x2)</button>
-                <button class="bet-btn black-btn" data-type="color" data-value="black">Чёрное (x2)</button>
-                <button class="bet-btn even-btn" data-type="parity" data-value="even">Чёт (x2)</button>
-                <button class="bet-btn odd-btn" data-type="parity" data-value="odd">Нечёт (x2)</button>
-                <button class="bet-btn low-btn" data-type="range" data-value="1-18">1-18 (x2)</button>
-                <button class="bet-btn high-btn" data-type="range" data-value="19-36">19-36 (x2)</button>
+                <button class="bet-btn red-btn" data-type="color" data-value="red">Красные</button>
+                <button class="bet-btn black-btn" data-type="color" data-value="black">Чёрные</button>
+                <button class="bet-btn even-btn" data-type="parity" data-value="even">Чётные</button>
+                <button class="bet-btn odd-btn" data-type="parity" data-value="odd">Нечётные</button>
+                <button class="bet-btn low-btn" data-type="range" data-value="1-18">1-18</button>
+                <button class="bet-btn high-btn" data-type="range" data-value="19-36">19-36</button>
             </div>
         </div>
     </div>
@@ -46,8 +46,9 @@
 
 <script src="{% static 'casino/js/roulette.js' %}"></script>
 
+
+
 {% elif game == 'slots' %}
-<!-- СЛОТЫ -->
 <div class="slots-machine">
     <div class="slots-reels">
         <div class="slot-reel" id="reel1" data-symbol="🍒">🍒</div>
@@ -62,8 +63,9 @@
 </div>
 <script src="{% static 'casino/js/slots.js' %}"></script>
 
+
+
 {% elif game == 'coinflip' %}
-<!-- МОНЕТКА -->
 <div class="coinflip-container">
     <div class="coin">
       <div class="coin-front">О</div>
@@ -78,8 +80,9 @@
 </div>
 <script src="{% static 'casino/js/coinflip.js' %}"></script>
 
+
+
 {% elif game == 'bets' %}
-<!-- СТАВКИ НА СПОРТ -->
 <div class="bets-container">
     <p>Выберите событие:</p>
     <select class="match-select">
@@ -92,8 +95,9 @@
 </div>
 <script src="{% static 'casino/js/bets.js' %}"></script>
 
+
+
 {% elif game == 'cases' %}
-<!-- КЕЙСЫ -->
 <div class="cases-container">
     <div class="cases-grid">
         {% for case in cases %}

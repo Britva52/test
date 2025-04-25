@@ -24,7 +24,6 @@
     box-sizing: border-box;
 }
 
-/* ===== Основной стиль ===== */
 body {
   background-color: var(--black);
   color: var(--white);
@@ -40,7 +39,6 @@ body {
     margin: 0 auto;
 }
 
-/* ===== Верхнее меню ===== */
 header {
   background: linear-gradient(90deg, #000, #1a1a1a);
   padding: 20px 40px;
@@ -145,7 +143,6 @@ nav ul li a {
     min-height: 70vh;
 }
 
-/* Основной контейнер */
 .roulette-game-container {
     display: flex;
     max-width: 1200px;
@@ -153,7 +150,6 @@ nav ul li a {
     gap: 30px;
 }
 
-/* Стили для секции "История казино" */
 .about-section {
     background-color: var(--gray);
     padding: 30px;
@@ -191,7 +187,6 @@ nav ul li a {
     font-family: 'Gill Sans', sans-serif;
 }
 
-/* Числа */
 .numbers {
   display: flex;
   flex-wrap: wrap;
@@ -229,7 +224,6 @@ nav ul li a {
     gap: 5px;
 }
 
-/* ===== Ставки ===== */
 .numbers-grid {
   display: flex;
   flex-wrap: wrap;
@@ -303,7 +297,6 @@ nav ul li a {
     gap: 10px;
 }
 
-/* ===== Рулетка ===== */
 .wheel-container {
     position: relative;
     width: 350px;
@@ -385,15 +378,15 @@ nav ul li a {
 }
 
 .wheel-sector:nth-child(odd) {
-    background: #E74C3C; /* Красный */
+    background: #E74C3C;
 }
 
 .wheel-sector:nth-child(even) {
-    background: #121212; /* Черный */
+    background: #121212;
 }
 
 .wheel-sector:first-child {
-    background: #0a5c36; /* Зеленый для 0 */
+    background: #0a5c36;
 }
 
 .wheel-pointer {
@@ -468,7 +461,6 @@ nav ul li a {
     display: none;
 }
 
-/* Game cards */
 
 .game-area {
     display: flex;
@@ -551,7 +543,6 @@ nav ul li a {
     background-color: var(--light-gold);
 }
 
-/* Кнопки */
 .btn {
     padding: 10px 20px;
     border: none;
@@ -583,7 +574,6 @@ nav ul li a {
   background: #f9d423;
 }
 
-/* Кнопка Spin */
 .spin-button {
   background: gold;
   color: black;
@@ -691,7 +681,6 @@ nav ul li a {
     border-color: #F9D423;
 }
 
-/* ===== Управление ===== */
 .control-panel {
     display: flex;
     gap: 10px;
@@ -722,7 +711,6 @@ nav ul li a {
   transition: all 0.2s;
 }
 
-/* Game specific styles */
 .game-container {
     background: var(--gray);
     border-radius: 10px;
@@ -770,13 +758,29 @@ nav ul li a {
     box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
 }
 
-/* Ставки */
 .bet-controls {
     display: flex;
     flex-direction: column;
     gap: 15px;
     width: 100%;
     max-width: 300px;
+}
+
+.place-bet-btn {
+    background: var(--gold);
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.place-bet-btn:hover {
+    background: #f9d423;
 }
 
 .bet-amount {
@@ -831,33 +835,43 @@ nav ul li a {
 .outcome-btn {
     flex: 1;
     min-width: 120px;
-    padding: 8px 12px;
+    padding: 10px;
     background: #333;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    text-align: center;
+    transition: all 0.3s;
+}
+
+.outcome-btn:hover {
+    background: #444;
 }
 
 .outcome-btn.active {
-    background: #D4AF37;
+    background: var(--gold);
     color: black;
+    font-weight: bold;
 }
 
 .outcomes {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
     margin-top: 10px;
 }
 
 .event-card {
-    background: #2a2a2a;
-    padding: 15px;
-    border-radius: 8px;
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+}
+
+.event-card h3 {
+    color: var(--gold);
     margin-bottom: 15px;
-    border: 1px solid #444;
 }
 
 .bet-form {
@@ -899,7 +913,6 @@ nav ul li a {
     background: var(--white);
 }
 
-/* Таблица ставок */
 .betting-table {
     background: #2a2a2a;
     border-radius: 8px;
@@ -917,7 +930,6 @@ nav ul li a {
 }
 
 
-/* Баланс */
 .balance {
   background-color: #27ae60;
   color: #fff;
@@ -961,8 +973,8 @@ nav ul li a {
 }
 
 .balance-amount {
-  font-weight: bold;
-  color: gold;
+    color: #D4AF37;
+    font-weight: bold;
 }
 
 .balance, .time {
@@ -978,7 +990,6 @@ nav ul li a {
     cursor: pointer;
 }
 
-/* Стили для колеса */
 .roulette-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -1015,7 +1026,6 @@ nav ul li a {
   height: 400px;
 }
 
-/* Основные стили рулетки */
 .roulette-container {
     background: #1c1c1c;
     border: 1px solid #f1c40f;
@@ -1060,11 +1070,10 @@ nav ul li a {
     animation: winPulse 0.5s 3;
 }
 
-/* Специальный стиль для символа 7 */
 .seven-symbol {
-    color: #e74c3c; /* Красный цвет */
+    color: #e74c3c;
     font-weight: bold;
-    font-size: 5rem; /* Чуть больше размер */
+    font-size: 5rem;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -1254,7 +1263,6 @@ nav ul li a {
     animation: flip 3s ease-out;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .nav ul {
         flex-direction: column;
@@ -1270,7 +1278,6 @@ nav ul li a {
     }
 }
 
-/* ===== Сообщения ===== */
 #message {
   margin-top: 20px;
   font-size: 18px;
@@ -1311,7 +1318,6 @@ nav ul li a {
     white-space: pre-line;
 }
 
-/* ============== PROBABILITY LIST STYLES ============== */
 .probability-list {
     text-align: left;
     margin: 25px 0;
@@ -1362,7 +1368,6 @@ nav ul li a {
     text-align: right;
 }
 
-/* Цвета для уровней редкости */
 .common .rarity-marker { background: #b0b0b0; }
 .uncommon .rarity-marker { background: #2ecc71; }
 .rare .rarity-marker { background: #3498db; }
@@ -1372,7 +1377,6 @@ nav ul li a {
     box-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
 }
 
-/* Анимация для легендарных предметов */
 .legendary {
     position: relative;
     overflow: hidden;
@@ -1400,7 +1404,6 @@ nav ul li a {
     100% { transform: translateX(100%) rotate(30deg); }
 }
 
-/* Адаптация для мобильных (добавьте в существующие медиа-запросы) */
 @media (max-width: 600px) {
     .probability-list li {
         flex-direction: column;
@@ -1413,7 +1416,6 @@ nav ul li a {
     }
 }
 
-/* Стили для модального окна выигрыша */
 .modal {
     display: none;
     position: fixed;
@@ -1427,6 +1429,14 @@ nav ul li a {
     z-index: 1000;
 }
 
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+}
 
 .modal-content {
     background: #1a1a1a;
@@ -1435,6 +1445,43 @@ nav ul li a {
     text-align: center;
     border: 2px solid gold;
     max-width: 400px;
+}
+
+.case-preview {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border: 2px solid #D4AF37;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.case-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-container {
+    position: relative;
+    background: #1a1a1a;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    overflow: hidden;
+    border: 2px solid #D4AF37;
+    z-index: 1001;
+}
+
+.modal-header {
+    padding: 20px;
+    text-align: center;
+    background: #222;
+}
+
+.modal-header h2 {
+    margin: 0 0 15px 0;
+    color: #D4AF37;
 }
 
 .close-btn {
@@ -1516,7 +1563,6 @@ nav ul li a {
     }
 }
 
-/* Стили для разных редкостей */
 .prize-modal.common .prize-content {
     border-color: #b0b0b0;
 }
@@ -1540,7 +1586,16 @@ nav ul li a {
     animation: pulseGold 1s infinite;
 }
 
-/* Анимации для редкостей */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.win-animation {
+    animation: pulse 0.5s 3, winFlash 1s 3;
+}
+
 @keyframes pulseBlue {
     0% { box-shadow: 0 0 10px rgba(52, 152, 219, 0.5); }
     50% { box-shadow: 0 0 30px rgba(52, 152, 219, 0.9); }
@@ -1573,7 +1628,6 @@ nav ul li a {
     100% { transform: translateX(0); }
 }
 
-/* Подсветка текста в зависимости от редкости */
 .common-item { color: #b0b0b0; }
 .uncommon-item { color: #2ecc71; }
 .rare-item { color: #3498db; }
@@ -1588,7 +1642,6 @@ nav ul li a {
     color: white;
 }
 
-/* Стили для кейсов */
 .cases-page {
     max-width: 1200px;
     margin: 0 auto;
@@ -1607,10 +1660,13 @@ nav ul li a {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #D4AF37;
 }
 
 .cases-header h1 {
-    color: gold;
+    color: #D4AF37;
+    font-size: 2rem;
     margin: 0;
 }
 
@@ -1628,22 +1684,21 @@ nav ul li a {
 .cases-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 20px;
+    gap: 25px;
 }
 
 .case-card {
     background: #1a1a1a;
-    border: 1px solid gold;
     border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .case-card:hover {
-    border-color: gold;
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
 }
 
 .case-image-wrapper {
@@ -1664,12 +1719,38 @@ nav ul li a {
     border: 2px dashed #666;
 }
 
+.bets-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 .case-image {
     width: 100%;
-    height: 150px;
+    height: 180px;
     object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 15px;
+    border: 2px solid var(--gold);
+}
+
+.default-case-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    background: #333;
+}
+
+.case-image-container {
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.case-image, .default-case-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .case-price {
@@ -1695,6 +1776,17 @@ nav ul li a {
     width: 100%;
 }
 
+.case-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.case-name {
+    margin: 0 0 10px 0;
+    color: white;
+    font-size: 1.1rem;
+}
+
 .open-case-btn:hover:not(:disabled) {
     background: #f9d423;
     transform: translateY(-2px);
@@ -1713,22 +1805,20 @@ nav ul li a {
     margin-top: 10px;
 }
 
-/* Анимации для результатов */
 .win-flash {
     animation: winFlash 0.5s 3;
 }
 
 @keyframes winFlash {
-  0% { box-shadow: 0 0 10px rgba(46, 204, 113, 0.5); }
-  50% { box-shadow: 0 0 20px rgba(46, 204, 113, 1); }
-  100% { box-shadow: 0 0 10px rgba(46, 204, 113, 0.5); }
+    0% { box-shadow: 0 0 10px rgba(46, 204, 113, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(46, 204, 113, 1); }
+    100% { box-shadow: 0 0 10px rgba(46, 204, 113, 0.5); }
 }
 
 .lose-shake {
     animation: shake 0.5s;
 }
 
-/* Анимации */
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
     25% { transform: translateX(-10px); }
@@ -1766,7 +1856,6 @@ nav ul li a {
     color: #e74c3c;
 }
 
-/* Рулетка */
 .roulette-container {
     max-width: 1000px;
     margin: 20px auto;
@@ -1862,10 +1951,10 @@ nav ul li a {
 
 .bet-btn.red-btn { background: #E74C3C; color: white; }
 .bet-btn.black-btn { background: #111; color: white; }
-.bet-btn.even-btn { background: #3498db; color: white; }
-.bet-btn.odd-btn { background: #9b59b6; color: white; }
-.bet-btn.low-btn { background: #2ecc71; color: white; }
-.bet-btn.high-btn { background: #e67e22; color: white; }
+.bet-btn.even-btn { background: #d3e73c; color: #111; }
+.bet-btn.odd-btn { background: #d3e73c; color: #111; }
+.bet-btn.low-btn { background: #d3e73c; color: #111; }
+.bet-btn.high-btn { background: #d3e73c; color: #111; }
 
 .control-panel {
     display: flex;
@@ -1949,7 +2038,6 @@ nav ul li a {
     cursor: not-allowed;
 }
 
-/* Coinflip Styles */
 .coinflip-container {
     max-width: 400px;
     margin: 20px auto;
@@ -2020,4 +2108,348 @@ nav ul li a {
     cursor: pointer;
     transition: transform 1s ease-out;
     transform-style: preserve-3d;
+}
+
+.close-modal {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.prize-body {
+    padding: 30px;
+    text-align: center;
+}
+
+.prize-image-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px;
+    border: 2px solid #D4AF37;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.prize-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.prize-value {
+    font-size: 2.5rem;
+    color: #D4AF37;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.prize-name {
+    font-size: 1.2rem;
+}
+
+.prize-footer {
+    padding: 15px 20px;
+    background: #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new-balance {
+    font-size: 1.1rem;
+}
+
+.continue-btn {
+    background: #D4AF37;
+    color: black;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Классы редкости */
+.common .prize-header {
+    background: #b0b0b0;
+}
+.uncommon .prize-header {
+    background: #2ecc71;
+}
+.rare .prize-header {
+    background: #3498db;
+}
+.epic .prize-header {
+    background: #9b59b6;
+}
+.legendary .prize-header {
+    background: linear-gradient(to right, #D4AF37, #FFD700);
+    animation: pulseGold 1s infinite;
+}
+
+@keyframes pulseGold {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+.case.opening {
+    animation: caseOpen 1s ease-in-out;
+    transform-style: preserve-3d;
+}
+
+@keyframes caseOpen {
+    0% { transform: rotateY(0) scale(1); }
+    50% { transform: rotateY(180deg) scale(1.1); }
+    100% { transform: rotateY(360deg) scale(1); }
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #D4AF37;
+    animation: spin 1s ease-in-out infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Модальное окно с анимациями */
+.modal.common .modal-content {
+    border-color: #b0b0b0;
+    animation: pulseCommon 2s infinite;
+}
+
+.modal.uncommon .modal-content {
+    border-color: #2ecc71;
+    animation: pulseUncommon 2s infinite;
+}
+
+.modal.rare .modal-content {
+    border-color: #3498db;
+    animation: pulseRare 2s infinite;
+}
+
+.modal.epic .modal-content {
+    border-color: #9b59b6;
+    animation: pulseEpic 2s infinite;
+}
+
+.modal.legendary .modal-content {
+    border-color: #D4AF37;
+    animation: pulseLegendary 1s infinite;
+}
+
+@keyframes pulseCommon {
+    0% { box-shadow: 0 0 10px #b0b0b0; }
+    50% { box-shadow: 0 0 20px #b0b0b0; }
+    100% { box-shadow: 0 0 10px #b0b0b0; }
+}
+
+@keyframes pulseLegendary {
+    0% { box-shadow: 0 0 10px #D4AF37, 0 0 20px #D4AF37; }
+    50% { box-shadow: 0 0 20px #D4AF37, 0 0 40px #D4AF37; }
+    100% { box-shadow: 0 0 10px #D4AF37, 0 0 20px #D4AF37; }
+}
+
+/* Сообщения об ошибках */
+.error-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #e74c3c;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    z-index: 1000;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.roulette-container {
+    position: relative;
+    height: 150px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.roulette-track {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    transition-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+}
+
+.roulette-center {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: #D4AF37;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.roulette-item {
+    width: 120px;
+    height: 120px;
+    margin: 0 10px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: #222;
+}
+
+.roulette-item img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 5px;
+}
+
+.item-value {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: rgba(0,0,0,0.7);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: #D4AF37;
+}
+
+.item-name {
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+/* Классы редкости */
+.common { border-color: #b0b0b0; }
+.uncommon { border-color: #2ecc71; }
+.rare { border-color: #3498db; }
+.epic { border-color: #9b59b6; }
+.legendary {
+    border-color: #D4AF37;
+    animation: pulseGold 1s infinite;
+}
+
+@keyframes pulseGold {
+    0% { box-shadow: 0 0 5px #D4AF37; }
+    50% { box-shadow: 0 0 20px #D4AF37; }
+    100% { box-shadow: 0 0 5px #D4AF37; }
+}
+
+/* Подвал модального окна */
+.modal-footer {
+    padding: 20px;
+    text-align: center;
+    background: #222;
+}
+
+.spin-btn {
+    background: #D4AF37;
+    color: black;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.spin-btn:hover:not(:disabled) {
+    background: #F9D423;
+    transform: translateY(-2px);
+}
+
+.spin-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Отображение выигрыша */
+.prize-display {
+    margin-top: 20px;
+    min-height: 100px;
+}
+
+.prize-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: rgba(255,255,255,0.1);
+}
+
+.prize-item img {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+    object-fit: contain;
+}
+
+.prize-info {
+    text-align: left;
+}
+
+.prize-name {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.prize-value {
+    color: #D4AF37;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.new-balance {
+    margin-top: 10px;
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+/* Сообщения */
+.message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 25px;
+    border-radius: 5px;
+    z-index: 1100;
+    animation: fadeIn 0.3s;
+}
+
+.message.error {
+    background: #e74c3c;
+    color: white;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }

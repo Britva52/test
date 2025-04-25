@@ -69,14 +69,53 @@ def get_balance(request):
 
 @login_required
 def cases_view(request):
-    cases = Case.objects.all().prefetch_related('items')
-    if not cases.exists():
-        create_demo_case()
-        cases = Case.objects.all()
+    # Создаем демо-кейс если нет кейсов
+    if not Case.objects.exists():
+        case = Case.objects.create(
+            name="Золотой кейс",
+            price=100,
+            description="Шанс выиграть от 10$ до 1000$"
+        )
 
-    return render(request, 'casino/cases.html', {
-        'User': request.user,
-        'cases': cases,
+        items = [
+            ("10$", 10, 0.5, 'common'),
+            ("50$", 50, 0.3, 'uncommon'),
+            ("100$", 100, 0.15, 'rare'),
+            ("500$", 500, 0.04, 'epic'),
+            ("1000$", 1000, 0.01, 'legendary')
+        ]
+
+        for name, value, prob, rarity in items:
+            CaseItem.objects.create(
+                case=case,
+                name=name,
+                value=value,
+                probability=prob,
+                rarity=rarity
+            )
+
+    cases = Case.objects.all().prefetch_related('items')
+    return render(request, 'casino/cases.html', {'cases': cases})
+
+
+@login_required
+def get_case(request, case_id):
+    case = get_object_or_404(Case, id=case_id)
+    items = case.items.all()
+
+    return JsonResponse({
+        'id': case.id,
+        'name': case.name,
+        'image': case.image.url if case.image else None,
+        'items': [
+            {
+                'name': item.name,
+                'value': float(item.value),
+                'image': item.image.url if item.image else None,
+                'rarity': item.rarity
+            }
+            for item in items
+        ]
     })
 
 
@@ -146,40 +185,54 @@ def add_funds(request):
     return JsonResponse({'success': False, 'error': 'Invalid method'})
 
 
-# API
 @csrf_exempt
 @login_required
 def open_case(request, case_id):
     if request.method == 'POST':
         try:
-            User = request.user
+            user = request.user
             case = get_object_or_404(Case, id=case_id)
 
-            if User.balance < case.price:
-                return JsonResponse({'success': False, 'error': 'Недостаточно средств'})
+            if user.balance < case.price:
+                return JsonResponse({
+                    'success': False,
+                    'error': 'Недостаточно средств'
+                }, status=400)
 
-            User.balance -= case.price
-            prize = random.choices(
-                case.items.all(),
-                weights=[item.probability for item in case.items.all()]
-            )[0]
+            # Вычитаем стоимость
+            user.balance -= Decimal(case.price)
+            user.save()
 
-            User.balance += prize.value
-            User.save()
+            # Выбираем случайный предмет с учетом вероятностей
+            items = list(case.items.all())
+            weights = [item.probability for item in items]
+            prize = random.choices(items, weights=weights, k=1)[0]
+
+            # Зачисляем выигрыш
+            user.balance += Decimal(prize.value)
+            user.save()
 
             return JsonResponse({
                 'success': True,
-                'item': {
+                'prize': {
                     'name': prize.name,
-                    'image': prize.image.url if prize.image else '',
-                    'value': prize.value,
-                    'rarity': prize.rarity,
-                    'new_balance': User.balance
-                }
+                    'value': float(prize.value),
+                    'image': prize.image.url if prize.image else None,
+                    'rarity': prize.rarity
+                },
+                'new_balance': float(user.balance)
             })
+
         except Exception as e:
-            return JsonResponse({'success': False, 'error': str(e)})
-    return JsonResponse({'success': False, 'error': 'Invalid method'})
+            return JsonResponse({
+                'success': False,
+                'error': str(e)
+            }, status=500)
+
+    return JsonResponse({
+        'success': False,
+        'error': 'Метод не разрешен'
+    }, status=405)
 
 
 @csrf_exempt
@@ -471,20 +524,21 @@ def update_balance(request):
     return JsonResponse({'success': False, 'error': 'Invalid method'})
 
 
-# Вспомогательные функции
-def create_demo_case():
+def create_default_case():
     case = Case.objects.create(
-        name="Демо Кейс",
+        name="Золотой кейс",
         price=100,
-        description="Тестовый кейс с разными предметами"
+        description="Содержит ценные призы от 10$ до 1000$",
+        image="cases/gold_case.png"
     )
 
     items = [
         ("10$", 10, 0.5, 'common'),
-        ("50$", 50, 0.3, 'uncommon'),
-        ("100$", 100, 0.15, 'rare'),
-        ("500$", 500, 0.04, 'epic'),
-        ("1000$", 1000, 0.01, 'legendary')
+        ("25$", 25, 0.3, 'uncommon'),
+        ("50$", 50, 0.15, 'rare'),
+        ("100$", 100, 0.04, 'epic'),
+        ("500$", 500, 0.009, 'legendary'),
+        ("1000$", 1000, 0.001, 'legendary')
     ]
 
     for name, value, prob, rarity in items:
@@ -495,8 +549,6 @@ def create_demo_case():
             probability=prob,
             rarity=rarity
         )
-
-    return case
 
 
 @csrf_exempt

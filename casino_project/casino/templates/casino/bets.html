@@ -3,40 +3,58 @@
 
 {% block content %}
 <div class="bets-container">
-    <div class="game-header">
-        <h1>Ставки на спорт</h1>
+    <div class="bets-header">
+        <h1>🏟️ Спортивные ставки</h1>
+        <div class="balance-panel">
+            <span class="balance-amount">{{ user.balance|default:"100.00" }}$</span>
+            <button class="add-funds-btn" onclick="Casino.addFunds()">+ Пополнить</button>
+        </div>
     </div>
 
-    <div class="betting-area">
-        <div class="events-list">
-            <div class="event-card">
-                <h3>Футбол: Команда A vs Команда B</h3>
-                <div class="outcomes">
-                    <button class="outcome-btn" data-multiplier="1.9">Победа A (x1.9)</button>
-                    <button class="outcome-btn" data-multiplier="1.9">Победа B (x1.9)</button>
-                    <button class="outcome-btn" data-multiplier="3.5">Ничья (x3.5)</button>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <h3>Баскетбол: Lakers vs Celtics</h3>
-                <div class="outcomes">
-                    <button class="outcome-btn" data-multiplier="1.8">Lakers (x1.8)</button>
-                    <button class="outcome-btn" data-multiplier="2.0">Celtics (x2.0)</button>
+    <div class="bets-content">
+        <div class="bet-slips">
+            <div class="bet-slip">
+                <h3>КУПОН СТАВОК</h3>
+                <div class="selected-bets"></div>
+                <div class="bet-controls">
+                    <input type="number" class="bet-amount" placeholder="Сумма ставки" min="1" value="10">
+                    <div class="potential-win">
+                        Возможный выигрыш: <span class="win-amount">0$</span>
+                    </div>
+                    <button class="place-bet-btn">СДЕЛАТЬ СТАВКУ</button>
                 </div>
             </div>
         </div>
 
-        <div class="bet-controls">
-            <input type="number" class="bet-input" value="10" min="1">
-            <button class="place-bet-btn">Сделать ставку</button>
+        <div class="live-events">
+            {% for event in events %}
+            <div class="event-card">
+                <div class="event-header">
+                    <span class="sport-icon">⚽</span>
+                    <div class="event-teams">
+                        <div class="team">{{ event.team1 }}</div>
+                        <div class="vs">VS</div>
+                        <div class="team">{{ event.team2 }}</div>
+                    </div>
+                    <div class="event-time">{{ event.time }}</div>
+                </div>
+
+                <div class="event-odds">
+                    <div class="odds-column">
+                        <button class="odds-btn" data-outcome="win1" data-odds="{{ event.win1_odds }}">
+                            П1 {{ event.win1_odds }}
+                        </button>
+                        <button class="odds-btn" data-outcome="draw" data-odds="{{ event.draw_odds }}">
+                            Н {{ event.draw_odds }}
+                        </button>
+                        <button class="odds-btn" data-outcome="win2" data-odds="{{ event.win2_odds }}">
+                            П2 {{ event.win2_odds }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
-
-    <div class="message-box" id="bets-message">Выберите событие и сумму</div>
 </div>
-{% endblock %}
-
-{% block scripts %}
-<script src="{% static 'casino/js/bets.js' %}"></script>
-{% endblock %}
+{%

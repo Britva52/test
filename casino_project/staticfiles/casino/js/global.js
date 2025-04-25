@@ -1,24 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Общие функции для всех игр
     window.Casino = {
-        // Инициализация баланса при загрузке
         init: function() {
             this.syncBalance();
             window.addEventListener('beforeunload', () => this.syncBalance());
-            setInterval(() => this.syncBalance(), 30000); // Синхронизация каждые 30 сек
+            setInterval(() => this.syncBalance(), 30000);
         },
 
-        // Сохранить баланс в localStorage
         saveBalance: function(balance) {
             localStorage.setItem('casinoBalance', balance);
         },
 
-        // Получить сохраненный баланс
         getSavedBalance: function() {
             return parseFloat(localStorage.getItem('casinoBalance')) || 0;
         },
 
-        // Синхронизировать баланс с сервером
         syncBalance: async function() {
             try {
                 const response = await fetch('/api/get_balance/', {
@@ -35,13 +30,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             } catch (error) {
                 console.error('Balance sync error:', error);
-                // Используем сохраненное значение при ошибке
                 const savedBalance = this.getSavedBalance();
                 this.updateBalance(savedBalance);
             }
         },
 
-        // Отправка запроса на сервер
         sendRequest: async function(url, data) {
             try {
                 const response = await fetch(url, {
@@ -60,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
 
-        // Получение CSRF токена
         getCookie: function(name) {
             let cookieValue = null;
             if (document.cookie && document.cookie !== '') {
@@ -76,16 +68,14 @@ document.addEventListener('DOMContentLoaded', function() {
             return cookieValue;
         },
 
-        // Обновление баланса на странице
         updateBalance: function(newBalance) {
             const formatted = parseFloat(newBalance).toFixed(2) + '$';
             document.querySelectorAll('.balance-amount').forEach(el => {
                 el.textContent = formatted;
             });
-            this.saveBalance(newBalance); // Автоматически сохраняем
+            this.saveBalance(newBalance);
         },
 
-        // Показать сообщение
         showMessage: function(elementId, message, isSuccess = true) {
             const element = document.getElementById(elementId);
             if (element) {
@@ -94,14 +84,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
 
-        // Отключить кнопки на время обработки
         toggleButtons: function(disabled = true) {
             document.querySelectorAll('button').forEach(btn => {
                 btn.disabled = disabled;
             });
         },
 
-        // Проверка баланса перед ставкой
         checkBalance: function(amount) {
             const currentBalance = parseFloat(
                 document.querySelector('.balance-amount').textContent.replace('$','')
@@ -113,6 +101,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Инициализация
     Casino.init();
 });

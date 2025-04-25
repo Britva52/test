@@ -2,38 +2,57 @@
 {% load static %}
 
 {% block content %}
-<div class="cases-container">
+<div class="cases-page">
     <div class="cases-header">
-        <h1>Кейсы на деньги</h1>
+        <h1>🎁 КЕЙСЫ</h1>
+        <div class="balance-display">
+            Баланс: <span class="balance-amount">{{ user.balance|default:"100.00" }}$</span>
+        </div>
     </div>
 
     <div class="cases-grid">
         {% for case in cases %}
-        <div class="case-card">
-            {% if case.image %}
-                <img src="{{ case.image.url }}" alt="{{ case.name }}" class="case-image">
-            {% else %}
-                <img src="{% static 'casino/images/default_case.png' %}" alt="Default case image" class="case-image">
-            {% endif %}
-
-            <h3>{{ case.name }}</h3>
-            <p>{{ case.description }}</p>
-            <button class="open-case-btn" data-case-id="{{ case.id }}">
-                Открыть за <span class="case-price">{{ case.price }}</span>$
-            </button>
+        <div class="case-card" data-case-id="{{ case.id }}">
+            <div class="case-image-container">
+                {% if case.image %}
+                    <img src="{{ case.image.url }}" alt="{{ case.name }}" class="case-image">
+                {% else %}
+                    <div class="default-case-image">🎁</div>
+                {% endif %}
+            </div>
+            <div class="case-info">
+                <h3 class="case-name">{{ case.name }}</h3>
+                <button class="open-case-btn">
+                    ОТКРЫТЬ ЗА {{ case.price }}$
+                </button>
+            </div>
         </div>
         {% endfor %}
     </div>
-</div>
 
-<!-- Модальное окно выигрыша -->
-<div id="prizeModal" class="modal">
-    <div class="modal-content">
-        <h2>Поздравляем!</h2>
-        <img id="prizeImage" src="" alt="Выигрыш">
-        <p>Вы выиграли: <span id="prizeValue"></span>$</p>
-        <p>Новый баланс: <span id="newBalance"></span>$</p>
-        <button class="close-btn">Закрыть</button>
+    <!-- Окно открытия кейса -->
+    <div id="caseOpeningModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>ОТКРЫТИЕ КЕЙСА</h2>
+                <div class="case-preview">
+                    <img id="openingCaseImage" src="" alt="Case">
+                </div>
+            </div>
+
+            <div class="roulette-wrapper">
+                <div class="roulette-container">
+                    <div class="roulette-track" id="rouletteTrack"></div>
+                    <div class="roulette-center"></div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="spin-btn" id="spinRoulette">КРУТИТЬ</button>
+                <div class="prize-display" id="prizeDisplay"></div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
