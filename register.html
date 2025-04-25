@@ -1,0 +1,36 @@
+{% extends 'casino/base.html' %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-wrapper">
+        <!-- Анимированные фишки на фоне -->
+        <div class="chip chip-4"></div>
+        <div class="chip chip-5"></div>
+
+        <h1 class="auth-title">Join the Game</h1>
+        <p class="auth-subtitle">Create your account</p>
+
+        <form method="post" class="auth-form">
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                <div class="error">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <button type="submit" class="btn-gold btn-shine">
+                <span>Register Now</span>
+            </button>
+        </form>
+
+        <p class="auth-footer">
+            Already have an account? <a href="{% url 'login' %}" class="gold-link">Login</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

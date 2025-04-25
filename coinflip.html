@@ -1,0 +1,53 @@
+<!-- Добавьте этот код в coinflip.html -->
+{% extends 'casino/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="coinflip-container">
+    <h1>Монетка</h1>
+    <div class="controls">
+        <input type="number" class="bet-input" value="10" min="1">
+        <div class="buttons">
+            <button id="heads-btn" class="choice-btn" data-choice="heads">Орел</button>
+            <button id="tails-btn" class="choice-btn" data-choice="tails">Решка</button>
+        </div>
+    </div>
+
+    <div class="coin-game-area">
+        <!-- Декоративные элементы -->
+        <div class="decorative-chips"></div>
+        <div class="decorative-cards"></div>
+
+        <!-- Основная монета -->
+        <div class="coin">
+            <div class="coin-inner">
+                <div class="coin-front">
+                    <div class="coin-content">
+                        <span class="coin-symbol">О</span>
+                        <div class="coin-details">
+                            <div class="coin-ridges"></div>
+                            <div class="coin-text">CASINO ROYALE</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="coin-back">
+                    <div class="coin-content">
+                        <span class="coin-symbol">Р</span>
+                        <div class="coin-details">
+                            <div class="coin-ridges"></div>
+                            <div class="coin-text">LUCKY COIN</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="coin-edge"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="coin-message" class="message"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'casino/js/coinflip.js' %}"></script>
+{% endblock %}

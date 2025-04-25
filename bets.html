@@ -1,0 +1,71 @@
+{% extends 'casino/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="bets-container">
+    <!-- Декоративные элементы -->
+    <div class="chip" style="top: 10%; left: 5%; animation-delay: 0.5s;"></div>
+    <div class="chip" style="top: 20%; right: 8%; animation-delay: 1s;"></div>
+    <div class="chip" style="bottom: 15%; left: 10%; animation-delay: 1.5s;"></div>
+
+    <div class="card-decoration red" style="top: 5%; right: 5%; transform: rotate(15deg);">♥</div>
+    <div class="card-decoration black" style="bottom: 5%; left: 5%; transform: rotate(-15deg);">♠</div>
+
+    <div class="game-header">
+        <h1>Ставки на спорт</h1>
+        <p>Сделайте ставку на любимую команду</p>
+    </div>
+
+    <div class="betting-area">
+        <div class="events-list">
+            <div class="event-card">
+                <h3>⚽ Футбол: Команда A vs Команда B</h3>
+                <div class="outcomes">
+                    <button class="outcome-btn" data-multiplier="1.9">Победа A (x1.9)</button>
+                    <button class="outcome-btn" data-multiplier="1.9">Победа B (x1.9)</button>
+                    <button class="outcome-btn" data-multiplier="3.5">Ничья (x3.5)</button>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <h3>🏀 Баскетбол: Lakers vs Celtics</h3>
+                <div class="outcomes">
+                    <button class="outcome-btn" data-multiplier="1.8">Lakers (x1.8)</button>
+                    <button class="outcome-btn" data-multiplier="2.0">Celtics (x2.0)</button>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <h3>🎾 Теннис: Nadal vs Federer</h3>
+                <div class="outcomes">
+                    <button class="outcome-btn" data-multiplier="1.7">Nadal (x1.7)</button>
+                    <button class="outcome-btn" data-multiplier="2.1">Federer (x2.1)</button>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <h3>🏎️ Формула 1: Гран-при Монако</h3>
+                <div class="outcomes">
+                    <button class="outcome-btn" data-multiplier="2.5">Hamilton (x2.5)</button>
+                    <button class="outcome-btn" data-multiplier="3.0">Verstappen (x3.0)</button>
+                    <button class="outcome-btn" data-multiplier="4.0">Leclerc (x4.0)</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="bet-controls">
+            <input type="number" class="bet-input" placeholder="Сумма ставки" value="10" min="1">
+            <button class="place-bet-btn">
+                <span class="btn-text">Сделать ставку</span>
+                <span class="btn-icon">💰</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="message-box" id="bets-message">Выберите событие и сумму ставки</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'casino/js/bets.js' %}"></script>
+{% endblock %}
