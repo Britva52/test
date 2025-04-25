@@ -1,65 +1,66 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const betBtn = document.getElementById('place-bet');
-    const betInput = document.getElementById('bet-amount');
-    const matchSelect = document.getElementById('match');
-    const messageBox = document.getElementById('bets-message');
-    let currentBalance = parseInt(localStorage.getItem('casinoBalance')) || 1000;
+    const betInput = document.querySelector('.bets-container .bet-input');
+    const placeBetBtn = document.querySelector('.place-bet-btn');
+    const outcomeBtns = document.querySelectorAll('.outcome-btn');
+    let selectedOutcome = null;
 
-    function updateBalance() {
-        document.querySelectorAll('.balance-amount').forEach(el => {
-            el.textContent = currentBalance + '$';
+    outcomeBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            outcomeBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            selectedOutcome = {
+                element: this,
+                multiplier: parseFloat(this.dataset.multiplier)
+            };
         });
-        localStorage.setItem('casinoBalance', currentBalance);
-    }
-
-    function showMessage(msg, isWin = false) {
-        messageBox.textContent = msg;
-        messageBox.style.color = isWin ? 'green' : 'red';
-        messageBox.style.display = 'block';
-        setTimeout(() => messageBox.style.display = 'none', 3000);
-    }
-
-    betBtn.addEventListener('click', function() {
-        const betAmount = parseFloat(betInput.value);
-        const multiplier = parseFloat(matchSelect.value);
-
-        if (isNaN(betAmount) {
-            showMessage('Введите сумму ставки');
-            return;
-        }
-
-        if (betAmount <= 0) {
-            showMessage('Сумма ставки должна быть больше 0');
-            return;
-        }
-
-        if (betAmount > currentBalance) {
-            showMessage('Недостаточно средств');
-            return;
-        }
-
-        currentBalance -= betAmount;
-        updateBalance();
-
-        // Симуляция исхода события (50/50)
-        const isWin = Math.random() < 0.5;
-
-        setTimeout(() => {
-            if (isWin) {
-                const winAmount = betAmount * multiplier;
-                currentBalance += winAmount;
-                showMessage(`Ваша команда победила! Выигрыш: ${winAmount.toFixed(2)}$`, true);
-
-                // Отправка на сервер
-                Casino.updateBalance(winAmount);
-            } else {
-                showMessage('Ваша команда проиграла');
-            }
-
-            updateBalance();
-        }, 1500);
     });
 
-    // Инициализация
-    updateBalance();
+    placeBetBtn.addEventListener('click', async function() {
+        if (!selectedOutcome) {
+            Casino.showMessage('bets-message', "Выберите исход события", false);
+            return;
+        }
+
+        const betAmount = parseFloat(betInput.value);
+        if (isNaN(betAmount) || betAmount <= 0) {
+            Casino.showMessage('bets-message', "Введите корректную сумму", false);
+            return;
+        }
+
+        const balanceCheck = Casino.checkBalance(betAmount);
+        if (!balanceCheck.enough) {
+            Casino.showMessage('bets-message', "Недостаточно средств", false);
+            return;
+        }
+
+        Casino.toggleButtons(true);
+        Casino.showMessage('bets-message', "Обработка ставки...", true);
+
+        try {
+            const eventName = selectedOutcome.element.closest('.event-card').querySelector('h3').textContent;
+            const outcomeName = selectedOutcome.element.textContent.split(' (')[0];
+
+            const response = await Casino.sendRequest('/api/place_bet/sport/', {
+                amount: betAmount,
+                event: eventName,
+                outcome: outcomeName,
+                multiplier: selectedOutcome.multiplier
+            });
+
+            if (response.success) {
+                Casino.updateBalance(response.new_balance);
+                const message = response.won ?
+                    `Выигрыш: ${response.win_amount}$` :
+                    "Ставка не сыграла";
+                Casino.showMessage('bets-message', message, response.won);
+            } else {
+                Casino.showMessage('bets-message', response.error, false);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            Casino.showMessage('bets-message', "Ошибка соединения", false);
+        } finally {
+            Casino.toggleButtons(false);
+        }
+    });
 });

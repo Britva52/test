@@ -1,53 +1,48 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const openCaseButtons = document.querySelectorAll('.open-case-btn');
-    const prizeModal = document.getElementById('prizeModal');
-    const prizeImage = document.getElementById('prizeImage');
-    const prizeValue = document.getElementById('prizeValue');
-    const newBalance = document.getElementById('newBalance');
+    const modal = document.getElementById('prizeModal');
+    const modalImage = document.getElementById('prizeImage');
+    const modalValue = document.getElementById('prizeValue');
+    const modalBalance = document.getElementById('newBalance');
     const closeBtn = document.querySelector('.close-btn');
 
-    openCaseButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const caseId = this.getAttribute('data-case-id');
+    document.querySelectorAll('.open-case-btn').forEach(btn => {
+        btn.addEventListener('click', async function() {
+            const caseId = this.dataset.caseId;
+            const casePrice = parseFloat(this.querySelector('.case-price').textContent);
+            const balanceCheck = Casino.checkBalance(casePrice);
 
-            fetch(`/open_case/${caseId}/`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': Casino.getCookie('csrftoken'),
-                },
-                credentials: 'same-origin'
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Показываем выигрыш
-                    prizeImage.src = data.item.image;
-                    prizeValue.textContent = data.item.value;
-                    newBalance.textContent = data.new_balance;
+            if (!balanceCheck.enough) {
+                Casino.showMessage('cases-message', "Недостаточно средств", false);
+                return;
+            }
 
-                    // Добавляем класс редкости
-                    prizeModal.className = 'modal ' + data.item.rarity;
-                    prizeModal.style.display = 'flex';
+            Casino.toggleButtons(true);
 
-                    // Обновляем баланс на странице
-                    document.querySelectorAll('.balance-amount').forEach(el => {
-                        el.textContent = data.new_balance + '$';
-                    });
+            try {
+                const response = await Casino.sendRequest('/api/open_case/', {
+                    case_id: caseId,
+                    amount: casePrice
+                });
+
+                if (response.success) {
+                    modalImage.src = response.item_image || '{% static "casino/images/default_prize.png" %}';
+                    modalValue.textContent = response.prize_value;
+                    modalBalance.textContent = response.new_balance;
+                    modal.style.display = 'flex';
+
+                    Casino.updateBalance(response.new_balance);
                 } else {
-                    alert('Ошибка: ' + data.error);
+                    Casino.showMessage('cases-message', response.error || "Ошибка при открытии кейса", false);
                 }
-            });
+            } catch (error) {
+                console.error('Error:', error);
+                Casino.showMessage('cases-message', "Ошибка соединения", false);
+            } finally {
+                Casino.toggleButtons(false);
+            }
         });
     });
 
-    closeBtn.addEventListener('click', function() {
-        prizeModal.style.display = 'none';
-    });
-
-    window.addEventListener('click', function(event) {
-        if (event.target === prizeModal) {
-            prizeModal.style.display = 'none';
-        }
-    });
+    closeBtn.addEventListener('click', () => modal.style.display = 'none');
+    window.addEventListener('click', (e) => e.target === modal && (modal.style.display = 'none'));
 });

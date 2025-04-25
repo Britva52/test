@@ -50,26 +50,29 @@
 <!-- СЛОТЫ -->
 <div class="slots-machine">
     <div class="slots-reels">
-        <div class="slot-reel">🍒</div>
-        <div class="slot-reel">🍋</div>
-        <div class="slot-reel">🔔</div>
+        <div class="slot-reel" id="reel1" data-symbol="🍒">🍒</div>
+        <div class="slot-reel" id="reel2" data-symbol="🍒">🍒</div>
+        <div class="slot-reel" id="reel3" data-symbol="🍒">🍒</div>
     </div>
     <div class="control-panel">
-        <input type="number" class="bet-input" placeholder="Ставка" min="1" value="10">
-        <button class="spin-btn">Крутить</button>
+        <input type="number" id="slot-bet-amount" class="bet-input" value="10" min="1">
+        <button id="spin-slot" class="spin-btn">Крутить</button>
     </div>
-    <div class="message-box" id="slot-message"></div>
+    <div id="slot-message" class="message-box"></div>
 </div>
 <script src="{% static 'casino/js/slots.js' %}"></script>
 
 {% elif game == 'coinflip' %}
 <!-- МОНЕТКА -->
 <div class="coinflip-container">
-    <div class="coin">🪙</div>
+    <div class="coin">
+      <div class="coin-front">О</div>
+      <div class="coin-back">Р</div>
+    </div>
     <div class="control-panel">
         <input type="number" class="bet-input" placeholder="Ставка" min="1" value="10">
-        <button class="choice-btn" data-choice="heads">Орел</button>
-        <button class="choice-btn" data-choice="tails">Решка</button>
+        <button id="heads-btn" class="choice-btn">Орел</button>
+        <button id="tails-btn" class="choice-btn">Решка</button>
     </div>
     <div class="message-box" id="coin-message"></div>
 </div>

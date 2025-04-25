@@ -10,7 +10,6 @@
     <div class="cases-grid">
         {% for case in cases %}
         <div class="case-card">
-            <!-- Добавлена проверка на наличие изображения -->
             {% if case.image %}
                 <img src="{{ case.image.url }}" alt="{{ case.name }}" class="case-image">
             {% else %}
@@ -20,7 +19,7 @@
             <h3>{{ case.name }}</h3>
             <p>{{ case.description }}</p>
             <button class="open-case-btn" data-case-id="{{ case.id }}">
-                Открыть за {{ case.price }}$
+                Открыть за <span class="case-price">{{ case.price }}</span>$
             </button>
         </div>
         {% endfor %}

@@ -3086,3 +3086,1127 @@ INFO 2025-04-24 01:40:26,820 basehttp "GET / HTTP/1.1" 200 4313
 INFO 2025-04-24 01:40:28,149 basehttp "GET /profile/ HTTP/1.1" 200 5305
 INFO 2025-04-24 01:40:29,843 basehttp "GET /roulette/ HTTP/1.1" 200 7536
 INFO 2025-04-24 01:40:31,835 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
+INFO 2025-04-24 17:05:26,284 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 17:11:49,955 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 17:12:45,943 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 17:23:11,107 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 17:23:12,111 basehttp "GET / HTTP/1.1" 200 3711
+INFO 2025-04-24 17:23:12,277 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 31701
+WARNING 2025-04-24 17:23:12,339 log Not Found: /favicon.ico
+WARNING 2025-04-24 17:23:12,341 basehttp "GET /favicon.ico HTTP/1.1" 404 8711
+INFO 2025-04-24 17:23:14,303 basehttp "GET /accounts/login/ HTTP/1.1" 200 2514
+INFO 2025-04-24 17:23:15,693 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-04-24 17:23:15,707 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-24 17:23:16,255 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-24 17:23:16,287 basehttp "GET /static/casino/js/roulette.js HTTP/1.1" 200 6862
+INFO 2025-04-24 17:23:20,162 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-24 17:23:23,633 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 130
+INFO 2025-04-24 17:23:28,746 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 129
+INFO 2025-04-24 17:23:34,132 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-24 17:23:35,851 basehttp "POST /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-04-24 17:23:35,853 basehttp "GET / HTTP/1.1" 200 3711
+INFO 2025-04-24 17:23:37,459 basehttp "GET /accounts/login/ HTTP/1.1" 200 2514
+INFO 2025-04-24 17:23:39,312 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-04-24 17:23:39,325 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-24 17:23:40,624 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+WARNING 2025-04-24 17:25:02,028 log Not Found: /favicon.ico
+WARNING 2025-04-24 17:25:02,028 basehttp "GET /favicon.ico HTTP/1.1" 404 8711
+INFO 2025-04-24 19:15:34,186 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 19:15:35,040 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-24 19:15:35,165 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 19:15:35,202 basehttp "GET /static/casino/js/global.js HTTP/1.1" 200 2994
+WARNING 2025-04-24 19:15:35,232 log Not Found: /favicon.ico
+WARNING 2025-04-24 19:15:35,232 basehttp "GET /favicon.ico HTTP/1.1" 404 8711
+INFO 2025-04-24 19:15:55,583 basehttp "GET /profile/ HTTP/1.1" 200 5309
+INFO 2025-04-24 19:16:02,544 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-24 19:16:02,565 basehttp "GET /static/casino/js/roulette.js HTTP/1.1" 304 0
+INFO 2025-04-24 19:16:05,138 basehttp "POST /api/add_funds/ HTTP/1.1" 200 93
+INFO 2025-04-24 19:16:12,056 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 126
+INFO 2025-04-24 19:16:21,573 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 127
+INFO 2025-04-24 19:16:26,660 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 131
+INFO 2025-04-24 19:16:34,646 basehttp "GET /slots/ HTTP/1.1" 200 2848
+INFO 2025-04-24 19:16:34,679 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 200 3310
+INFO 2025-04-24 19:16:36,713 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-24 19:16:36,746 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 2596
+INFO 2025-04-24 19:16:38,744 basehttp "GET /cases/ HTTP/1.1" 200 3531
+INFO 2025-04-24 19:16:38,765 basehttp "GET /static/casino/images/default_case.png HTTP/1.1" 200 0
+INFO 2025-04-24 19:16:38,777 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 200 2155
+WARNING 2025-04-24 19:16:40,071 log Not Found: /open_case/1/
+WARNING 2025-04-24 19:16:40,071 basehttp "POST /open_case/1/ HTTP/1.1" 404 8715
+WARNING 2025-04-24 19:16:40,284 log Not Found: /open_case/1/
+WARNING 2025-04-24 19:16:40,284 basehttp "POST /open_case/1/ HTTP/1.1" 404 8715
+WARNING 2025-04-24 19:16:40,488 log Not Found: /open_case/1/
+WARNING 2025-04-24 19:16:40,488 basehttp "POST /open_case/1/ HTTP/1.1" 404 8715
+WARNING 2025-04-24 19:16:40,606 log Not Found: /open_case/1/
+WARNING 2025-04-24 19:16:40,606 basehttp "POST /open_case/1/ HTTP/1.1" 404 8715
+INFO 2025-04-24 19:16:41,344 basehttp "GET /bets/ HTTP/1.1" 200 2878
+INFO 2025-04-24 19:16:44,728 basehttp "GET /profile/ HTTP/1.1" 200 5302
+INFO 2025-04-24 19:16:46,468 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-24 19:16:53,691 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-24 19:16:55,948 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-24 22:06:00,989 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 22:06:01,898 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-24 22:06:02,080 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 31907
+INFO 2025-04-24 22:06:02,095 basehttp "GET /static/casino/js/global.js HTTP/1.1" 200 2994
+WARNING 2025-04-24 22:06:02,204 log Not Found: /favicon.ico
+WARNING 2025-04-24 22:06:02,204 basehttp "GET /favicon.ico HTTP/1.1" 404 8711
+INFO 2025-04-24 22:06:04,793 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-24 22:06:04,815 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 22:06:04,831 basehttp "GET /static/casino/js/roulette.js HTTP/1.1" 200 6862
+INFO 2025-04-24 22:06:06,580 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-24 22:06:06,599 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 22:06:07,392 basehttp "POST /api/add_funds/ HTTP/1.1" 200 93
+INFO 2025-04-24 22:06:09,018 basehttp "GET /slots/ HTTP/1.1" 200 2890
+INFO 2025-04-24 22:06:09,039 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 22:06:09,039 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 200 2501
+INFO 2025-04-24 22:06:22,157 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-24 22:06:22,177 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 22:06:22,178 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 2186
+INFO 2025-04-24 22:06:26,856 basehttp "GET /cases/ HTTP/1.1" 200 3531
+INFO 2025-04-24 22:06:26,881 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 22:06:26,882 basehttp "GET /static/casino/images/default_case.png HTTP/1.1" 200 0
+INFO 2025-04-24 22:06:26,882 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 200 2459
+WARNING 2025-04-24 22:06:27,602 log Not Found: /open_case/
+WARNING 2025-04-24 22:06:27,602 basehttp "POST /open_case/ HTTP/1.1" 404 8709
+WARNING 2025-04-24 22:06:28,449 log Not Found: /open_case/
+WARNING 2025-04-24 22:06:28,449 basehttp "POST /open_case/ HTTP/1.1" 404 8709
+WARNING 2025-04-24 22:06:28,774 log Not Found: /open_case/
+WARNING 2025-04-24 22:06:28,774 basehttp "POST /open_case/ HTTP/1.1" 404 8709
+WARNING 2025-04-24 22:06:28,913 log Not Found: /open_case/
+WARNING 2025-04-24 22:06:28,914 basehttp "POST /open_case/ HTTP/1.1" 404 8709
+WARNING 2025-04-24 22:06:29,192 log Not Found: /open_case/
+WARNING 2025-04-24 22:06:29,192 basehttp "POST /open_case/ HTTP/1.1" 404 8709
+WARNING 2025-04-24 22:06:29,325 log Not Found: /open_case/
+WARNING 2025-04-24 22:06:29,325 basehttp "POST /open_case/ HTTP/1.1" 404 8709
+INFO 2025-04-24 22:06:30,161 basehttp "GET /bets/ HTTP/1.1" 200 2878
+INFO 2025-04-24 22:06:30,182 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 22:06:30,183 basehttp "GET /static/casino/js/bets.js HTTP/1.1" 200 1922
+INFO 2025-04-24 22:06:32,647 basehttp "GET /slots/ HTTP/1.1" 200 2890
+INFO 2025-04-24 22:07:07,615 basehttp "GET /slots/ HTTP/1.1" 200 2890
+INFO 2025-04-24 22:07:07,635 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-24 22:07:07,636 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 22:07:16,990 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-24 22:07:17,016 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 22:07:17,016 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-24 22:07:20,266 basehttp "GET /cases/ HTTP/1.1" 200 3531
+INFO 2025-04-24 22:07:20,290 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+WARNING 2025-04-24 22:07:21,079 log Not Found: /open_case/
+WARNING 2025-04-24 22:07:21,080 basehttp "POST /open_case/ HTTP/1.1" 404 8709
+WARNING 2025-04-24 22:07:21,216 log Not Found: /open_case/
+WARNING 2025-04-24 22:07:21,216 basehttp "POST /open_case/ HTTP/1.1" 404 8709
+INFO 2025-04-24 22:07:21,940 basehttp "GET /bets/ HTTP/1.1" 200 2878
+INFO 2025-04-24 22:07:24,568 basehttp "GET /profile/ HTTP/1.1" 200 5302
+INFO 2025-04-24 22:07:34,062 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-24 22:07:34,087 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 22:09:06,859 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 22:09:07,463 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-24 22:09:07,607 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 31953
+INFO 2025-04-24 22:09:11,854 basehttp "GET /slots/ HTTP/1.1" 200 2890
+INFO 2025-04-24 22:09:11,874 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 22:09:11,874 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-24 22:09:15,792 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-24 22:09:15,812 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 22:09:15,813 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 2100
+INFO 2025-04-24 22:09:19,820 basehttp "GET /cases/ HTTP/1.1" 200 3531
+INFO 2025-04-24 22:09:19,844 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 22:09:19,846 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 200 2186
+INFO 2025-04-24 22:09:21,794 basehttp "GET /bets/ HTTP/1.1" 200 2878
+INFO 2025-04-24 22:09:21,819 basehttp "GET /static/casino/js/bets.js HTTP/1.1" 200 2328
+INFO 2025-04-24 22:14:00,590 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-24 22:14:01,002 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 22:14:22,443 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\urls.py changed, reloading.
+INFO 2025-04-24 22:14:22,835 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 22:14:38,461 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 22:14:39,178 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-24 22:14:39,324 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 32738
+INFO 2025-04-24 22:14:41,466 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-24 22:14:43,056 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
+INFO 2025-04-24 22:14:43,606 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
+INFO 2025-04-24 22:14:55,918 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 125
+INFO 2025-04-24 22:15:01,176 basehttp "GET /slots/ HTTP/1.1" 200 2890
+INFO 2025-04-24 22:15:01,199 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-24 22:15:01,199 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 22:15:07,962 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-24 22:15:07,984 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 3247
+INFO 2025-04-24 22:15:51,021 basehttp "GET /cases/ HTTP/1.1" 200 3531
+INFO 2025-04-24 22:15:51,040 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 22:15:51,040 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+INFO 2025-04-24 22:15:54,782 basehttp "GET /bets/ HTTP/1.1" 200 2878
+INFO 2025-04-24 22:15:54,808 basehttp "GET /static/casino/js/bets.js HTTP/1.1" 200 2699
+INFO 2025-04-24 22:36:37,228 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 22:36:38,784 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-24 22:36:38,917 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-24 22:36:38,917 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 22:36:40,611 basehttp "GET /slots/ HTTP/1.1" 200 2890
+INFO 2025-04-24 22:36:40,633 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-24 22:36:41,681 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-24 22:36:41,704 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-24 22:36:46,589 basehttp "GET /cases/ HTTP/1.1" 200 3463
+INFO 2025-04-24 22:36:46,612 basehttp "GET /static/casino/images/default_case.png HTTP/1.1" 304 0
+INFO 2025-04-24 22:36:46,612 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+WARNING 2025-04-24 22:36:48,600 log Not Found: /api/open_case/
+WARNING 2025-04-24 22:36:48,601 basehttp "POST /api/open_case/ HTTP/1.1" 404 8998
+WARNING 2025-04-24 22:36:57,315 log Not Found: /api/open_case/
+WARNING 2025-04-24 22:36:57,315 basehttp "POST /api/open_case/ HTTP/1.1" 404 8998
+WARNING 2025-04-24 22:36:57,638 log Not Found: /api/open_case/
+WARNING 2025-04-24 22:36:57,638 basehttp "POST /api/open_case/ HTTP/1.1" 404 8998
+WARNING 2025-04-24 22:36:57,876 log Not Found: /api/open_case/
+WARNING 2025-04-24 22:36:57,876 basehttp "POST /api/open_case/ HTTP/1.1" 404 8998
+WARNING 2025-04-24 22:36:58,024 log Not Found: /api/open_case/
+WARNING 2025-04-24 22:36:58,024 basehttp "POST /api/open_case/ HTTP/1.1" 404 8998
+WARNING 2025-04-24 22:36:59,422 log Not Found: /api/open_case/
+WARNING 2025-04-24 22:36:59,423 basehttp "POST /api/open_case/ HTTP/1.1" 404 8998
+INFO 2025-04-24 22:37:01,029 basehttp "GET /bets/ HTTP/1.1" 200 2878
+INFO 2025-04-24 22:37:01,049 basehttp "GET /static/casino/js/bets.js HTTP/1.1" 304 0
+INFO 2025-04-24 22:45:36,712 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-24 22:45:37,140 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 22:46:04,531 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 22:46:05,181 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-24 22:46:05,343 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 33942
+INFO 2025-04-24 22:46:07,020 basehttp "GET /slots/ HTTP/1.1" 200 2890
+INFO 2025-04-24 22:46:07,042 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-24 22:46:07,762 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-24 22:46:07,784 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 3976
+INFO 2025-04-24 22:46:13,434 basehttp "GET /cases/ HTTP/1.1" 200 3463
+INFO 2025-04-24 22:46:13,458 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+WARNING 2025-04-24 22:46:14,741 log Not Found: /api/open_case/
+WARNING 2025-04-24 22:46:14,742 basehttp "POST /api/open_case/ HTTP/1.1" 404 8998
+WARNING 2025-04-24 22:46:15,930 log Not Found: /api/open_case/
+WARNING 2025-04-24 22:46:15,930 basehttp "POST /api/open_case/ HTTP/1.1" 404 8998
+INFO 2025-04-24 22:46:16,884 basehttp "GET /profile/ HTTP/1.1" 200 5297
+INFO 2025-04-24 22:46:18,472 basehttp "GET /bets/ HTTP/1.1" 200 2878
+INFO 2025-04-24 22:46:18,493 basehttp "GET /static/casino/js/bets.js HTTP/1.1" 304 0
+INFO 2025-04-24 22:46:20,821 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-24 22:57:44,521 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 22:57:45,528 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-24 22:57:45,690 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 34493
+INFO 2025-04-24 22:57:47,112 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-24 22:57:47,133 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 4165
+INFO 2025-04-24 22:57:50,913 basehttp "GET /cases/ HTTP/1.1" 200 3463
+INFO 2025-04-24 22:57:50,934 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+WARNING 2025-04-24 22:57:52,069 log Not Found: /api/open_case/
+WARNING 2025-04-24 22:57:52,069 basehttp "POST /api/open_case/ HTTP/1.1" 404 8998
+WARNING 2025-04-24 22:57:53,095 log Not Found: /api/open_case/
+WARNING 2025-04-24 22:57:53,095 basehttp "POST /api/open_case/ HTTP/1.1" 404 8998
+INFO 2025-04-24 22:57:53,891 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-24 23:05:13,261 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-24 23:05:13,681 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 23:05:18,327 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 23:05:20,921 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-24 23:05:21,088 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 34772
+INFO 2025-04-24 23:05:22,496 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-24 23:05:22,519 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 4186
+INFO 2025-04-24 23:28:03,229 autoreload Watching for file changes with StatReloader
+INFO 2025-04-24 23:28:04,130 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-24 23:28:04,257 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-24 23:28:04,257 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+WARNING 2025-04-24 23:28:04,334 log Not Found: /favicon.ico
+WARNING 2025-04-24 23:28:04,335 basehttp "GET /favicon.ico HTTP/1.1" 404 8988
+INFO 2025-04-24 23:28:05,283 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-24 23:28:05,335 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 4186
+INFO 2025-04-25 00:00:37,405 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-25 00:00:37,852 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 00:18:47,613 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 00:18:48,301 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-25 00:18:48,431 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 00:18:48,458 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 36223
+INFO 2025-04-25 00:18:49,934 basehttp "GET /roulette/ HTTP/1.1" 200 7549
+INFO 2025-04-25 00:18:49,955 basehttp "GET /static/casino/js/roulette.js HTTP/1.1" 304 0
+INFO 2025-04-25 00:18:59,333 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 130
+INFO 2025-04-25 00:19:04,691 basehttp "POST /api/add_funds/ HTTP/1.1" 200 93
+INFO 2025-04-25 00:19:05,990 basehttp "GET /slots/ HTTP/1.1" 200 3045
+INFO 2025-04-25 00:19:06,013 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-25 00:19:28,511 basehttp "GET /coinflip/ HTTP/1.1" 200 3209
+INFO 2025-04-25 00:19:28,530 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 4532
+INFO 2025-04-25 00:19:37,601 basehttp "GET /bets/ HTTP/1.1" 200 3175
+INFO 2025-04-25 00:19:37,622 basehttp "GET /static/casino/js/bets.js HTTP/1.1" 304 0
+INFO 2025-04-25 00:19:42,388 basehttp "GET /roulette/ HTTP/1.1" 200 7549
+INFO 2025-04-25 00:20:02,512 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-25 00:20:04,162 basehttp "GET /slots/ HTTP/1.1" 200 2890
+INFO 2025-04-25 00:20:05,418 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-25 01:03:48,905 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-25 01:03:48,930 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 01:03:48,930 basehttp "GET /static/casino/js/roulette.js HTTP/1.1" 304 0
+INFO 2025-04-25 01:03:48,931 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 01:03:50,273 basehttp "GET /slots/ HTTP/1.1" 200 2890
+INFO 2025-04-25 01:03:50,293 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-25 01:03:51,310 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-25 01:03:51,331 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 4186
+INFO 2025-04-25 01:08:16,393 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 01:08:17,668 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-25 01:08:20,168 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-25 01:08:23,598 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 125
+INFO 2025-04-25 01:08:29,728 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 126
+INFO 2025-04-25 01:08:34,061 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 130
+INFO 2025-04-25 01:08:44,992 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 129
+INFO 2025-04-25 01:08:52,808 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 126
+INFO 2025-04-25 01:08:57,765 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 130
+INFO 2025-04-25 01:09:13,715 basehttp "POST /api/add_funds/ HTTP/1.1" 200 403
+INFO 2025-04-25 01:09:14,073 basehttp "POST /api/add_funds/ HTTP/1.1" 200 403
+INFO 2025-04-25 01:10:06,271 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-25 01:10:06,315 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 4187
+INFO 2025-04-25 01:10:10,607 basehttp "GET /slots/ HTTP/1.1" 200 2890
+INFO 2025-04-25 01:10:10,625 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 01:10:43,650 basehttp "GET /cases/ HTTP/1.1" 200 3463
+INFO 2025-04-25 01:10:43,673 basehttp "GET /static/casino/images/default_case.png HTTP/1.1" 304 0
+INFO 2025-04-25 01:10:43,675 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+INFO 2025-04-25 01:11:39,981 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-25 01:11:40,003 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-25 01:11:53,317 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-25 01:11:59,348 basehttp "GET /slots/ HTTP/1.1" 200 2890
+INFO 2025-04-25 01:12:00,019 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-25 01:12:08,265 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-25 01:12:22,496 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-25 01:12:25,380 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 130
+INFO 2025-04-25 01:12:28,814 basehttp "GET /slots/ HTTP/1.1" 200 2890
+INFO 2025-04-25 01:12:35,257 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-25 01:12:35,293 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-25 01:12:37,857 basehttp "GET /cases/ HTTP/1.1" 200 3463
+WARNING 2025-04-25 01:12:38,438 log Not Found: /api/open_case/
+WARNING 2025-04-25 01:12:38,438 basehttp "POST /api/open_case/ HTTP/1.1" 404 8998
+INFO 2025-04-25 01:12:40,382 basehttp "GET /bets/ HTTP/1.1" 200 2878
+INFO 2025-04-25 01:12:40,409 basehttp "GET /static/casino/js/bets.js HTTP/1.1" 304 0
+INFO 2025-04-25 01:12:55,050 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-25 01:12:55,893 basehttp "GET /bets/ HTTP/1.1" 200 2878
+INFO 2025-04-25 01:12:56,816 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-25 01:14:16,850 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 126
+INFO 2025-04-25 01:14:24,917 basehttp "POST /api/add_funds/ HTTP/1.1" 200 403
+INFO 2025-04-25 01:14:43,188 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 130
+INFO 2025-04-25 01:14:48,302 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 130
+INFO 2025-04-25 01:15:22,803 basehttp "GET /slots/ HTTP/1.1" 200 2890
+INFO 2025-04-25 01:15:24,715 basehttp "GET /coinflip/ HTTP/1.1" 200 2817
+INFO 2025-04-25 01:15:24,742 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-25 01:19:18,306 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 01:19:19,059 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-25 01:19:19,189 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 01:19:20,930 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-25 01:19:22,622 basehttp "POST /api/add_funds/ HTTP/1.1" 200 94
+INFO 2025-04-25 01:20:11,299 basehttp "GET /slots/ HTTP/1.1" 200 2891
+INFO 2025-04-25 01:20:24,403 basehttp "GET /coinflip/ HTTP/1.1" 200 2808
+INFO 2025-04-25 01:20:24,427 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-25 01:20:33,284 basehttp "GET /coinflip/ HTTP/1.1" 200 2808
+INFO 2025-04-25 01:20:34,220 basehttp "GET /slots/ HTTP/1.1" 200 2891
+INFO 2025-04-25 01:20:37,352 basehttp "GET /coinflip/ HTTP/1.1" 200 2808
+INFO 2025-04-25 01:20:38,135 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 01:20:38,682 basehttp "GET /slots/ HTTP/1.1" 200 2891
+INFO 2025-04-25 01:20:40,577 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 01:20:43,005 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 127
+INFO 2025-04-25 01:20:44,731 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
+INFO 2025-04-25 01:20:47,735 basehttp "GET /slots/ HTTP/1.1" 200 2891
+INFO 2025-04-25 01:20:48,434 basehttp "GET /coinflip/ HTTP/1.1" 200 2808
+INFO 2025-04-25 01:21:14,901 basehttp "GET /coinflip/ HTTP/1.1" 200 2808
+INFO 2025-04-25 01:44:24,706 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 01:44:25,392 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-25 01:44:25,548 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 36283
+INFO 2025-04-25 01:44:27,098 basehttp "GET /slots/ HTTP/1.1" 200 2891
+INFO 2025-04-25 01:44:27,118 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-25 01:44:29,075 basehttp "GET /coinflip/ HTTP/1.1" 200 2808
+INFO 2025-04-25 01:44:29,095 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 3732
+INFO 2025-04-25 01:44:43,471 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 01:47:46,386 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 01:47:47,186 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-25 01:47:47,319 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 01:47:47,942 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 01:47:49,569 basehttp "GET /slots/ HTTP/1.1" 200 2891
+INFO 2025-04-25 01:47:50,358 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 01:47:50,954 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
+INFO 2025-04-25 01:47:52,344 basehttp "GET /slots/ HTTP/1.1" 200 2891
+INFO 2025-04-25 01:47:53,863 basehttp "GET /coinflip/ HTTP/1.1" 200 2808
+INFO 2025-04-25 01:47:53,912 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 3940
+INFO 2025-04-25 01:49:27,002 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 01:49:27,699 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-25 01:49:27,825 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 01:49:28,676 basehttp "GET /coinflip/ HTTP/1.1" 200 2808
+INFO 2025-04-25 01:49:28,725 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 3913
+INFO 2025-04-25 01:52:54,888 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 01:52:55,595 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-25 01:52:55,720 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 01:52:55,752 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 36792
+INFO 2025-04-25 01:52:56,998 basehttp "GET /coinflip/ HTTP/1.1" 200 2808
+INFO 2025-04-25 01:52:57,017 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 01:52:57,018 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 4133
+INFO 2025-04-25 01:52:58,106 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 92
+INFO 2025-04-25 01:53:05,015 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 92
+INFO 2025-04-25 01:53:09,227 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 92
+INFO 2025-04-25 01:54:51,101 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-25 01:54:51,510 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:00:56,920 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:01:03,465 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:01:04,074 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-25 02:01:04,218 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 37075
+INFO 2025-04-25 02:01:05,929 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:01:05,950 basehttp "GET /static/casino/js/roulette.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:01:07,442 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
+INFO 2025-04-25 02:01:09,044 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 131
+INFO 2025-04-25 02:01:14,446 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 127
+INFO 2025-04-25 02:01:18,972 basehttp "GET /slots/ HTTP/1.1" 200 2891
+INFO 2025-04-25 02:02:07,006 basehttp "GET /admin HTTP/1.1" 301 0
+INFO 2025-04-25 02:02:07,082 basehttp "GET /admin/ HTTP/1.1" 200 7145
+INFO 2025-04-25 02:02:07,101 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2025-04-25 02:02:07,102 basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 22154
+INFO 2025-04-25 02:02:07,105 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-04-25 02:02:07,110 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-04-25 02:02:07,110 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-04-25 02:02:07,115 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 200 16632
+INFO 2025-04-25 02:02:07,124 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-04-25 02:02:07,135 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-04-25 02:02:07,135 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-04-25 02:02:10,693 basehttp "GET /admin/casino/user/ HTTP/1.1" 200 9744
+INFO 2025-04-25 02:02:10,719 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+INFO 2025-04-25 02:02:10,724 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-04-25 02:02:10,728 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-04-25 02:02:10,728 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2025-04-25 02:02:10,735 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-04-25 02:02:10,736 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-04-25 02:02:10,742 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-04-25 02:02:10,744 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-04-25 02:02:10,756 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-04-25 02:02:10,774 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-04-25 02:02:10,797 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-04-25 02:02:10,817 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-04-25 02:02:12,323 basehttp "GET /admin/casino/user/1/change/ HTTP/1.1" 200 23084
+INFO 2025-04-25 02:02:12,353 basehttp "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+INFO 2025-04-25 02:02:12,355 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-04-25 02:02:12,355 basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-04-25 02:02:12,357 basehttp "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+INFO 2025-04-25 02:02:12,357 basehttp "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2025-04-25 02:02:12,365 basehttp "GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+INFO 2025-04-25 02:02:12,370 basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2025-04-25 02:02:12,419 basehttp "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+INFO 2025-04-25 02:02:12,419 basehttp "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+INFO 2025-04-25 02:02:20,725 basehttp "POST /admin/casino/user/1/change/ HTTP/1.1" 302 0
+INFO 2025-04-25 02:02:20,745 basehttp "GET /admin/casino/user/ HTTP/1.1" 200 9939
+INFO 2025-04-25 02:02:20,783 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-04-25 02:02:20,800 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2025-04-25 02:02:22,023 basehttp "GET /admin/casino/user/1/change/ HTTP/1.1" 200 23084
+INFO 2025-04-25 02:02:23,882 basehttp "GET /coinflip/ HTTP/1.1" 200 2808
+INFO 2025-04-25 02:02:23,895 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 5153
+INFO 2025-04-25 02:02:23,896 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 37075
+INFO 2025-04-25 02:02:25,708 basehttp "GET /slots/ HTTP/1.1" 200 2891
+INFO 2025-04-25 02:02:27,082 basehttp "GET /coinflip/ HTTP/1.1" 200 2808
+INFO 2025-04-25 02:02:31,885 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 91
+INFO 2025-04-25 02:02:36,565 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 91
+INFO 2025-04-25 02:03:02,439 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 91
+INFO 2025-04-25 02:03:06,255 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 91
+INFO 2025-04-25 02:03:09,932 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 91
+INFO 2025-04-25 02:09:32,741 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:09:33,336 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-25 02:09:33,483 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 37231
+INFO 2025-04-25 02:09:34,640 basehttp "GET /profile/ HTTP/1.1" 200 5288
+INFO 2025-04-25 02:09:36,877 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-25 02:09:38,189 basehttp "POST /api/add_funds/ HTTP/1.1" 200 403
+INFO 2025-04-25 02:09:43,108 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 129
+INFO 2025-04-25 02:09:49,698 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 129
+INFO 2025-04-25 02:09:55,293 basehttp "GET /slots/ HTTP/1.1" 200 2891
+INFO 2025-04-25 02:09:55,312 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:09:55,312 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:09:57,619 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:09:57,637 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 5173
+INFO 2025-04-25 02:10:03,496 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 91
+INFO 2025-04-25 02:10:09,193 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 91
+INFO 2025-04-25 02:10:14,300 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 91
+INFO 2025-04-25 02:10:18,419 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 91
+INFO 2025-04-25 02:10:27,018 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 91
+INFO 2025-04-25 02:10:32,699 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 95
+INFO 2025-04-25 02:10:43,476 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 93
+INFO 2025-04-25 02:10:51,859 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 92
+INFO 2025-04-25 02:14:34,841 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:14:35,448 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-25 02:14:35,574 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:14:36,973 basehttp "GET /slots/ HTTP/1.1" 200 2947
+INFO 2025-04-25 02:15:14,404 basehttp "GET /slots/ HTTP/1.1" 200 2947
+INFO 2025-04-25 02:15:14,441 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 37288
+INFO 2025-04-25 02:16:52,251 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:16:52,835 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-25 02:16:52,986 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 37504
+ERROR 2025-04-25 02:16:54,642 log Internal Server Error: /slots/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'elif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 56, in slots_view
+    return render(request, 'casino/game.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 66: 'elif', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2025-04-25 02:16:54,645 basehttp "GET /slots/ HTTP/1.1" 500 199256
+INFO 2025-04-25 02:17:07,606 basehttp "GET /slots/ HTTP/1.1" 200 2947
+INFO 2025-04-25 02:17:07,622 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+ERROR 2025-04-25 02:17:19,254 log Internal Server Error: /slots/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'elif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 56, in slots_view
+    return render(request, 'casino/game.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 66: 'elif', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2025-04-25 02:17:19,255 basehttp "GET /slots/ HTTP/1.1" 500 199393
+INFO 2025-04-25 02:18:03,879 basehttp "GET /slots/ HTTP/1.1" 200 2890
+INFO 2025-04-25 02:18:03,896 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:18:32,473 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-25 02:18:32,879 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:18:46,454 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:18:47,250 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-25 02:18:47,373 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:18:48,990 basehttp "GET /slots/ HTTP/1.1" 200 2890
+INFO 2025-04-25 02:18:49,683 basehttp "GET /coinflip/ HTTP/1.1" 200 2885
+INFO 2025-04-25 02:18:49,705 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:18:50,220 basehttp "GET /slots/ HTTP/1.1" 200 2890
+INFO 2025-04-25 02:19:30,148 basehttp "GET /cases/ HTTP/1.1" 200 3463
+INFO 2025-04-25 02:19:30,166 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:19:30,166 basehttp "GET /static/casino/images/default_case.png HTTP/1.1" 304 0
+INFO 2025-04-25 02:19:30,166 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+WARNING 2025-04-25 02:19:31,527 log Not Found: /api/open_case/
+WARNING 2025-04-25 02:19:31,527 basehttp "POST /api/open_case/ HTTP/1.1" 404 8998
+WARNING 2025-04-25 02:19:31,975 log Not Found: /api/open_case/
+WARNING 2025-04-25 02:19:31,976 basehttp "POST /api/open_case/ HTTP/1.1" 404 8998
+WARNING 2025-04-25 02:19:32,267 log Not Found: /api/open_case/
+WARNING 2025-04-25 02:19:32,267 basehttp "POST /api/open_case/ HTTP/1.1" 404 8998
+INFO 2025-04-25 02:19:33,260 basehttp "GET /bets/ HTTP/1.1" 200 2878
+INFO 2025-04-25 02:19:33,285 basehttp "GET /static/casino/js/bets.js HTTP/1.1" 304 0
+ERROR 2025-04-25 02:21:56,162 log Internal Server Error: /slots/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 56, in slots_view
+    return render(request, 'casino/game.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 970, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 228, in do_block
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'content' appears more than once
+ERROR 2025-04-25 02:21:56,167 basehttp "GET /slots/ HTTP/1.1" 500 223035
+ERROR 2025-04-25 02:22:02,322 log Internal Server Error: /slots/
+Traceback (most recent call last):
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py", line 56, in slots_view
+    return render(request, 'casino/game.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 970, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maksi\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 228, in do_block
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'content' appears more than once
+ERROR 2025-04-25 02:22:02,323 basehttp "GET /slots/ HTTP/1.1" 500 222004
+INFO 2025-04-25 02:22:06,712 basehttp "GET /slots/ HTTP/1.1" 200 2947
+INFO 2025-04-25 02:22:06,754 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 38086
+INFO 2025-04-25 02:22:10,693 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-25 02:22:11,218 basehttp "GET /slots/ HTTP/1.1" 200 2947
+INFO 2025-04-25 02:22:11,239 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:22:53,139 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-25 02:22:53,162 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:22:57,790 basehttp "POST /api/add_funds/ HTTP/1.1" 200 95
+INFO 2025-04-25 02:23:04,980 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 132
+INFO 2025-04-25 02:23:12,955 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 132
+INFO 2025-04-25 02:23:33,922 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 127
+INFO 2025-04-25 02:23:45,033 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
+INFO 2025-04-25 02:23:52,460 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:23:52,480 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:24:00,580 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:24:01,444 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:24:24,881 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:24:24,907 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:24:24,907 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:24:27,460 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 92
+INFO 2025-04-25 02:24:31,658 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 92
+INFO 2025-04-25 02:24:36,059 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 92
+INFO 2025-04-25 02:24:39,851 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 92
+INFO 2025-04-25 02:24:48,954 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 92
+INFO 2025-04-25 02:25:32,714 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:25:32,733 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:25:33,536 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:25:34,510 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:25:35,253 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:26:01,265 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-25 02:26:01,704 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:26:18,104 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\urls.py changed, reloading.
+INFO 2025-04-25 02:26:18,508 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:26:47,305 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:26:48,350 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-25 02:26:48,473 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:26:49,607 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:26:50,960 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
+INFO 2025-04-25 02:26:54,383 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 128
+INFO 2025-04-25 02:27:01,577 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 131
+INFO 2025-04-25 02:27:06,781 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:27:13,272 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:27:13,299 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:27:14,006 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:27:34,195 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:27:34,215 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:29:15,896 basehttp "GET /cases/ HTTP/1.1" 200 3464
+INFO 2025-04-25 02:29:15,915 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+WARNING 2025-04-25 02:29:16,625 log Not Found: /api/open_case/
+WARNING 2025-04-25 02:29:16,625 basehttp "POST /api/open_case/ HTTP/1.1" 404 9267
+INFO 2025-04-25 02:29:17,484 basehttp "GET /bets/ HTTP/1.1" 200 2879
+INFO 2025-04-25 02:29:23,656 basehttp "GET /profile/ HTTP/1.1" 200 5297
+INFO 2025-04-25 02:31:11,348 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-25 02:31:11,482 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:31:12,832 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:31:17,582 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:31:39,154 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:31:39,173 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:31:40,604 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:31:42,456 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 131
+INFO 2025-04-25 02:31:44,339 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:31:45,654 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:31:48,276 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 128
+INFO 2025-04-25 02:31:48,776 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:31:52,568 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 92
+INFO 2025-04-25 02:31:53,054 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:33:43,985 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-25 02:33:44,411 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:34:35,460 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:34:36,158 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-25 02:34:36,286 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:34:37,722 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:34:38,380 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:34:40,049 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
+INFO 2025-04-25 02:34:42,104 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 131
+INFO 2025-04-25 02:34:42,921 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:34:47,889 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:34:47,907 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:36:41,573 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:36:42,440 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-25 02:36:42,578 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:36:43,561 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:36:43,609 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 200 5520
+INFO 2025-04-25 02:36:46,782 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:36:48,243 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 127
+INFO 2025-04-25 02:36:48,976 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
+INFO 2025-04-25 02:36:51,650 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:36:51,670 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:36:53,746 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:36:55,016 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 92
+INFO 2025-04-25 02:36:58,508 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:37:27,206 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-25 02:37:27,647 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:37:29,839 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-25 02:37:30,800 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:37:32,582 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 131
+INFO 2025-04-25 02:37:33,223 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
+INFO 2025-04-25 02:37:35,388 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:37:35,410 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:38:16,902 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:38:16,916 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:38:16,942 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 200 3512
+INFO 2025-04-25 02:38:27,897 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:38:32,081 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:39:18,522 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:39:18,534 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 200 5370
+INFO 2025-04-25 02:39:19,420 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:39:52,963 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:40:16,522 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-25 02:40:22,791 basehttp "GET /admin/ HTTP/1.1" 200 7522
+INFO 2025-04-25 02:40:28,336 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:40:28,417 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:40:28,417 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:40:31,721 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-25 02:40:33,555 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:40:52,506 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:40:52,517 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 200 5738
+INFO 2025-04-25 02:40:53,677 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:41:48,578 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:41:48,592 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:41:49,734 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:44:28,356 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:44:28,368 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 200 6081
+INFO 2025-04-25 02:44:28,369 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 38058
+INFO 2025-04-25 02:44:29,303 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:46:25,503 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:46:25,514 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:46:25,516 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 200 6160
+INFO 2025-04-25 02:46:25,516 basehttp "GET /static/casino/js/global.js HTTP/1.1" 200 7554
+INFO 2025-04-25 02:46:25,537 basehttp "POST /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:46:55,905 basehttp "POST /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:47:25,909 basehttp "POST /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:47:41,391 basehttp "POST /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:47:42,260 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:47:42,272 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:47:42,272 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:47:42,273 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 200 6392
+INFO 2025-04-25 02:47:42,300 basehttp "POST /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:47:44,834 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:47:44,846 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:47:44,870 basehttp "POST /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:47:50,536 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:47:51,812 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-25 02:47:51,945 basehttp "POST /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:47:53,028 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:47:53,049 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:47:53,065 basehttp "POST /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:47:57,052 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:47:57,092 basehttp "POST /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:47:58,309 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
+INFO 2025-04-25 02:48:00,154 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 131
+INFO 2025-04-25 02:48:03,183 basehttp "POST /api/update_balance/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:48:06,139 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:48:06,159 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:48:06,183 basehttp "POST /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:48:20,392 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:48:20,404 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:48:20,432 basehttp "POST /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:48:50,911 basehttp "POST /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:49:20,911 basehttp "POST /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:49:50,909 basehttp "POST /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:50:05,082 basehttp "POST /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:50:06,097 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:50:06,112 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:50:06,139 basehttp "GET /static/casino/js/global.js HTTP/1.1" 200 4817
+INFO 2025-04-25 02:50:06,167 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:50:07,252 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 92
+INFO 2025-04-25 02:50:12,173 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 92
+INFO 2025-04-25 02:50:16,224 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 92
+INFO 2025-04-25 02:50:20,400 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 92
+INFO 2025-04-25 02:50:23,871 basehttp "POST /api/place_bet/coinflip/ HTTP/1.1" 200 92
+INFO 2025-04-25 02:50:36,161 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:50:36,246 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:50:36,258 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:50:36,283 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:50:36,283 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 200 4929
+INFO 2025-04-25 02:50:36,306 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:51:06,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:51:36,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:51:54,853 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:51:54,876 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:51:54,888 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:51:54,889 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:51:54,889 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 200 6006
+INFO 2025-04-25 02:51:54,916 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:52:20,004 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:52:20,019 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 200 6005
+INFO 2025-04-25 02:52:20,022 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:52:20,024 basehttp - Broken pipe from ('127.0.0.1', 60077)
+INFO 2025-04-25 02:52:20,049 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:52:50,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:53:20,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:53:50,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:54:20,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:54:50,041 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:54:53,221 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:54:53,237 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:54:53,239 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:54:53,239 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 200 7137
+INFO 2025-04-25 02:54:53,245 basehttp - Broken pipe from ('127.0.0.1', 60044)
+INFO 2025-04-25 02:54:53,279 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:54:55,544 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:55:00,011 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:55:03,890 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:55:07,409 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:55:10,598 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:55:13,735 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:55:13,751 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:55:13,769 basehttp "GET /static/casino/js/roulette.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:55:13,800 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:55:14,566 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:55:14,582 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:55:14,606 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:55:14,634 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:55:15,394 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:55:18,872 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:55:21,965 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:55:21,982 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:55:22,002 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 3997
+INFO 2025-04-25 02:55:22,030 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:55:23,343 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:55:26,404 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:55:29,534 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:55:32,590 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:55:52,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:56:22,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:56:30,044 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:56:33,107 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:56:34,246 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:56:37,305 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:56:41,583 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:56:41,605 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:56:41,608 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:56:41,609 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:56:41,635 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:56:43,263 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
+INFO 2025-04-25 02:56:44,108 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 127
+INFO 2025-04-25 02:56:48,814 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:56:48,829 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:56:48,858 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:56:48,887 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:56:49,582 basehttp "GET /slots/ HTTP/1.1" 200 2948
+INFO 2025-04-25 02:56:49,603 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:56:49,608 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:56:49,638 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:56:50,404 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:56:54,276 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:56:58,101 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:57:01,498 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:57:04,919 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:57:06,718 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:57:06,748 basehttp "GET /profile/ HTTP/1.1" 200 5293
+INFO 2025-04-25 02:57:06,787 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:57:07,717 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:57:09,100 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:57:13,798 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 37
+INFO 2025-04-25 02:57:19,632 basehttp "GET /api/get_balance/ HTTP/1.1" 200 33
+INFO 2025-04-25 02:57:21,009 basehttp "GET /admin/ HTTP/1.1" 200 7522
+INFO 2025-04-25 02:57:22,509 basehttp "GET /api/get_balance/ HTTP/1.1" 200 33
+INFO 2025-04-25 02:57:22,530 basehttp "GET /admin/ HTTP/1.1" 200 7522
+INFO 2025-04-25 02:57:23,688 basehttp "GET /admin/casino/user/ HTTP/1.1" 200 9744
+INFO 2025-04-25 02:57:23,723 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-04-25 02:57:24,908 basehttp "GET /admin/casino/user/1/change/ HTTP/1.1" 200 23081
+INFO 2025-04-25 02:57:24,947 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-04-25 02:57:32,264 basehttp "POST /admin/casino/user/1/change/ HTTP/1.1" 302 0
+INFO 2025-04-25 02:57:32,283 basehttp "GET /admin/casino/user/ HTTP/1.1" 200 9939
+INFO 2025-04-25 02:57:32,324 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-04-25 02:57:36,422 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-25 02:57:36,445 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:57:36,464 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:57:37,968 basehttp "GET /roulette/ HTTP/1.1" 200 7537
+INFO 2025-04-25 02:57:37,982 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:57:38,016 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:57:38,623 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:57:38,636 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:57:38,649 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:57:38,678 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:57:50,836 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 02:57:51,435 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-25 02:57:51,582 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:57:52,708 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:57:52,728 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:57:52,769 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:57:53,469 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 02:57:56,538 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 40
+INFO 2025-04-25 02:58:08,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:58:22,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:58:38,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:58:52,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:59:08,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:59:22,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:59:38,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 02:59:44,533 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 02:59:44,548 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 02:59:44,549 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 02:59:44,556 basehttp - Broken pipe from ('127.0.0.1', 60273)
+INFO 2025-04-25 02:59:44,576 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 7132
+INFO 2025-04-25 02:59:44,603 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 03:00:14,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 03:00:44,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 03:00:48,088 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 03:00:48,724 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-25 03:00:48,879 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 03:00:50,433 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 03:00:50,442 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 03:00:50,463 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-25 03:00:50,482 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 03:01:10,068 basehttp "GET /coinflip/ HTTP/1.1" 200 2886
+INFO 2025-04-25 03:01:10,081 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 03:01:10,091 basehttp - Broken pipe from ('127.0.0.1', 60342)
+INFO 2025-04-25 03:01:10,106 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 7287
+INFO 2025-04-25 03:01:10,138 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-25 03:01:11,535 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 03:01:30,236 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 03:01:35,273 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 03:01:37,307 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 39
+INFO 2025-04-25 03:01:38,437 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 03:01:40,128 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:02:10,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:02:40,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:03:10,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:03:33,492 autoreload Watching for file changes with StatReloader
+INFO 2025-04-25 03:03:34,166 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-04-25 03:03:34,284 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-25 03:03:34,310 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 38058
+INFO 2025-04-25 03:03:34,354 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:03:36,157 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:03:36,172 basehttp "GET /roulette/ HTTP/1.1" 200 7536
+INFO 2025-04-25 03:03:36,215 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:03:37,429 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
+INFO 2025-04-25 03:03:38,220 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 126
+INFO 2025-04-25 03:03:40,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:03:43,278 basehttp "GET /slots/ HTTP/1.1" 200 2947
+INFO 2025-04-25 03:03:43,298 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-25 03:03:43,299 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:03:43,323 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:03:44,318 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 03:03:48,750 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:03:48,770 basehttp "GET /coinflip/ HTTP/1.1" 200 2885
+INFO 2025-04-25 03:03:48,790 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 200 7533
+INFO 2025-04-25 03:03:48,820 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:03:50,642 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 03:03:54,691 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 03:03:58,524 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 03:04:01,796 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 39
+INFO 2025-04-25 03:04:03,829 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 39
+INFO 2025-04-25 03:04:07,381 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:04:07,400 basehttp "GET /cases/ HTTP/1.1" 200 3463
+INFO 2025-04-25 03:04:07,420 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-25 03:04:07,420 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+INFO 2025-04-25 03:04:07,437 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+WARNING 2025-04-25 03:04:08,164 log Not Found: /api/open_case/
+WARNING 2025-04-25 03:04:08,164 basehttp "POST /api/open_case/ HTTP/1.1" 404 9267
+INFO 2025-04-25 03:04:08,988 basehttp "GET /bets/ HTTP/1.1" 200 2878
+INFO 2025-04-25 03:04:09,008 basehttp "GET /static/casino/js/bets.js HTTP/1.1" 304 0
+INFO 2025-04-25 03:04:09,012 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:04:09,034 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:04:17,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:04:39,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:05:09,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:05:17,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:05:39,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:06:09,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-04-25 03:06:17,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35

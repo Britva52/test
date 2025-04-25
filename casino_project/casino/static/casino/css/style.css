@@ -491,17 +491,20 @@ nav ul li a {
 }
 
 .game-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;
     margin-bottom: 20px;
-    border-bottom: 2px solid var(--gold);
     padding-bottom: 10px;
+    border-bottom: 2px solid #D4AF37;
 }
 
 .game-header h1 {
-    color: var(--gold);
-    margin: 0;
+    color: #D4AF37;
+    margin-bottom: 10px;
+}
+
+.game-header p {
+    color: #aaa;
+    margin-bottom: 20px;
 }
 
 .game-info {
@@ -667,19 +670,25 @@ nav ul li a {
 }
 
 .bet-input {
-    padding: 10px;
-    width: 100px;
+    padding: 12px;
+    width: 100%;
     text-align: center;
     background: #222;
     color: white;
-    border: 1px solid gold;
-    border-radius: 4px;
-    margin-right: 10px;
+    border: 1px solid #D4AF37;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
 }
 
 .bet-input:focus {
-    border-color: #4CAF50;
     outline: none;
+    border-color: #F9D423;
 }
 
 /* ===== Управление ===== */
@@ -764,9 +773,10 @@ nav ul li a {
 /* Ставки */
 .bet-controls {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     gap: 15px;
-    margin: 20px 0;
+    width: 100%;
+    max-width: 300px;
 }
 
 .bet-amount {
@@ -801,15 +811,60 @@ nav ul li a {
 
 
 .btn-bet {
-    background-color: var(--gold);
-    color: var(--black);
-    border: none;
+    background: #D4AF37;
+    color: black;
     padding: 10px 20px;
+    border: none;
     border-radius: 5px;
-    font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s;
-    margin: 0 5px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.event {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #1a1a1a;
+    border-radius: 5px;
+}
+
+.outcome-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 8px 12px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.outcome-btn.active {
+    background: #D4AF37;
+    color: black;
+}
+
+.outcomes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.event-card {
+    background: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+}
+
+.bet-form {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
 .btn-bet:hover {
@@ -1001,59 +1056,202 @@ nav ul li a {
     border-bottom: 2px solid #d4af37;
 }
 
+.slot-reel.winning {
+    animation: winPulse 0.5s 3;
+}
+
+/* Специальный стиль для символа 7 */
+.seven-symbol {
+    color: #e74c3c; /* Красный цвет */
+    font-weight: bold;
+    font-size: 5rem; /* Чуть больше размер */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 .slots-machine {
-  background: #222;
-  border: 2px solid var(--gold);
-  border-radius: 10px;
-  padding: 20px;
-  max-width: 500px;
-  margin: 0 auto;
+    background: #2c3e50;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .slots-reels {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
   margin-bottom: 20px;
 }
 
 .slot-reel {
-  background: #fff;
-  border: 2px solid var(--gold);
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  border-radius: 5px;
-}
-
-.coin {
-    width: 150px;
-    height: 150px;
-    background: linear-gradient(135deg, #D4AF37, #F9D423);
-    border-radius: 50%;
-    margin: 0 auto 30px;
+    font-size: 5rem;
+    text-align: center;
+    padding: 20px;
+    margin: 0 10px;
+    min-width: 80px;
+    min-height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
-    font-weight: bold;
-    color: var(--black);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}
+
+.choice-buttons {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.choice-btn {
+    flex: 1;
+    padding: 12px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.choice-btn.active {
+    background: #D4AF37;
+    color: black;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+}
+
+.choice-btn:hover:not(.active) {
+    background: #444;
+}
+
+.choice-btn:hover {
+    background: #444;
+}
+
+.coin {
+    width: 100px;
+    height: 100px;
+    background: gold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 20px;
+    perspective: 1000px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
     transition: transform 1s ease-out;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.coinflip-game {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.coin::before, .coin::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.coin::before {
+    background: linear-gradient(145deg, #D4AF37, #F9D423);
+    content: 'О';
+}
+
+.coin::after {
+    background: linear-gradient(145deg, #b8860b, #D4AF37);
+    content: 'Р';
+    transform: rotateY(180deg);
+}
+
+.coinflip-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.bet-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.side-selection {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.side-btn {
+    padding: 10px 20px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.side-btn.active {
+    background: #D4AF37;
+    color: black;
+    font-weight: bold;
+}
+
+.coinflip-input {
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    background: #222;
+    color: white;
+    border: 1px solid #D4AF37;
+    border-radius: 4px;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.coin .front,
+.coin .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    background: linear-gradient(145deg, #D4AF37, #F9D423);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.coin .back {
+    transform: rotateY(180deg);
+    background: linear-gradient(145deg, #b8860b, #D4AF37);
 }
 
 @keyframes flip {
     0% { transform: rotateY(0); }
-    50% { transform: rotateY(1800deg); }
-    100% { transform: rotateY(3600deg); }
+    100% { transform: rotateY(1800deg); }
 }
 
 .coin.flipping {
-    transform: rotateY(360deg);
+    animation: flip 3s ease-out;
 }
 
 /* Responsive */
@@ -1086,6 +1284,21 @@ nav ul li a {
   font-weight: bold;
 }
 
+.slot-reel[data-symbol="7"] {
+    color: #e74c3c;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+}
+
+.slot-reel[data-symbol="🍒"] { color: #e74c3c; }
+.slot-reel[data-symbol="🍋"] { color: #f1c40f; }
+.slot-reel[data-symbol="🔔"] { color: #3498db; }
+.slot-reel[data-symbol="🍉"] { color: #2ecc71; }
+.slot-reel[data-symbol="⭐"] {
+    color: #f39c12;
+    text-shadow: 0 0 8px rgba(243, 156, 18, 0.7);
+}
+
 .message-box {
     background: #222;
     padding: 15px;
@@ -1096,7 +1309,6 @@ nav ul li a {
     text-align: center;
     border: 1px solid #444;
     white-space: pre-line;
-
 }
 
 /* ============== PROBABILITY LIST STYLES ============== */
@@ -1210,9 +1422,9 @@ nav ul li a {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.8);
-    z-index: 1000;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
 
@@ -1221,9 +1433,18 @@ nav ul li a {
     padding: 30px;
     border-radius: 10px;
     text-align: center;
-    max-width: 400px;
     border: 2px solid gold;
-    animation: fadeIn 0.3s;
+    max-width: 400px;
+}
+
+.close-btn {
+    background: gold;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
 @keyframes fadeIn {
@@ -1340,7 +1561,7 @@ nav ul li a {
 
 @keyframes winPulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+    50% { transform: scale(1.2); }
     100% { transform: scale(1); }
 }
 
@@ -1492,13 +1713,26 @@ nav ul li a {
     margin-top: 10px;
 }
 
+/* Анимации для результатов */
+.win-flash {
+    animation: winFlash 0.5s 3;
+}
+
+@keyframes winFlash {
+  0% { box-shadow: 0 0 10px rgba(46, 204, 113, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(46, 204, 113, 1); }
+  100% { box-shadow: 0 0 10px rgba(46, 204, 113, 0.5); }
+}
+
+.lose-shake {
+    animation: shake 0.5s;
+}
+
 /* Анимации */
 @keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
 }
 
 .shaking {
@@ -1691,4 +1925,99 @@ nav ul li a {
 .add-funds-btn:disabled {
     background-color: #95a5a6;
     cursor: not-allowed;
+}
+
+.flip-btn {
+    padding: 12px;
+    width: 100%;
+    background: #D4AF37;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.flip-btn:hover:not(:disabled) {
+    background: #F9D423;
+    transform: translateY(-2px);
+}
+
+.flip-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Coinflip Styles */
+.coinflip-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    border: 2px solid #D4AF37;
+    text-align: center;
+}
+
+.coinflip-container h1 {
+    color: #D4AF37;
+    margin-bottom: 20px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+.coin-game-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.coinflip-message {
+    min-height: 24px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.coin-front {
+  background: linear-gradient(145deg, #D4AF37, #F9D423);
+  z-index: 2;
+}
+
+.coin-back {
+    background: linear-gradient(145deg, #b8860b, #D4AF37);
+    transform: rotateY(180deg);
+}
+
+.coin-front, .coin-back {
+    position: absolute;
+    transition: transform 0.5s ease-out;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    background: linear-gradient(145deg, #D4AF37, #F9D423);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+#coin {
+    width: 150px;
+    height: 150px;
+    background: #D4AF37;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: transform 1s ease-out;
+    transform-style: preserve-3d;
 }

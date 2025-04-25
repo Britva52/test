@@ -2,38 +2,20 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-    <h1 class="game-title">Coin Flip</h1>
-
-    <div class="balance-display">
-        Balance: <span class="balance-amount">{{ user.player.balance }}$</span>
-    </div>
-
-    <div class="game-container">
-        <div class="coin">H</div>
-
-        <div class="bet-controls">
-            <input type="number" class="bet-amount" placeholder="Bet amount" min="1">
-            {% csrf_token %}
-
-            <div class="side-selection">
-                <label>
-                    <input type="radio" name="side" value="heads" checked>
-                    Heads
-                </label>
-                <label>
-                    <input type="radio" name="side" value="tails">
-                    Tails
-                </label>
-            </div>
-
-            <button class="btn-bet flip-btn">Flip</button>
+<div class="coinflip-container">
+    <h1>Монетка</h1>
+    <div class="controls">
+        <input type="number" class="bet-input" value="10" min="1">
+        <div class="buttons">
+            <button class="choice-btn" data-choice="heads">Орел</button>
+            <button class="choice-btn" data-choice="tails">Решка</button>
         </div>
     </div>
+    <div class="coin">🪙</div>
+    <div id="coin-message" class="message"></div>
 </div>
 {% endblock %}
 
 {% block scripts %}
-<script src="{% static 'js/global.js' %}"></script>
 <script src="{% static 'casino/js/coinflip.js' %}"></script>
 {% endblock %}

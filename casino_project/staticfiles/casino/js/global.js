@@ -1,10 +1,49 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Общие функции для всех игр
     window.Casino = {
+        // Инициализация баланса при загрузке
+        init: function() {
+            this.syncBalance();
+            window.addEventListener('beforeunload', () => this.syncBalance());
+            setInterval(() => this.syncBalance(), 30000); // Синхронизация каждые 30 сек
+        },
+
+        // Сохранить баланс в localStorage
+        saveBalance: function(balance) {
+            localStorage.setItem('casinoBalance', balance);
+        },
+
+        // Получить сохраненный баланс
+        getSavedBalance: function() {
+            return parseFloat(localStorage.getItem('casinoBalance')) || 0;
+        },
+
+        // Синхронизировать баланс с сервером
+        syncBalance: async function() {
+            try {
+                const response = await fetch('/api/get_balance/', {
+                    method: 'GET',
+                    headers: {
+                        'X-CSRFToken': this.getCookie('csrftoken'),
+                    },
+                    credentials: 'same-origin'
+                });
+                const data = await response.json();
+                if (data.success) {
+                    this.updateBalance(data.balance);
+                    this.saveBalance(data.balance);
+                }
+            } catch (error) {
+                console.error('Balance sync error:', error);
+                // Используем сохраненное значение при ошибке
+                const savedBalance = this.getSavedBalance();
+                this.updateBalance(savedBalance);
+            }
+        },
+
         // Отправка запроса на сервер
         sendRequest: async function(url, data) {
             try {
-                console.log("CSRF Token:", this.getCookie('csrftoken'));
                 const response = await fetch(url, {
                     method: 'POST',
                     headers: {
@@ -39,9 +78,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Обновление баланса на странице
         updateBalance: function(newBalance) {
+            const formatted = parseFloat(newBalance).toFixed(2) + '$';
             document.querySelectorAll('.balance-amount').forEach(el => {
-                el.textContent = parseFloat(newBalance).toFixed(2) + '$';
+                el.textContent = formatted;
             });
+            this.saveBalance(newBalance); // Автоматически сохраняем
         },
 
         // Показать сообщение
@@ -71,4 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
         }
     };
+
+    // Инициализация
+    Casino.init();
 });

@@ -54,8 +54,16 @@ def profile(request):
 @login_required
 def slots_view(request):
     return render(request, 'casino/game.html', {
-        'User': request.user,
-        'game': 'slots'
+        'game': 'slots',
+        'user': request.user
+    })
+
+
+@login_required
+def get_balance(request):
+    return JsonResponse({
+        'success': True,
+        'balance': float(request.user.balance)
     })
 
 
@@ -169,6 +177,55 @@ def open_case(request, case_id):
                     'new_balance': User.balance
                 }
             })
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)})
+    return JsonResponse({'success': False, 'error': 'Invalid method'})
+
+
+@csrf_exempt
+@login_required
+def place_sport_bet(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            user = request.user
+            amount = Decimal(str(data.get('amount', 0)))
+            event = data.get('event')
+            outcome = data.get('outcome')
+            multiplier = Decimal(str(data.get('multiplier', 1)))
+
+            if amount <= 0:
+                return JsonResponse({'success': False, 'error': 'Неверная сумма ставки'})
+
+            if user.balance < amount:
+                return JsonResponse({'success': False, 'error': 'Недостаточно средств'})
+
+            # Симуляция исхода (50% шанс)
+            won = random.random() < 0.5
+            win_amount = amount * multiplier if won else Decimal(0)
+
+            # Обновление баланса
+            user.balance += win_amount - amount
+            user.save()
+
+            # Запись ставки
+            Bet.objects.create(
+                player=user,
+                game='sport',
+                amount=amount,
+                bet_type=event,
+                bet_value=outcome,
+                outcome='win' if won else 'lose',
+                win_amount=win_amount
+            )
+
+            return JsonResponse({
+                'success': True,
+                'won': won,
+                'win_amount': float(win_amount),
+                'new_balance': float(user.balance)
+            })
+
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)})
     return JsonResponse({'success': False, 'error': 'Invalid method'})
@@ -339,26 +396,37 @@ def place_slots_bet(request):
 def place_coinflip_bet(request):
     if request.method == 'POST':
         try:
+            print("Получен запрос на ставку в монетку")  # Логирование
             data = json.loads(request.body)
-            User = request.user
-            amount = float(data.get('amount'))
+            print("Данные запроса:", data)  # Логирование
+
+            user = request.user
+            amount = Decimal(str(data.get('amount', 0)))
             side = data.get('side')
+            print(f"Ставка: {amount}$, сторона: {side}")  # Логирование
 
             if amount <= 0:
-                return JsonResponse({'success': False, 'error': 'Неверная сумма ставки'})
+                return JsonResponse({'success': False, 'error': 'Invalid bet amount'})
 
-            if User.balance < amount:
-                return JsonResponse({'success': False, 'error': 'Недостаточно средств'})
+            if user.balance < amount:
+                return JsonResponse({'success': False, 'error': 'Not enough funds'})
 
+            # Генерация результата
             result = random.choice(['heads', 'tails'])
+            print(f"Результат: {result}")  # Логирование
+
             win = result == side
-            win_amount = amount * 1.95 if win else 0
+            win_amount = amount * Decimal('1.95') if win else Decimal(0)
+            print(f"Выиграл: {win}, сумма: {win_amount}")  # Логирование
 
-            User.balance += win_amount - amount
-            User.save()
+            # Обновление баланса
+            user.balance += win_amount - amount
+            user.save()
+            print(f"Новый баланс: {user.balance}")  # Логирование
 
+            # Сохранение ставки
             Bet.objects.create(
-                User=User,
+                player=user,
                 game='coinflip',
                 amount=amount,
                 bet_type='side',
@@ -371,33 +439,32 @@ def place_coinflip_bet(request):
                 'success': True,
                 'result': result,
                 'win': win,
-                'win_amount': win_amount,
-                'new_balance': User.balance
+                'win_amount': float(win_amount),
+                'new_balance': float(user.balance)
             })
 
         except Exception as e:
+            print("Ошибка:", str(e))  # Логирование
             return JsonResponse({'success': False, 'error': str(e)})
-    return JsonResponse({'success': False, 'error': 'Invalid method'})
 
 
-@csrf_exempt
+csrf_exempt
+
+
 @login_required
 def update_balance(request):
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
-            User = request.user
-            amount = float(data.get('amount', 0))
+            user = request.user
+            new_balance = Decimal(str(data.get('balance', 0)))
 
-            if amount < 0 and (User.balance + amount) < 0:
-                return JsonResponse({'success': False, 'error': 'Недостаточно средств'})
-
-            User.balance += amount
-            User.save()
+            user.balance = new_balance
+            user.save()
 
             return JsonResponse({
                 'success': True,
-                'new_balance': User.balance
+                'new_balance': float(user.balance)
             })
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)})
@@ -555,3 +622,64 @@ def register(request):
     else:
         form = CustomUserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
+
+
+@csrf_exempt
+@login_required
+def check_balance(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            amount = Decimal(str(data.get('amount', 0)))
+            user = request.user
+
+            return JsonResponse({
+                'success': True,
+                'enough': user.balance >= amount,
+                'current_balance': float(user.balance)
+            })
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)})
+
+
+@csrf_exempt
+@login_required
+def deduct_bet(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            amount = Decimal(str(data.get('amount', 0)))
+            user = request.user
+
+            if user.balance < amount:
+                return JsonResponse({'success': False, 'error': 'Insufficient funds'})
+
+            user.balance -= amount
+            user.save()
+
+            return JsonResponse({
+                'success': True,
+                'new_balance': float(user.balance)
+            })
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)})
+
+
+@csrf_exempt
+@login_required
+def add_winnings(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            amount = Decimal(str(data.get('amount', 0)))
+            user = request.user
+
+            user.balance += amount
+            user.save()
+
+            return JsonResponse({
+                'success': True,
+                'new_balance': float(user.balance)
+            })
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)})
