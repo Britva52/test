@@ -7079,3 +7079,650 @@ INFO 2025-04-26 00:48:24,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
 INFO 2025-04-26 00:48:54,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
 INFO 2025-04-26 00:49:24,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
 INFO 2025-04-26 00:49:54,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:50:24,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:50:54,893 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:51:55,894 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:52:56,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:53:57,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:54:58,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:55:59,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:57:00,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:58:00,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 00:59:00,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:00:00,895 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:01:00,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:02:00,897 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:03:00,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:04:00,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:05:00,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:06:00,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:07:00,898 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:08:00,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:09:00,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:10:00,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:11:00,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:12:00,898 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:12:35,778 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:12:37,241 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:12:37,257 basehttp "GET /cases/ HTTP/1.1" 200 6890
+INFO 2025-04-26 01:12:37,275 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-26 01:12:37,275 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+INFO 2025-04-26 01:12:37,295 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:12:43,057 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 01:12:43,071 log Not Found: /cases/null
+WARNING 2025-04-26 01:12:43,072 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 01:12:47,261 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 01:12:47,278 log Not Found: /cases/null
+WARNING 2025-04-26 01:12:47,278 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 01:12:47,783 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 147
+WARNING 2025-04-26 01:12:47,798 log Not Found: /media/image
+WARNING 2025-04-26 01:12:47,798 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 01:12:56,280 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 789
+WARNING 2025-04-26 01:12:56,295 log Not Found: /cases/null
+WARNING 2025-04-26 01:12:56,296 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 01:12:57,283 basehttp "POST /api/open_case/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 145
+WARNING 2025-04-26 01:12:57,297 log Not Found: /media/image
+WARNING 2025-04-26 01:12:57,297 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 01:13:01,183 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 01:13:01,195 log Not Found: /cases/null
+WARNING 2025-04-26 01:13:01,195 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 01:13:01,873 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 146
+WARNING 2025-04-26 01:13:01,887 log Not Found: /media/image
+WARNING 2025-04-26 01:13:01,887 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 01:13:06,178 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 01:13:06,192 log Not Found: /cases/null
+WARNING 2025-04-26 01:13:06,193 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 01:13:06,924 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 148
+WARNING 2025-04-26 01:13:06,939 log Not Found: /media/image
+WARNING 2025-04-26 01:13:06,940 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 01:13:07,296 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:13:14,956 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 789
+WARNING 2025-04-26 01:13:14,971 log Not Found: /cases/null
+WARNING 2025-04-26 01:13:14,971 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 01:13:15,693 basehttp "POST /api/open_case/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 146
+WARNING 2025-04-26 01:13:15,707 log Not Found: /media/image
+WARNING 2025-04-26 01:13:15,708 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 01:13:16,917 basehttp "GET /api/get_case_details/a3f939fb-c462-44c3-a11d-18b57a808d1b/ HTTP/1.1" 200 778
+WARNING 2025-04-26 01:13:16,931 log Not Found: /cases/null
+WARNING 2025-04-26 01:13:16,932 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 01:13:17,438 basehttp "POST /api/open_case/a3f939fb-c462-44c3-a11d-18b57a808d1b/ HTTP/1.1" 200 146
+WARNING 2025-04-26 01:13:17,451 log Not Found: /media/image
+WARNING 2025-04-26 01:13:17,451 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 01:13:19,333 basehttp "GET /api/get_case_details/a3f939fb-c462-44c3-a11d-18b57a808d1b/ HTTP/1.1" 200 778
+WARNING 2025-04-26 01:13:19,347 log Not Found: /cases/null
+WARNING 2025-04-26 01:13:19,348 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 01:13:19,811 basehttp "POST /api/open_case/a3f939fb-c462-44c3-a11d-18b57a808d1b/ HTTP/1.1" 200 146
+WARNING 2025-04-26 01:13:19,825 log Not Found: /media/image
+WARNING 2025-04-26 01:13:19,825 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 01:13:21,150 basehttp "GET /api/get_case_details/0e97bf5c-5b66-448d-9e76-df5ae8d3b2c2/ HTTP/1.1" 200 788
+WARNING 2025-04-26 01:13:21,164 log Not Found: /cases/null
+WARNING 2025-04-26 01:13:21,164 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 01:13:21,653 basehttp "POST /api/open_case/0e97bf5c-5b66-448d-9e76-df5ae8d3b2c2/ HTTP/1.1" 200 146
+WARNING 2025-04-26 01:13:21,667 log Not Found: /media/image
+WARNING 2025-04-26 01:13:21,667 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 01:13:23,407 basehttp "GET /api/get_case_details/a3f939fb-c462-44c3-a11d-18b57a808d1b/ HTTP/1.1" 200 778
+WARNING 2025-04-26 01:13:23,420 log Not Found: /cases/null
+WARNING 2025-04-26 01:13:23,421 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 01:13:24,094 basehttp "POST /api/open_case/a3f939fb-c462-44c3-a11d-18b57a808d1b/ HTTP/1.1" 200 147
+WARNING 2025-04-26 01:13:24,108 log Not Found: /media/image
+WARNING 2025-04-26 01:13:24,108 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 01:13:26,445 basehttp "GET /api/get_case_details/a3f939fb-c462-44c3-a11d-18b57a808d1b/ HTTP/1.1" 200 778
+WARNING 2025-04-26 01:13:26,459 log Not Found: /cases/null
+WARNING 2025-04-26 01:13:26,459 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 01:13:27,836 basehttp "GET /api/get_case_details/0e97bf5c-5b66-448d-9e76-df5ae8d3b2c2/ HTTP/1.1" 200 788
+WARNING 2025-04-26 01:13:27,850 log Not Found: /cases/null
+WARNING 2025-04-26 01:13:27,850 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 01:13:28,377 basehttp "POST /api/open_case/0e97bf5c-5b66-448d-9e76-df5ae8d3b2c2/ HTTP/1.1" 200 146
+WARNING 2025-04-26 01:13:28,390 log Not Found: /media/image
+WARNING 2025-04-26 01:13:28,390 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 01:13:32,008 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 789
+WARNING 2025-04-26 01:13:32,021 log Not Found: /cases/null
+WARNING 2025-04-26 01:13:32,021 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 01:13:32,463 basehttp "POST /api/open_case/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 147
+WARNING 2025-04-26 01:13:32,478 log Not Found: /media/image
+WARNING 2025-04-26 01:13:32,478 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 01:13:37,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:14:07,899 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:14:18,552 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:14:18,568 basehttp "GET /bets/ HTTP/1.1" 200 7193
+INFO 2025-04-26 01:14:18,614 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:14:27,833 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:14:27,839 basehttp "GET /coinflip/ HTTP/1.1" 200 2864
+INFO 2025-04-26 01:14:27,889 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:14:29,239 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-26 01:14:30,798 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:14:30,817 basehttp "GET /bets/ HTTP/1.1" 200 7193
+INFO 2025-04-26 01:14:30,857 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:15:00,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:15:30,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:16:00,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:16:30,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:17:00,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:18:00,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:19:00,897 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:19:30,895 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:20:00,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:21:00,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:22:00,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 01:22:33,680 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+WARNING 2025-04-26 01:22:34,932 log Not Found: /favicon.ico
+WARNING 2025-04-26 01:22:34,932 basehttp "GET /favicon.ico HTTP/1.1" 404 9841
+INFO 2025-04-26 08:43:45,051 autoreload Watching for file changes with StatReloader
+INFO 2025-04-26 08:43:46,696 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-26 08:43:46,847 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-26 08:43:46,848 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-26 08:43:46,898 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+WARNING 2025-04-26 08:43:46,942 log Not Found: /favicon.ico
+WARNING 2025-04-26 08:43:46,942 basehttp "GET /favicon.ico HTTP/1.1" 404 9841
+INFO 2025-04-26 08:43:48,592 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:43:48,624 basehttp "GET /profile/ HTTP/1.1" 200 3303
+INFO 2025-04-26 08:43:48,662 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:43:49,593 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:43:50,170 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:43:50,186 basehttp "GET /roulette/ HTTP/1.1" 200 7521
+INFO 2025-04-26 08:43:50,213 basehttp "GET /static/casino/js/roulette.js HTTP/1.1" 304 0
+INFO 2025-04-26 08:43:50,235 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:43:52,148 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 129
+INFO 2025-04-26 08:43:57,305 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:43:57,326 basehttp "GET /slots/ HTTP/1.1" 200 2930
+INFO 2025-04-26 08:43:57,357 basehttp "GET /static/casino/js/slots.js HTTP/1.1" 304 0
+INFO 2025-04-26 08:43:57,373 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:43:58,251 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-26 08:44:01,231 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:44:01,243 basehttp "GET /coinflip/ HTTP/1.1" 200 2864
+INFO 2025-04-26 08:44:01,270 basehttp "GET /static/casino/js/coinflip.js HTTP/1.1" 304 0
+INFO 2025-04-26 08:44:01,287 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:44:02,516 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-26 08:44:04,539 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 40
+INFO 2025-04-26 08:44:05,762 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:44:05,777 basehttp "GET /cases/ HTTP/1.1" 200 6890
+INFO 2025-04-26 08:44:05,802 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+INFO 2025-04-26 08:44:05,818 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:44:06,785 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 08:44:06,797 log Not Found: /cases/null
+WARNING 2025-04-26 08:44:06,797 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 08:44:07,371 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 147
+WARNING 2025-04-26 08:44:07,385 log Not Found: /media/image
+WARNING 2025-04-26 08:44:07,385 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 08:44:09,918 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 789
+WARNING 2025-04-26 08:44:09,932 log Not Found: /cases/null
+WARNING 2025-04-26 08:44:09,932 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 08:44:10,604 basehttp "POST /api/open_case/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 147
+WARNING 2025-04-26 08:44:10,620 log Not Found: /media/image
+WARNING 2025-04-26 08:44:10,620 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 08:44:13,100 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:44:13,116 basehttp "GET /bets/ HTTP/1.1" 200 7193
+INFO 2025-04-26 08:44:13,142 basehttp "GET /static/casino/js/bets.js HTTP/1.1" 304 0
+INFO 2025-04-26 08:44:13,157 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:44:16,107 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:44:16,116 basehttp "GET /cases/ HTTP/1.1" 200 6890
+INFO 2025-04-26 08:44:16,159 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:44:17,088 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 789
+WARNING 2025-04-26 08:44:17,115 log Not Found: /cases/null
+WARNING 2025-04-26 08:44:17,116 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 08:44:17,849 basehttp "POST /api/open_case/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 145
+WARNING 2025-04-26 08:44:17,863 log Not Found: /media/image
+WARNING 2025-04-26 08:44:17,863 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 08:44:20,702 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 08:44:20,715 log Not Found: /cases/null
+WARNING 2025-04-26 08:44:20,715 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 08:44:21,780 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 147
+WARNING 2025-04-26 08:44:21,792 log Not Found: /media/image
+WARNING 2025-04-26 08:44:21,792 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 08:44:24,376 basehttp "GET /roulette/ HTTP/1.1" 200 7521
+INFO 2025-04-26 08:44:24,387 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:44:24,420 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:44:25,522 basehttp "GET /cases/ HTTP/1.1" 200 6890
+INFO 2025-04-26 08:44:25,542 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:44:25,564 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:44:26,697 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 08:44:26,711 log Not Found: /cases/null
+WARNING 2025-04-26 08:44:26,711 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 08:44:27,356 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 148
+WARNING 2025-04-26 08:44:27,370 log Not Found: /media/image
+WARNING 2025-04-26 08:44:27,370 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 08:44:29,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:44:29,913 basehttp "GET /roulette/ HTTP/1.1" 200 7521
+INFO 2025-04-26 08:44:29,958 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:44:30,886 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:44:30,903 basehttp "GET /cases/ HTTP/1.1" 200 6890
+INFO 2025-04-26 08:44:30,947 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:45:01,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:45:31,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:46:01,896 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:46:31,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:47:01,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:47:46,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:48:35,430 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:49:01,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:49:06,099 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:49:06,116 basehttp "GET /cases/ HTTP/1.1" 200 6890
+INFO 2025-04-26 08:49:06,322 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:49:36,899 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:50:06,898 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:50:36,896 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:51:06,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:51:36,895 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:52:37,898 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:53:38,897 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:54:39,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:55:40,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:56:41,897 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:57:42,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:58:43,915 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 08:59:44,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:00:45,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:01:46,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:02:46,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:03:46,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:04:46,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:05:46,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:06:46,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:07:46,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:08:46,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:09:46,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:10:46,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:11:46,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:12:46,897 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:13:46,898 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:14:46,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:15:46,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:16:46,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:17:46,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:18:46,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:19:46,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:20:46,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:21:46,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:22:44,872 autoreload Watching for file changes with StatReloader
+INFO 2025-04-26 09:22:45,703 basehttp "GET / HTTP/1.1" 200 4314
+INFO 2025-04-26 09:22:45,845 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:22:46,935 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:22:48,124 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:22:48,145 basehttp "GET /roulette/ HTTP/1.1" 200 7521
+INFO 2025-04-26 09:22:48,191 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:22:49,889 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 130
+INFO 2025-04-26 09:22:54,658 basehttp "POST /api/add_funds/ HTTP/1.1" 200 94
+INFO 2025-04-26 09:22:56,766 basehttp "GET /slots/ HTTP/1.1" 200 2930
+INFO 2025-04-26 09:22:56,784 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:22:56,821 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:22:57,414 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-26 09:23:00,709 basehttp "GET /coinflip/ HTTP/1.1" 200 2864
+INFO 2025-04-26 09:23:00,722 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:23:00,751 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:23:01,610 basehttp "POST /api/deduct_bet/ HTTP/1.1" 200 40
+INFO 2025-04-26 09:23:03,630 basehttp "POST /api/add_winnings/ HTTP/1.1" 200 40
+INFO 2025-04-26 09:23:07,723 basehttp - Broken pipe from ('127.0.0.1', 51495)
+INFO 2025-04-26 09:23:08,290 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:23:08,307 basehttp "GET /cases/ HTTP/1.1" 200 6890
+INFO 2025-04-26 09:23:08,345 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-04-26 09:23:09,293 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 09:23:09,321 log Not Found: /cases/null
+WARNING 2025-04-26 09:23:09,322 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 09:23:09,919 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 149
+WARNING 2025-04-26 09:23:09,933 log Not Found: /media/image
+WARNING 2025-04-26 09:23:09,933 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 09:23:15,424 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:23:15,458 basehttp "GET /bets/ HTTP/1.1" 200 7194
+INFO 2025-04-26 09:23:15,517 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:23:16,360 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:23:16,378 basehttp "GET /cases/ HTTP/1.1" 200 6891
+INFO 2025-04-26 09:23:16,419 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:23:17,554 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 09:23:17,566 log Not Found: /cases/null
+WARNING 2025-04-26 09:23:17,566 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 09:23:18,171 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 149
+WARNING 2025-04-26 09:23:18,185 log Not Found: /media/image
+WARNING 2025-04-26 09:23:18,185 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 09:23:20,579 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:23:20,599 basehttp "GET /cases/ HTTP/1.1" 200 6891
+INFO 2025-04-26 09:23:20,631 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:23:22,929 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 09:23:22,942 log Not Found: /cases/null
+WARNING 2025-04-26 09:23:22,942 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 09:23:23,628 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 147
+WARNING 2025-04-26 09:23:23,640 log Not Found: /media/image
+WARNING 2025-04-26 09:23:23,642 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 09:23:50,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:24:20,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:24:50,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:25:20,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:25:50,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:26:46,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:27:46,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:28:46,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:29:46,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:30:46,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:31:46,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:32:46,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:33:46,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:34:46,897 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:35:39,806 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:35:41,559 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:35:42,551 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:35:43,153 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:35:43,171 basehttp "GET /cases/ HTTP/1.1" 200 6891
+INFO 2025-04-26 09:35:43,204 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:35:44,126 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 09:35:44,141 log Not Found: /cases/null
+WARNING 2025-04-26 09:35:44,141 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 09:35:44,673 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 149
+WARNING 2025-04-26 09:35:44,691 log Not Found: /media/image
+WARNING 2025-04-26 09:35:44,691 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 09:35:49,001 basehttp "GET /roulette/ HTTP/1.1" 200 7522
+INFO 2025-04-26 09:35:49,020 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:35:49,071 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:35:53,794 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 138
+INFO 2025-04-26 09:36:19,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:36:49,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:37:19,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:37:26,381 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino\views.py changed, reloading.
+INFO 2025-04-26 09:37:26,810 autoreload Watching for file changes with StatReloader
+INFO 2025-04-26 09:37:30,274 basehttp "GET / HTTP/1.1" 200 4315
+INFO 2025-04-26 09:37:30,433 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:37:32,317 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:37:32,334 basehttp "GET /cases/ HTTP/1.1" 200 6891
+INFO 2025-04-26 09:37:32,376 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:37:33,352 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:37:33,370 basehttp "GET /cases/ HTTP/1.1" 200 6891
+INFO 2025-04-26 09:37:33,400 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:37:34,799 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 09:37:34,814 log Not Found: /cases/null
+WARNING 2025-04-26 09:37:34,814 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 09:37:35,327 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 147
+WARNING 2025-04-26 09:37:35,342 log Not Found: /media/image
+WARNING 2025-04-26 09:37:35,343 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 09:37:36,956 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 789
+WARNING 2025-04-26 09:37:36,972 log Not Found: /cases/null
+WARNING 2025-04-26 09:37:36,972 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 09:37:37,388 basehttp "POST /api/open_case/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 147
+WARNING 2025-04-26 09:37:37,402 log Not Found: /media/image
+WARNING 2025-04-26 09:37:37,402 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 09:37:38,517 basehttp "GET /api/get_case_details/a3f939fb-c462-44c3-a11d-18b57a808d1b/ HTTP/1.1" 200 778
+WARNING 2025-04-26 09:37:38,530 log Not Found: /cases/null
+WARNING 2025-04-26 09:37:38,530 basehttp "GET /cases/null HTTP/1.1" 404 9838
+INFO 2025-04-26 09:37:39,045 basehttp "POST /api/open_case/a3f939fb-c462-44c3-a11d-18b57a808d1b/ HTTP/1.1" 200 149
+WARNING 2025-04-26 09:37:39,057 log Not Found: /media/image
+WARNING 2025-04-26 09:37:39,059 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 09:37:40,027 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:37:49,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:38:00,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:38:19,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:38:30,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:39:00,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:39:04,053 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:39:30,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:40:00,898 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:40:46,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:41:46,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:42:46,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:43:46,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:44:46,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:45:46,899 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:46:46,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:47:46,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:48:46,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:49:46,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:50:46,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:51:46,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:52:46,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:53:46,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:54:46,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:55:46,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:56:46,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:57:46,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:58:46,899 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 09:59:30,863 autoreload C:\Users\maksi\PycharmProjects\LastDepProject\casino_project\casino_project\settings.py changed, reloading.
+INFO 2025-04-26 09:59:31,358 autoreload Watching for file changes with StatReloader
+INFO 2025-04-26 09:59:46,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 10:00:46,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 10:01:46,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 10:02:43,282 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 10:02:45,570 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 10:02:45,581 basehttp "GET / HTTP/1.1" 200 4315
+INFO 2025-04-26 10:02:45,627 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 49702
+INFO 2025-04-26 10:02:45,653 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 10:02:46,558 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 10:02:46,577 basehttp "GET /cases/ HTTP/1.1" 200 6891
+INFO 2025-04-26 10:02:46,614 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 200 11214
+INFO 2025-04-26 10:02:46,642 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 10:02:47,814 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+INFO 2025-04-26 10:02:47,817 basehttp "GET /static/casino/images/default_case.png HTTP/1.1" 200 206007
+WARNING 2025-04-26 10:02:48,715 log Not Found: /media/image
+WARNING 2025-04-26 10:02:48,715 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 10:02:51,724 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 148
+INFO 2025-04-26 10:02:51,740 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+WARNING 2025-04-26 10:02:51,756 log Not Found: /media/image
+WARNING 2025-04-26 10:02:51,756 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 10:02:54,013 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 789
+WARNING 2025-04-26 10:02:54,760 log Not Found: /media/image
+WARNING 2025-04-26 10:02:54,762 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 10:02:57,774 basehttp "POST /api/open_case/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 146
+WARNING 2025-04-26 10:02:57,794 log Not Found: /media/image
+WARNING 2025-04-26 10:02:57,794 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 10:02:57,803 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 10:02:59,206 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 789
+WARNING 2025-04-26 10:02:59,744 log Not Found: /media/image
+WARNING 2025-04-26 10:02:59,744 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 10:03:02,757 basehttp "POST /api/open_case/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 146
+WARNING 2025-04-26 10:03:02,771 log Not Found: /media/image
+WARNING 2025-04-26 10:03:02,772 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 10:03:02,786 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 10:03:04,190 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 789
+WARNING 2025-04-26 10:03:04,708 log Not Found: /media/image
+WARNING 2025-04-26 10:03:04,708 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 10:03:07,722 basehttp "POST /api/open_case/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 146
+WARNING 2025-04-26 10:03:07,736 log Not Found: /media/image
+WARNING 2025-04-26 10:03:07,736 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 10:03:07,748 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 10:03:08,715 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 789
+WARNING 2025-04-26 10:03:09,153 log Not Found: /media/image
+WARNING 2025-04-26 10:03:09,153 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 10:03:12,171 basehttp "POST /api/open_case/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 148
+WARNING 2025-04-26 10:03:12,187 log Not Found: /media/image
+WARNING 2025-04-26 10:03:12,188 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 10:03:12,200 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 10:03:13,710 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 10:03:14,193 log Not Found: /media/image
+WARNING 2025-04-26 10:03:14,193 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 10:03:16,636 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 10:03:17,204 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 149
+WARNING 2025-04-26 10:03:17,221 log Not Found: /media/image
+WARNING 2025-04-26 10:03:17,221 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 10:03:17,237 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 10:03:21,944 basehttp "GET /roulette/ HTTP/1.1" 200 7522
+INFO 2025-04-26 10:03:21,965 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 10:03:22,025 basehttp "GET /api/get_balance/ HTTP/1.1" 200 37
+INFO 2025-04-26 10:03:30,050 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 138
+INFO 2025-04-26 10:03:46,717 basehttp "POST /api/place_bet/roulette/ HTTP/1.1" 200 138
+INFO 2025-04-26 10:03:52,019 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:04:22,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:04:26,668 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:04:26,684 basehttp "GET /cases/ HTTP/1.1" 200 6892
+INFO 2025-04-26 10:04:26,720 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+INFO 2025-04-26 10:04:26,739 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:04:27,490 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 789
+WARNING 2025-04-26 10:04:28,554 log Not Found: /media/image
+WARNING 2025-04-26 10:04:28,556 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 10:04:31,567 basehttp "POST /api/open_case/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 149
+WARNING 2025-04-26 10:04:31,584 log Not Found: /media/image
+WARNING 2025-04-26 10:04:31,584 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 10:04:31,595 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:04:56,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:05:26,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:05:56,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:06:26,899 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:06:56,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:07:46,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:08:29,402 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:08:56,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:09:26,742 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:09:56,897 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:10:26,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:11:27,896 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:12:28,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:13:29,899 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:13:56,883 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:14:26,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:14:56,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:15:46,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:16:46,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:17:46,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:18:46,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:19:46,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:20:46,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:21:46,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:22:46,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:23:46,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:24:46,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:25:46,897 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:26:46,915 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:27:46,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:28:46,918 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:29:46,923 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:30:47,061 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:31:46,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:32:46,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:33:46,931 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:34:46,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:35:16,751 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:35:18,293 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 789
+INFO 2025-04-26 10:35:26,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:35:56,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:36:46,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:37:46,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:38:46,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:39:46,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:40:46,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:41:46,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:42:46,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:43:46,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:44:46,918 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:45:46,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:46:46,915 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:47:46,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:48:46,919 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:49:46,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:50:46,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:51:46,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:52:46,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:53:46,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:54:46,920 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:55:46,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:56:46,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:57:46,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:58:46,919 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 10:59:46,917 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:00:46,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:01:46,915 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:02:46,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:03:46,898 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:04:46,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:05:46,898 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:06:46,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:07:46,898 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:08:46,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:09:46,915 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:10:46,899 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:11:46,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:12:46,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:13:46,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:14:46,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:15:46,917 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:16:46,916 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:17:46,919 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:18:46,899 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:19:46,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:20:46,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:21:46,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:22:46,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:23:46,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:24:46,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:25:46,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:26:46,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:27:46,895 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:28:46,917 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:29:46,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:30:46,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:31:46,908 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:32:46,896 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:33:46,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:34:46,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:35:46,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:36:46,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:37:46,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:38:46,899 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:39:46,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:40:46,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:41:46,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:42:46,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:43:46,909 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:44:28,558 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:44:35,380 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:44:37,868 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:44:37,885 basehttp "GET /cases/ HTTP/1.1" 200 6892
+INFO 2025-04-26 11:44:37,900 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-04-26 11:44:37,900 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-04-26 11:44:37,901 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+INFO 2025-04-26 11:44:37,922 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:45:08,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:45:38,899 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:46:08,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:46:38,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:47:08,913 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:47:46,912 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:48:46,905 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:49:46,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:50:46,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:51:02,967 autoreload Watching for file changes with StatReloader
+INFO 2025-04-26 11:51:03,964 basehttp "GET / HTTP/1.1" 200 4316
+INFO 2025-04-26 11:51:04,137 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:51:06,114 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:51:06,132 basehttp "GET /cases/ HTTP/1.1" 200 7909
+INFO 2025-04-26 11:51:06,186 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:51:11,438 basehttp "GET /api/get_case_details/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 789
+INFO 2025-04-26 11:51:11,467 basehttp "GET /static/casino/images/default_case.png HTTP/1.1" 200 206007
+WARNING 2025-04-26 11:51:13,075 log Not Found: /media/image
+WARNING 2025-04-26 11:51:13,075 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 11:51:16,094 basehttp "POST /api/open_case/0d9a28d9-3bdb-4558-954c-4cca223e6578/ HTTP/1.1" 200 148
+WARNING 2025-04-26 11:51:16,113 log Not Found: /media/image
+WARNING 2025-04-26 11:51:16,113 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 11:51:16,133 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:51:19,747 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+INFO 2025-04-26 11:51:36,203 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:51:39,397 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 11:51:39,878 log Not Found: /media/image
+WARNING 2025-04-26 11:51:39,878 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 11:51:42,897 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 148
+WARNING 2025-04-26 11:51:42,915 log Not Found: /media/image
+WARNING 2025-04-26 11:51:42,915 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 11:51:42,939 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:51:46,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:51:58,913 basehttp - Broken pipe from ('127.0.0.1', 57222)
+INFO 2025-04-26 11:52:06,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:52:36,917 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:53:06,902 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:53:36,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:54:37,899 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:55:38,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:56:39,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:57:40,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:58:41,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:59:42,914 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:59:52,572 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:59:52,588 basehttp "GET /cases/ HTTP/1.1" 200 7909
+INFO 2025-04-26 11:59:52,603 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 200 11431
+INFO 2025-04-26 11:59:52,603 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 51192
+INFO 2025-04-26 11:59:52,622 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 11:59:55,515 basehttp "GET /api/get_case_details/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 764
+WARNING 2025-04-26 11:59:56,140 log Not Found: /media/image
+WARNING 2025-04-26 11:59:56,140 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 11:59:59,159 basehttp "POST /api/open_case/c1e0067e-8ed4-40ba-b342-f753308e15ef/ HTTP/1.1" 200 150
+WARNING 2025-04-26 11:59:59,178 log Not Found: /media/image
+WARNING 2025-04-26 11:59:59,179 basehttp "GET /media/image HTTP/1.1" 404 9923
+INFO 2025-04-26 11:59:59,197 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 12:00:22,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 12:00:52,904 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 12:01:22,910 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 12:01:52,900 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 12:02:22,901 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38
+INFO 2025-04-26 12:03:23,903 basehttp "GET /api/get_balance/ HTTP/1.1" 200 38

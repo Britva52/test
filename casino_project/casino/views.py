@@ -229,18 +229,10 @@ def open_case(request, case_id):
 
         # Выбираем случайный предмет с учетом вероятностей
         items = list(case.items.all())
-        prize = random.choices(
-            items,
-            weights=[item.probability for item in items],
-            k=1
-        )[0]
+        prize = random.choices(items, weights=[item.probability for item in items], k=1)[0]
 
         # Записываем открытие кейса
-        CaseOpening.objects.create(
-            user=user,
-            case=case,
-            item=prize
-        )
+        CaseOpening.objects.create(user=user, case=case, item=prize)
 
         # Зачисляем выигрыш
         user.balance += prize.value

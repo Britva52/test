@@ -5,7 +5,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const openCaseModalBtn = document.getElementById('openCaseBtn');
     const continueBtn = document.getElementById('continueBtn');
     const closeModalBtn = document.querySelector('.close-modal');
+
     let currentCase = null;
+    let isSpinning = false;
+    let spinInterval;
+    let spinItems = [];
+    let spinSpeed = 30;
+    let spinPosition = 0;
+    let spinDuration = 3000; // 3 секунды анимации
 
     // Открытие модального окна с информацией о кейсе
     openCaseBtns.forEach(btn => {
@@ -16,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(data => {
                     if (data.success) {
                         currentCase = data.case;
+                        spinItems = data.items; // Сохраняем предметы для анимации
                         displayCaseInfo(data);
                         caseModal.style.display = 'block';
                     }
@@ -31,7 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayCaseInfo(data) {
         document.getElementById('modalCaseName').textContent = data.case.name;
         document.getElementById('modalCasePrice').textContent = `${data.case.price}$`;
-        document.getElementById('modalCaseImage').src = data.case.image;
+        document.getElementById('modalCaseImage').src = data.case.image || '/static/casino/images/default_case.png';
+        document.getElementById('modalBtnPrice').textContent = `${data.case.price}${data.case.currency}`;
+        document.getElementById('modalContent').className = `modal-content ${data.case.rarity || 'common'}`;
 
         const itemsContainer = document.getElementById('caseItemsContainer');
         itemsContainer.innerHTML = '';
@@ -45,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
             itemsByRarity[item.rarity].push(item);
         });
 
-        // Сортируем по редкости (от обычных к легендарным)
+        // Сортируем по редкости
         const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary'];
 
         rarityOrder.forEach(rarity => {
@@ -65,10 +75,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     const itemElement = document.createElement('div');
                     itemElement.className = 'case-item';
                     itemElement.innerHTML = `
-                        <img src="${item.image}" alt="${item.name}" class="item-image">
+                        <img src="${item.image || '/static/casino/images/default_prize.png'}" alt="${item.name}" class="item-image">
                         <div class="item-info">
                             <div class="item-name">${item.name}</div>
-                            <div class="item-value">${item.value}$</div>
+                            <div class="item-value">${item.value}${data.case.currency}</div>
                             <div class="item-probability">${(item.probability * 100).toFixed(2)}%</div>
                         </div>
                     `;
@@ -81,20 +91,57 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Открытие кейса
-    openCaseModalBtn.addEventListener('click', function() {
-        if (!currentCase) return;
+    // Функция запуска анимации прокрутки
+    function startSpinAnimation() {
+        const spinContainer = document.createElement('div');
+        spinContainer.className = 'spin-container';
+        spinContainer.innerHTML = `
+            <div class="spin-items-wrapper">
+                <div class="spin-items-track"></div>
+            </div>
+            <div class="spin-pointer"></div>
+        `;
+        caseModal.querySelector('.modal-content').appendChild(spinContainer);
 
-        const balance = parseFloat(document.querySelector('.balance-amount').textContent);
-        if (balance < currentCase.price) {
-            showError('Недостаточно средств!');
-            return;
+        const track = spinContainer.querySelector('.spin-items-track');
+
+        // Добавляем предметы для прокрутки (3 копии)
+        for (let i = 0; i < 3; i++) {
+            spinItems.forEach(item => {
+                const spinItem = document.createElement('div');
+                spinItem.className = 'spin-item';
+                spinItem.innerHTML = `
+                    <img src="${item.image || '/static/casino/images/default_prize.png'}" alt="${item.name}" class="spin-item-image">
+                    <div class="spin-item-value">${item.value}${currentCase.currency}</div>
+                `;
+                track.appendChild(spinItem);
+            });
         }
 
-        // Блокируем кнопку на время открытия
-        openCaseModalBtn.disabled = true;
-        openCaseModalBtn.innerHTML = '<div class="spinner"></div>';
+        // Запускаем анимацию
+        spinPosition = 0;
+        const startTime = Date.now();
 
+        spinInterval = setInterval(() => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / spinDuration, 1);
+
+            // Замедляем со временем
+            spinSpeed = 30 * (1 - progress * 0.9);
+            spinPosition += spinSpeed;
+
+            track.style.transform = `translateY(-${spinPosition % (spinItems.length * 100)}px)`;
+
+            if (progress >= 1) {
+                clearInterval(spinInterval);
+                // После завершения анимации делаем запрос на сервер
+                fetchPrizeResult();
+            }
+        }, 16);
+    }
+
+    // Функция получения результата от сервера
+    function fetchPrizeResult() {
         fetch(`/api/open_case/${currentCase.id}/`, {
             method: 'POST',
             headers: {
@@ -106,8 +153,10 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                caseModal.style.display = 'none';
-                displayResult(data);
+                // Удаляем контейнер с анимацией
+                document.querySelector('.spin-container').remove();
+                // Показываем результат
+                displayResult(data.prize);
             } else {
                 showError(data.error || 'Ошибка при открытии кейса');
             }
@@ -117,36 +166,53 @@ document.addEventListener('DOMContentLoaded', function() {
             showError('Ошибка при открытии кейса');
         })
         .finally(() => {
+            isSpinning = false;
             openCaseModalBtn.disabled = false;
-            openCaseModalBtn.textContent = 'ОТКРЫТЬ КЕЙС';
         });
+    }
+
+    // Открытие кейса с анимацией
+    openCaseModalBtn.addEventListener('click', function() {
+        if (!currentCase || isSpinning) return;
+
+        const balance = parseFloat(document.querySelector('.balance-amount').textContent);
+        if (balance < currentCase.price) {
+            showError('Недостаточно средств!');
+            return;
+        }
+
+        // Блокируем кнопку
+        openCaseModalBtn.disabled = true;
+        isSpinning = true;
+
+        // Запускаем анимацию
+        startSpinAnimation();
     });
 
     // Отображение результата
-    function displayResult(data) {
-        const prize = data.prize;
+    function displayResult(prize) {
         document.getElementById('prizeImage').src = prize.image || '/static/casino/images/default_prize.png';
         document.getElementById('prizeName').textContent = prize.name;
         document.getElementById('prizeValue').textContent = `${prize.value}${prize.currency}`;
-        document.getElementById('newBalance').textContent = `Баланс: ${data.new_balance}$`;
 
-        // Обновляем баланс на странице
-        document.querySelectorAll('.balance-amount').forEach(el => {
-            el.textContent = data.new_balance;
-        });
+        // Обновляем баланс
+        Casino.syncBalance();
 
-        // Добавляем класс редкости для анимации
+        // Показываем модальное окно с результатом
         resultModal.className = `modal ${prize.rarity}`;
         resultModal.style.display = 'block';
-
-        // Анимация выигрыша
-        const prizeContainer = resultModal.querySelector('.prize-body');
-        prizeContainer.classList.add('win-animation');
     }
 
     // Закрытие модальных окон
     [closeModalBtn, continueBtn].forEach(btn => {
         btn.addEventListener('click', function() {
+            if (isSpinning) {
+                clearInterval(spinInterval);
+                const spinContainer = document.querySelector('.spin-container');
+                if (spinContainer) spinContainer.remove();
+                isSpinning = false;
+                openCaseModalBtn.disabled = false;
+            }
             caseModal.style.display = 'none';
             resultModal.style.display = 'none';
         });
@@ -155,6 +221,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Закрытие при клике вне модального окна
     window.addEventListener('click', function(event) {
         if (event.target === caseModal) {
+            if (isSpinning) {
+                clearInterval(spinInterval);
+                const spinContainer = document.querySelector('.spin-container');
+                if (spinContainer) spinContainer.remove();
+                isSpinning = false;
+                openCaseModalBtn.disabled = false;
+            }
             caseModal.style.display = 'none';
         }
         if (event.target === resultModal) {

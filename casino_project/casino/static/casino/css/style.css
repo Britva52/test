@@ -1563,12 +1563,6 @@ nav ul li a {
     100% { box-shadow: 0 0 10px rgba(155, 89, 182, 0.5); }
 }
 
-@keyframes pulseGold {
-    0% { box-shadow: 0 0 10px rgba(241, 196, 15, 0.5); }
-    50% { box-shadow: 0 0 30px rgba(241, 196, 15, 0.9); }
-    100% { box-shadow: 0 0 10px rgba(241, 196, 15, 0.5); }
-}
-
 @keyframes winPulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.2); }
@@ -1666,13 +1660,25 @@ nav ul li a {
 }
 
 .case-card {
+    position: relative;
     background: #1a1a1a;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     border: 1px solid #333;
     transition: all 0.3s;
     cursor: pointer;
-    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.case-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(212,175,55,0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 .case-card:hover {
@@ -1686,10 +1692,14 @@ nav ul li a {
 .case-card .case-currency[data-currency="EUR"] { border-color: #FFC107; }
 
 .case-currency {
-    padding: 3px 8px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 4px 8px;
     border-radius: 4px;
     font-size: 12px;
-    font-weight: bold;
 }
 
 .case-image-wrapper {
@@ -1735,6 +1745,10 @@ nav ul li a {
     background: #333;
 }
 
+.case-card:hover .case-glow {
+    opacity: 1;
+}
+
 .case-image-container {
     position: relative;
     height: 200px;
@@ -1763,16 +1777,37 @@ nav ul li a {
     background: #D4AF37;
     color: black;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
     width: 100%;
     transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.open-case-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255,255,255,0) 45%,
+        rgba(255,255,255,0.3) 50%,
+        rgba(255,255,255,0) 55%
+    );
+    transform: rotate(30deg);
+    animation: shine 3s infinite;
 }
 
 .open-case-btn:hover {
     background: #F9D423;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
 }
 
 .case-rarity-badge {
@@ -1786,10 +1821,27 @@ nav ul li a {
     text-transform: uppercase;
 }
 
-.case-info {
-    padding: 15px;
-    text-align: center;
+.case-info h3 {
+    color: white;
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
 }
+
+.case-info {
+    padding: 20px;
+    text-align: center;
+    background: #222;
+}
+
+.case-rarity {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
 
 .case-description {
     color: #aaa;
@@ -1800,6 +1852,33 @@ nav ul li a {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+.case-rarity.common {
+    background: #b0b0b0;
+    color: #111;
+}
+
+.case-rarity.uncommon {
+    background: #2ecc71;
+    color: white;
+}
+
+.case-rarity.rare {
+    background: #3498db;
+    color: white;
+}
+
+.case-rarity.epic {
+    background: #9b59b6;
+    color: white;
+}
+
+.case-rarity.legendary {
+    background: linear-gradient(45deg, #D4AF37, #FFD700);
+    color: #111;
+    animation: pulseGold 2s infinite;
+}
+
 
 .case-name {
     margin: 0 0 10px 0;
@@ -2337,12 +2416,6 @@ nav ul li a {
     text-align: center;
 }
 
-@keyframes pulseGold {
-    0% { opacity: 0.8; }
-    50% { opacity: 1; }
-    100% { opacity: 0.8; }
-}
-
 .case.opening {
     animation: caseOpen 1s ease-in-out;
     transform-style: preserve-3d;
@@ -2507,4 +2580,107 @@ nav ul li a {
 
 .case-shake {
     animation: caseShake 0.5s;
+}
+
+/* Стили для анимации прокрутки кейсов */
+.spin-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    margin: 20px 0;
+    overflow: hidden;
+    border: 2px solid #D4AF37;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.spin-items-wrapper {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.spin-items-track {
+    transition: transform 0.05s linear;
+}
+
+.spin-pointer {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #D4AF37;
+    z-index: 10;
+    transform: translateY(-50%);
+}
+
+.spin-item {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.spin-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 5px;
+}
+
+.spin-pointer::before,
+.spin-pointer::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #D4AF37;
+}
+
+.spin-pointer::before {
+    left: 20px;
+}
+
+.spin-pointer::after {
+    right: 20px;
+}
+
+.spin-container .case-item {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(26, 26, 26, 0.8);
+}
+
+.spin-container .item-image {
+    height: 60px;
+    width: 60px;
+    margin: 0 10px 0 0;
+}
+
+.spin-container .item-info {
+    text-align: left;
+}
+
+/* Анимация замедления */
+@keyframes spinSlowdown {
+    0% { transform: translateY(-1000px); }
+    100% { transform: translateY(0); }
+}
+
+.modal-content.legendary {
+    border: 2px solid #D4AF37;
+    animation: pulseGold 2s infinite;
+    background: #1a1a1a;
 }
