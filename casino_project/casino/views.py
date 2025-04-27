@@ -3,8 +3,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
 from django.http import JsonResponse
+from django.views.decorators.http import require_GET
 import random
-from decimal import Decimal, getcontext, InvalidOperation
+from django.views.decorators.http import require_POST
+from decimal import Decimal
 from django.db import transaction
 import json
 from datetime import timedelta
@@ -13,41 +15,34 @@ from .models import Bet, Case, CaseItem, CaseOpening, User, SportEvent, BettingO
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from .forms import CustomUserCreationForm
-
-
+from django.db.models import Q
+from django.core.paginator import Paginator
+from django.views.decorators.cache import cache_page
 
 User = get_user_model()
-
-
 
 # Основные страницы
 def index(request):
     return render(request, 'casino/index.html')
 
-
 def about(request):
     return render(request, 'casino/about.html')
-
 
 def contacts(request):
     return render(request, 'casino/contacts.html')
 
-
 def support(request):
     return render(request, 'casino/support.html')
-
 
 def custom_logout(request):
     logout(request)
     return redirect('index')
-
 
 @login_required
 def profile(request):
     bets = Bet.objects.filter(player=request.user).order_by('-created_at')[:10]
     context = {'bets': bets, 'user': request.user}
     return render(request, 'casino/profile.html', context)
-
 
 # Игры
 @login_required
@@ -57,14 +52,12 @@ def slots_view(request):
         'user': request.user
     })
 
-
 @login_required
 def get_balance(request):
     return JsonResponse({
         'success': True,
         'balance': float(request.user.balance)
     })
-
 
 @login_required
 def cases_view(request):
@@ -73,7 +66,6 @@ def cases_view(request):
         'cases': cases,
         'user_balance': request.user.balance
     })
-
 
 @csrf_exempt
 @login_required
@@ -100,28 +92,6 @@ def get_case_details(request, case_id):
         } for item in items]
     })
 
-
-@login_required
-def get_case(request, case_id):
-    case = get_object_or_404(Case, id=case_id)
-    items = case.items.all()
-
-    return JsonResponse({
-        'id': case.id,
-        'name': case.name,
-        'image': case.image.url if case.image else None,
-        'items': [
-            {
-                'name': item.name,
-                'value': float(item.value),
-                'image': item.image.url if item.image else None,
-                'rarity': item.rarity
-            }
-            for item in items
-        ]
-    })
-
-
 @login_required
 def roulette_view(request):
     number_rows = [
@@ -135,7 +105,6 @@ def roulette_view(request):
         'number_rows': number_rows
     })
 
-
 @login_required
 def coinflip_view(request):
     return render(request, 'casino/game.html', {
@@ -143,44 +112,29 @@ def coinflip_view(request):
         'game': 'coinflip'
     })
 
-
 @login_required
 def bets_view(request):
-    # Создаем тестовые события, если их нет
-    if not SportEvent.objects.exists():
-        event1 = SportEvent.objects.create(
-            name="Футбол: Лига Чемпионов",
-            start_time=timezone.now() + timedelta(days=1),
-            team1="Барселона",
-            team2="Реал Мадрид"
-        )
-        BettingOdd.objects.create(event=event1, outcome='win1', odd=2.5)
-        BettingOdd.objects.create(event=event1, outcome='draw', odd=3.2)
-        BettingOdd.objects.create(event=event1, outcome='win2', odd=2.8)
+    active_events = SportEvent.objects.filter(
+        is_active=True,
+        start_time__gt=timezone.now()
+    ).prefetch_related('odds').order_by('start_time')
 
-        event2 = SportEvent.objects.create(
-            name="Теннис: US Open",
-            start_time=timezone.now() + timedelta(days=2),
-            team1="Надаль",
-            team2="Джокович"
-        )
-        BettingOdd.objects.create(event=event2, outcome='win1', odd=1.8)
-        BettingOdd.objects.create(event=event2, outcome='win2', odd=2.0)
+    user_bets = SportBet.objects.filter(user=request.user).order_by('-created_at')
 
-    active_events = SportEvent.objects.filter(is_active=True).prefetch_related('odds')
-    user_bets = SportBet.objects.filter(user=request.user).order_by('-created_at')[:10]
+    paginator = Paginator(user_bets, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
-    return render(request, 'casino/bets.html', {
+    context = {
         'events': active_events,
-        'user_bets': user_bets,
+        'user_bets': page_obj,
         'user_balance': request.user.balance
-    })
-
+    }
+    return render(request, 'casino/bets.html', context)
 
 @csrf_exempt
 @login_required
 def add_funds(request):
-    print(f"Текущий баланс до пополнения: {request.user.balance}")  # Добавьте эту строку
     if request.method == 'POST':
         try:
             user = request.user
@@ -196,8 +150,6 @@ def add_funds(request):
             user.balance += Decimal('150.00')
             user.last_funds_add = now
             user.save()
-            print(f"Новый баланс: {user.balance}")  # И эту строку
-
 
             return JsonResponse({
                 'success': True,
@@ -212,7 +164,6 @@ def add_funds(request):
             })
     return JsonResponse({'success': False, 'error': 'Invalid method'})
 
-
 @csrf_exempt
 @login_required
 @transaction.atomic
@@ -224,17 +175,20 @@ def open_case(request, case_id):
         if user.balance < case.price:
             return JsonResponse({'success': False, 'error': 'Недостаточно средств'})
 
-        user.balance -= case.price
-        user.save()
+        # Список предметов с их вероятностями
+        items = list(case.items.all())
+        if not items:
+            return JsonResponse({'success': False, 'error': 'Кейс пуст'})
 
         # Выбираем случайный предмет с учетом вероятностей
-        items = list(case.items.all())
-        prize = random.choices(items, weights=[item.probability for item in items], k=1)[0]
+        probabilities = [item.probability for item in items]
+        prize = random.choices(items, weights=probabilities, k=1)[0]
 
-        # Записываем открытие кейса
+        # Создаем запись об открытии
         CaseOpening.objects.create(user=user, case=case, item=prize)
 
-        # Зачисляем выигрыш
+        # Обновляем баланс
+        user.balance -= case.price
         user.balance += prize.value
         user.save()
 
@@ -253,6 +207,7 @@ def open_case(request, case_id):
     except Exception as e:
         return JsonResponse({'success': False, 'error': str(e)})
 
+
 @csrf_exempt
 @login_required
 @transaction.atomic
@@ -262,68 +217,91 @@ def place_sport_bet(request):
 
     try:
         data = json.loads(request.body)
+        print("Полученные данные:", data)
         user = request.user
         amount = Decimal(str(data.get('amount', 0)))
+        odds_data = data.get('odds', [])
 
         if amount <= 0:
             return JsonResponse({'success': False, 'error': 'Неверная сумма ставки'})
 
-        if user.balance < amount:
-            return JsonResponse({'success': False, 'error': 'Недостаточно средств'})
+        if not odds_data:
+            return JsonResponse({'success': False, 'error': 'Не выбраны коэффициенты'})
 
-        # Получаем все коэффициенты для ставок
-        odds_ids = [odd['odd_id'] for odd in data.get('odds', [])]
-        odds = BettingOdd.objects.filter(id__in=odds_ids, is_active=True)
+        if user.balance < amount:
+            return JsonResponse({
+                'success': False,
+                'error': 'Недостаточно средств на балансе',
+                'current_balance': float(user.balance)
+            })
+
+        odds_ids = [odd['odd_id'] for odd in odds_data]
+        odds = BettingOdd.objects.filter(
+            id__in=odds_ids,
+            is_active=True
+        ).select_related('event')
 
         if len(odds) != len(odds_ids):
-            return JsonResponse({'success': False, 'error': 'Некоторые коэффициенты не найдены'})
+            return JsonResponse({
+                'success': False,
+                'error': 'Некоторые коэффициенты не найдены или неактивны'
+            })
 
-        # Списываем средства
+        for odd in odds:
+            if odd.event.start_time <= timezone.now():
+                return JsonResponse({
+                    'success': False,
+                    'error': f'Событие {odd.event} уже началось'
+                })
+
+        bet_type = 'single' if len(odds) == 1 else 'express'
+        total_odd = Decimal(1)
+        for odd in odds:
+            total_odd *= odd.odd
+
         user.balance -= amount
         user.save()
 
-        # Создаем ставку
-        bet = SportBet.objects.create(
-            user=user,
-            event=odds[0].event,  # берем событие из первого коэффициента
-            odd=odds[0],  # для простоты берем первый коэффициент
-            amount=amount,
-            potential_win=amount * odds[0].odd,
-            outcome='pending'
-        )
-
-        # В реальном приложении здесь был бы код для проверки результата матча
-        # Но для демонстрации мы сразу определяем результат (50/50)
-        if random.random() < 0.5:
-            # Ставка выиграла
-            user.balance += bet.potential_win
-            user.save()
-            bet.outcome = 'win'
-            bet.resolved_at = timezone.now()
-            bet.save()
-
-            return JsonResponse({
-                'success': True,
-                'outcome': 'win',
-                'win_amount': float(bet.potential_win),
-                'new_balance': float(user.balance)
-            })
+        if bet_type == 'single':
+            bet = SportBet.objects.create(
+                user=user,
+                event=odds[0].event,
+                odd=odds[0],
+                amount=amount,
+                potential_win=amount * odds[0].odd,
+                bet_type=bet_type,
+                outcome='pending'
+            )
         else:
-            # Ставка проиграла
-            bet.outcome = 'lose'
-            bet.resolved_at = timezone.now()
-            bet.save()
+            bet = SportBet.objects.create(
+                user=user,
+                event=odds[0].event,
+                odd=odds[0],
+                amount=amount,
+                potential_win=amount * total_odd,
+                bet_type=bet_type,
+                outcome='pending',
+                meta_data={
+                    'express_odds': [
+                        {
+                            'id': str(odd.id),
+                            'event_id': str(odd.event.id),
+                            'outcome': odd.outcome,
+                            'odd': float(odd.odd)
+                        } for odd in odds
+                    ]
+                }
+            )
 
-            return JsonResponse({
-                'success': True,
-                'outcome': 'lose',
-                'win_amount': 0,
-                'new_balance': float(user.balance)
-            })
+        return JsonResponse({
+            'success': True,
+            'bet_id': bet.id,
+            'potential_win': float(bet.potential_win),
+            'new_balance': float(user.balance)
+        })
 
     except Exception as e:
         return JsonResponse({'success': False, 'error': str(e)})
-
 
 @csrf_exempt
 @login_required
@@ -335,32 +313,21 @@ def place_roulette_bet(request):
         data = json.loads(request.body)
         user = request.user
         amount = Decimal(str(data.get('amount', 0)))
+        bet_type = data.get('type')
+        bet_value = data.get('value')
 
-        if amount <= 0:
-            return JsonResponse({'success': False, 'error': 'Неверная сумма ставки'})
-
-        if user.balance < amount:
-            return JsonResponse({
-                'success': False,
-                'error': f'Недостаточно средств. Баланс: {user.balance}$, Ставка: {amount}$'
-            })
-
-        # Генерация результата
         win_number = random.randint(0, 36)
         win_color = 'green' if win_number == 0 else 'red' if win_number % 2 == 1 else 'black'
 
-        # Проверка ставки
-        bet_type = data.get('type')
-        bet_value = data.get('value')
         win = False
         payout_multiplier = 0
 
         if bet_type == 'number':
             win = int(bet_value) == win_number
-            payout_multiplier = 36  # 35:1 + возврат ставки
+            payout_multiplier = 36
         elif bet_type == 'color':
             win = bet_value == win_color
-            payout_multiplier = 2   # 1:1 + возврат ставки
+            payout_multiplier = 2
         elif bet_type == 'parity' and win_number != 0:
             win = (bet_value == 'even' and win_number % 2 == 0) or \
                   (bet_value == 'odd' and win_number % 2 != 0)
@@ -368,19 +335,15 @@ def place_roulette_bet(request):
         elif bet_type == 'range':
             low, high = map(int, bet_value.split('-'))
             win = low <= win_number <= high
-            payout_multiplier = 3   # 2:1 + возврат ставки
+            payout_multiplier = 3
 
-        # Рассчитываем итоговый баланс
         if win:
-            # Выигрыш = ставка * множитель (уже включает возврат ставки)
             user.balance += amount * (Decimal(payout_multiplier) - 1)
         else:
-            # Проигрыш - просто списываем ставку
             user.balance -= amount
 
         user.save()
 
-        # Создаем запись о ставке
         Bet.objects.create(
             player=user,
             game='roulette',
@@ -395,43 +358,14 @@ def place_roulette_bet(request):
             'success': True,
             'win': win,
             'win_number': win_number,
-            'win_color': win_color,  # Добавляем цвет в ответ
+            'win_color': win_color,
             'amount_spent': float(amount),
-            'payout': float(amount * 2) if win else 0,  # Фиксированный множитель 2
-            'new_balance': float(user.balance)
-        })
-
-
-    except Exception as e:
-        return JsonResponse({'success': False, 'error': str(e)})
-
-
-@csrf_exempt
-@login_required
-def complete_bet(request, bet_id):
-    if request.method != 'POST':
-        return JsonResponse({'success': False, 'error': 'Invalid method'})
-
-    try:
-        bet = Bet.objects.get(id=bet_id, outcome='pending')
-        user = request.user
-
-        if bet.win:  # Если ставка выиграла
-            win_amount = Decimal(request.POST.get('win_amount', 0))
-            user.balance += win_amount
-            user.save()
-            bet.win_amount = win_amount
-            bet.outcome = 'win'
-            bet.save()
-
-        return JsonResponse({
-            'success': True,
+            'payout': float(amount * 2) if win else 0,
             'new_balance': float(user.balance)
         })
 
     except Exception as e:
         return JsonResponse({'success': False, 'error': str(e)})
-
 
 @csrf_exempt
 @login_required
@@ -439,13 +373,13 @@ def place_slots_bet(request):
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
-            User = request.user
+            user = request.user
             amount = float(data.get('amount'))
 
             if amount <= 0:
                 return JsonResponse({'success': False, 'error': 'Неверная сумма ставки'})
 
-            if User.balance < amount:
+            if user.balance < amount:
                 return JsonResponse({'success': False, 'error': 'Недостаточно средств'})
 
             symbols = ["🍒", "🍋", "🔔", "🍉", "⭐", "7"]
@@ -459,11 +393,11 @@ def place_slots_bet(request):
                 multiplier = 0
 
             win_amount = amount * multiplier
-            User.balance += win_amount - amount
-            User.save()
+            user.balance += win_amount - amount
+            user.save()
 
             Bet.objects.create(
-                User=User,
+                player=user,
                 game='slots',
                 amount=amount,
                 bet_type='spin',
@@ -477,27 +411,22 @@ def place_slots_bet(request):
                 'reels': reels,
                 'win': win_amount > 0,
                 'win_amount': win_amount,
-                'new_balance': User.balance
+                'new_balance': user.balance
             })
 
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)})
     return JsonResponse({'success': False, 'error': 'Invalid method'})
 
-
 @csrf_exempt
 @login_required
 def place_coinflip_bet(request):
     if request.method == 'POST':
         try:
-            print("Получен запрос на ставку в монетку")  # Логирование
             data = json.loads(request.body)
-            print("Данные запроса:", data)  # Логирование
-
             user = request.user
             amount = Decimal(str(data.get('amount', 0)))
             side = data.get('side')
-            print(f"Ставка: {amount}$, сторона: {side}")  # Логирование
 
             if amount <= 0:
                 return JsonResponse({'success': False, 'error': 'Invalid bet amount'})
@@ -505,20 +434,13 @@ def place_coinflip_bet(request):
             if user.balance < amount:
                 return JsonResponse({'success': False, 'error': 'Not enough funds'})
 
-            # Генерация результата
             result = random.choice(['heads', 'tails'])
-            print(f"Результат: {result}")  # Логирование
-
             win = result == side
             win_amount = amount * Decimal('1.95') if win else Decimal(0)
-            print(f"Выиграл: {win}, сумма: {win_amount}")  # Логирование
 
-            # Обновление баланса
             user.balance += win_amount - amount
             user.save()
-            print(f"Новый баланс: {user.balance}")  # Логирование
 
-            # Сохранение ставки
             Bet.objects.create(
                 player=user,
                 game='coinflip',
@@ -538,13 +460,20 @@ def place_coinflip_bet(request):
             })
 
         except Exception as e:
-            print("Ошибка:", str(e))  # Логирование
             return JsonResponse({'success': False, 'error': str(e)})
 
+def register(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('index')
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
 
-csrf_exempt
-
-
+@csrf_exempt
 @login_required
 def update_balance(request):
     if request.method == 'POST':
@@ -563,177 +492,6 @@ def update_balance(request):
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)})
     return JsonResponse({'success': False, 'error': 'Invalid method'})
-
-
-def create_default_case():
-    case = Case.objects.create(
-        name="Золотой кейс",
-        price=100,
-        description="Содержит ценные призы от 10$ до 1000$",
-        image="cases/gold_case.png"
-    )
-
-    items = [
-        ("10$", 10, 0.5, 'common'),
-        ("25$", 25, 0.3, 'uncommon'),
-        ("50$", 50, 0.15, 'rare'),
-        ("100$", 100, 0.04, 'epic'),
-        ("500$", 500, 0.009, 'legendary'),
-        ("1000$", 1000, 0.001, 'legendary')
-    ]
-
-    for name, value, prob, rarity in items:
-        CaseItem.objects.create(
-            case=case,
-            name=name,
-            value=value,
-            probability=prob,
-            rarity=rarity
-        )
-
-
-@csrf_exempt
-@login_required
-def deduct_bet(request):
-    """Только списывает ставку"""
-    if request.method != 'POST':
-        return JsonResponse({'success': False, 'error': 'Invalid method'})
-
-    try:
-        data = json.loads(request.body)
-        user = request.user
-        amount = Decimal(str(data.get('amount', 0)))
-
-        if amount <= 0:
-            return JsonResponse({'success': False, 'error': 'Invalid amount'})
-
-        if user.balance < amount:
-            return JsonResponse({'success': False, 'error': 'Недостаточно средств'})
-
-        user.balance -= amount
-        user.save()
-
-        return JsonResponse({
-            'success': True,
-            'new_balance': float(user.balance)
-        })
-    except Exception as e:
-        return JsonResponse({'success': False, 'error': str(e)})
-
-
-@csrf_exempt
-@login_required
-def play_roulette(request):
-    """Определяет результат, но не меняет баланс"""
-    if request.method != 'POST':
-        return JsonResponse({'success': False, 'error': 'Invalid method'})
-
-    try:
-        data = json.loads(request.body)
-        amount = Decimal(str(data.get('amount', 0)))
-        bet_type = data.get('type')
-        bet_value = data.get('value')
-
-        # Генерация результата
-        win_number = random.randint(0, 36)
-        win_color = 'green' if win_number == 0 else 'red' if win_number % 2 else 'black'
-
-        # Проверка выигрыша
-        win = False
-        multiplier = 1
-
-        if bet_type == 'number':
-            win = int(bet_value) == win_number
-            multiplier = 36
-        elif bet_type == 'color':
-            win = bet_value == win_color
-            multiplier = 2
-        elif bet_type == 'parity' and win_number != 0:
-            win = (bet_value == 'even' and win_number % 2 == 0) or \
-                  (bet_value == 'odd' and win_number % 2 != 0)
-            multiplier = 2
-        elif bet_type == 'range':
-            low, high = map(int, bet_value.split('-'))
-            win = low <= win_number <= high
-            multiplier = 3
-
-        # Создаем запись о ставке
-        bet = Bet.objects.create(
-            player=request.user,
-            game='roulette',
-            amount=amount,
-            bet_type=bet_type,
-            bet_value=str(bet_value),
-            outcome='win' if win else 'lose',
-            win_amount=amount * Decimal(multiplier) if win else Decimal(0)
-        )
-
-        return JsonResponse({
-            'success': True,
-            'win': win,
-            'win_number': win_number,
-            'win_amount': float(amount * Decimal(multiplier)),
-            'bet_id': bet.id
-        })
-    except Exception as e:
-        return JsonResponse({'success': False, 'error': str(e)})
-
-
-@csrf_exempt
-@login_required
-def add_winnings(request):
-    """Начисляет выигрыш"""
-    if request.method != 'POST':
-        return JsonResponse({'success': False, 'error': 'Invalid method'})
-
-    try:
-        data = json.loads(request.body)
-        user = request.user
-        amount = Decimal(str(data.get('amount', 0)))
-        bet_id = data.get('bet_id')
-
-        bet = Bet.objects.get(id=bet_id, player=user)
-
-        user.balance += amount
-        user.save()
-
-        return JsonResponse({
-            'success': True,
-            'new_balance': float(user.balance)
-        })
-    except Exception as e:
-        return JsonResponse({'success': False, 'error': str(e)})
-
-
-def register(request):
-    if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('index')
-    else:
-        form = CustomUserCreationForm()
-    return render(request, 'registration/register.html', {'form': form})
-
-
-@csrf_exempt
-@login_required
-def check_balance(request):
-    if request.method == 'POST':
-        try:
-            data = json.loads(request.body)
-            amount = Decimal(str(data.get('amount', 0)))
-            user = request.user
-
-            return JsonResponse({
-                'success': True,
-                'enough': user.balance >= amount,
-                'current_balance': float(user.balance)
-            })
-        except Exception as e:
-            return JsonResponse({'success': False, 'error': str(e)})
-
 
 @csrf_exempt
 @login_required
@@ -757,7 +515,6 @@ def deduct_bet(request):
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)})
 
-
 @csrf_exempt
 @login_required
 def add_winnings(request):
@@ -776,3 +533,380 @@ def add_winnings(request):
             })
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)})
+
+@csrf_exempt
+@login_required
+def cash_out_bet(request, bet_id):
+    bet = get_object_or_404(SportBet, id=bet_id, user=request.user, outcome='pending')
+
+    if bet.event.start_time <= timezone.now():
+        return JsonResponse({'success': False, 'error': 'Событие уже началось'})
+
+    cash_out_amount = bet.amount * Decimal('0.7')
+    request.user.balance += cash_out_amount
+    request.user.save()
+
+    bet.outcome = 'returned'
+    bet.resolved_at = timezone.now()
+    bet.save()
+
+    return JsonResponse({
+        'success': True,
+        'cash_out_amount': float(cash_out_amount),
+        'new_balance': float(request.user.balance)
+    })
+
+@cache_page(60 * 5)
+@require_GET
+def get_live_events(request):
+    sport_type = request.GET.get('sport_type')
+    page = request.GET.get('page', 1)
+    per_page = 10
+
+    events = SportEvent.objects.filter(
+        is_active=True,
+        start_time__gt=timezone.now()
+    ).prefetch_related('odds').order_by('start_time')
+
+    if sport_type:
+        events = events.filter(sport_type=sport_type)
+
+    paginator = Paginator(events, per_page)
+    page_obj = paginator.get_page(page)
+
+    events_data = []
+    for event in page_obj:
+        event_data = {
+            'id': event.id,
+            'team1': event.team1,
+            'team2': event.team2,
+            'start_time': event.start_time.isoformat(),
+            'sport_type': event.get_sport_type_display(),
+            'odds': []
+        }
+
+        for odd in event.odds.all():
+            event_data['odds'].append({
+                'id': odd.id,
+                'outcome': odd.outcome,
+                'odd': float(odd.odd)
+            })
+
+        events_data.append(event_data)
+
+    return JsonResponse({
+        'success': True,
+        'events': events_data,
+        'total_pages': paginator.num_pages,
+        'current_page': page
+    })
+
+
+@csrf_exempt
+@login_required
+def complete_bet(request, bet_id):
+    if request.method != 'POST':
+        return JsonResponse({'success': False, 'error': 'Invalid method'})
+
+    try:
+        bet = Bet.objects.get(id=bet_id, outcome='pending')
+        user = request.user
+
+        if bet.win:
+            win_amount = Decimal(request.POST.get('win_amount', 0))
+            user.balance += win_amount
+            user.save()
+            bet.win_amount = win_amount
+            bet.outcome = 'win'
+            bet.save()
+
+        return JsonResponse({
+            'success': True,
+            'new_balance': float(user.balance)
+        })
+
+    except Exception as e:
+        return JsonResponse({'success': False, 'error': str(e)})
+
+
+@csrf_exempt
+@login_required
+def play_roulette(request):
+    if request.method != 'POST':
+        return JsonResponse({'success': False, 'error': 'Invalid method'})
+
+    try:
+        data = json.loads(request.body)
+        amount = Decimal(str(data.get('amount', 0)))
+        bet_type = data.get('type')
+        bet_value = data.get('value')
+
+        win_number = random.randint(0, 36)
+        win_color = 'green' if win_number == 0 else 'red' if win_number % 2 else 'black'
+
+        win = False
+        multiplier = 1
+
+        if bet_type == 'number':
+            win = int(bet_value) == win_number
+            multiplier = 36
+        elif bet_type == 'color':
+            win = bet_value == win_color
+            multiplier = 2
+        elif bet_type == 'parity' and win_number != 0:
+            win = (bet_value == 'even' and win_number % 2 == 0) or \
+                  (bet_value == 'odd' and win_number % 2 != 0)
+            multiplier = 2
+        elif bet_type == 'range':
+            low, high = map(int, bet_value.split('-'))
+            win = low <= win_number <= high
+            multiplier = 3
+
+        bet = Bet.objects.create(
+            player=request.user,
+            game='roulette',
+            amount=amount,
+            bet_type=bet_type,
+            bet_value=str(bet_value),
+            outcome='win' if win else 'lose',
+            win_amount=amount * Decimal(multiplier) if win else Decimal(0)
+        )
+
+        return JsonResponse({
+            'success': True,
+            'win': win,
+            'win_number': win_number,
+            'win_amount': float(amount * Decimal(multiplier)),
+            'bet_id': bet.id
+        })
+    except Exception as e:
+        return JsonResponse({'success': False, 'error': str(e)})
+
+
+def create_full_test_data():
+    User = get_user_model()
+
+    user, created = User.objects.get_or_create(
+        username='testuser',
+        defaults={
+            'balance': 1000.00,
+            'password': 'testpass123'
+        }
+    )
+    if created:
+        user.set_password('testpass123')
+        user.save()
+
+    def create_full_test_data():
+        User = get_user_model()
+
+        # Создаем тестового пользователя
+        user, created = User.objects.get_or_create(
+            username='testuser',
+            defaults={
+                'balance': 1000.00,
+                'password': 'testpass123'  # Пароль будет автоматически хэширован
+            }
+        )
+
+        # Удаляем старые кейсы если есть
+        Case.objects.all().delete()
+
+        # 1. Бронзовый кейс (USD)
+        bronze_case = Case.objects.create(
+            name="Бронзовый кейс",
+            price=50.00,
+            currency='USD',
+            image="cases/bronze.png",
+            is_active=True
+        )
+        CaseItem.objects.bulk_create([
+            CaseItem(case=bronze_case, name="10$", value=10.00, probability=0.5, rarity='common'),
+            CaseItem(case=bronze_case, name="25$", value=25.00, probability=0.3, rarity='uncommon'),
+            CaseItem(case=bronze_case, name="50$", value=50.00, probability=0.15, rarity='rare'),
+            CaseItem(case=bronze_case, name="100$", value=100.00, probability=0.04, rarity='epic'),
+            CaseItem(case=bronze_case, name="500$", value=500.00, probability=0.01, rarity='legendary')
+        ])
+
+        # 2. Серебряный кейс (EUR)
+        silver_case = Case.objects.create(
+            name="Серебряный кейс",
+            price=40.00,
+            currency='EUR',
+            image="cases/silver.png",
+            is_active=True
+        )
+        CaseItem.objects.bulk_create([
+            CaseItem(case=silver_case, name="10€", value=10.00, probability=0.45, rarity='common'),
+            CaseItem(case=silver_case, name="25€", value=25.00, probability=0.25, rarity='uncommon'),
+            CaseItem(case=silver_case, name="50€", value=50.00, probability=0.2, rarity='rare'),
+            CaseItem(case=silver_case, name="100€", value=100.00, probability=0.08, rarity='epic'),
+            CaseItem(case=silver_case, name="500€", value=500.00, probability=0.02, rarity='legendary')
+        ])
+
+        # 3. Золотой кейс (USD)
+        gold_case = Case.objects.create(
+            name="Золотой кейс",
+            price=100.00,
+            currency='USD',
+            image="cases/gold.png",
+            is_active=True
+        )
+        CaseItem.objects.bulk_create([
+            CaseItem(case=gold_case, name="25$", value=25.00, probability=0.4, rarity='common'),
+            CaseItem(case=gold_case, name="50$", value=50.00, probability=0.3, rarity='uncommon'),
+            CaseItem(case=gold_case, name="100$", value=100.00, probability=0.2, rarity='rare'),
+            CaseItem(case=gold_case, name="250$", value=250.00, probability=0.08, rarity='epic'),
+            CaseItem(case=gold_case, name="1000$", value=1000.00, probability=0.02, rarity='legendary')
+        ])
+
+        # 4. Платиновый кейс (RUB)
+        platinum_case = Case.objects.create(
+            name="Платиновый кейс",
+            price=5000.00,
+            currency='RUB',
+            image="cases/platinum.png",
+            is_active=True
+        )
+        CaseItem.objects.bulk_create([
+            CaseItem(case=platinum_case, name="1000₽", value=1000.00, probability=0.5, rarity='common'),
+            CaseItem(case=platinum_case, name="2500₽", value=2500.00, probability=0.3, rarity='uncommon'),
+            CaseItem(case=platinum_case, name="5000₽", value=5000.00, probability=0.15, rarity='rare'),
+            CaseItem(case=platinum_case, name="10000₽", value=10000.00, probability=0.04, rarity='epic'),
+            CaseItem(case=platinum_case, name="50000₽", value=50000.00, probability=0.01, rarity='legendary')
+        ])
+
+        # 5. Крипто кейс (USDT)
+        crypto_case = Case.objects.create(
+            name="Крипто кейс",
+            price=50.00,
+            currency='USDT',
+            image="cases/crypto.png",
+            is_active=True
+        )
+        CaseItem.objects.bulk_create([
+            CaseItem(case=crypto_case, name="10 USDT", value=10.00, probability=0.4, rarity='common'),
+            CaseItem(case=crypto_case, name="25 USDT", value=25.00, probability=0.3, rarity='uncommon'),
+            CaseItem(case=crypto_case, name="50 USDT", value=50.00, probability=0.2, rarity='rare'),
+            CaseItem(case=crypto_case, name="100 USDT", value=100.00, probability=0.08, rarity='epic'),
+            CaseItem(case=crypto_case, name="500 USDT", value=500.00, probability=0.02, rarity='legendary')
+        ])
+
+        # Создаем тестовые спортивные события
+        SportEvent.objects.all().delete()
+
+        # Футбольный матч
+        football_event = SportEvent.objects.create(
+            team1="Барселона",
+            team2="Реал Мадрид",
+            start_time=timezone.now() + timedelta(days=1),
+            sport_type='football',
+            is_active=True
+        )
+        BettingOdd.objects.bulk_create([
+            BettingOdd(event=football_event, outcome='win1', odd=2.50),
+            BettingOdd(event=football_event, outcome='draw', odd=3.20),
+            BettingOdd(event=football_event, outcome='win2', odd=2.80)
+        ])
+
+        # Теннисный матч
+        tennis_event = SportEvent.objects.create(
+            team1="Надаль",
+            team2="Джокович",
+            start_time=timezone.now() + timedelta(days=2),
+            sport_type='tennis',
+            is_active=True
+        )
+        BettingOdd.objects.bulk_create([
+            BettingOdd(event=tennis_event, outcome='win1', odd=1.80),
+            BettingOdd(event=tennis_event, outcome='win2', odd=2.00)
+        ])
+
+        # Создаем тестовую ставку
+        SportBet.objects.create(
+            user=user,
+            event=football_event,
+            odd=BettingOdd.objects.filter(event=football_event).first(),
+            amount=100.00,
+            potential_win=250.00,
+            outcome='pending'
+        )
+
+        print("Тестовые данные успешно созданы!")
+        print(f"Логин: testuser\nПароль: testpass123")
+
+
+@require_POST
+@csrf_exempt
+def resolve_bet(request):
+    try:
+        bet_id = request.POST.get('bet_id')
+        outcome = request.POST.get('outcome')  # win, lose или refund
+
+        # Получаем ставку
+        bet = Bet.objects.get(id=bet_id, outcome='pending')
+
+        # Обновляем ставку
+        bet.outcome = outcome
+        bet.save()
+
+        # Обновляем баланс пользователя
+        user_profile = UserProfile.objects.get(user=request.user)
+
+        if outcome == 'win':
+            user_profile.balance += bet.potential_win
+        elif outcome == 'refund':
+            user_profile.balance += bet.amount
+
+        user_profile.save()
+
+        return JsonResponse({
+            'success': True,
+            'new_balance': user_profile.balance,
+            'message': f'Ставка {bet_id} завершена с результатом: {outcome}'
+        })
+
+    except Bet.DoesNotExist:
+        return JsonResponse({
+            'success': False,
+            'error': 'Ставка не найдена или уже обработана'
+        }, status=404)
+    except Exception as e:
+        return JsonResponse({
+            'success': False,
+            'error': str(e)
+        }, status=500)
+
+
+@login_required
+@csrf_exempt
+def get_bet_history(request):
+    try:
+        bets = Bet.objects.filter(user=request.user).order_by('-created_at')
+
+        bet_list = []
+        for bet in bets:
+            bet_data = {
+                'id': bet.id,
+                'amount': bet.amount,
+                'potential_win': bet.potential_win,
+                'outcome': bet.outcome,
+                'created_at': bet.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+                'resolved_at': bet.resolved_at.strftime('%Y-%m-%d %H:%M:%S') if bet.resolved_at else None,
+                'events': []
+            }
+
+            for odd in bet.odds.all():
+                event = odd.event
+                bet_data['events'].append({
+                    'teams': f"{event.team1} vs {event.team2}",
+                    'outcome': odd.get_outcome_display(),
+                    'odd': odd.odd
+                })
+
+            bet_list.append(bet_data)
+
+        return JsonResponse({'success': True, 'bets': bet_list})
+
+    except Exception as e:
+        return JsonResponse({'success': False, 'error': str(e)})

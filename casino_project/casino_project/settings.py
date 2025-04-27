@@ -11,12 +11,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Важно!
-        'NAME': BASE_DIR / 'db.sqlite3',         # Путь к файлу БД
-    }
-}
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -108,6 +103,12 @@ USE_TZ = True
 AUTH_USER_MODEL = 'casino.User'
 LOGIN_URL = '/login/'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',  # Важно!
+        'NAME': BASE_DIR / 'db.sqlite3',         # Путь к файлу БД
+    }
+}
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]

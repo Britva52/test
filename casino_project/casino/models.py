@@ -1,13 +1,11 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
-from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
 from django.contrib.auth.models import AbstractUser
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from decimal import Decimal
 import uuid
-
+from django.core.exceptions import ValidationError
 
 class User(AbstractUser):
     balance = models.DecimalField(
@@ -27,19 +25,11 @@ class User(AbstractUser):
     def __str__(self):
         return self.username
 
-
-@receiver(post_save, sender=User)
-def create_player_profile(sender, instance, created, **kwargs):
-    if created:
-        pass
-
-    def validate_uuid(value):
-        """Проверяет, является ли значение корректным UUID."""
-        try:
-            uuid.UUID(str(value))
-        except ValueError:
-            raise ValidationError("Некорректный UUID.")
-
+def validate_uuid(value):
+    try:
+        uuid.UUID(str(value))
+    except ValueError:
+        raise ValidationError("Некорректный UUID.")
 
 class Bet(models.Model):
     player = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -50,17 +40,6 @@ class Bet(models.Model):
     outcome = models.CharField(max_length=10)
     win_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     created_at = models.DateTimeField(auto_now_add=True)
-
-
-class MyModel(models.Model):
-    id = models.UUIDField(
-        primary_key=True,
-        default=uuid.uuid4,
-        editable=False
-    )
-    ne = models.CharField(max_length=100)
-    solution = models.TextField()
-
 
 class Case(models.Model):
     CURRENCY_CHOICES = [
@@ -80,7 +59,6 @@ class Case(models.Model):
     def __str__(self):
         return f"{self.name} ({self.get_currency_display()})"
 
-
 class CaseItem(models.Model):
     RARITY_CHOICES = [
         ('common', 'Обычный'),
@@ -91,7 +69,7 @@ class CaseItem(models.Model):
     ]
 
     case = models.ForeignKey(Case, related_name='items', on_delete=models.CASCADE)
-    name = models.CharField(max_length=100, default="Приз")  # Добавляем поле name
+    name = models.CharField(max_length=100, default="Приз")
     image = models.ImageField(upload_to='case_items/', null=True, blank=True)
     value = models.DecimalField(max_digits=10, decimal_places=2)
     probability = models.FloatField(default=1.0)
@@ -113,15 +91,26 @@ class CaseOpening(models.Model):
         return f"{self.user} opened {self.case} and got {self.item}"
 
 class SportEvent(models.Model):
+    SPORT_CHOICES = [
+        ('football', 'Футбол'),
+        ('tennis', 'Теннис'),
+        ('basketball', 'Баскетбол'),
+        ('hockey', 'Хоккей'),
+    ]
+
     name = models.CharField(max_length=200)
     start_time = models.DateTimeField()
     team1 = models.CharField(max_length=100)
     team2 = models.CharField(max_length=100)
+    sport_type = models.CharField(max_length=20, choices=SPORT_CHOICES)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.team1} vs {self.team2}"
+
+    def get_sport_type_display(self):
+        return dict(self.SPORT_CHOICES).get(self.sport_type, self.sport_type)
 
 class BettingOdd(models.Model):
     OUTCOME_CHOICES = [
@@ -143,7 +132,14 @@ class SportBet(models.Model):
         ('pending', 'В ожидании'),
         ('win', 'Выиграл'),
         ('lose', 'Проиграл'),
-        ('canceled', 'Отменен')
+        ('canceled', 'Отменен'),
+        ('returned', 'Возврат')
+    ]
+
+    BET_TYPES = [
+        ('single', 'Одиночная'),
+        ('express', 'Экспресс'),
+        ('system', 'Система')
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -152,8 +148,19 @@ class SportBet(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     potential_win = models.DecimalField(max_digits=10, decimal_places=2)
     outcome = models.CharField(max_length=10, choices=OUTCOME_CHOICES, default='pending')
+    bet_type = models.CharField(max_length=10, choices=BET_TYPES, default='single')
     created_at = models.DateTimeField(auto_now_add=True)
     resolved_at = models.DateTimeField(null=True, blank=True)
 
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Спортивная ставка'
+        verbose_name_plural = 'Спортивные ставки'
+
+    def save(self, *args, **kwargs):
+        if not self.potential_win and self.odd:
+            self.potential_win = self.amount * self.odd.odd
+        super().save(*args, **kwargs)
+
     def __str__(self):
-        return f"{self.user} - {self.amount}$ на {self.odd}"
+        return f"{self.user}: {self.amount}$ на {self.odd} ({self.get_outcome_display()})"
