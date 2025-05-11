@@ -1,15 +1,38 @@
+[file name]: login.html
 {% extends 'casino/base.html' %}
 
 {% block content %}
-<div class="container">
-    <h1 class="game-title">Login</h1>
+<div class="auth-container">
+    <div class="auth-wrapper">
+        <!-- Анимированные фишки на фоне -->
+        <div class="chip chip-1"></div>
+        <div class="chip chip-2"></div>
+        <div class="chip chip-3"></div>
 
-    <form method="post" class="login-form">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn-bet">Login</button>
-    </form>
+        <h1 class="auth-title">С возвращением</h1>
+        <p class="auth-subtitle">Войдите в свой аккаунт</p>
 
-    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+        <form method="post" class="auth-form">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="id_username">Логин</label>
+                {{ form.username }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_password">Пароль</label>
+                {{ form.password }}
+            </div>
+
+            <button type="submit" class="btn-gold btn-shine">
+                <span>Войти</span>
+            </button>
+        </form>
+
+        <p class="auth-footer">
+            Нет аккаунта? <a href="{% url 'register' %}" class="gold-link">Зарегистрироваться</a>
+        </p>
+    </div>
 </div>
 {% endblock %}

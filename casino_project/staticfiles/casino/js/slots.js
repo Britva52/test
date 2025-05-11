@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "🍉🍉🍉": 15, "⭐⭐⭐": 20, "777": 50
         },
         spinDuration: 2000,
-        reelDelay: 300
+        reelDelay: 1000 // Изменено на 1000 мс (1 секунда)
     };
 
     // Получаем элементы DOM
@@ -45,90 +45,81 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Запуск вращения
     async function startSpin() {
-        if (isSpinning) return;
+    if (isSpinning) return;
 
-        const betAmount = parseFloat(betInput.value);
-        if (!validateBet(betAmount)) return;
+    const betAmount = parseFloat(betInput.value);
+    if (!validateBet(betAmount)) return;
 
-        isSpinning = true;
-        disableButtons(true);
-        showMessage("Барабаны крутятся...", true);
+    isSpinning = true;
+    disableButtons(true);
+    showMessage("Барабаны крутятся...", true);
 
-        try {
-            // Списание средств
-            const response = await sendRequest('/api/deduct_bet/', {
-                amount: betAmount
-            });
-
-            if (!response.success) throw new Error("Deduction failed");
-            updateBalance(response.new_balance);
-
-            // Настройка анимации
-            resetReels();
-            startTime = performance.now();
-            stopTimes = [
-                startTime + config.spinDuration,
-                startTime + config.spinDuration + config.reelDelay,
-                startTime + config.spinDuration + config.reelDelay * 2
-            ];
-
-            // Генерация финальных символов
-            finalSymbols = reels.map(() =>
-                config.symbols[Math.floor(Math.random() * config.symbols.length)]
-            );
-
-            // Запуск анимации
-            animateReels(betAmount);
-        } catch (error) {
-            console.error("Spin error:", error);
-            endSpin(false);
-        }
-    }
-
-    // Валидация ставки
-    function validateBet(amount) {
-        if (isNaN(amount)) {
-            showMessage("Введите число", false);
-            return false;
-        }
-
-        if (amount <= 0) {
-            showMessage("Ставка должна быть больше 0", false);
-            return false;
-        }
-
-        const balance = getBalance();
-        if (balance < amount) {
-            showMessage(`Недостаточно средств. Баланс: ${balance}$`, false);
-            return false;
-        }
-
-        return true;
-    }
-
-    // Анимация барабанов
-    function animateReels(betAmount) {
-        const now = performance.now();
-        let allStopped = true;
-
-        reels.forEach((reel, index) => {
-            if (now < stopTimes[index]) {
-                allStopped = false;
-                reel.textContent = config.symbols[
-                    Math.floor(Math.random() * config.symbols.length)
-                ];
-            } else if (reel.dataset.stopped === "false") {
-                reel.textContent = finalSymbols[index];
-                reel.dataset.stopped = "true";
-            }
+    try {
+        const response = await sendRequest('/api/deduct_bet/', {
+            amount: betAmount
         });
 
-        if (!allStopped) {
-            animationId = requestAnimationFrame(() => animateReels(betAmount));
-        } else {
-            finishSpin(betAmount);
-        }
+        if (!response.success) throw new Error("Deduction failed");
+        updateBalance(response.new_balance);
+
+        resetReels();
+        startTime = performance.now();
+
+        // Новый расчет времени остановки каждого барабана
+        stopTimes = [
+            startTime + config.spinDuration,               // Первый барабан
+            startTime + config.spinDuration + config.reelDelay,    // Второй (через 1 сек после первого)
+            startTime + config.spinDuration + config.reelDelay * 2 // Третий (еще через 1 сек после второго)
+        ];
+
+        finalSymbols = reels.map(() =>
+            config.symbols[Math.floor(Math.random() * config.symbols.length)]
+        );
+
+        animateReels(betAmount);
+    } catch (error) {
+        console.error("Spin error:", error);
+        endSpin(false);
     }
+}
+
+    // Валидация ставки
+function animateReels(betAmount) {
+    const now = performance.now();
+    let allStopped = true;
+
+    reels.forEach((reel, index) => {
+        if (now < stopTimes[index]) {
+            allStopped = false;
+            reel.textContent = config.symbols[
+                Math.floor(Math.random() * config.symbols.length)
+            ];
+
+            // Добавляем эффект замедления перед остановкой
+            if (now > stopTimes[index] - 300) {
+                reel.style.transition = 'transform 0.3s ease-out';
+                reel.style.transform = 'scale(1.1)';
+            }
+        } else if (reel.dataset.stopped === "false") {
+            reel.textContent = finalSymbols[index];
+            reel.dataset.symbol = finalSymbols[index];
+            reel.dataset.stopped = "true";
+            reel.style.transform = 'scale(1)';
+
+            // Анимация "приземления" символа
+            reel.style.animation = 'drop 0.3s ease-out';
+            setTimeout(() => {
+                reel.style.animation = '';
+            }, 300);
+        }
+    });
+
+    if (!allStopped) {
+        animationId = requestAnimationFrame(() => animateReels(betAmount));
+    } else {
+        finishSpin(betAmount);
+    }
+}
 
     // Проверка результата
     function finishSpin(betAmount) {

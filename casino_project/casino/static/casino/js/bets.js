@@ -84,18 +84,36 @@ document.addEventListener('DOMContentLoaded', function() {
         showMessage('Ставка добавлена в купон', true);
     }
 
-    // Функция для имитации обработки ставки
-    function simulateBetResolution(betId) {
+        // Функция для имитации обработки ставки
+        function simulateBetResolution(betId) {
         const resolveTime = Math.floor(Math.random() * (MAX_RESOLVE_TIME - MIN_RESOLVE_TIME + 1)) + MIN_RESOLVE_TIME;
 
         setTimeout(() => {
-            // Случайный результат: win, lose или refund (возврат)
             const possibleOutcomes = ['win', 'lose', 'refund'];
-            const weights = [0.45, 0.45, 0.1]; // Вероятности: 45% win, 45% lose, 10% refund
+            const weights = [0.45, 0.45, 0.1]; // Вероятности
             const randomOutcome = weightedRandom(possibleOutcomes, weights);
 
-            // Обновляем статус ставки
-            updateBetOutcome(betId, randomOutcome);
+            // Отправка запроса на сервер
+            fetch('/api/resolve_bet/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify({
+                    bet_id: betId,
+                    outcome: randomOutcome
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    console.log(`Ставка ${betId} завершена: ${randomOutcome}`);
+                    fetchBetHistory(); // Обновляем историю
+                    Casino.updateBalance(data.new_balance); // Обновляем баланс
+                }
+            })
+            .catch(error => console.error('Ошибка:', error));
 
         }, resolveTime);
     }
@@ -564,3 +582,32 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
     }
 });
+
+function checkBetsStatus() {
+    fetch('/api/get_bet_history/')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                data.bets.forEach(bet => {
+                    if (bet.outcome === 'pending' && bet.resolution_time) {
+                        const resolutionTime = new Date(bet.resolution_time);
+                        const now = new Date();
+
+                        if (now >= resolutionTime) {
+                            // Ставка должна быть разрешена, но еще не обработана
+                            console.log(`Bet ${bet.id} is due for resolution`);
+                        } else {
+                            // Показываем таймер до разрешения
+                            const diff = resolutionTime - now;
+                            const minutes = Math.floor(diff / 60000);
+                            console.log(`Bet ${bet.id} will resolve in ${minutes} minutes`);
+                        }
+                    }
+                });
+            }
+        });
+}
+
+// Проверяем статус каждые 30 секунд
+setInterval(checkBetsStatus, 30000);
+checkBetsStatus(); // Первоначальная проверка

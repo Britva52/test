@@ -217,7 +217,6 @@ def place_sport_bet(request):
 
     try:
         data = json.loads(request.body)
-        print("Полученные данные:", data)
         user = request.user
         amount = Decimal(str(data.get('amount', 0)))
         odds_data = data.get('odds', [])
@@ -840,29 +839,31 @@ def create_full_test_data():
 @csrf_exempt
 def resolve_bet(request):
     try:
-        bet_id = request.POST.get('bet_id')
-        outcome = request.POST.get('outcome')  # win, lose или refund
+        data = json.loads(request.body)  # Изменено для работы с JSON
+        bet_id = data.get('bet_id')
+        outcome = data.get('outcome')  # win, lose или refund
 
         # Получаем ставку
         bet = Bet.objects.get(id=bet_id, outcome='pending')
 
         # Обновляем ставку
         bet.outcome = outcome
+        bet.resolved_at = timezone.now()  # Добавляем время разрешения
         bet.save()
 
         # Обновляем баланс пользователя
-        user_profile = UserProfile.objects.get(user=request.user)
+        user = request.user
 
         if outcome == 'win':
-            user_profile.balance += bet.potential_win
+            user.balance += bet.potential_win
         elif outcome == 'refund':
-            user_profile.balance += bet.amount
+            user.balance += bet.amount
 
-        user_profile.save()
+        user.save()
 
         return JsonResponse({
             'success': True,
-            'new_balance': user_profile.balance,
+            'new_balance': float(user.balance),
             'message': f'Ставка {bet_id} завершена с результатом: {outcome}'
         })
 
@@ -882,27 +883,20 @@ def resolve_bet(request):
 @csrf_exempt
 def get_bet_history(request):
     try:
-        bets = Bet.objects.filter(user=request.user).order_by('-created_at')
+        bets = Bet.objects.filter(player=request.user).order_by(
+            '-created_at')  # Изменил user на player в соответствии с вашей моделью
 
         bet_list = []
         for bet in bets:
             bet_data = {
                 'id': bet.id,
-                'amount': bet.amount,
-                'potential_win': bet.potential_win,
+                'amount': float(bet.amount),
+                'potential_win': float(bet.potential_win) if bet.potential_win else None,
                 'outcome': bet.outcome,
                 'created_at': bet.created_at.strftime('%Y-%m-%d %H:%M:%S'),
                 'resolved_at': bet.resolved_at.strftime('%Y-%m-%d %H:%M:%S') if bet.resolved_at else None,
-                'events': []
+                'game': bet.game
             }
-
-            for odd in bet.odds.all():
-                event = odd.event
-                bet_data['events'].append({
-                    'teams': f"{event.team1} vs {event.team2}",
-                    'outcome': odd.get_outcome_display(),
-                    'odd': odd.odd
-                })
 
             bet_list.append(bet_data)
 

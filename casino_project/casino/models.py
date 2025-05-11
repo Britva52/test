@@ -4,8 +4,12 @@ from django.contrib.auth.models import AbstractUser
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from decimal import Decimal
+from django.core.management import call_command
+import os
 import uuid
 from django.core.exceptions import ValidationError
+from django.conf import settings
+
 
 class User(AbstractUser):
     balance = models.DecimalField(
@@ -18,6 +22,7 @@ class User(AbstractUser):
         blank=True,
         verbose_name="Последнее пополнение"
     )
+    initial_data_loaded = models.BooleanField(default=False)
 
     class Meta:
         db_table = 'casino_user'
@@ -25,21 +30,56 @@ class User(AbstractUser):
     def __str__(self):
         return self.username
 
-def validate_uuid(value):
-    try:
-        uuid.UUID(str(value))
-    except ValueError:
-        raise ValidationError("Некорректный UUID.")
+    def load_initial_data(self):
+        """Метод для загрузки начальных данных пользователя"""
+        pass
+
+
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def user_post_save(sender, instance, created, **kwargs):
+    if created:
+        try:
+            call_command('loaddata', 'initial_cases.json', app_label='casino')
+            call_command('loaddata', 'initial_case_items.json', app_label='casino')
+            instance.load_initial_data()
+            instance.initial_data_loaded = True
+            instance.save(update_fields=['initial_data_loaded'])
+        except Exception as e:
+            print(f"Ошибка при инициализации пользователя: {e}")
+
 
 class Bet(models.Model):
-    player = models.ForeignKey(User, on_delete=models.CASCADE)
-    game = models.CharField(max_length=20)
+    GAME_CHOICES = [
+        ('roulette', 'Рулетка'),
+        ('slots', 'Слоты'),
+        ('coinflip', 'Монетка'),
+    ]
+
+    OUTCOME_CHOICES = [
+        ('win', 'Выигрыш'),
+        ('lose', 'Проигрыш'),
+        ('pending', 'В обработке'),
+        ('canceled', 'Отменена')
+    ]
+
+    player = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    game = models.CharField(max_length=20, choices=GAME_CHOICES)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    bet_type = models.CharField(max_length=20)
-    bet_value = models.CharField(max_length=50)
-    outcome = models.CharField(max_length=10)
+    bet_type = models.CharField(max_length=20, default="standard")
+    bet_value = models.CharField(max_length=50, default="")
+    outcome = models.CharField(max_length=10, choices=OUTCOME_CHOICES, default='pending')
     win_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     created_at = models.DateTimeField(auto_now_add=True)
+    resolved_at = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return f"Ставка #{self.id} ({self.get_game_display()}) - {self.amount}"
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Ставка'
+        verbose_name_plural = 'Ставки'
+
 
 class Case(models.Model):
     CURRENCY_CHOICES = [
@@ -58,6 +98,7 @@ class Case(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.get_currency_display()})"
+
 
 class CaseItem(models.Model):
     RARITY_CHOICES = [
@@ -78,8 +119,9 @@ class CaseItem(models.Model):
     def __str__(self):
         return f"{self.name} ({self.get_rarity_display()})"
 
+
 class CaseOpening(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     case = models.ForeignKey(Case, on_delete=models.CASCADE)
     item = models.ForeignKey(CaseItem, on_delete=models.CASCADE)
     opened_at = models.DateTimeField(auto_now_add=True)
@@ -89,6 +131,7 @@ class CaseOpening(models.Model):
 
     def __str__(self):
         return f"{self.user} opened {self.case} and got {self.item}"
+
 
 class SportEvent(models.Model):
     SPORT_CHOICES = [
@@ -112,6 +155,7 @@ class SportEvent(models.Model):
     def get_sport_type_display(self):
         return dict(self.SPORT_CHOICES).get(self.sport_type, self.sport_type)
 
+
 class BettingOdd(models.Model):
     OUTCOME_CHOICES = [
         ('win1', 'Победа 1'),
@@ -126,6 +170,7 @@ class BettingOdd(models.Model):
 
     def __str__(self):
         return f"{self.event} - {self.get_outcome_display()} ({self.odd})"
+
 
 class SportBet(models.Model):
     OUTCOME_CHOICES = [
@@ -142,7 +187,7 @@ class SportBet(models.Model):
         ('system', 'Система')
     ]
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     event = models.ForeignKey(SportEvent, on_delete=models.CASCADE)
     odd = models.ForeignKey(BettingOdd, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=10, decimal_places=2)

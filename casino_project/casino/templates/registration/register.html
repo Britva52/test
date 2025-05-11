@@ -1,10 +1,116 @@
 {% extends 'casino/base.html' %}
+{% load static %}
 
 {% block content %}
-<h2>Регистрация</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Зарегистрироваться</button>
-</form>
+<div class="auth-container">
+    <div class="auth-wrapper">
+        <!-- Анимированные фишки на фоне -->
+        <div class="chip chip-4"></div>
+        <div class="chip chip-5"></div>
+
+        <h1 class="auth-title">Присоединяйтесь к игре</h1>
+        <p class="auth-subtitle">Создайте свой аккаунт</p>
+
+        <form method="post" class="auth-form">
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                <div class="error">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <button type="submit" class="btn-gold btn-shine">
+                <span>Зарегистрироваться</span>
+            </button>
+
+            <!-- Кнопка для показа партнеров -->
+            <button type="button" class="auth-tab" id="partnersBtn">Партнеры</button>
+
+            <!-- Скрытый блок с баннерами партнеров -->
+            <div id="partnersBanners" class="hidden-banners">
+                <div class="banner-container">
+                    <div class="partner-banner">
+                        <img src={'/static/images/partner1-banner.jpg'} alt="Партнер 1">
+                    </div>
+                    <div class="partner-banner">
+                        <img src={'/static/images/partner2-banner.jpg'}222 alt="Партнер 2">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <p class="auth-footer">
+            Уже есть аккаунт? <a href="{% url 'login' %}" class="gold-link">Войти</a>
+        </p>
+    </div>
+</div>
+
+<script>
+    document.getElementById('partnersBtn').addEventListener('click', function() {
+        const bannersSection = document.getElementById('partnersBanners');
+        bannersSection.classList.toggle('show-banners');
+        this.textContent = bannersSection.classList.contains('show-banners') ? 'Скрыть партнеров' : 'Партнеры';
+    });
+</script>
+
+<style>
+    .hidden-banners {
+        display: none;
+        margin-top: 20px;
+    }
+
+    .show-banners {
+        display: block !important;
+    }
+
+    .banner-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+    }
+
+    .partner-banner {
+        flex: 1;
+        min-width: 150px;
+        max-width: 300px;
+        overflow: hidden;
+        border-radius: 6px;
+        border: 1px solid #ffd700;
+    }
+
+    .partner-banner img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s;
+    }
+
+    .partner-banner:hover img {
+        transform: scale(1.05);
+    }
+
+    .auth-tab {
+        width: 100%;
+        padding: 10px;
+        margin-top: 15px;
+        background: transparent;
+        color: #ffd700;
+        border: 1px solid #ffd700;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s;
+    }
+
+    .auth-tab:hover {
+        background: rgba(255, 215, 0, 0.1);
+    }
+</style>
 {% endblock %}

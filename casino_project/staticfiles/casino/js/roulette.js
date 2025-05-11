@@ -1,93 +1,122 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Roulette initialized");
 
-    // Проверяем, находимся ли мы на странице рулетки
     const canvas = document.getElementById('wheelCanvas');
-    if (!canvas) {
-        console.log("Not on roulette page, skipping initialization");
-        return;
-    }
+    if (!canvas) return;
 
-    // Настройка canvas
     const ctx = canvas.getContext('2d');
     canvas.width = 400;
     canvas.height = 400;
 
-    // Конфигурация колеса
-    const numbers = [0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26];
-    const colors = ['green'].concat(...Array(18).fill(['red', 'black']).flat());
+    // Правильный порядок чисел и цветов для европейской рулетки
+    const wheelLayout = [
+        {number: 0, color: 'green'},
+        {number: 32, color: 'red'},
+        {number: 15, color: 'black'},
+        {number: 19, color: 'red'},
+        {number: 4, color: 'black'},
+        {number: 21, color: 'red'},
+        {number: 2, color: 'black'},
+        {number: 25, color: 'red'},
+        {number: 17, color: 'black'},
+        {number: 34, color: 'red'},
+        {number: 6, color: 'black'},
+        {number: 27, color: 'red'},
+        {number: 13, color: 'black'},
+        {number: 36, color: 'red'},
+        {number: 11, color: 'black'},
+        {number: 30, color: 'red'},
+        {number: 8, color: 'black'},
+        {number: 23, color: 'red'},
+        {number: 10, color: 'black'},
+        {number: 5, color: 'red'},
+        {number: 24, color: 'black'},
+        {number: 16, color: 'red'},
+        {number: 33, color: 'black'},
+        {number: 1, color: 'red'},
+        {number: 20, color: 'black'},
+        {number: 14, color: 'red'},
+        {number: 31, color: 'black'},
+        {number: 9, color: 'red'},
+        {number: 22, color: 'black'},
+        {number: 18, color: 'red'},
+        {number: 29, color: 'black'},
+        {number: 7, color: 'red'},
+        {number: 28, color: 'black'},
+        {number: 12, color: 'red'},
+        {number: 35, color: 'black'},
+        {number: 3, color: 'red'},
+        {number: 26, color: 'black'}
+    ];
+
+    const numbers = wheelLayout.map(item => item.number);
+    const colors = wheelLayout.map(item => item.color);
     const anglePerNumber = (2 * Math.PI) / numbers.length;
 
     let currentAngle = 0;
     let isSpinning = false;
     let selectedBet = null;
 
-    // Первоначальная отрисовка колеса
     drawWheel();
 
-    // Функция отрисовки колеса
     function drawWheel(angle = 0) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         const centerX = canvas.width / 2;
         const centerY = canvas.height / 2;
-        const radius = Math.min(canvas.width, canvas.height) / 2 - 10;
+        const radius = Math.min(canvas.width, canvas.height) / 2 - 20;
 
-        // Рисуем сектора
-        numbers.forEach((num, i) => {
+        wheelLayout.forEach((item, i) => {
             const startAngle = angle + i * anglePerNumber;
             ctx.beginPath();
             ctx.moveTo(centerX, centerY);
             ctx.arc(centerX, centerY, radius, startAngle, startAngle + anglePerNumber);
-            ctx.fillStyle = colors[i];
+            ctx.fillStyle = item.color;
             ctx.fill();
 
-            // Текст чисел
             ctx.save();
             ctx.translate(centerX, centerY);
             ctx.rotate(startAngle + anglePerNumber/2);
-            ctx.fillStyle = colors[i] === 'black' ? 'white' : 'black';
+            ctx.fillStyle = item.color === 'black' ? 'white' : 'black';
             ctx.font = 'bold 14px Arial';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillText(num, radius - 20, 0);
+            ctx.fillText(item.number, radius - 25, 0);
             ctx.restore();
         });
 
-        // Стрелка
         ctx.beginPath();
-        ctx.moveTo(centerX - 15, 10);
-        ctx.lineTo(centerX + 15, 10);
-        ctx.lineTo(centerX, 40);
+        ctx.moveTo(centerX - 10, 5);
+        ctx.lineTo(centerX + 10, 5);
+        ctx.lineTo(centerX, 30);
         ctx.fillStyle = 'gold';
         ctx.fill();
     }
 
-    // Функция вращения колеса
     function spinWheel(resultNumber, callback) {
         if (isSpinning) return;
         isSpinning = true;
 
         const targetIndex = numbers.indexOf(parseInt(resultNumber));
-        if (targetIndex === -1) {
-            console.error("Invalid number:", resultNumber);
-            return;
-        }
+        if (targetIndex === -1) return;
 
-        const targetAngle = 2 * Math.PI * 5 - (targetIndex * anglePerNumber);
+        const targetAngle = (2 * Math.PI * 5) - (targetIndex * anglePerNumber) - (Math.PI/2 + anglePerNumber/2);
+
         const startTime = Date.now();
         const duration = 3000;
+        const startAngle = currentAngle % (2 * Math.PI);
 
         function animate() {
             const elapsed = Date.now() - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            const eased = Math.sin(progress * Math.PI/2);
+            const easedProgress = easeOutCubic(progress);
 
-            currentAngle = eased * targetAngle;
+            currentAngle = startAngle + (targetAngle - startAngle) * easedProgress;
             drawWheel(currentAngle);
 
             if (progress < 1) {
                 requestAnimationFrame(animate);
             } else {
+                currentAngle = targetAngle % (2 * Math.PI);
                 isSpinning = false;
                 if (callback) callback();
             }
@@ -96,7 +125,10 @@ document.addEventListener('DOMContentLoaded', () => {
         animate();
     }
 
-    // Обработчики событий для ставок
+    function easeOutCubic(t) {
+        return (--t) * t * t + 1;
+    }
+
     document.querySelectorAll('.number-cell, .bet-btn').forEach(el => {
         el.addEventListener('click', () => {
             if (isSpinning) return;
@@ -109,9 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Обработчик кнопки "Крутить"
     document.querySelector('.spin-btn')?.addEventListener('click', async function() {
         if (isSpinning || !selectedBet) return;
+
         const amount = parseFloat(document.querySelector('.bet-input').value);
         const balanceCheck = Casino.checkBalance(amount);
 
@@ -135,19 +167,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-                // Крутим колесо
+            const winItem = wheelLayout.find(item => item.number === parseInt(response.win_number));
+
             spinWheel(response.win_number, () => {
                 Casino.updateBalance(response.new_balance);
-
-                if (response.win) {
-                    Casino.showMessage('roulette-message',
-                        `Выигрыш: ${amount}$\nЧисло: ${response.win_number} (${response.win_color})`,
-                        true);
-                } else {
-                    Casino.showMessage('roulette-message',
-                        `Проигрыш: ${amount}$\nЧисло: ${response.win_number} (${response.win_color})`,
-                        false);
-                }
+                const message = response.win
+                    ? `Выигрыш: ${amount}$\nЧисло: ${response.win_number} (${winItem.color})`
+                    : `Проигрыш: ${amount}$\nЧисло: ${response.win_number} (${winItem.color})`;
+                Casino.showMessage('roulette-message', message, response.win);
             });
 
         } catch (error) {
@@ -158,16 +185,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Обработчик кнопки пополнения баланса
     document.getElementById('add-funds-btn')?.addEventListener('click', async function() {
         this.disabled = true;
         try {
             const response = await Casino.sendRequest('/api/add_funds/', {});
-
             if (response.success) {
                 Casino.updateBalance(response.new_balance);
                 Casino.showMessage('roulette-message', 'Баланс пополнен на 150$!', true);
-                setTimeout(() => this.disabled = false, 3600000); // 1 hour cooldown
+                setTimeout(() => this.disabled = false, 3600000);
             } else {
                 Casino.showMessage('roulette-message', response.error, false);
                 this.disabled = false;

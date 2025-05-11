@@ -1,0 +1,12 @@
+[
+    {
+        "model": "casino.caseitem",
+        "fields": {
+            "case": 1,
+            "name": "Стартовый бонус",
+            "value": "10.00",
+            "probability": 1.0,
+            "rarity": "common"
+        }
+    }
+]

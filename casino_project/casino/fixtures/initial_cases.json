@@ -1,0 +1,11 @@
+[
+    {
+        "model": "casino.case",
+        "fields": {
+            "name": "Базовый кейс",
+            "price": "0.00",
+            "currency": "USD",
+            "is_active": true
+        }
+    }
+]

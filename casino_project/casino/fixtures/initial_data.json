@@ -1,0 +1,22 @@
+[
+    {
+        "model": "casino.case",
+        "pk": 1,
+        "fields": {
+            "name": "Базовый кейс",
+            "price": "10.00",
+            "currency": "USD",
+            "is_active": true
+        }
+    },
+    {
+        "model": "casino.caseitem",
+        "fields": {
+            "case": 1,
+            "name": "Приз 10$",
+            "value": "10.00",
+            "probability": 0.5,
+            "rarity": "common"
+        }
+    }
+]

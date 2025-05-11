@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let isFlipping = false;
     let animationId = null;
     let userChoice = null;
-    const flipDuration = 2000; // 2 секунды анимации
+    const flipDuration = 3000; // Увеличил длительность анимации до 3 секунд
 
     // Инициализация
     function init() {
@@ -81,36 +81,74 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Анимация вращения
+    // Улучшенная анимация вращения
     function animateCoin(result, betAmount) {
         const startTime = performance.now();
-        const rotations = 5; // Количество полных оборотов
+        const rotations = 8; // Увеличил количество оборотов
+
+        // Добавляем небольшой наклон для более реалистичного вращения
+        const tiltAngle = 5 + Math.random() * 10;
+        const tiltDirection = Math.random() < 0.5 ? 1 : -1;
 
         function frame(currentTime) {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / flipDuration, 1);
 
-            // Плавное замедление
+            // Плавное ускорение и замедление с bounce-эффектом
             let rotation;
-            if (progress < 0.7) {
-                rotation = 360 * rotations * progress;
+            if (progress < 0.3) {
+                // Ускорение
+                rotation = easeInQuad(progress, 0, 360 * rotations, 0.3);
+            } else if (progress < 0.7) {
+                // Постоянная скорость
+                rotation = 360 * rotations * 0.3 +
+                          easeInOutQuad(progress - 0.3, 0, 360 * rotations * 0.4, 0.4);
             } else {
-                rotation = 360 * rotations - 360 * rotations * (1 - progress) * 5;
+                // Замедление с bounce-эффектом
+                rotation = 360 * rotations * 0.7 +
+                          easeOutBounce(progress - 0.7, 0, 360 * rotations * 0.3, 0.3);
 
                 if (progress >= 1) {
                     // Фиксируем конечное положение
                     rotation = result === 'heads' ? 0 : 180;
-                    coin.style.transform = `rotateY(${rotation}deg)`;
+                    coin.style.transform = `rotateY(${rotation}deg) rotateX(${tiltAngle * tiltDirection}deg)`;
                     finishFlip(result, betAmount);
                     return;
                 }
             }
 
-            coin.style.transform = `rotateY(${rotation}deg)`;
+            // Добавляем небольшое дрожание и наклон во время вращения
+            const wobble = Math.sin(progress * 20) * 2;
+            coin.style.transform = `rotateY(${rotation}deg) rotateX(${tiltAngle * tiltDirection + wobble}deg)`;
             animationId = requestAnimationFrame(frame);
         }
 
         animationId = requestAnimationFrame(frame);
+    }
+
+    // Функции плавности анимации
+    function easeInQuad(t, b, c, d) {
+        t /= d;
+        return c * t * t + b;
+    }
+
+    function easeInOutQuad(t, b, c, d) {
+        t /= d/2;
+        if (t < 1) return c/2*t*t + b;
+        t--;
+        return -c/2 * (t*(t-2) - 1) + b;
+    }
+
+    function easeOutBounce(t, b, c, d) {
+        if ((t/=d) < (1/2.75)) {
+            return c*(7.5625*t*t) + b;
+        } else if (t < (2/2.75)) {
+            return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+        } else if (t < (2.5/2.75)) {
+            return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+        } else {
+            return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+        }
     }
 
     // Завершение вращения
