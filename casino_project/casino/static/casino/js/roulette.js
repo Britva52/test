@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.height = 400;
 
     // Правильный порядок чисел и цветов для европейской рулетки
-    const wheelLayout = [
+        const wheelLayout = [
         {number: 0, color: 'green'},
         {number: 32, color: 'red'},
         {number: 15, color: 'black'},
@@ -145,8 +145,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isSpinning || !selectedBet) return;
 
         const amount = parseFloat(document.querySelector('.bet-input').value);
-        const balanceCheck = Casino.checkBalance(amount);
+        if (isNaN(amount) || amount <= 0) {
+            Casino.showMessage('roulette-message', 'Введите корректную сумму ставки', false);
+            return;
+        }
 
+        const balanceCheck = Casino.checkBalance(amount);
         if (!balanceCheck.enough) {
             Casino.showMessage('roulette-message', `Недостаточно средств! Баланс: ${balanceCheck.currentBalance}$`, false);
             return;
@@ -167,14 +171,53 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const winItem = wheelLayout.find(item => item.number === parseInt(response.win_number));
+            const winNumber = parseInt(response.win_number);
+            const winItem = wheelLayout.find(item => item.number === winNumber);
+            if (!winItem) {
+                Casino.showMessage('roulette-message', 'Ошибка: неизвестный результат рулетки', false);
+                return;
+            }
+
+            // Определяем выигрыш
+            let isWin = false;
+            let winMultiplier = 1;
+
+            switch(selectedBet.type) {
+                case 'number':
+                    isWin = parseInt(selectedBet.value) === winNumber;
+                    winMultiplier = 36; // Выигрыш 36:1 за число (включая саму ставку)
+                    break;
+
+                case 'color':
+                    isWin = selectedBet.value === winItem.color;
+                    winMultiplier = 2; // Выигрыш 2:1 за цвет (ставка + выигрыш)
+                    break;
+
+                case 'even':
+                    isWin = winNumber !== 0 && winNumber % 2 === 0;
+                    winMultiplier = 2;
+                    break;
+
+                case 'odd':
+                    isWin = winNumber % 2 === 1;
+                    winMultiplier = 2;
+                    break;
+
+                default:
+                    isWin = false;
+            }
 
             spinWheel(response.win_number, () => {
-                Casino.updateBalance(response.new_balance);
-                const message = response.win
-                    ? `Выигрыш: ${amount}$\nЧисло: ${response.win_number} (${winItem.color})`
-                    : `Проигрыш: ${amount}$\nЧисло: ${response.win_number} (${winItem.color})`;
-                Casino.showMessage('roulette-message', message, response.win);
+                if (isWin) {
+                    const winAmount = amount * winMultiplier;
+                    const newBalance = balanceCheck.currentBalance + (winAmount - amount);
+                    Casino.updateBalance(newBalance);
+                    Casino.showMessage('roulette-message', `Выигрыш: ${winAmount - amount}$\nЧисло: ${winNumber} (${winItem.color})`, true);
+                } else {
+                    const newBalance = balanceCheck.currentBalance - amount;
+                    Casino.updateBalance(newBalance);
+                    Casino.showMessage('roulette-message', `Проигрыш: ${amount}$\nЧисло: ${winNumber} (${winItem.color})`, false);
+                }
             });
 
         } catch (error) {
