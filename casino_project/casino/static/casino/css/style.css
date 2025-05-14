@@ -1139,7 +1139,7 @@ nav ul li a {
     position: relative;
     transform-style: preserve-3d;
     cursor: pointer;
-    transition: transform 0.1s;
+    transition: transform 0.3s ease-out;
     margin: 20px auto;
     backface-visibility: hidden;
     will-change: transform;
@@ -2543,16 +2543,6 @@ nav ul li a {
     width: 200px;
     height: 200px;
     position: relative;
-}
-
-.coin {
-    width: 150px;
-    height: 150px;
-    position: relative;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    margin: 20px auto;
-    perspective: 1000px;
 }
 
 .coin-face {

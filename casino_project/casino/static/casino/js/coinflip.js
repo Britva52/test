@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const messageBox = document.getElementById('coin-message');
 
     // Настройки анимации
-    const FLIP_DURATION = 3000; // 3 секунды анимации
-    const FLIP_ROTATIONS = 6;   // Количество оборотов
+    const FLIP_DURATION = 4500; // 3 секунды анимации
+    const FLIP_ROTATIONS = 23;   // Количество оборотов
     let isFlipping = false;
     let animationId = null;
     let userChoice = null;
@@ -146,17 +146,45 @@ document.addEventListener('DOMContentLoaded', function() {
         const winAmount = win ? betAmount * 1.95 : 0;
         const resultText = result === 'heads' ? 'Орёл' : 'Решка';
 
-        const message = win
+        // Показываем результат
+        showMessage(win
             ? `Поздравляем! Выпал ${resultText}. Выигрыш: ${winAmount.toFixed(2)}$`
-            : `Увы! Выпал ${resultText}`;
+            : `Увы! Выпал ${resultText}. Попробуйте ещё!`,
+        win);
 
-        showMessage(message, win);
-
+        // Обновляем баланс с небольшой задержкой
         if (winAmount > 0) {
             setTimeout(() => updateBalance(getBalance() + winAmount), 500);
         }
 
-        endFlip();
+        // Полный сброс игры через 2 секунды
+        setTimeout(() => {
+            // 1. Сбрасываем анимацию монетки
+            coin.style.transform = 'rotateY(0) rotateX(0)';
+
+            // 2. Разблокируем все элементы
+            headsBtn.disabled = false;
+            tailsBtn.disabled = false;
+            coin.style.pointerEvents = 'auto';
+            betInput.disabled = false;
+
+            // 3. Сбрасываем выбор
+            userChoice = null;
+            headsBtn.classList.remove('active');
+            tailsBtn.classList.remove('active');
+
+            // 4. Сбрасываем флаг анимации
+            isFlipping = false;
+
+            // 5. Отменяем анимацию
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+
+            // 6. Восстанавливаем кликабельность
+            coin.style.pointerEvents = 'auto';
+        }, 2000);
     }
 
     // Валидация ставки
@@ -217,6 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cancelAnimationFrame(animationId);
         isFlipping = false;
         disableControls(false);
+        betInput.disabled = false;
     }
 
     // Запуск игры
