@@ -15228,3 +15228,75 @@ INFO 2025-05-12 02:49:04,636 basehttp "POST /api/add_funds/ HTTP/1.1" 200 404
 INFO 2025-05-12 02:49:28,906 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
 INFO 2025-05-12 02:49:58,911 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
 INFO 2025-05-12 02:50:28,907 basehttp "GET /api/get_balance/ HTTP/1.1" 200 36
+INFO 2025-05-16 01:35:30,167 autoreload Watching for file changes with StatReloader
+INFO 2025-05-16 01:35:31,823 basehttp "GET / HTTP/1.1" 200 3711
+INFO 2025-05-16 01:35:31,942 basehttp "GET /static/casino/css/style.css HTTP/1.1" 200 75993
+INFO 2025-05-16 01:35:31,944 basehttp "GET /static/casino/js/global.js HTTP/1.1" 200 3863
+INFO 2025-05-16 01:35:32,119 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-05-16 01:35:32,126 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 3142
+WARNING 2025-05-16 01:35:32,231 log Not Found: /favicon.ico
+WARNING 2025-05-16 01:35:32,231 basehttp "GET /favicon.ico HTTP/1.1" 404 9818
+INFO 2025-05-16 01:35:41,189 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-05-16 01:35:41,192 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 3142
+INFO 2025-05-16 01:35:41,193 basehttp "GET /cases/ HTTP/1.1" 302 0
+INFO 2025-05-16 01:35:41,197 basehttp "GET /login/?next=/cases/ HTTP/1.1" 200 3142
+INFO 2025-05-16 01:35:41,210 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-05-16 01:35:41,224 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 3142
+INFO 2025-05-16 01:35:49,039 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-05-16 01:35:49,047 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 3142
+INFO 2025-05-16 01:35:49,051 basehttp "GET /register/ HTTP/1.1" 200 6045
+WARNING 2025-05-16 01:35:49,062 log Not Found: /register/{'/static/images/partner1-banner.jpg'}
+WARNING 2025-05-16 01:35:49,064 log Not Found: /register/{'/static/images/partner2-banner.jpg'}222
+WARNING 2025-05-16 01:35:49,065 basehttp "GET /register/%7B'/static/images/partner1-banner.jpg'%7D HTTP/1.1" 404 9960
+INFO 2025-05-16 01:35:49,065 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+WARNING 2025-05-16 01:35:49,065 basehttp "GET /register/%7B'/static/images/partner2-banner.jpg'%7D222 HTTP/1.1" 404 9969
+INFO 2025-05-16 01:35:49,075 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 3142
+INFO 2025-05-16 01:36:09,853 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-05-16 01:36:09,857 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 3142
+INFO 2025-05-16 01:36:09,880 basehttp "POST /register/ HTTP/1.1" 200 6321
+WARNING 2025-05-16 01:36:09,890 log Not Found: /register/{'/static/images/partner1-banner.jpg'}
+INFO 2025-05-16 01:36:09,890 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+WARNING 2025-05-16 01:36:09,893 log Not Found: /register/{'/static/images/partner2-banner.jpg'}222
+WARNING 2025-05-16 01:36:09,893 basehttp "GET /register/%7B'/static/images/partner1-banner.jpg'%7D HTTP/1.1" 404 9960
+WARNING 2025-05-16 01:36:09,894 basehttp "GET /register/%7B'/static/images/partner2-banner.jpg'%7D222 HTTP/1.1" 404 9969
+INFO 2025-05-16 01:36:09,895 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-05-16 01:36:09,899 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-05-16 01:36:09,906 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 3142
+INFO 2025-05-16 01:36:21,664 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-05-16 01:36:21,668 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 3142
+INFO 2025-05-16 01:36:21,672 basehttp "POST /register/ HTTP/1.1" 200 6435
+WARNING 2025-05-16 01:36:21,682 log Not Found: /register/{'/static/images/partner1-banner.jpg'}
+WARNING 2025-05-16 01:36:21,685 log Not Found: /register/{'/static/images/partner2-banner.jpg'}222
+INFO 2025-05-16 01:36:21,687 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+WARNING 2025-05-16 01:36:21,687 basehttp "GET /register/%7B'/static/images/partner1-banner.jpg'%7D HTTP/1.1" 404 9960
+WARNING 2025-05-16 01:36:21,687 basehttp "GET /register/%7B'/static/images/partner2-banner.jpg'%7D222 HTTP/1.1" 404 9969
+INFO 2025-05-16 01:36:21,690 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 3142
+INFO 2025-05-16 01:36:31,192 basehttp "GET /api/get_balance/ HTTP/1.1" 302 0
+INFO 2025-05-16 01:36:31,197 basehttp "GET /login/?next=/api/get_balance/ HTTP/1.1" 200 3142
+INFO 2025-05-16 01:36:31,581 basehttp "POST /register/ HTTP/1.1" 302 0
+INFO 2025-05-16 01:36:31,593 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-05-16 01:36:31,610 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-05-16 01:36:46,754 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-05-16 01:36:46,779 basehttp "GET /cases/ HTTP/1.1" 200 5562
+INFO 2025-05-16 01:36:46,786 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-05-16 01:36:46,786 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 200 5994
+INFO 2025-05-16 01:36:46,786 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-05-16 01:36:46,799 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-05-16 01:36:49,620 basehttp "GET /api/get_case_details/e33c9cf7-0b10-4bee-90db-d771eb2da1a6/ HTTP/1.1" 200 213
+INFO 2025-05-16 01:36:49,628 basehttp "GET /static/casino/images/default_case.png HTTP/1.1" 200 206007
+INFO 2025-05-16 01:36:55,998 basehttp "GET /api/get_case_details/e33c9cf7-0b10-4bee-90db-d771eb2da1a6/ HTTP/1.1" 200 213
+INFO 2025-05-16 01:36:57,914 basehttp "POST /api/open_case/e33c9cf7-0b10-4bee-90db-d771eb2da1a6/ HTTP/1.1" 200 80
+INFO 2025-05-16 01:37:04,424 basehttp "GET /api/get_case_details/e33c9cf7-0b10-4bee-90db-d771eb2da1a6/ HTTP/1.1" 200 213
+INFO 2025-05-16 01:37:05,368 basehttp "POST /api/open_case/e33c9cf7-0b10-4bee-90db-d771eb2da1a6/ HTTP/1.1" 200 80
+INFO 2025-05-16 01:37:06,470 basehttp "POST /api/open_case/e33c9cf7-0b10-4bee-90db-d771eb2da1a6/ HTTP/1.1" 200 80
+INFO 2025-05-16 01:37:15,786 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-05-16 01:37:15,805 basehttp "GET / HTTP/1.1" 200 4313
+INFO 2025-05-16 01:37:15,826 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-05-16 01:37:21,744 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-05-16 01:37:21,767 basehttp "GET /cases/ HTTP/1.1" 200 5562
+INFO 2025-05-16 01:37:21,776 basehttp "GET /static/casino/js/cases.js HTTP/1.1" 304 0
+INFO 2025-05-16 01:37:21,776 basehttp "GET /static/casino/js/global.js HTTP/1.1" 304 0
+INFO 2025-05-16 01:37:21,777 basehttp "GET /static/casino/css/style.css HTTP/1.1" 304 0
+INFO 2025-05-16 01:37:21,797 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-05-16 01:37:51,812 basehttp "GET /api/get_balance/ HTTP/1.1" 200 35
+INFO 2025-05-16 01:48:15,656 autoreload Watching for file changes with StatReloader
