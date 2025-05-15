@@ -210,11 +210,11 @@ document.addEventListener('DOMContentLoaded', () => {
             spinWheel(response.win_number, () => {
                 if (isWin) {
                     const winAmount = amount * winMultiplier;
-                    const newBalance = balanceCheck.currentBalance + (winAmount - amount);
+                    const newBalance = balanceCheck.currentBalance - amount + winAmount; // Сначала списываем ставку, потом добавляем выигрыш
                     Casino.updateBalance(newBalance);
                     Casino.showMessage('roulette-message', `Выигрыш: ${winAmount - amount}$\nЧисло: ${winNumber} (${winItem.color})`, true);
                 } else {
-                    const newBalance = balanceCheck.currentBalance - amount;
+                    const newBalance = balanceCheck.currentBalance - amount; // Просто списываем ставку
                     Casino.updateBalance(newBalance);
                     Casino.showMessage('roulette-message', `Проигрыш: ${amount}$\nЧисло: ${winNumber} (${winItem.color})`, false);
                 }
