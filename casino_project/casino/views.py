@@ -40,8 +40,37 @@ def custom_logout(request):
 
 @login_required
 def profile(request):
-    bets = Bet.objects.filter(player=request.user).order_by('-created_at')[:10]
-    context = {'bets': bets, 'user': request.user}
+    game_type = request.GET.get('game_type', None)
+
+    bets_query = Bet.objects.filter(player=request.user)
+    if game_type:
+        bets_query = bets_query.filter(game=game_type)
+
+    bets = bets_query.order_by('-created_at')
+
+    # Считаем общее количество ставок
+    total_bets = bets.count()
+
+    winning_bets = bets.filter(outcome='win')
+
+    total_wins = sum(bet.win_amount for bet in winning_bets)
+
+    win_rate = int((winning_bets.count() / total_bets * 100)) if total_bets > 0 else 0
+
+    biggest_win = max([bet.win_amount for bet in winning_bets], default=0)
+
+    context = {
+        'bets': bets[:20],
+        'total_bets': total_bets,
+        'total_wins': total_wins,
+        'win_rate': win_rate,
+        'biggest_win': biggest_win,
+        'user': request.user,
+        'selected_game': game_type
+    }
+
+    return render(request, 'casino/profile.html', context)
+
     return render(request, 'casino/profile.html', context)
 
 # Игры

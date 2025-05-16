@@ -2,9 +2,21 @@
 {% load static %}
 
 {% block content %}
+<style>
+    .auth-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 70vh;
+    }
+
+    .auth-wrapper {
+        margin: 0 auto;
+    }
+</style>
+
 <div class="auth-container">
     <div class="auth-wrapper">
-        <!-- Анимированные фишки на фоне -->
         <div class="chip chip-4"></div>
         <div class="chip chip-5"></div>
 
@@ -31,14 +43,14 @@
             <!-- Кнопка для показа партнеров -->
             <button type="button" class="auth-tab" id="partnersBtn">Партнеры</button>
 
-            <!-- Скрытый блок с баннерами партнеров -->
+                    <!-- Скрытый блок с баннерами партнеров -->
             <div id="partnersBanners" class="hidden-banners">
                 <div class="banner-container">
                     <div class="partner-banner">
-                        <img src={'/static/images/partner1-banner.jpg'} alt="Партнер 1">
+                        <img src="{% static 'casino/images/partner1/message-banner.jpg' %}" alt="Партнер 1">
                     </div>
                     <div class="partner-banner">
-                        <img src={'/static/images/partner2-banner.jpg'}222 alt="Партнер 2">
+                        <img src="{% static 'casino/images/partner2/clicker-banner.jpg' %}" alt="Партнер 2">
                     </div>
                 </div>
             </div>
