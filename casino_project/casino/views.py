@@ -322,7 +322,14 @@ def place_roulette_bet(request):
 
         # Генерация результата
         win_number = random.randint(0, 36)
-        win_color = 'green' if win_number == 0 else 'red' if win_number % 2 == 1 else 'black'
+        RED_NUMBERS = {1, 3, 5, 7, 9, 12, 14, 16, 18,
+                       19, 21, 23, 25, 27, 30, 32, 34, 36}
+
+        win_color = (
+            'green' if win_number == 0 else
+            'red' if win_number in RED_NUMBERS else
+            'black'
+        )
 
         # Определение выигрыша
         win = False
@@ -650,7 +657,14 @@ def play_roulette(request):
         bet_value = data.get('value')
 
         win_number = random.randint(0, 36)
-        win_color = 'green' if win_number == 0 else 'red' if win_number % 2 else 'black'
+        RED_NUMBERS = {1, 3, 5, 7, 9, 12, 14, 16, 18,
+                       19, 21, 23, 25, 27, 30, 32, 34, 36}
+
+        win_color = (
+            'green' if win_number == 0 else
+            'red' if win_number in RED_NUMBERS else
+            'black'
+        )
 
         win = False
         multiplier = 1
