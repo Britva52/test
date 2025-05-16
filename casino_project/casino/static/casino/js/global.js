@@ -69,12 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
         },
 
         updateBalance: function(newBalance) {
-            const formatted = parseFloat(newBalance).toFixed(2) + '$';
+            const formatted = newBalance.toFixed(2) + '$';
             document.querySelectorAll('.balance-amount').forEach(el => {
-                const current = parseFloat(el.textContent.replace('$','')) || 0;
-                if (Math.abs(current - newBalance) > 0.01) {
-                    el.textContent = formatted;
-                }
+                el.textContent = formatted;
             });
             this.saveBalance(newBalance);
         },

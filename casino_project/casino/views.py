@@ -376,11 +376,13 @@ def place_roulette_bet(request):
             'win_number': win_number,
             'win_color': win_color,
             'new_balance': float(user.balance),
-            'payout_multiplier': payout_multiplier
+            'payout_multiplier': payout_multiplier,
+            'betAmount': float(amount)
         })
 
     except Exception as e:
         return JsonResponse({'success': False, 'error': str(e)})
+
 
 @csrf_exempt
 @login_required
@@ -389,9 +391,9 @@ def place_slots_bet(request):
         try:
             data = json.loads(request.body)
             user = request.user
-            amount = float(data.get('amount'))
+            amount = Decimal(str(data.get('amount', 0)))
 
-            if amount <= 0:
+            if amount <= Decimal('0'):
                 return JsonResponse({'success': False, 'error': 'Неверная сумма ставки'})
 
             if user.balance < amount:
@@ -400,33 +402,44 @@ def place_slots_bet(request):
             symbols = ["🍒", "🍋", "🔔", "🍉", "⭐", "7"]
             reels = [random.choice(symbols) for _ in range(3)]
 
+            # Определяем выигрыш
+            win = False
+            win_amount = Decimal('0')
+
             if reels[0] == reels[1] == reels[2]:
-                multiplier = 50 if reels[0] == "7" else 10
+                multiplier = Decimal('50') if reels[0] == "7" else Decimal('10')
+                win = True
+                win_amount = amount * multiplier
             elif reels[0] == reels[1] or reels[1] == reels[2]:
-                multiplier = 2
-            else:
-                multiplier = 0
+                multiplier = Decimal('2')
+                win = True
+                win_amount = amount * multiplier
 
-            win_amount = amount * multiplier
-            user.balance += win_amount - amount
-            user.save()
+            # Обновляем баланс
+            with transaction.atomic():
+                user.balance -= amount
+                if win:
+                    user.balance += win_amount
+                user.save()
 
-            Bet.objects.create(
-                player=user,
-                game='slots',
-                amount=amount,
-                bet_type='spin',
-                bet_value='standard',
-                outcome='win' if win_amount > 0 else 'lose',
-                win_amount=win_amount
-            )
+                # Создаем запись о ставке
+                Bet.objects.create(
+                    player=user,
+                    game='slots',
+                    amount=amount,
+                    bet_type='spin',
+                    bet_value='standard',
+                    outcome='win' if win else 'lose',
+                    win_amount=win_amount if win else Decimal('0')
+                )
 
             return JsonResponse({
                 'success': True,
                 'reels': reels,
-                'win': win_amount > 0,
-                'win_amount': win_amount,
-                'new_balance': user.balance
+                'win': win,
+                'win_amount': float(win_amount),
+                'new_balance': float(user.balance),
+                'betAmount': float(amount)
             })
 
         except Exception as e:
@@ -443,7 +456,7 @@ def place_coinflip_bet(request):
             amount = Decimal(str(data.get('amount', 0)))
             side = data.get('side')
 
-            if amount <= 0:
+            if amount <= Decimal('0'):
                 return JsonResponse({'success': False, 'error': 'Invalid bet amount'})
 
             if user.balance < amount:
@@ -451,27 +464,31 @@ def place_coinflip_bet(request):
 
             result = random.choice(['heads', 'tails'])
             win = result == side
-            win_amount = amount * Decimal('1.95') if win else Decimal(0)
+            win_amount = amount * Decimal('1.95') if win else Decimal('0')
 
-            user.balance += win_amount - amount
-            user.save()
+            with transaction.atomic():
+                user.balance -= amount
+                if win:
+                    user.balance += win_amount
+                user.save()
 
-            Bet.objects.create(
-                player=user,
-                game='coinflip',
-                amount=amount,
-                bet_type='side',
-                bet_value=side,
-                outcome='win' if win else 'lose',
-                win_amount=win_amount
-            )
+                Bet.objects.create(
+                    player=user,
+                    game='coinflip',
+                    amount=amount,
+                    bet_type='side',
+                    bet_value=side,
+                    outcome='win' if win else 'lose',
+                    win_amount=win_amount
+                )
 
             return JsonResponse({
                 'success': True,
                 'result': result,
                 'win': win,
                 'win_amount': float(win_amount),
-                'new_balance': float(user.balance)
+                'new_balance': float(user.balance),
+                'betAmount': float(amount)
             })
 
         except Exception as e:

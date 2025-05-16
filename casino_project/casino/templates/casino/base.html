@@ -24,7 +24,7 @@
           <li><a href="{% url 'bets' %}">Ставки</a></li>
           {% if user.is_authenticated %}
                 <li class="balance-display">
-                    <span class="balance-amount">{{ user.balance|default:"100.00" }}$</span>
+                    <div class="balance-amount">{{ user.balance|floatformat:2 }}$</div>
                 </li>
                 <li><a href="{% url 'profile' %}">Профиль</a></li>
                     <li>

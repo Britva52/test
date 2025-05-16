@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Элементы DOM
     const coin = document.querySelector('.coin');
     const coinFront = document.querySelector('.coin-front');
     const coinBack = document.querySelector('.coin-back');
@@ -8,20 +7,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const betInput = document.querySelector('.bet-input');
     const messageBox = document.getElementById('coin-message');
 
-    // Настройки анимации
-    const FLIP_DURATION = 4500; // 3 секунды анимации
-    const FLIP_ROTATIONS = 23;   // Количество оборотов
+    const FLIP_DURATION = 4500;
+    const FLIP_ROTATIONS = 23;
     let isFlipping = false;
     let animationId = null;
+    let roundResult = null;
     let userChoice = null;
 
-    // Инициализация игры
     function init() {
-        // Устанавливаем начальные символы
         coinFront.textContent = 'О';
         coinBack.textContent = 'Р';
 
-        // Обработчики событий
         headsBtn.addEventListener('click', function() {
             if (isFlipping) return;
             userChoice = 'heads';
@@ -37,96 +33,84 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         coin.addEventListener('click', function() {
-            if (isFlipping) return;
+            if (isFlipping || !userChoice) return;
 
-            // Проверка выбора стороны
-            if (!userChoice) {
-                showError("Сначала выберите Орёл или Решку");
-                shakeButtons();
-                return;
-            }
-
-            // Проверка ставки
             const betAmount = parseFloat(betInput.value);
             if (!validateBet(betAmount)) return;
 
-            // Запуск анимации
             startFlip(betAmount);
         });
     }
 
-    // Обновление стилей кнопок
     function updateButtonStyles() {
         headsBtn.classList.toggle('active', userChoice === 'heads');
         tailsBtn.classList.toggle('active', userChoice === 'tails');
     }
 
-    // Запуск вращения монетки
     async function startFlip(betAmount) {
         isFlipping = true;
         disableControls(true);
         showMessage("Монета крутится...", true);
 
         try {
-            // Имитация запроса (замените на реальный)
-            await new Promise(resolve => setTimeout(resolve, 300));
-            updateBalance(getBalance() - betAmount);
+            const resp = await Casino.sendRequest(
+                '/api/place_bet/coinflip/',
+                {
+                    amount: betAmount.toFixed(2),
+                    side: userChoice
+                }
+            );
 
-            // Генерация случайного результата
-            const result = Math.random() < 0.5 ? 'heads' : 'tails';
-            animateFlip(result, betAmount);
+            if (!resp.success) {
+                showError(resp.error);
+                endFlip(false);
+                return;
+            }
+
+            roundResult = {
+                ...resp,
+                betAmount: betAmount
+            };
+            animateFlip(resp.result);
         } catch (error) {
             console.error("Ошибка:", error);
             endFlip(false);
         }
     }
 
-    // Анимация вращения
-    function animateFlip(result, betAmount) {
+    function animateFlip(result) {
     const startTime = performance.now();
     const endRotation = result === 'heads' ? 0 : 180;
-
-    // Случайный наклон для реализма
     const tiltAngle = 5 + Math.random() * 15;
     const tiltDirection = Math.random() < 0.5 ? 1 : -1;
-
-    // Вычисляем общее количество градусов для вращения
     const totalRotations = FLIP_ROTATIONS * 360;
-    // Корректируем конечный угол, чтобы он соответствовал полным оборотам
     const adjustedEndRotation = Math.round((totalRotations + endRotation) / 360) * 360;
 
     function frame(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / FLIP_DURATION, 1);
 
-        // Плавное замедление по кривой Безье
         let rotationProgress;
         if (progress < 0.7) {
-            // Линейная часть (первые 70% времени)
             rotationProgress = progress / 0.7;
         } else {
-            // Замедление (последние 30% времени)
             const decelProgress = (progress - 0.7) / 0.3;
             rotationProgress = 1 - (1 - decelProgress) * (1 - decelProgress);
         }
 
-        // Вычисляем текущий угол вращения
         let rotation = rotationProgress * totalRotations;
 
-        // Корректируем угол для плавной остановки
         if (progress >= 0.95) {
             const stopProgress = (progress - 0.95) / 0.05;
             rotation = totalRotations + (endRotation * stopProgress);
         }
 
         if (progress >= 1) {
-            // Финишная позиция
             coin.style.transform = `rotateY(${endRotation}deg) rotateX(${tiltAngle * tiltDirection}deg)`;
-            finishFlip(result, betAmount);
+            finishFlip(result);
             return;
         }
 
-        // Добавляем небольшое дрожание
         const wobble = Math.sin(progress * 20) * 2;
         coin.style.transform = `rotateY(${rotation}deg) rotateX(${tiltAngle * tiltDirection + wobble}deg)`;
         animationId = requestAnimationFrame(frame);
@@ -135,59 +119,29 @@ document.addEventListener('DOMContentLoaded', function() {
     animationId = requestAnimationFrame(frame);
 }
 
-    // Функции плавности анимации
     function linear(t, b, c, d) { return c * t / d + b; }
     function easeOutQuad(t, b, c, d) { t /= d; return -c * t*(t-2) + b; }
     function easeInCubic(t, b, c, d) { t /= d; return c*t*t*t + b; }
 
-    // Завершение вращения
-    function finishFlip(result, betAmount) {
-        const win = userChoice === result;
-        const winAmount = win ? betAmount * 1.95 : 0;
+    function finishFlip(result) {
+        const { win, win_amount, new_balance, betAmount } = roundResult;
         const resultText = result === 'heads' ? 'Орёл' : 'Решка';
 
-        // Показываем результат
-        showMessage(win
-            ? `Поздравляем! Выпал ${resultText}. Выигрыш: ${winAmount.toFixed(2)}$`
-            : `Увы! Выпал ${resultText}. Попробуйте ещё!`,
-        win);
+        showMessage(
+            win ? `Поздравляем! Выпал ${resultText}. Выигрыш: ${win_amount.toFixed(2)}$`
+                : `Увы! Выпал ${resultText}. Проигрыш: ${betAmount.toFixed(2)}$`,
+            win
+        );
 
-        // Обновляем баланс с небольшой задержкой
-        if (winAmount > 0) {
-            setTimeout(() => updateBalance(getBalance() + winAmount), 500);
-        }
+        // Обновление баланса
+        Casino.updateBalance(new_balance);
 
-        // Полный сброс игры через 2 секунды
         setTimeout(() => {
-            // 1. Сбрасываем анимацию монетки
             coin.style.transform = 'rotateY(0) rotateX(0)';
-
-            // 2. Разблокируем все элементы
-            headsBtn.disabled = false;
-            tailsBtn.disabled = false;
-            coin.style.pointerEvents = 'auto';
-            betInput.disabled = false;
-
-            // 3. Сбрасываем выбор
-            userChoice = null;
-            headsBtn.classList.remove('active');
-            tailsBtn.classList.remove('active');
-
-            // 4. Сбрасываем флаг анимации
-            isFlipping = false;
-
-            // 5. Отменяем анимацию
-            if (animationId) {
-                cancelAnimationFrame(animationId);
-                animationId = null;
-            }
-
-            // 6. Восстанавливаем кликабельность
-            coin.style.pointerEvents = 'auto';
-        }, 2000);
+            endFlip();
+        }, 1000);
     }
 
-    // Валидация ставки
     function validateBet(amount) {
         if (isNaN(amount)) {
             showError("Введите корректную сумму ставки");
@@ -204,14 +158,12 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
     }
 
-    // Показать сообщение об ошибке
     function showError(message) {
         showMessage(message, false);
         messageBox.classList.add('error-message');
         setTimeout(() => messageBox.classList.remove('error-message'), 500);
     }
 
-    // Анимация тряски кнопок
     function shakeButtons() {
         headsBtn.classList.add('shake');
         tailsBtn.classList.add('shake');
@@ -221,11 +173,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }
 
-    // Вспомогательные функции
     function disableControls(disabled) {
         headsBtn.disabled = disabled;
         tailsBtn.disabled = disabled;
         coin.style.pointerEvents = disabled ? 'none' : 'auto';
+        betInput.disabled = disabled;
     }
 
     function showMessage(message, isSuccess) {
@@ -242,12 +194,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function endFlip() {
-        cancelAnimationFrame(animationId);
+        // Сброс всех флагов и состояний
         isFlipping = false;
-        disableControls(false);
+        userChoice = null;
+        animationId = null;
+        roundResult = null;
+
+        // Включение всех элементов управления
+        headsBtn.disabled = false;
+        tailsBtn.disabled = false;
+        coin.style.pointerEvents = 'auto';
         betInput.disabled = false;
+
+        // Сброс стилей кнопок
+        headsBtn.classList.remove('active');
+        tailsBtn.classList.remove('active');
+
+        // Отмена анимации, если она еще работает
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+        }
     }
 
-    // Запуск игры
     init();
 });
