@@ -304,6 +304,7 @@ def place_sport_bet(request):
 
 @csrf_exempt
 @login_required
+@transaction.atomic
 def place_roulette_bet(request):
     if request.method != 'POST':
         return JsonResponse({'success': False, 'error': 'Invalid method'})
@@ -315,11 +316,17 @@ def place_roulette_bet(request):
         bet_type = data.get('type')
         bet_value = data.get('value')
 
+        # Проверка баланса
+        if user.balance < amount:
+            return JsonResponse({'success': False, 'error': 'Недостаточно средств'})
+
+        # Генерация результата
         win_number = random.randint(0, 36)
         win_color = 'green' if win_number == 0 else 'red' if win_number % 2 == 1 else 'black'
 
+        # Определение выигрыша
         win = False
-        payout_multiplier = 0
+        payout_multiplier = 1
 
         if bet_type == 'number':
             win = int(bet_value) == win_number
@@ -332,17 +339,19 @@ def place_roulette_bet(request):
                   (bet_value == 'odd' and win_number % 2 != 0)
             payout_multiplier = 2
         elif bet_type == 'range':
-            low, high = map(int, bet_value.split('-'))
-            win = low <= win_number <= high
-            payout_multiplier = 3
+            if bet_value == 'low':
+                win = 1 <= win_number <= 18
+            else:  # high
+                win = 19 <= win_number <= 36
+            payout_multiplier = 2
 
+        # Обновление баланса
+        user.balance -= amount
         if win:
-            user.balance += amount * (Decimal(payout_multiplier) - 1)
-        else:
-            user.balance -= amount
-
+            user.balance += amount * Decimal(payout_multiplier)
         user.save()
 
+        # Создание записи о ставке
         Bet.objects.create(
             player=user,
             game='roulette',
@@ -350,7 +359,8 @@ def place_roulette_bet(request):
             bet_type=bet_type,
             bet_value=str(bet_value),
             outcome='win' if win else 'lose',
-            win_amount=amount * Decimal(payout_multiplier) if win else Decimal(0)
+            win_amount=amount * Decimal(payout_multiplier) if win else Decimal(0),
+            resolved_at=timezone.now()
         )
 
         return JsonResponse({
@@ -358,9 +368,8 @@ def place_roulette_bet(request):
             'win': win,
             'win_number': win_number,
             'win_color': win_color,
-            'amount_spent': float(amount),
-            'payout': float(amount * 2) if win else 0,
-            'new_balance': float(user.balance)
+            'new_balance': float(user.balance),
+            'payout_multiplier': payout_multiplier
         })
 
     except Exception as e:

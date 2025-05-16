@@ -1,89 +1,76 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Roulette initialized");
 
+    /*** Canvas setup ***/
     const canvas = document.getElementById('wheelCanvas');
-    if (!canvas) return;
+    if (!canvas) return; // Stop if canvas is missing
 
     const ctx = canvas.getContext('2d');
     canvas.width = 400;
     canvas.height = 400;
 
-    // Правильный порядок чисел и цветов для европейской рулетки
-        const wheelLayout = [
-        {number: 0, color: 'green'},
-        {number: 32, color: 'red'},
-        {number: 15, color: 'black'},
-        {number: 19, color: 'red'},
-        {number: 4, color: 'black'},
-        {number: 21, color: 'red'},
-        {number: 2, color: 'black'},
-        {number: 25, color: 'red'},
-        {number: 17, color: 'black'},
-        {number: 34, color: 'red'},
-        {number: 6, color: 'black'},
-        {number: 27, color: 'red'},
-        {number: 13, color: 'black'},
-        {number: 36, color: 'red'},
-        {number: 11, color: 'black'},
-        {number: 30, color: 'red'},
-        {number: 8, color: 'black'},
-        {number: 23, color: 'red'},
-        {number: 10, color: 'black'},
-        {number: 5, color: 'red'},
-        {number: 24, color: 'black'},
-        {number: 16, color: 'red'},
-        {number: 33, color: 'black'},
-        {number: 1, color: 'red'},
-        {number: 20, color: 'black'},
-        {number: 14, color: 'red'},
-        {number: 31, color: 'black'},
-        {number: 9, color: 'red'},
-        {number: 22, color: 'black'},
-        {number: 18, color: 'red'},
-        {number: 29, color: 'black'},
-        {number: 7, color: 'red'},
-        {number: 28, color: 'black'},
-        {number: 12, color: 'red'},
-        {number: 35, color: 'black'},
-        {number: 3, color: 'red'},
-        {number: 26, color: 'black'}
+    /*** European‑roulette layout (number → color) ***/
+    const wheelLayout = [
+        { number: 0, color: 'green' },
+        { number: 32, color: 'red' }, { number: 15, color: 'black' },
+        { number: 19, color: 'red' }, { number: 4, color: 'black' },
+        { number: 21, color: 'red' }, { number: 2, color: 'black' },
+        { number: 25, color: 'red' }, { number: 17, color: 'black' },
+        { number: 34, color: 'red' }, { number: 6, color: 'black' },
+        { number: 27, color: 'red' }, { number: 13, color: 'black' },
+        { number: 36, color: 'red' }, { number: 11, color: 'black' },
+        { number: 30, color: 'red' }, { number: 8, color: 'black' },
+        { number: 23, color: 'red' }, { number: 10, color: 'black' },
+        { number: 5, color: 'red' },  { number: 24, color: 'black' },
+        { number: 16, color: 'red' }, { number: 33, color: 'black' },
+        { number: 1, color: 'red' },  { number: 20, color: 'black' },
+        { number: 14, color: 'red' }, { number: 31, color: 'black' },
+        { number: 9, color: 'red' },  { number: 22, color: 'black' },
+        { number: 18, color: 'red' }, { number: 29, color: 'black' },
+        { number: 7, color: 'red' },  { number: 28, color: 'black' },
+        { number: 12, color: 'red' }, { number: 35, color: 'black' },
+        { number: 3, color: 'red' },  { number: 26, color: 'black' }
     ];
 
-    const numbers = wheelLayout.map(item => item.number);
-    const colors = wheelLayout.map(item => item.color);
+    const numbers = wheelLayout.map(i => i.number);
     const anglePerNumber = (2 * Math.PI) / numbers.length;
 
     let currentAngle = 0;
-    let isSpinning = false;
-    let selectedBet = null;
+    let isSpinning   = false;
+    let selectedBet  = null;
 
+    /******************** Drawing functions ********************/
     drawWheel();
 
     function drawWheel(angle = 0) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         const centerX = canvas.width / 2;
         const centerY = canvas.height / 2;
-        const radius = Math.min(canvas.width, canvas.height) / 2 - 20;
+        const radius  = Math.min(canvas.width, canvas.height) / 2 - 20;
 
         wheelLayout.forEach((item, i) => {
             const startAngle = angle + i * anglePerNumber;
+
+            // Sector background
             ctx.beginPath();
             ctx.moveTo(centerX, centerY);
             ctx.arc(centerX, centerY, radius, startAngle, startAngle + anglePerNumber);
             ctx.fillStyle = item.color;
             ctx.fill();
 
+            // Sector number
             ctx.save();
             ctx.translate(centerX, centerY);
-            ctx.rotate(startAngle + anglePerNumber/2);
-            ctx.fillStyle = item.color === 'black' ? 'white' : 'black';
-            ctx.font = 'bold 14px Arial';
-            ctx.textAlign = 'center';
+            ctx.rotate(startAngle + anglePerNumber / 2);
+            ctx.fillStyle   = item.color === 'black' ? 'white' : 'black';
+            ctx.font        = 'bold 14px Arial';
+            ctx.textAlign   = 'center';
             ctx.textBaseline = 'middle';
             ctx.fillText(item.number, radius - 25, 0);
             ctx.restore();
         });
 
+        // Golden pointer
         ctx.beginPath();
         ctx.moveTo(centerX - 10, 5);
         ctx.lineTo(centerX + 10, 5);
@@ -92,25 +79,31 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.fill();
     }
 
-    function spinWheel(resultNumber, callback) {
+    /******************** Spin animation ********************/
+    function spinWheel(resultNumber, cb) {
         if (isSpinning) return;
         isSpinning = true;
 
-        const targetIndex = numbers.indexOf(parseInt(resultNumber));
-        if (targetIndex === -1) return;
+        const targetIndex = numbers.indexOf(+resultNumber);
+        if (targetIndex === -1) {
+            console.error('Invalid number returned by API:', resultNumber);
+            isSpinning = false;
+            return;
+        }
 
-        const targetAngle = (2 * Math.PI * 5) - (targetIndex * anglePerNumber) - (Math.PI/2 + anglePerNumber/2);
+        // 5 full rotations + alignment so the win sector ends under the pointer
+        const targetAngle = (2 * Math.PI * 5) - (targetIndex * anglePerNumber) - (Math.PI / 2 + anglePerNumber / 2);
 
-        const startTime = Date.now();
-        const duration = 3000;
+        const startTime = performance.now();
+        const duration  = 3000; // 3 s
         const startAngle = currentAngle % (2 * Math.PI);
 
-        function animate() {
-            const elapsed = Date.now() - startTime;
+        function animate(now) {
+            const elapsed = now - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            const easedProgress = easeOutCubic(progress);
+            const eased    = easeOutCubic(progress);
 
-            currentAngle = startAngle + (targetAngle - startAngle) * easedProgress;
+            currentAngle = startAngle + (targetAngle - startAngle) * eased;
             drawWheel(currentAngle);
 
             if (progress < 1) {
@@ -118,30 +111,31 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 currentAngle = targetAngle % (2 * Math.PI);
                 isSpinning = false;
-                if (callback) callback();
+                cb?.();
             }
         }
 
-        animate();
+        requestAnimationFrame(animate);
     }
 
-    function easeOutCubic(t) {
-        return (--t) * t * t + 1;
-    }
+    const easeOutCubic = t => (--t) * t * t + 1;
 
+    /******************** UI handlers ********************/
+    // Selecting a bet
     document.querySelectorAll('.number-cell, .bet-btn').forEach(el => {
         el.addEventListener('click', () => {
             if (isSpinning) return;
             document.querySelectorAll('.active').forEach(a => a.classList.remove('active'));
             el.classList.add('active');
             selectedBet = {
-                type: el.dataset.type || 'number',
+                type:  el.dataset.type  || 'number',
                 value: el.dataset.value || el.textContent
             };
         });
     });
 
-    document.querySelector('.spin-btn')?.addEventListener('click', async function() {
+    // Spin button
+    document.querySelector('.spin-btn')?.addEventListener('click', async () => {
         if (isSpinning || !selectedBet) return;
 
         const amount = parseFloat(document.querySelector('.bet-input').value);
@@ -150,18 +144,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const balanceCheck = Casino.checkBalance(amount);
-        if (!balanceCheck.enough) {
-            Casino.showMessage('roulette-message', `Недостаточно средств! Баланс: ${balanceCheck.currentBalance}$`, false);
-            return;
-        }
-
         Casino.toggleButtons(true);
-        Casino.showMessage('roulette-message', "Крутим...", true);
+        Casino.showMessage('roulette-message', 'Крутим...', true);
 
         try {
             const response = await Casino.sendRequest('/api/place_bet/roulette/', {
-                amount: amount,
+                amount,
                 type: selectedBet.type,
                 value: selectedBet.value
             });
@@ -171,77 +159,47 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const winNumber = parseInt(response.win_number);
-            const winItem = wheelLayout.find(item => item.number === winNumber);
-            if (!winItem) {
-                Casino.showMessage('roulette-message', 'Ошибка: неизвестный результат рулетки', false);
-                return;
-            }
+            const { win, win_number, win_color, payout_multiplier } = response;
 
-            // Определяем выигрыш
-            let isWin = false;
-            let winMultiplier = 1;
-
-            switch(selectedBet.type) {
-                case 'number':
-                    isWin = parseInt(selectedBet.value) === winNumber;
-                    winMultiplier = 36; // Выигрыш 36:1 за число (включая саму ставку)
-                    break;
-
-                case 'color':
-                    isWin = selectedBet.value === winItem.color;
-                    winMultiplier = 2; // Выигрыш 2:1 за цвет (ставка + выигрыш)
-                    break;
-
-                case 'even':
-                    isWin = winNumber !== 0 && winNumber % 2 === 0;
-                    winMultiplier = 2;
-                    break;
-
-                case 'odd':
-                    isWin = winNumber % 2 === 1;
-                    winMultiplier = 2;
-                    break;
-
-                default:
-                    isWin = false;
-            }
-
-            spinWheel(response.win_number, () => {
-                if (isWin) {
-                    const winAmount = amount * winMultiplier;
-                    const newBalance = balanceCheck.currentBalance - amount + winAmount; // Сначала списываем ставку, потом добавляем выигрыш
-                    Casino.updateBalance(newBalance);
-                    Casino.showMessage('roulette-message', `Выигрыш: ${winAmount - amount}$\nЧисло: ${winNumber} (${winItem.color})`, true);
+            spinWheel(win_number, () => {
+                if (win) {
+                    Casino.showMessage(
+                        'roulette-message',
+                        `Выигрыш: ${amount * payout_multiplier}$ (x${payout_multiplier})\nЧисло: ${win_number} (${win_color})`,
+                        true
+                    );
                 } else {
-                    const newBalance = balanceCheck.currentBalance - amount; // Просто списываем ставку
-                    Casino.updateBalance(newBalance);
-                    Casino.showMessage('roulette-message', `Проигрыш: ${amount}$\nЧисло: ${winNumber} (${winItem.color})`, false);
+                    Casino.showMessage(
+                        'roulette-message',
+                        `Проигрыш: ${amount}$\nЧисло: ${win_number} (${win_color})`,
+                        false
+                    );
                 }
+                Casino.syncBalance();
             });
-
-        } catch (error) {
-            console.error('Error:', error);
+        } catch (err) {
+            console.error('Spin error:', err);
             Casino.showMessage('roulette-message', 'Ошибка соединения', false);
         } finally {
             Casino.toggleButtons(false);
         }
     });
 
-    document.getElementById('add-funds-btn')?.addEventListener('click', async function() {
+    // Add‑funds button (cool‑down 1h)
+    document.getElementById('add-funds-btn')?.addEventListener('click', async function () {
         this.disabled = true;
         try {
             const response = await Casino.sendRequest('/api/add_funds/', {});
             if (response.success) {
                 Casino.updateBalance(response.new_balance);
                 Casino.showMessage('roulette-message', 'Баланс пополнен на 150$!', true);
-                setTimeout(() => this.disabled = false, 3600000);
+                setTimeout(() => (this.disabled = false), 60 * 60 * 1000);
             } else {
                 Casino.showMessage('roulette-message', response.error, false);
                 this.disabled = false;
             }
-        } catch (error) {
-            console.error("Add funds error:", error);
+        } catch (err) {
+            console.error('Add‑funds error:', err);
             this.disabled = false;
         }
     });

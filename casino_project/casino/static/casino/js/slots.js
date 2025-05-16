@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
             "🍒🍒🍒": 3, "🍋🍋🍋": 5, "🔔🔔🔔": 10,
             "🍉🍉🍉": 15, "⭐⭐⭐": 20, "777": 50
         },
-        spinDuration: 3000, // Увеличено до 3 секунд
-        reelDelay: 500 // Уменьшено до 0.5 секунды между барабанами
+        spinDuration: 2500,
+        reelDelay: 500
     };
 
     const reels = [
@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
         resetReels();
         spinBtn.addEventListener('click', startSpin);
 
-        // Добавляем CSS для анимаций
         const style = document.createElement('style');
         style.textContent = `
             @keyframes drop {
@@ -83,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
         showMessage("Барабаны крутятся...", true);
 
         try {
-            // Имитация запроса (замените на реальный)
             await new Promise(resolve => setTimeout(resolve, 300));
             updateBalance(getBalance() - betAmount);
 
@@ -117,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     Math.floor(Math.random() * config.symbols.length)
                 ];
 
-                // Эффект замедления перед остановкой
                 if (now > stopTimes[index] - 500) {
                     reel.style.transition = 'transform 0.5s cubic-bezier(0.1, 0.7, 0.1, 1)';
                     reel.style.transform = 'scale(1.2)';
@@ -147,7 +144,6 @@ document.addEventListener('DOMContentLoaded', function() {
             reels.forEach(reel => reel.classList.add('winning'));
             showMessage(`Выигрыш: ${winAmount}$ (x${multiplier})`, true);
 
-            // Имитация начисления выигрыша
             setTimeout(() => {
                 updateBalance(getBalance() + winAmount);
             }, 500);
@@ -176,7 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
     }
 
-    // Вспомогательные функции
     function disableButtons(disabled) {
         spinBtn.disabled = disabled;
     }
