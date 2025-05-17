@@ -2,93 +2,31 @@
 {% load static %}
 
 {% block content %}
-<div class="cases-container">
-    <div class="cases-header">
+<div class="bets-container">
+    <div class="bets-header">
         <h1>КЕЙСЫ</h1>
-    </div>
-
-    <div class="cases-tabs">
-        <button class="tab-btn active" data-tab="all">Все кейсы</button>
-        <button class="tab-btn" data-tab="common">Обычные</button>
-        <button class="tab-btn" data-tab="rare">Редкие</button>
-        <button class="tab-btn" data-tab="epic">Эпические</button>
-        <button class="tab-btn" data-tab="legendary">Легендарные</button>
-    </div>
-
-    <div class="cases-grid">
-        {% for case in cases %}
-        <div class="case-card {{ case.items.first.rarity|default:'common' }}">
-            <div class="case-image-container">
-                {% if case.image %}
-                    <img src="{{ case.image.url }}" alt="{{ case.name }}" class="case-image">
-                {% else %}
-                    <div class="default-case-image">💰</div>
-                {% endif %}
-                <div class="case-price">{{ case.price }}$</div>
-                <div class="case-currency">{{ case.get_currency_display }}</div>
-            </div>
-            <div class="case-info">
-                <h3>{{ case.name }}</h3>
-                <div class="case-rarity {{ case.items.first.rarity|default:'common' }}">
-                    {{ case.items.first.get_rarity_display|default:"Обычный" }}
-                </div>
-                <button class="open-case-btn" data-case-id="{{ case.id }}">
-                    Открыть за {{ case.price }}$
-                </button>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-
-    <div id="caseInfoModal" class="modal">
-        <div class="modal-content" id="modalContent">
-            <span class="close-modal">&times;</span>
-            <div class="case-modal-header">
-                <h2 id="modalCaseName"></h2>
-                <div class="case-modal-price" id="modalCasePrice"></div>
-            </div>
-            <div class="case-modal-image-container">
-                <img id="modalCaseImage" src="" alt="" class="case-modal-image">
-            </div>
-
-            <div class="prizes-container">
-                <div class="prizes-grid" id="caseItemsContainer">
-                </div>
-            </div>
-
-            <div class="open-case-action">
-                <button class="open-case-main-btn" id="openCaseBtn">
-                    Открыть за <span id="modalBtnPrice">0</span>$
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div id="caseResultModal" class="modal">
-        <div class="modal-content">
-            <div class="prize-header">
-                <h2>ВЫ ВЫИГРАЛИ!</h2>
-            </div>
-            <div class="prize-body">
-                <div class="prize-image-container">
-                    <img id="prizeImage" src="" alt="" class="prize-image">
-                </div>
-                <div class="prize-name" id="prizeName"></div>
-                <div class="prize-value" id="prizeValue"></div>
-            </div>
-            <div class="prize-footer">
-                <div class="new-balance" id="newBalance"></div>
-                <button class="continue-btn" id="continueBtn">ПРОДОЛЖИТЬ</button>
-            </div>
+        <div class="coming-soon">
+            <h2 class="gold-text">Скоро откроемся</h2>
         </div>
     </div>
 </div>
 {% endblock %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% static 'casino/css/cases.css' %}">
+<style>
+    .coming-soon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+    }
+
+    .gold-text {
+        color: #FFD700;
+        text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        font-size: 2.5rem;
+        text-align: center;
+    }
+</style>
 {% endblock %}
 
-{% block scripts %}
-<script src="{% static 'casino/js/cases.js' %}"></script>
-{% endblock %}

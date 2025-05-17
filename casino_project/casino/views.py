@@ -37,6 +37,7 @@ def custom_logout(request):
     logout(request)
     return redirect('index')
 
+
 @login_required
 def profile(request):
     game_type = request.GET.get('game_type', None)
@@ -49,13 +50,15 @@ def profile(request):
 
     total_bets = bets.count()
 
-    winning_bets = bets.filter(outcome='win')
+    total_wins = 0
+    win_rate = 0
+    biggest_win = 0
 
-    total_wins = sum(bet.win_amount for bet in winning_bets)
-
-    win_rate = int((winning_bets.count() / total_bets * 100)) if total_bets > 0 else 0
-
-    biggest_win = max([bet.win_amount for bet in winning_bets], default=0)
+    if total_bets > 0:
+        winning_bets = bets.filter(outcome='win')
+        total_wins = sum(bet.win_amount for bet in winning_bets)
+        win_rate = int((winning_bets.count() / total_bets * 100)) if winning_bets.count() > 0 else 0
+        biggest_win = max([bet.win_amount for bet in winning_bets], default=0)
 
     context = {
         'bets': bets[:20],
@@ -68,6 +71,7 @@ def profile(request):
     }
 
     return render(request, 'casino/profile.html', context)
+
 
 @login_required
 def slots_view(request):

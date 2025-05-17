@@ -3,11 +3,8 @@
 {% block content %}
 <div class="profile-container">
     <div class="profile-header">
-        <h2 class="profile-title">Your Casino Profile</h2>
+        <h2 class="profile-title">Ваш профиль казино</h2>
         <div class="profile-balance">
-            <span class="balance-label">Balance:</span>
-            <span class="balance-value">${{ user.balance|default:"10,000" }}</span>
-            <button class="add-funds-btn">+ Add Funds</button>
         </div>
     </div>
 
@@ -15,42 +12,42 @@
         <div class="stat-card">
             <div class="stat-icon">🎰</div>
             <div class="stat-info">
-                <span class="stat-value">{{ total_bets|default:"42" }}</span>
-                <span class="stat-label">Total Bets</span>
+                <span class="stat-value">{{ total_bets|default:"0" }}</span>
+                <span class="stat-label">Количество ставок</span>
             </div>
         </div>
         <div class="stat-card">
             <div class="stat-icon">💰</div>
             <div class="stat-info">
-                <span class="stat-value">${{ total_wins|default:"5,750" }}</span>
-                <span class="stat-label">Total Wins</span>
+                <span class="stat-value">${{ total_wins|default:"0" }}</span>
+                <span class="stat-label">Количество побед</span>
             </div>
         </div>
         <div class="stat-card">
             <div class="stat-icon">🏆</div>
             <div class="stat-info">
-                <span class="stat-value">{{ win_rate|default:"58" }}%</span>
-                <span class="stat-label">Win Rate</span>
+                <span class="stat-value">{{ win_rate|default:"0" }}%</span>
+                <span class="stat-label">Процент побед</span>
             </div>
         </div>
         <div class="stat-card">
             <div class="stat-icon">🔥</div>
             <div class="stat-info">
-                <span class="stat-value">${{ biggest_win|default:"2,500" }}</span>
-                <span class="stat-label">Biggest Win</span>
+                <span class="stat-value">${{ biggest_win|default:"0" }}</span>
+                <span class="stat-label">Наибольший выигрыщ</span>
             </div>
         </div>
     </div>
 
     <div class="bets-history">
         <div class="history-header">
-            <h3>Your Betting History</h3>
+            <h3>Ваша история ставок</h3>
             <div class="history-filters">
     <select class="filter-select" id="game-filter" onchange="filterByGame(this.value)">
-        <option value="">All Games</option>
-        <option value="roulette" {% if selected_game == 'roulette' %}selected{% endif %}>Roulette</option>
-        <option value="slots" {% if selected_game == 'slots' %}selected{% endif %}>Slots</option>
-        <option value="coinflip" {% if selected_game == 'coinflip' %}selected{% endif %}>Coin Flip</option>
+        <option value="">Все игры</option>
+        <option value="roulette" {% if selected_game == 'roulette' %}selected{% endif %}>Рулетка</option>
+        <option value="slots" {% if selected_game == 'slots' %}selected{% endif %}>Слоты</option>
+        <option value="coinflip" {% if selected_game == 'coinflip' %}selected{% endif %}>Монетка</option>
     </select>
 </div>
 
@@ -71,13 +68,13 @@
             <table class="bets-table">
                 <thead>
                     <tr>
-                        <th>Game</th>
-                        <th>Type</th>
-                        <th>Amount</th>
-                        <th>Outcome</th>
-                        <th>Win</th>
-                        <th>Date</th>
-                        <th>Status</th>
+                        <th>игры</th>
+                        <th>тип</th>
+                        <th>ставка</th>
+                        <th>состояние</th>
+                        <th>выигрыш</th>
+                        <th>дата</th>
+                        <th>статус</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -85,10 +82,9 @@
                     <tr class="{% if bet.win_amount %}win-row{% else %}lose-row{% endif %}">
                         <td>
                             <div class="game-icon">
-                                {% if bet.game_type == "Roulette" %}🎡
-                                {% elif bet.game_type == "Slots" %}🎰
-                                {% elif bet.game_type == "Blackjack" %}🃏
-                                {% elif bet.game_type == "Coin Flip" %}🪙
+                                {% if bet.game_type == "Рулетка" %}🎡
+                                {% elif bet.game_type == "Слоты" %}🎰
+                                {% elif bet.game_type == "Монетка" %}🪙
                                 {% else %}🎲{% endif %}
                             </div>
                             {{ bet.game_type }}
@@ -113,11 +109,7 @@
             </table>
         </div>
 
-        <div class="pagination">
-            <button class="page-btn" disabled>Previous</button>
-            <span class="page-info">Page 1 of 5</span>
-            <button class="page-btn">Next</button>
-        </div>
+
     </div>
 </div>
 
