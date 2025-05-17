@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-j3h^%5@j-tzgki2@-%+nudv(vk1*4xz5bmo93$gj4f0h(s=c3@
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']  # Разрешаем все хосты для разработки
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -77,7 +77,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']  # Используем Path вместо os.path
+STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = 'media/'
@@ -85,21 +85,17 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Настройки аутентификации
 AUTH_USER_MODEL = 'casino.User'
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-# Настройки сессии
-SESSION_COOKIE_AGE = 1209600  # 2 недели в секундах
+SESSION_COOKIE_AGE = 1209600
 SESSION_SAVE_EVERY_REQUEST = True
 
-# Настройки Celery (если используете)
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
-# Настройки логгирования
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

@@ -12,6 +12,6 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'process-pending-bets-every-minute': {
         'task': 'casino.tasks.process_pending_bets',
-        'schedule': crontab(minute='*/1'),  # Каждую минуту
+        'schedule': crontab(minute='*/1'),
     },
 }

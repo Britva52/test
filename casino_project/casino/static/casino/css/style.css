@@ -24,7 +24,6 @@
     box-sizing: border-box;
 }
 
-/* ===== Основной стиль ===== */
 body {
   background-color: var(--black);
   color: var(--white);
@@ -40,7 +39,6 @@ body {
     margin: 0 auto;
 }
 
-/* ===== Верхнее меню ===== */
 header {
   background: linear-gradient(90deg, #000, #1a1a1a);
   padding: 20px 40px;

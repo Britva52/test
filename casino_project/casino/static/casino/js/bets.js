@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Состояние приложения
     let selectedBets = [];
-    const MIN_RESOLVE_TIME = 15 * 60 * 1000; // 15 минут в миллисекундах
-    const MAX_RESOLVE_TIME = 30 * 60 * 1000; // 30 минут
+    const MIN_RESOLVE_TIME = 15 * 60 * 1000;
+    const MAX_RESOLVE_TIME = 30 * 60 * 1000;
 
-    // DOM элементы
     const selectedBetsContainer = document.getElementById('selectedBets');
     const betAmountInput = document.getElementById('betAmount');
     const potentialWinSpan = document.getElementById('potentialWin');
@@ -15,21 +13,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const sportFilterBtns = document.querySelectorAll('.sport-filter-btn');
     const historyFilterSelect = document.getElementById('history-filter-select');
 
-    // Инициализация
     updateBetSlip();
     startEventUpdates();
     setupEventListeners();
 
-    // Основные функции
     function setupEventListeners() {
-        // Обработчики для кнопок "Добавить" в ставках
         document.addEventListener('click', function(e) {
             if (e.target.classList.contains('add-to-bet-btn')) {
                 handleAddBetButtonClick(e);
             }
         });
 
-        // Обработчики для кнопок удаления ставок
         document.addEventListener('click', function(e) {
             if (e.target.classList.contains('remove-bet-btn')) {
                 const index = parseInt(e.target.dataset.index);
@@ -39,19 +33,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Остальные обработчики
         betAmountInput.addEventListener('input', calculatePotentialWin);
         clearBetsBtn.addEventListener('click', clearAllBets);
         placeBetBtn.addEventListener('click', handlePlaceBet);
 
-        // Фильтры
         sportFilterBtns.forEach(btn => {
             btn.addEventListener('click', handleSportFilterClick);
         });
 
         historyFilterSelect.addEventListener('change', handleHistoryFilterChange);
 
-        // Модальное окно
         window.addEventListener('click', handleModalClose);
     }
 
@@ -62,13 +53,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const eventCard = e.target.closest('.event-card');
         const outcomeOption = e.target.closest('.outcome-option');
 
-        // Проверка дублирования ставки
         if (selectedBets.some(bet => bet.oddId === oddId)) {
             showMessage('Эта ставка уже добавлена в купон', false);
             return;
         }
 
-        // Сбор данных о ставке
         const betData = {
             oddId: oddId,
             eventId: eventCard.dataset.eventId,
@@ -84,16 +73,14 @@ document.addEventListener('DOMContentLoaded', function() {
         showMessage('Ставка добавлена в купон', true);
     }
 
-        // Функция для имитации обработки ставки
         function simulateBetResolution(betId) {
         const resolveTime = Math.floor(Math.random() * (MAX_RESOLVE_TIME - MIN_RESOLVE_TIME + 1)) + MIN_RESOLVE_TIME;
 
         setTimeout(() => {
             const possibleOutcomes = ['win', 'lose', 'refund'];
-            const weights = [0.45, 0.45, 0.1]; // Вероятности
+            const weights = [0.45, 0.45, 0.1];
             const randomOutcome = weightedRandom(possibleOutcomes, weights);
 
-            // Отправка запроса на сервер
             fetch('/api/resolve_bet/', {
                 method: 'POST',
                 headers: {
@@ -109,8 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if(data.success) {
                     console.log(`Ставка ${betId} завершена: ${randomOutcome}`);
-                    fetchBetHistory(); // Обновляем историю
-                    Casino.updateBalance(data.new_balance); // Обновляем баланс
+                    fetchBetHistory();
+                    Casino.updateBalance(data.new_balance);
                 }
             })
             .catch(error => console.error('Ошибка:', error));
@@ -118,7 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, resolveTime);
     }
 
-    // Функция для взвешенного случайного выбора
     function weightedRandom(items, weights) {
         let i;
         for (i = 1; i < weights.length; i++) {
@@ -136,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return items[i];
     }
 
-    // Функция для обновления исхода ставки
     async function updateBetOutcome(betId, outcome) {
         try {
             const response = await fetch('/api/resolve_bet/', {
@@ -158,15 +143,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const result = await response.json();
 
             if (result.success) {
-                // Обновляем историю ставок
                 fetchBetHistory();
 
-                // Обновляем баланс
                 if (result.new_balance !== undefined) {
                     Casino.updateBalance(result.new_balance);
                 }
 
-                // Показываем уведомление
                 showMessage(`Ставка #${betId} завершена: ${getOutcomeDisplay(outcome)}`, true);
             } else {
                 throw new Error(result.error || 'Неизвестная ошибка сервера');
@@ -177,7 +159,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Вспомогательная функция для отображения результата
     function getOutcomeDisplay(outcome) {
         const outcomes = {
             'win': 'Выигрыш',
@@ -191,24 +172,20 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Начало обработки ставки');
 
         try {
-            // Валидация данных
             const betAmount = parseFloat(betAmountInput.value);
             if (!validateBetData(betAmount)) return;
 
-            // Проверка баланса
             const balanceCheck = await Casino.checkBalance(betAmount);
             if (!balanceCheck.enough) {
                 showMessage(`Недостаточно средств. Баланс: ${balanceCheck.currentBalance.toFixed(2)}$`, false);
                 return;
             }
 
-            // Подтверждение ставки
             const potentialWin = (betAmount * selectedBets.reduce((acc, bet) => acc * bet.odd, 1)).toFixed(2);
             if (!confirm(`Подтвердить ставку на ${betAmount}$?\n\nПотенциальный выигрыш: ${potentialWin}$`)) {
                 return;
             }
 
-            // Подготовка данных
             const betData = {
                 amount: betAmount,
                 odds: selectedBets.map(bet => ({
@@ -218,11 +195,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }))
             };
 
-            // Визуальная индикация загрузки
             placeBetBtn.disabled = true;
             placeBetBtn.innerHTML = 'Обработка... <span class="loading-spinner"></span>';
 
-            // Отправка ставки с таймаутом
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 10000);
 
@@ -236,7 +211,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 signal: controller.signal
             }).finally(() => clearTimeout(timeoutId));
 
-            // Обработка ответа
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({}));
                 throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
@@ -249,20 +223,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error(result.error || 'Неизвестная ошибка сервера');
             }
 
-            // Успешная ставка
             showBetResult(
                 true,
                 'Ставка успешно размещена!',
                 `Потенциальный выигрыш: ${result.potential_win.toFixed(2)}$`
             );
 
-            // Обновление интерфейса
             Casino.updateBalance(result.new_balance);
             selectedBets = [];
             updateBetSlip();
             fetchBetHistory();
 
-            // Запускаем таймер для обработки ставки
             if (result.bet_id) {
                 simulateBetResolution(result.bet_id);
             }
@@ -300,7 +271,6 @@ document.addEventListener('DOMContentLoaded', function() {
         showBetResult(false, 'Ошибка', errorMessage);
     }
 
-    // Вспомогательные функции
     function updateBetSlip() {
         selectedBetsContainer.innerHTML = selectedBets.length === 0 ?
             createEmptyBetSlipMessage() :
@@ -353,7 +323,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         betResultModal.style.display = 'block';
 
-        // Добавляем обработчик для кнопки OK
         const closeBtn = betResultContent.querySelector('.close-result-btn');
         if (closeBtn) {
             closeBtn.addEventListener('click', function() {
@@ -384,7 +353,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Casino API
     const Casino = {
         checkBalance: async function(amount) {
             const response = await fetch('/api/get_balance/');
@@ -402,7 +370,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Обновление событий
     function startEventUpdates() {
         fetchEvents();
         setInterval(fetchEvents, 30000);
@@ -469,7 +436,6 @@ document.addEventListener('DOMContentLoaded', function() {
         filterEventsBySport(activeFilter);
     }
 
-    // Вспомогательные функции
     function getCookie(name) {
         const cookies = document.cookie.split(';');
         for (let cookie of cookies) {
@@ -528,7 +494,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // История ставок
     async function fetchBetHistory() {
         try {
             const response = await fetch('/api/get_bet_history/');
@@ -594,10 +559,8 @@ function checkBetsStatus() {
                         const now = new Date();
 
                         if (now >= resolutionTime) {
-                            // Ставка должна быть разрешена, но еще не обработана
                             console.log(`Bet ${bet.id} is due for resolution`);
                         } else {
-                            // Показываем таймер до разрешения
                             const diff = resolutionTime - now;
                             const minutes = Math.floor(diff / 60000);
                             console.log(`Bet ${bet.id} will resolve in ${minutes} minutes`);
@@ -608,6 +571,5 @@ function checkBetsStatus() {
         });
 }
 
-// Проверяем статус каждые 30 секунд
 setInterval(checkBetsStatus, 30000);
-checkBetsStatus(); // Первоначальная проверка
+checkBetsStatus();

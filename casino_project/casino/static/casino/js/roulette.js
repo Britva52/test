@@ -1,15 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Roulette initialized");
 
-    /*** Canvas setup ***/
     const canvas = document.getElementById('wheelCanvas');
-    if (!canvas) return; // Stop if canvas is missing
+    if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
     canvas.width = 400;
     canvas.height = 400;
 
-    /*** European‑roulette layout (number → color) ***/
     const wheelLayout = [
         { number: 0, color: 'green' },
         { number: 32, color: 'red' }, { number: 15, color: 'black' },
@@ -39,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let isSpinning   = false;
     let selectedBet  = null;
 
-    /******************** Drawing functions ********************/
     drawWheel();
 
     function drawWheel(angle = 0) {
@@ -51,14 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
         wheelLayout.forEach((item, i) => {
             const startAngle = angle + i * anglePerNumber;
 
-            // Sector background
             ctx.beginPath();
             ctx.moveTo(centerX, centerY);
             ctx.arc(centerX, centerY, radius, startAngle, startAngle + anglePerNumber);
             ctx.fillStyle = item.color;
             ctx.fill();
 
-            // Sector number
             ctx.save();
             ctx.translate(centerX, centerY);
             ctx.rotate(startAngle + anglePerNumber / 2);
@@ -70,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.restore();
         });
 
-        // Golden pointer
         ctx.beginPath();
         ctx.moveTo(centerX - 10, 5);
         ctx.lineTo(centerX + 10, 5);
@@ -79,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.fill();
     }
 
-    /******************** Spin animation ********************/
     function spinWheel(resultNumber, cb) {
         if (isSpinning) return;
         isSpinning = true;
@@ -91,11 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // 5 full rotations + alignment so the win sector ends under the pointer
         const targetAngle = (2 * Math.PI * 5) - (targetIndex * anglePerNumber) - (Math.PI / 2 + anglePerNumber / 2);
 
         const startTime = performance.now();
-        const duration  = 3000; // 3 s
+        const duration  = 3000;
         const startAngle = currentAngle % (2 * Math.PI);
 
         function animate(now) {
@@ -120,8 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const easeOutCubic = t => (--t) * t * t + 1;
 
-    /******************** UI handlers ********************/
-    // Selecting a bet
     document.querySelectorAll('.number-cell, .bet-btn').forEach(el => {
         el.addEventListener('click', () => {
             if (isSpinning) return;
@@ -134,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Spin button
     document.querySelector('.spin-btn')?.addEventListener('click', async () => {
         if (isSpinning || !selectedBet) return;
 
@@ -185,7 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Add‑funds button (cool‑down 1h)
     document.getElementById('add-funds-btn')?.addEventListener('click', async function () {
         this.disabled = true;
         try {

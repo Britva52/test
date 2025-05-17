@@ -31,7 +31,6 @@ class User(AbstractUser):
         return self.username
 
     def load_initial_data(self):
-        """Метод для загрузки начальных данных пользователя"""
         pass
 
 

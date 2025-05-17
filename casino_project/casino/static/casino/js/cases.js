@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Получение CSRF токена
     function getCSRFToken() {
         const cookieValue = document.cookie
             .split('; ')
@@ -8,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return cookieValue || '';
     }
 
-    // Элементы DOM
     const caseModal = document.getElementById('caseInfoModal');
     const resultModal = document.getElementById('caseResultModal');
     const openCaseBtns = document.querySelectorAll('.open-case-btn');
@@ -17,11 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeModalBtn = document.querySelector('.close-modal');
     const itemsContainer = document.getElementById('caseItemsContainer');
 
-    // Состояние
     let currentCase = null;
     let isSpinning = false;
 
-    // Показать ошибку
     function showError(message) {
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
@@ -30,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => errorDiv.remove(), 3000);
     }
 
-    // Открытие модального окна кейса
     openCaseBtns.forEach(btn => {
         btn.addEventListener('click', async function() {
             const caseId = this.dataset.caseId;
@@ -51,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Отображение информации о кейсе
     function displayCaseInfo(data) {
         document.getElementById('modalCaseName').textContent = data.case.name;
         document.getElementById('modalCasePrice').textContent = `${data.case.price}${data.case.currency}`;
@@ -61,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         document.getElementById('modalBtnPrice').textContent = data.case.price;
 
-        // Очищаем и добавляем предметы
         itemsContainer.innerHTML = '';
         data.items.forEach(item => {
             const itemElement = document.createElement('div');
@@ -80,12 +73,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Открытие кейса
     openCaseMainBtn?.addEventListener('click', async function() {
         if (!currentCase || isSpinning) return;
 
         try {
-            // Проверка баланса
             const balance = parseFloat(document.querySelector('.balance-amount')?.textContent) || 0;
             if (balance < currentCase.price) {
                 showError('Недостаточно средств!');
@@ -110,14 +101,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error(data.error || 'Ошибка открытия кейса');
             }
 
-            // Показываем выигрыш
             const prizeImg = document.getElementById('prizeImage');
             prizeImg.src = data.prize.image || '/static/casino/images/default_prize.png';
             document.getElementById('prizeName').textContent = data.prize.name;
             document.getElementById('prizeValue').textContent = `${data.prize.value}${data.prize.currency}`;
             resultModal.style.display = 'block';
 
-            // Обновляем баланс
             const balanceResponse = await fetch('/api/get_balance/');
             const balanceData = await balanceResponse.json();
             if (balanceData.success) {
@@ -132,7 +121,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Закрытие модальных окон
     function closeModals() {
         caseModal.style.display = 'none';
         resultModal.style.display = 'none';

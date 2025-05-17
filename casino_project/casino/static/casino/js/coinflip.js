@@ -133,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
             win
         );
 
-        // Обновление баланса
         Casino.updateBalance(new_balance);
 
         setTimeout(() => {
@@ -194,23 +193,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function endFlip() {
-        // Сброс всех флагов и состояний
         isFlipping = false;
         userChoice = null;
         animationId = null;
         roundResult = null;
 
-        // Включение всех элементов управления
         headsBtn.disabled = false;
         tailsBtn.disabled = false;
         coin.style.pointerEvents = 'auto';
         betInput.disabled = false;
 
-        // Сброс стилей кнопок
         headsBtn.classList.remove('active');
         tailsBtn.classList.remove('active');
 
-        // Отмена анимации, если она еще работает
         if (animationId) {
             cancelAnimationFrame(animationId);
         }

@@ -49,16 +49,14 @@
     <footer class="footer">
         <div class="container">
             <p>© 2025 LastDep Casino. Все права защищены.</p>
-            <p>Только для лиц старше 18 лет.</p>
+            <p>Только для лиц старше 21 лет.</p>
         </div>
     </footer>
 
-    <!-- Добавляем глобальные скрипты перед блоками -->
     <script src="{% static 'casino/js/global.js' %}"></script>
 
     {% block scripts %}{% endblock %}
 
-    <!-- Добавляем инициализацию для отладки -->
     <script>
         console.log("Base template loaded!");
         document.addEventListener('DOMContentLoaded', function() {

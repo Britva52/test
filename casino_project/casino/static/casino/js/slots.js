@@ -125,7 +125,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     Math.floor(Math.random() * config.symbols.length)
                 ];
 
-                // Эффект ускорения/замедления
                 if (now > stopTimes[index] - 500) {
                     reel.style.transition = 'transform 0.5s cubic-bezier(0.1, 0.7, 0.1, 1)';
                     reel.style.transform = 'scale(1.2)';

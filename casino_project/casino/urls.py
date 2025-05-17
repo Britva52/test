@@ -17,7 +17,6 @@ urlpatterns = [
     path('bets/', views.bets_view, name='bets'),
     path('cases/', views.cases_view, name='cases'),
 
-    # API endpoints
     path('api/open_case/<uuid:case_id>/', views.open_case, name='open_case'),
     path('api/get_case_details/<uuid:case_id>/', views.get_case_details, name='get_case_details'),
     path('api/deduct_bet/', views.deduct_bet, name='deduct_bet'),
@@ -33,7 +32,6 @@ urlpatterns = [
     path('api/place_bet/coinflip/', views.place_coinflip_bet, name='place_coinflip_bet'),
     path('api/get_bet_history/', views.get_bet_history, name='get_bet_history'),
 
-    # Auth
     path('register/', views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),

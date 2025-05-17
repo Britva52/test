@@ -21,7 +21,6 @@ from django.views.decorators.cache import cache_page
 
 User = get_user_model()
 
-# Основные страницы
 def index(request):
     return render(request, 'casino/index.html')
 
@@ -48,7 +47,6 @@ def profile(request):
 
     bets = bets_query.order_by('-created_at')
 
-    # Считаем общее количество ставок
     total_bets = bets.count()
 
     winning_bets = bets.filter(outcome='win')
@@ -71,9 +69,6 @@ def profile(request):
 
     return render(request, 'casino/profile.html', context)
 
-    return render(request, 'casino/profile.html', context)
-
-# Игры
 @login_required
 def slots_view(request):
     return render(request, 'casino/game.html', {
@@ -204,19 +199,15 @@ def open_case(request, case_id):
         if user.balance < case.price:
             return JsonResponse({'success': False, 'error': 'Недостаточно средств'})
 
-        # Список предметов с их вероятностями
         items = list(case.items.all())
         if not items:
             return JsonResponse({'success': False, 'error': 'Кейс пуст'})
 
-        # Выбираем случайный предмет с учетом вероятностей
         probabilities = [item.probability for item in items]
         prize = random.choices(items, weights=probabilities, k=1)[0]
 
-        # Создаем запись об открытии
         CaseOpening.objects.create(user=user, case=case, item=prize)
 
-        # Обновляем баланс
         user.balance -= case.price
         user.balance += prize.value
         user.save()
@@ -345,11 +336,9 @@ def place_roulette_bet(request):
         bet_type = data.get('type')
         bet_value = data.get('value')
 
-        # Проверка баланса
         if user.balance < amount:
             return JsonResponse({'success': False, 'error': 'Недостаточно средств'})
 
-        # Генерация результата
         win_number = random.randint(0, 36)
         RED_NUMBERS = {1, 3, 5, 7, 9, 12, 14, 16, 18,
                        19, 21, 23, 25, 27, 30, 32, 34, 36}
@@ -377,17 +366,15 @@ def place_roulette_bet(request):
         elif bet_type == 'range':
             if bet_value == 'low':
                 win = 1 <= win_number <= 18
-            else:  # high
+            else:
                 win = 19 <= win_number <= 36
             payout_multiplier = 2
 
-        # Обновление баланса
         user.balance -= amount
         if win:
             user.balance += amount * Decimal(payout_multiplier)
         user.save()
 
-        # Создание записи о ставке
         Bet.objects.create(
             player=user,
             game='roulette',
@@ -431,7 +418,6 @@ def place_slots_bet(request):
             symbols = ["🍒", "🍋", "🔔", "🍉", "⭐", "7"]
             reels = [random.choice(symbols) for _ in range(3)]
 
-            # Определяем выигрыш
             win = False
             win_amount = Decimal('0')
 
@@ -444,14 +430,12 @@ def place_slots_bet(request):
                 win = True
                 win_amount = amount * multiplier
 
-            # Обновляем баланс
             with transaction.atomic():
                 user.balance -= amount
                 if win:
                     user.balance += win_amount
                 user.save()
 
-                # Создаем запись о ставке
                 Bet.objects.create(
                     player=user,
                     game='slots',
@@ -768,19 +752,16 @@ def create_full_test_data():
     def create_full_test_data():
         User = get_user_model()
 
-        # Создаем тестового пользователя
         user, created = User.objects.get_or_create(
             username='testuser',
             defaults={
                 'balance': 1000.00,
-                'password': 'testpass123'  # Пароль будет автоматически хэширован
+                'password': 'testpass123'
             }
         )
 
-        # Удаляем старые кейсы если есть
         Case.objects.all().delete()
 
-        # 1. Бронзовый кейс (USD)
         bronze_case = Case.objects.create(
             name="Бронзовый кейс",
             price=50.00,
@@ -796,7 +777,6 @@ def create_full_test_data():
             CaseItem(case=bronze_case, name="500$", value=500.00, probability=0.01, rarity='legendary')
         ])
 
-        # 2. Серебряный кейс (EUR)
         silver_case = Case.objects.create(
             name="Серебряный кейс",
             price=40.00,
@@ -812,7 +792,6 @@ def create_full_test_data():
             CaseItem(case=silver_case, name="500€", value=500.00, probability=0.02, rarity='legendary')
         ])
 
-        # 3. Золотой кейс (USD)
         gold_case = Case.objects.create(
             name="Золотой кейс",
             price=100.00,
@@ -828,7 +807,6 @@ def create_full_test_data():
             CaseItem(case=gold_case, name="1000$", value=1000.00, probability=0.02, rarity='legendary')
         ])
 
-        # 4. Платиновый кейс (RUB)
         platinum_case = Case.objects.create(
             name="Платиновый кейс",
             price=5000.00,
@@ -844,7 +822,6 @@ def create_full_test_data():
             CaseItem(case=platinum_case, name="50000₽", value=50000.00, probability=0.01, rarity='legendary')
         ])
 
-        # 5. Крипто кейс (USDT)
         crypto_case = Case.objects.create(
             name="Крипто кейс",
             price=50.00,
@@ -860,10 +837,8 @@ def create_full_test_data():
             CaseItem(case=crypto_case, name="500 USDT", value=500.00, probability=0.02, rarity='legendary')
         ])
 
-        # Создаем тестовые спортивные события
         SportEvent.objects.all().delete()
 
-        # Футбольный матч
         football_event = SportEvent.objects.create(
             team1="Барселона",
             team2="Реал Мадрид",
@@ -877,7 +852,6 @@ def create_full_test_data():
             BettingOdd(event=football_event, outcome='win2', odd=2.80)
         ])
 
-        # Теннисный матч
         tennis_event = SportEvent.objects.create(
             team1="Надаль",
             team2="Джокович",
@@ -890,7 +864,6 @@ def create_full_test_data():
             BettingOdd(event=tennis_event, outcome='win2', odd=2.00)
         ])
 
-        # Создаем тестовую ставку
         SportBet.objects.create(
             user=user,
             event=football_event,
@@ -908,19 +881,15 @@ def create_full_test_data():
 @csrf_exempt
 def resolve_bet(request):
     try:
-        data = json.loads(request.body)  # Изменено для работы с JSON
+        data = json.loads(request.body)
         bet_id = data.get('bet_id')
-        outcome = data.get('outcome')  # win, lose или refund
+        outcome = data.get('outcome')
 
-        # Получаем ставку
         bet = Bet.objects.get(id=bet_id, outcome='pending')
 
-        # Обновляем ставку
         bet.outcome = outcome
-        bet.resolved_at = timezone.now()  # Добавляем время разрешения
+        bet.resolved_at = timezone.now()
         bet.save()
-
-        # Обновляем баланс пользователя
         user = request.user
 
         if outcome == 'win':
@@ -953,7 +922,7 @@ def resolve_bet(request):
 def get_bet_history(request):
     try:
         bets = Bet.objects.filter(player=request.user).order_by(
-            '-created_at')  # Изменил user на player в соответствии с вашей моделью
+            '-created_at')
 
         bet_list = []
         for bet in bets:

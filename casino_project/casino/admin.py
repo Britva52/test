@@ -61,7 +61,6 @@ class CaseItemAdmin(admin.ModelAdmin):
         return obj.get_rarity_display()
     rarity_display.short_description = 'Rarity'
 
-# User модель лучше регистрировать через декоратор для единообразия
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     list_display = ('username', 'email', 'balance', 'last_login')

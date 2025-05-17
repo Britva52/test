@@ -10,6 +10,6 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'process-bets-every-minute': {
         'task': 'casino.tasks.process_pending_bets',
-        'schedule': 60.0,  # Каждую минуту
+        'schedule': 60.0,
     },
 }

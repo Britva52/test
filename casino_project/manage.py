@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import os
 import sys
 
@@ -8,7 +7,6 @@ if __name__ == "__main__":
     execute_from_command_line(sys.argv)
 
 def main():
-    """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'casino_project.settings')
     try:
         from django.core.management import execute_from_command_line

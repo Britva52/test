@@ -4,7 +4,6 @@ from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 bot = TeleBot('7518211833:AAHr8QrFaVf7nm6IpMYackxmv7w0hbJmAiY')
 
 
-# Главное меню
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
     markup = InlineKeyboardMarkup(row_width=2)
@@ -24,67 +23,56 @@ def send_welcome(message):
     )
 
 
-# Обработчики callback-запросов
 @bot.callback_query_handler(func=lambda call: True)
 def callback_handler(call):
-    # Пополнение
     if call.data == 'deposit':
         handle_deposit(call)
 
     elif call.data == 'rules_accept':
         handle_agreement(call)
 
-    elif call.data == 'deposit_ewallet':  # Обработка выбора электронных кошельков
+    elif call.data == 'deposit_ewallet':
         handle_ewallet(call)
 
-    elif call.data == 'deposit_card':  # Обработка выбора банковской карты
+    elif call.data == 'deposit_card':
         handle_card_deposit(call)
 
-    # Помощь
     elif call.data == 'help':
         handle_help(call)
 
-    # Правила
     elif call.data == 'rules':
         handle_rules(call)
 
-    elif call.data == 'go_to_site':  # Обработка кнопки "Переход на сайт"
+    elif call.data == 'go_to_site':
         bot.send_message(call.message.chat.id, "...")
 
-    # Игры
     elif call.data == 'games':
         handle_games(call)
 
-    # Дополнительные возможности
     elif call.data == 'wheel_of_fortune':
         handle_wheel_of_fortune(call)
 
-    # Слоты
     elif call.data == 'slot_rules':
         handle_slot_rules(call)
 
-    # Ставки
     elif call.data == 'more_games':
         handle_sport_bets(call)
 
-    # Пример ставки
     elif call.data == 'bet_example':
         handle_bet_example(call)
 
-    elif call.data == 'coin_game':  # Обработка нажатия на кнопку "Монетка"
+    elif call.data == 'coin_game':
         handle_coin_game(call)
 
-    # Назад в меню
     elif call.data == 'back_to_menu':
         bot.delete_message(call.message.chat.id, call.message.message_id)
         send_welcome(call.message)
 
 
-# Функция обработки пополнения
 def handle_deposit(call):
     markup = InlineKeyboardMarkup()
     btn1 = InlineKeyboardButton("💳 Банковская карта", callback_data='deposit_card')
-    btn2 = InlineKeyboardButton("📲 Электронные кошельки", callback_data='deposit_ewallet')  # Выбор электронных кошельков
+    btn2 = InlineKeyboardButton("📲 Электронные кошельки", callback_data='deposit_ewallet')
     btn3 = InlineKeyboardButton("🔙 Назад", callback_data='back_to_menu')
     markup.add(btn1, btn2, btn3)
 
@@ -116,18 +104,17 @@ def handle_deposit(call):
 
 def handle_card_deposit(call):
     markup = InlineKeyboardMarkup()
-    btn_back = InlineKeyboardButton("🔙 Назад", callback_data='deposit')  # Кнопка "Назад"
+    btn_back = InlineKeyboardButton("🔙 Назад", callback_data='deposit')
     markup.add(btn_back)
 
     try:
-        # Отправка сообщения с тремя точками
         bot.edit_message_text(
             chat_id=call.message.chat.id,
             message_id=call.message.message_id,
             text="💳 <b>БАНКОВСКАЯ КАРТА</b> 💳\n\n"
                  "Технические детали пополнения...\n\n"
                  "Подождите, пока мы обрабатываем ваш запрос...\n"
-                 "...",  # Добавим три точки в конце
+                 "...",
             parse_mode='HTML',
             reply_markup=markup
         )
@@ -137,7 +124,7 @@ def handle_card_deposit(call):
             "💳 <b>БАНКОВСКАЯ КАРТА</b> 💳\n\n"
             "Технические детали пополнения...\n\n"
             "Подождите, пока мы обрабатываем ваш запрос...\n"
-            "...",  # Добавим три точки в конце
+            "...",
             parse_mode='HTML',
             reply_markup=markup
         )
@@ -149,7 +136,7 @@ def handle_ewallet(call):
     markup = InlineKeyboardMarkup()
     btn1 = InlineKeyboardButton("🏦 Сбер", callback_data='deposit_sber')
     btn2 = InlineKeyboardButton("💳 Тинькофф", callback_data='deposit_tinkoff')
-    btn3 = InlineKeyboardButton("🔙 Назад", callback_data='deposit')  # Назад к выбору способа пополнения
+    btn3 = InlineKeyboardButton("🔙 Назад", callback_data='deposit')
     markup.add(btn1, btn2, btn3)
 
     try:
@@ -174,7 +161,6 @@ def handle_ewallet(call):
 
 
 
-# Функция обработки помощи
 def handle_help(call):
     markup = InlineKeyboardMarkup()
     btn1 = InlineKeyboardButton("💬 Чат поддержки", url='http://127.0.0.1:8000')
@@ -207,7 +193,6 @@ def handle_help(call):
         bot.answer_callback_query(call.id)
 
 
-# Функция обработки правил
 def handle_rules(call):
     markup = InlineKeyboardMarkup()
     btn1 = InlineKeyboardButton("✅ Я согласен", callback_data='rules_accept')
@@ -216,8 +201,8 @@ def handle_rules(call):
 
     rules_text = (
         "📜 <b>ОФИЦИАЛЬНЫЕ ПРАВИЛА</b> 📜\n\n"
-        "<b>1. Минимальный возраст:</b> 18+\n"
-        "• Все игроки должны быть не моложе 18 лет для участия в азартных играх.\n\n"
+        "<b>1. Минимальный возраст:</b> 21+\n"
+        "• Все игроки должны быть не моложе 21 лет для участия в азартных играх.\n\n"
         "<b>2. Запрещены мультиаккаунты:</b>\n"
         "• Каждый игрок может иметь только один аккаунт. Нарушение этого правила приведет к блокировке всех связанных аккаунтов.\n\n"
         "<b>3. Результаты определяются RNG:</b>\n"
@@ -233,7 +218,7 @@ def handle_rules(call):
         "<b>8. Бонусы и акции:</b>\n"
         "• Все бонусы и акции имеют свои условия. Пожалуйста, ознакомьтесь с ними перед использованием. Правила могут меняться.\n\n"
         "<b>9. Запрещение азартных игр несовершеннолетними:</b>\n"
-        "• Мы строго запрещаем людям младше 18 лет участвовать в азартных играх. Мы будем использовать доступные средства для проверки возраста пользователей.\n\n"
+        "• Мы строго запрещаем людям младше 21 лет участвовать в азартных играх. Мы будем использовать доступные средства для проверки возраста пользователей.\n\n"
         "<b>10. Изменение правил:</b>\n"
         "• Компания оставляет за собой право изменять любые правила без предварительного уведомления. Пожалуйста, регулярно проверяйте наличие обновлений."
     )
@@ -247,7 +232,6 @@ def handle_rules(call):
             reply_markup=markup
         )
     except Exception as e:
-        # Вывод ошибки в консоль, если это нужно для отладки
         print(e)
         bot.send_message(
             call.message.chat.id,
@@ -276,7 +260,6 @@ def handle_agreement(call):
             parse_mode='HTML'
         )
     except Exception as e:
-        # Вывод ошибки в консоль, если это нужно для отладки
         print(e)
         bot.send_message(
             call.message.chat.id,
@@ -289,14 +272,13 @@ def handle_agreement(call):
 
 
 
-# Функция обработки игр
 def handle_games(call):
     markup = InlineKeyboardMarkup(row_width=2)
     btn1 = InlineKeyboardButton("🪙 Монетка", callback_data='coin_game')
     btn2 = InlineKeyboardButton("🎰 Слоты", callback_data='slot_rules')
     btn3 = InlineKeyboardButton("⚽️ Ставки", callback_data='more_games')
     btn4 = InlineKeyboardButton("📦 Кейсы", callback_data='cases')
-    btn5 = InlineKeyboardButton("🎡 Колесо Фортуны", callback_data='wheel_of_fortune')  # Измененная кнопка
+    btn5 = InlineKeyboardButton("🎡 Колесо Фортуны", callback_data='wheel_of_fortune')
     btn6 = InlineKeyboardButton("🔙 Назад", callback_data='back_to_menu')
     markup.add(btn1, btn2, btn3, btn4, btn5, btn6)
 
@@ -325,7 +307,6 @@ def handle_games(call):
         bot.answer_callback_query(call.id)
 
 
-# Функция обработки игры "Монетка"
 def handle_coin_game(call):
     markup = InlineKeyboardMarkup(row_width=1)
     btn1 = InlineKeyboardButton("🔙 Назад", callback_data='games')
@@ -338,7 +319,7 @@ def handle_coin_game(call):
             text="🪙 <b>ИГРА: МОНЕТКА</b> 🪙\n\n"
                  "• Простая игра на удачу, где вам нужно угадать, какая сторона монеты выпадет!\n"
                  "• Сделайте ставку и выберите сторону: орел или решка.\n"
-                 "• Выигрываете, если угадали!",  # Описание игры
+                 "• Выигрываете, если угадали!",
             parse_mode='HTML',
             reply_markup=markup
         )
@@ -348,20 +329,18 @@ def handle_coin_game(call):
             "🪙 <b>ИГРА: МОНЕТКА</b> 🪙\n\n"
             "• Простая игра на удачу, где вам нужно угадать, какая сторона монеты выпадет!\n"
             "• Сделайте ставку и выберите сторону: орел или решка.\n"
-            "• Выигрываете, если угадали!",  # Описание игры
+            "• Выигрываете, если угадали!",
             parse_mode='HTML',
             reply_markup=markup
         )
     finally:
         bot.answer_callback_query(call.id)
 
-# Функция обработки колеса фортуны
 def handle_wheel_of_fortune(call):
     markup = InlineKeyboardMarkup(row_width=1)
     btn1 = InlineKeyboardButton("🔙 Назад", callback_data='games')
     markup.add(btn1)
 
-    # Текстовое описание колеса фортуны
     try:
         bot.edit_message_text(
             chat_id=call.message.chat.id,
@@ -389,7 +368,6 @@ def handle_wheel_of_fortune(call):
 
 
 
-# Функция обработки слотов
 def handle_slot_rules(call):
     try:
         bot.edit_message_text(
@@ -427,7 +405,7 @@ def handle_slot_rules(call):
         )
     finally:
         bot.answer_callback_query(call.id)
-# Функция обработки спортивных ставок
+
 def handle_sport_bets(call):
     try:
         bot.edit_message_text(
@@ -479,7 +457,6 @@ def handle_sport_bets(call):
     finally:
         bot.answer_callback_query(call.id)
 
-# Функция обработки примера ставки
 def handle_bet_example(call):
     try:
         bot.edit_message_text(
