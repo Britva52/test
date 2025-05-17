@@ -2891,13 +2891,6 @@ nav ul li a {
 }
 
 /* ===== SLOTS GAME STYLES ===== */
-:root {
-  --black: #111;
-  --gold: #D4AF37;
-  --red: #E74C3C;
-  --green: #2ECC71;
-  --white: #FFFFFF;
-}
 
 .slots-container {
   max-width: 800px;

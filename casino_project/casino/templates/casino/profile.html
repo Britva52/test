@@ -46,19 +46,24 @@
         <div class="history-header">
             <h3>Your Betting History</h3>
             <div class="history-filters">
-                <select class="filter-select">
-                    <option>All Games</option>
-                    <option>Roulette</option>
-                    <option>Slots</option>
-                    <option>Blackjack</option>
-                    <option>Coin Flip</option>
-                </select>
-                <select class="filter-select">
-                    <option>All Time</option>
-                    <option>Today</option>
-                    <option>This Week</option>
-                    <option>This Month</option>
-                </select>
+    <select class="filter-select" id="game-filter" onchange="filterByGame(this.value)">
+        <option value="">All Games</option>
+        <option value="roulette" {% if selected_game == 'roulette' %}selected{% endif %}>Roulette</option>
+        <option value="slots" {% if selected_game == 'slots' %}selected{% endif %}>Slots</option>
+        <option value="coinflip" {% if selected_game == 'coinflip' %}selected{% endif %}>Coin Flip</option>
+    </select>
+</div>
+
+<script>
+    function filterByGame(gameType) {
+        if (gameType) {
+            window.location.href = '{% url "profile" %}?game_type=' + gameType;
+        } else {
+            window.location.href = '{% url "profile" %}';
+        }
+    }
+</script>
+
             </div>
         </div>
 
@@ -116,7 +121,6 @@
     </div>
 </div>
 
-<!-- Decorative elements -->
 <div class="decorative-chip chip-1"></div>
 <div class="decorative-chip chip-2"></div>
 <div class="decorative-chip chip-3"></div>

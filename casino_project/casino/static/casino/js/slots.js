@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
             "🍒🍒🍒": 3, "🍋🍋🍋": 5, "🔔🔔🔔": 10,
             "🍉🍉🍉": 15, "⭐⭐⭐": 20, "777": 50
         },
-        spinDuration: 3000, // Увеличено до 3 секунд
-        reelDelay: 500 // Уменьшено до 0.5 секунды между барабанами
+        spinDuration: 2500,
+        reelDelay: 500
     };
 
     const reels = [
@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const messageBox = document.getElementById('slot-message');
 
     let isSpinning = false;
+    let roundResult = null;
     let animationId = null;
     let startTime = null;
     let stopTimes = [];
@@ -28,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
         resetReels();
         spinBtn.addEventListener('click', startSpin);
 
-        // Добавляем CSS для анимаций
         const style = document.createElement('style');
         style.textContent = `
             @keyframes drop {
@@ -83,30 +83,38 @@ document.addEventListener('DOMContentLoaded', function() {
         showMessage("Барабаны крутятся...", true);
 
         try {
-            // Имитация запроса (замените на реальный)
-            await new Promise(resolve => setTimeout(resolve, 300));
-            updateBalance(getBalance() - betAmount);
+             const resp = await Casino.sendRequest(
+                 '/api/place_bet/slots/',
+                 { amount: betAmount.toFixed(2) }
+             );
 
-            resetReels();
-            startTime = performance.now();
-            stopTimes = [
-                startTime + config.spinDuration,
-                startTime + config.spinDuration + config.reelDelay,
-                startTime + config.spinDuration + config.reelDelay * 2
-            ];
+             if (!resp.success) {
+                 showMessage(resp.error, false);
+                 endSpin();
+                 return;
+             }
 
-            finalSymbols = reels.map(() =>
-                config.symbols[Math.floor(Math.random() * config.symbols.length)]
-            );
+             roundResult = {
+                 ...resp,
+                 betAmount: betAmount
+             };
+             finalSymbols = resp.reels;
+             resetReels();
+             startTime = performance.now();
+             stopTimes = [
+                 startTime + config.spinDuration,
+                 startTime + config.spinDuration + config.reelDelay,
+                 startTime + config.spinDuration + config.reelDelay * 2
+             ];
 
-            animateReels(betAmount);
+             animateReels();
         } catch (error) {
             console.error("Spin error:", error);
             endSpin(false);
         }
     }
 
-    function animateReels(betAmount) {
+    function animateReels() {
         const now = performance.now();
         let allStopped = true;
 
@@ -117,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     Math.floor(Math.random() * config.symbols.length)
                 ];
 
-                // Эффект замедления перед остановкой
+                // Эффект ускорения/замедления
                 if (now > stopTimes[index] - 500) {
                     reel.style.transition = 'transform 0.5s cubic-bezier(0.1, 0.7, 0.1, 1)';
                     reel.style.transform = 'scale(1.2)';
@@ -132,28 +140,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         if (!allStopped) {
-            animationId = requestAnimationFrame(() => animateReels(betAmount));
+            animationId = requestAnimationFrame(animateReels);
         } else {
-            finishSpin(betAmount);
+            finishSpin();
         }
     }
 
-    function finishSpin(betAmount) {
-        const result = reels.map(r => r.textContent).join('');
-        const multiplier = config.paytable[result] || 0;
-        const winAmount = betAmount * multiplier;
+    function finishSpin() {
+        const { win, win_amount, new_balance, betAmount } = roundResult;
 
-        if (winAmount > 0) {
-            reels.forEach(reel => reel.classList.add('winning'));
-            showMessage(`Выигрыш: ${winAmount}$ (x${multiplier})`, true);
-
-            // Имитация начисления выигрыша
-            setTimeout(() => {
-                updateBalance(getBalance() + winAmount);
-            }, 500);
+        if (win) {
+            reels.forEach(reel => {
+                reel.classList.add('winning');
+                reel.style.animation = 'shake 0.5s ease-in-out';
+            });
+            showMessage(`Выигрыш: ${win_amount.toFixed(2)}$`, true);
         } else {
-            showMessage("Попробуйте ещё раз", false);
+            showMessage('Попробуйте ещё раз!', false);
         }
+
+        Casino.updateBalance(new_balance);
+
+        setTimeout(() => {
+            reels.forEach(reel => {
+                reel.style.animation = '';
+            });
+        }, 1000);
 
         endSpin();
     }
@@ -162,6 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cancelAnimationFrame(animationId);
         isSpinning = false;
         disableButtons(false);
+        roundResult = null;
     }
 
     function validateBet(amount) {
@@ -176,7 +189,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
     }
 
-    // Вспомогательные функции
     function disableButtons(disabled) {
         spinBtn.disabled = disabled;
     }

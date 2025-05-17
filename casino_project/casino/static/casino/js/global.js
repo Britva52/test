@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
 
         updateBalance: function(newBalance) {
-            const formatted = parseFloat(newBalance).toFixed(2) + '$';
+            const formatted = newBalance.toFixed(2) + '$';
             document.querySelectorAll('.balance-amount').forEach(el => {
                 el.textContent = formatted;
             });
@@ -91,9 +91,13 @@ document.addEventListener('DOMContentLoaded', function() {
         },
 
         checkBalance: function(amount) {
-            const currentBalance = parseFloat(
-                document.querySelector('.balance-amount').textContent.replace('$','')
-            );
+            const balanceElement = document.querySelector('.balance-amount');
+            if (!balanceElement) {
+                console.error('Balance element not found');
+                return { enough: false, currentBalance: 0 };
+            }
+
+            const currentBalance = parseFloat(balanceElement.textContent.replace('$','')) || 0;
             return {
                 enough: amount <= currentBalance,
                 currentBalance: currentBalance
