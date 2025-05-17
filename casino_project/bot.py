@@ -516,4 +516,4 @@ def handle_bet_example(call):
         bot.answer_callback_query(call.id)
 
 if __name__ == '__main__':
-    bot.polling(none_stop=True)
+    bot.polling(none_stop=True)  #1212
